@@ -21,7 +21,7 @@ Le guide
 ========
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    regles/index.rst
    versions/index.rst
