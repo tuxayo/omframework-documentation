@@ -26,6 +26,7 @@ Le guide
    regles/index.rst
    versions/index.rst
    outils/index.rst
+   generateur/index.rst
 
 
 Contributeurs
