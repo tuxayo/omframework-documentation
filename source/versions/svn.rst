@@ -173,6 +173,59 @@ Ce tutorial contient certains pré-requis comme le fait d'avoir un utilisateur
 avec les droits corrects sur le projet ou connaître comment incrémenter le
 numéro de version de l'application à publier.
 
+Avant de publier une application, il faut vérifier que l'EXTERNALS de la
+librairie openMairie ne pointe pas vers le 'trunk'. Pour cela ::
+
+    less php/EXTERNALS.txt
+    
+    #
+    # created by: svn propset svn:externals -F ./EXTERNALS.txt .
+    #
+    
+    openmairie svn://scm.adullact.net/svnroot/openmairie/openmairie/trunk/
+    fpdf svn://scm.adullact.net/svnroot/openmairie/externals/fpdf/tags/1.6-min/
+    pear http://svn.php.net/repository/pear/pear-core/tags/PEAR-1.9.1/
+    db http://svn.php.net/repository/pear/packages/DB/tags/RELEASE_1_7_13/
+
+Ici on voit que openmairie pointe vers le 'trunk'. Nous devons d'abord publier
+la librairie ::
+
+   svn cp svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/openmairie/openmairie/trunk svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/openmairie/openmairie/tags/<NOUVELLE_VERSION>
+
+Le message pourra être : Tag openmairie <NOUVELLE_VERSION>.
+
+Ensuite il faut changer les EXTERNALS.txt. On remplace dans le fichier
+php/EXTERNALS.txt, le trunk par la nouvelle version ::
+
+    vim php/EXTERNALS.txt
+    
+    #
+    # created by: svn propset svn:externals -F ./EXTERNALS.txt .
+    #
+    
+    openmairie svn://scm.adullact.net/svnroot/openmairie/openmairie/tags/<NOUVELLE_VERSION>/
+    fpdf svn://scm.adullact.net/svnroot/openmairie/externals/fpdf/tags/1.6-min/
+    pear http://svn.php.net/repository/pear/pear-core/tags/PEAR-1.9.1/
+    db http://svn.php.net/repository/pear/packages/DB/tags/RELEASE_1_7_13/    
+
+Ensuite on applique le nouveau propset externals une fois placé dans le dossier
+php (Attention de ne pas oublier le "." dans la commande svn propset) ::
+
+    cd php/
+    svn propset svn:externals -F ./EXTERNALS.txt .
+    svn up
+
+Ici en faisant un svn info sur le dossier openmairie, nous devons obtenir une
+URL comme ceci ::
+    
+    svn info openmairie/
+    URL : svn://scm.adullact.net/svnroot/openmairie/openmairie/tags/<NOUVELLE_VERSION>
+    
+Si tout est ok nous pouvons valider nos modifications puis passer à la
+publication de l'application ::
+
+    svn ci
+
 Ici on fait une copie du 'trunk' vers le dossier 'tags' de l'application
 openmairie_exemple ::
 
