@@ -4,11 +4,15 @@
 Formulaire
 ##########
 
+Les formulaires se construisent sur la base de la classe
+formulairedyn.class.php d openMairie
 
- 
+Cette classe fait appel a des sous programmes generiques pour certains
+controles au travers de script js/formulairedyn.js
 
- 
-methodes
+================================ 
+methodes formulairedyn.class.php
+================================
 
 La classe formulaire.class.php a les méthodes suivantes :
 
@@ -91,3 +95,8 @@ appel au script d affichage des sous programme generique
 
 - spg/rvb.php et js/rvb.js
 
+============
+scr/form.php
+============
+
+affichage des formulaires et sous formulaires
