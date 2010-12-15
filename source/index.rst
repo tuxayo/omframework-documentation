@@ -26,6 +26,7 @@ Le guide
    regles/index.rst
    versions/index.rst
    outils/index.rst
+   framework/index.rst
    generateur/index.rst
 
 
@@ -33,4 +34,4 @@ Contributeurs
 =============
 
 * `Florent Michon <fmichon@atreal.net>`_
-
+* `Francois Raynaud <contact@openmairie.org>`_
