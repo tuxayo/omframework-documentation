@@ -1,4 +1,4 @@
-.. _framework:
+.. _affichage:
 
 ####################
 affichage des tables
@@ -8,7 +8,7 @@ affichage des tables
 le composant openMairie
 =======================
 
-php/openmairieom_table.php
+php/openmairie_om_table.php
 
 
 ===========

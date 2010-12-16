@@ -1,4 +1,4 @@
-.. _framework:
+.. _sig:
 
 ################################
 systeme information geographique
