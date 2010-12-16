@@ -91,17 +91,13 @@ raccourcis presente en dessous des actions
      - class (classe css qui s'affiche sur l'element)
      - right (droit que l'utilisateur doit avoir pour visionner cet element)
      - target (pour ouvrir le lien dans une nouvelle fenetre)
- 
-
-
-
 
 ===============
 tableau de bord
 ===============
 tdb.inc
 
-Parametrage libre
+Parametrage libre depend de l application 
 
 Exemple :
 
@@ -131,6 +127,9 @@ locales.inc.php
 - Le domaine de traduction
 
         define('DOMAIN', 'openmairie');
+
+Les zones à traduire sont sous le format : _("zone a traduire")
+Voir getText, poEdit
 
 ===================================
 parametrage de l application metier 
