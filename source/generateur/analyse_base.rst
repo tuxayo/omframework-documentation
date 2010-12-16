@@ -102,6 +102,7 @@ type pgsql (longueur) type tableinfo si different -> type openMairie ::
 
 Gestion des longueurs négatives :
 
+
 Il est remonté dans l'analyse des informations de la base une valeur négative car le stockage dans postgresql est variable. 
 OpenMairie utilise alors la longueur d'affichage qui est donnée par la plus longue saisie dans un champ. Donc pour avoir la longueur exacte, il est conseillé de saisie un enregistrement avec les champs « string » saisie avec le nombre de caractères souhaités à l'affichage.
 

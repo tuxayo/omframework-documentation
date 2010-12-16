@@ -153,3 +153,69 @@ Les méthodes principales sont les suivantes :
     JourPHP : controle et recupere le jour de la date saisie (jj/mm/aaaa)
 
 La classe dbform.class.php fait appel à la classe formulaire.dyn.class.php pour afficher le formulaire.
+
+==========
+l objet db
+==========
+
+c est un tableau sous la forme ::
+
+    DB_pgsql Object(
+    [phptype] => pgsql 
+	[dbsyntax] => pgsql 
+	[features] => Array ( 
+			[limit]	=> alter 
+			[new_link] => 4.3.0 
+			[numrows] => 1 
+			[pconnect] => 1 
+			[prepare] => 
+			[ssl] => 1 
+			[transactions] => 1 ) 
+			[errorcode_map] => Array ( ) 
+			[connection] => Resource id #19 
+			[dsn] => Array ( 
+				[phptype] => pgsql 
+				[dbsyntax] => pgsql 
+				[username] => postgres 
+				[password] => postgres 
+				[protocol] => tcp 
+				[hostspec] => localhost 
+				[port] => 5432 
+				[socket] => 
+				[database] => sig 
+				[title] => Openmairie Exemple PostGreSQL schema SIG 
+				[formatdate] => AAAA-MM-JJ 
+				[schema] => openmairie 
+			) 
+			[autocommit] => 1 
+			[transaction_opcount] => 0 
+			[affected] => 0 
+			[row] => Array ([20] => 10 ) 
+			[_num_rows] => Array ( [20] => 10 ) 
+			[fetchmode] => 1 
+			[fetchmode_object_class] => stdClass 
+			[was_connected] => 
+			[last_query] => select * from openmairie.om_parametre where om_collectivite=2 
+			[options] => Array (
+                [result_buffering] => 500 
+				[persistent] => 
+				[ssl] => 
+                [debug] => 2 
+                [seqname_format] => %s_seq 
+                [autofree] => 
+                [portability] => 63 
+                [optimize] => performance 
+                )
+			[last_parameters] => Array ( ) 
+			[prepare_tokens] => Array ( ) 
+			[prepare_types] => Array ( ) 
+			[prepared_queries] => Array ( ) 
+			[_last_query_manip] => 
+			[_next_query_manip] => 
+			[_debug] => 
+			[_default_error_mode] => 
+			[_default_error_options] => 
+			[_default_error_handler] => 
+			[_error_class] => DB_Error 
+			[_expected_errors] => Array ( ) 
+    ) 

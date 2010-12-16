@@ -71,9 +71,8 @@ le menu gen
 ===========
 
 .. toctree::
-
+ 
     ecran.rst
     analyse_base.rst
     fichier_genere.rst
-    parametrage.rst
-   
+    parametrage.rst   
