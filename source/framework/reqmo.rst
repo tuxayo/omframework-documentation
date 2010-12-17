@@ -9,7 +9,7 @@ Description du parmetrage
 =========================
  
 
-Les parametres de la requete voie sont dans sql/sgbd/voie.reqmo.inc
+**Les parametres de reqmo  sont :**
 
     $reqmo['libelle'] contient le libéllé affiché en haut
 
@@ -40,7 +40,7 @@ Enfin, l utilisateur choisi soit un affichage
 Exemple
 =======
 
-voies sous openCimetiere ::
+**voies sous openCimetiere** ::
 
 
     $reqmo['libelle']=" Voies par cimetiere ";

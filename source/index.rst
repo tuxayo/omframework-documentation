@@ -26,8 +26,23 @@ Le guide
    regles/index.rst
    versions/index.rst
    outils/index.rst
-   framework/index.rst
-   generateur/index.rst
+   
+
+Le framework
+============
+
+.. toctree::
+
+    framework/index.rst
+
+
+
+Le generateur
+=============
+
+.. toctree::
+
+    generateur/index.rst
 
 
 Contributeurs

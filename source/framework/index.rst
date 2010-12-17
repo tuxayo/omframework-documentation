@@ -1,12 +1,7 @@
 .. _index:
 
-############
-Le framework
-############
+**construire une application sur la base de l'analyse des informations  du SGBD**
 
-=============================================================================
-construire une application sur la base de l'analyse des informations  du SGBD
-=============================================================================
 
 openMairie_Exemple est le framework de base sur lequel vous pouvez développer votre propre application.
 Il contient:
@@ -19,13 +14,9 @@ Il contient:
     un interface geographique
 
 la gestion de menu et les objets metier permettant de gerer les droits utilisateurs
-openMairie_exemple est téléchargeable sur le site de l'adullact
+openMairie_exemple est **téléchargeable sur le site de l'adullact**
 
 http://adullact.net/frs/?group_id=329
-
-======================
-Les differents modules
-======================
 
 
 .. toctree::
@@ -37,6 +28,6 @@ Les differents modules
     edition.rst
     reqmo.rst
     acces.rst
-    presentation.rst
+    ergonomie.rst
     utilitaire.rst
     sig.rst

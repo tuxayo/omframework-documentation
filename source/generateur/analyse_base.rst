@@ -12,9 +12,9 @@ La construction des formulaires se fait suivant 4 types de champs reconnus par l
 - date 
 - blob : texte
 
-=============
-TYPE DE CHAMP
-=============
+==============
+Type de champs
+==============
 
 la champ String est du type openMairie (méthode setType()):
 
