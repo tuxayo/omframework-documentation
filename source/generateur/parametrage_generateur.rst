@@ -1,4 +1,4 @@
-.. _parametrage:
+.. _parametrage_generateur:
 
 ######################
 Parametrage generateur
