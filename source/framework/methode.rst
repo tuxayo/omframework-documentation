@@ -4,11 +4,12 @@
 la methode
 ##########
 
-pour la création d' objets métiers:
+Il est décrit ici la méthode pour la création d' objets métiers:
 
 - Le développement consiste à créer des objets métier (/obj) qui surchargent la classe abstraite  dbformdyn.class.php
 - et modifier les valeurs par défaut
 
+Voir aussi le générateur
 
 
 
@@ -75,36 +76,32 @@ Les valeurs suivantes sont mises par defaut afin de pouvoir construire rapidemme
     les fonctions javascript ne sont pas utilisées
 
  
-===================================
-Modification des valeurs par defaut
-===================================
+================================================================
+Modifications des valeurs par defaut par les methodes assesseurs
+================================================================
 
-dans la classe obj/table.class.php
+Elles se font dans la classe obj/nom_de_table.class.php
 
-Voir aussi le generateur 
+Les valeurs par defaut sont modifiés par la methode setVal(nomduchamp, nouvelle valeur)
 
-Les valeurs par defaut sont modifiés par lamethode setVal(nomduchamp, nouvelle valeur)
+Les types par defaut sont modifiés par la methode setType(nomduchamp, nouveau type)
 
-Les types par defaut sont modifiés par lamethode setType(nomduchamp, nouveau type)
+Les longueurs d affichage par defaut sont modifiés par la methode setTaille(nomduchamp, nouvelle valeur)
 
-Les longueurs d affichage par defaut sont modifiés par lamethode setTaille(nomduchamp, nouvelle valeur)
-
-Les maximums autorises par defaut sont modifiés par lamethode setMax(nomduchamp, nouvelle valeur)
+Les maximums autorises par defaut sont modifiés par la methode setMax(nomduchamp, nouvelle valeur)
 
 Les libelles de champ par defaut sont modifiés par la methode setLib(nomduchamp, nouvelle valeur)
 
 Les scripts javascript sont appellés dans la methode setOnchange()
 
 
+Voir framework/formulaire
 
 ===================
 dbformdyn.class.php
 ===================
 
-composant openMairie
-
-  dbform.class.php
-
+dbform.class.php  est une classe openMairie
 
 La classe abstraite dbform gère l’interface entre l'objet métier et la base de données connectée via DBPEAR.
 
@@ -154,13 +151,15 @@ Les méthodes principales sont les suivantes :
 
 La classe dbform.class.php fait appel à la classe formulaire.dyn.class.php pour afficher le formulaire.
 
-==========
-l objet db
-==========
+========
+objet db
+========
 
-c est un tableau sous la forme ::
+db est l'objet de connexion a la base dont les proprietes sont les suivantes ::
 
-    DB_pgsql Object(
+    DB_pgsql Object
+    
+    (
     [phptype] => pgsql 
 	[dbsyntax] => pgsql 
 	[features] => Array ( 
@@ -218,4 +217,69 @@ c est un tableau sous la forme ::
 			[_default_error_handler] => 
 			[_error_class] => DB_Error 
 			[_expected_errors] => Array ( ) 
+    )
+    
+==========
+objet form
+==========
+
+form est l'objet formulaire dont les proprietes sont les suivantes ::
+  
+    formulaire Object (
+        [enteteTab] =>
+        [val] => Array (
+                [om_parametre] => 1
+                [libelle] => maire
+                [valeur] => O PENMAIRIE
+                [om_collectivite] => 1 )
+        [type] => Array (
+                [om_parametre] => text
+                [libelle] => text
+                [valeur] => text
+                [om_collectivite] => text )
+        [taille] => Array (
+                [om_parametre] => 11
+                [libelle] => 20
+                [valeur] => 50
+                [om_collectivite] => 11 )
+        [max] => Array (
+                [om_parametre] => 11
+                [libelle] => 20
+                [valeur] => 50
+                [om_collectivite] => 11 )
+        [lib] => Array (
+                [om_parametre] => Om_parametre
+                [libelle] => Libelle
+                [valeur] => Valeur
+                [om_collectivite] => Om_collectivite )
+        [groupe] => Array (
+                [om_parametre] =>
+                [libelle] =>
+                [valeur] =>
+                [om_collectivite] => )
+        [select] => Array (
+                [om_parametre] =>  Array ([0] => [1] => )
+                [libelle] => Array ( [0] => [1] => )
+                [valeur] => Array ( [0] => [1] => )
+                [om_collectivite] => Array ( [0] => [1] => ) )
+        [onchange] => Array (
+                [om_parametre] =>
+                [libelle] =>
+                [valeur] =>
+                [om_collectivite] => )
+        [onkeyup] => Array (
+                [om_parametre] =>
+                [libelle] =>
+                [valeur] =>
+                [om_collectivite] => )
+        [onclick] => Array (
+                [om_parametre] =>
+                [libelle] =>
+                [valeur] =>
+                [om_collectivite] => )
+        [regroupe] =>
+        [correct] =>
     ) 
+    
+    
+   

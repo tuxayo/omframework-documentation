@@ -4,19 +4,14 @@
 edition
 #######
 
-====
-menu
-====
+Les éditions sont accessibles dans le menu par :
 
-administration -> etat
+- administration -> etat
 
-administration -> sousetat
+- administration -> sousetat
 
-administration -> lettretype
+- administration -> lettretype
 
-=====
-table
-=====
 
 Depuis la version 4 d'openMairie, les editions sont conservées dans 3 tables :
 
@@ -26,7 +21,9 @@ Depuis la version 4 d'openMairie, les editions sont conservées dans 3 tables :
 
 - om_lettretype : pour les lettres types
 
-Cette modification a été faite pour pouvoir gérer la multi collectivité
+Cette modification a été faite pour pouvoir gérer la multi collectivité.
+
+Par contre, les tableaux pdf sont stockés dans un fichier : nom_table.pdf.inc 
 
 ==============
 fonctionnement
@@ -34,6 +31,7 @@ fonctionnement
 
 Les sous etats sont liés a un ou plusieurs sous état
 
+Etats, sous etats, et lettre type peuvent être :
 
 * actif / non actif
 
@@ -48,27 +46,21 @@ Par défaut sont pris en compte :
 Les editions non actifs d'une collectivite ne sont pas pris en compte
 
 =====================
-Parematrage des etats
+Paramétrage des etats
 =====================
 
 Il est conseille d utiliser l assistant etat du generateur
 
+Les paramètres sont les suivants ::
+
     orientation portrait ou paysage
-
     format="A4", A3
-
     position et nom  du logo 
-
     titre de l etat
-
     position et caractéristiques du titre
-
     corps de l etat
-
     position et caractéristiques du corps
-
     la requete SQL
-
     les sous etats associés et les caractéristiques
 
 
@@ -79,24 +71,19 @@ les zones entre crochets (exemple [nom]) sont les champs selectionnés par la re
 La variable &ville $datecourrier sont définies dans dyn/varpdf.inc
 
 ==========================
-Parematrage des sous etats
+Paramétrage des sous etats
 ==========================
 
 Il est conseille d utiliser l assistant etat du generateur
 
+Les paramétres  sont les suivants ::
 
     texte et caractéristique du Titre
-
     Intervalle avant et apres le tableau
-
     Entete de tableau (nom de colone)
-
     caracteristique du tableau
-
     caracteristique des cellules
-
     tatal, moyenne, nombre
-
     requete sql
 
 
@@ -109,25 +96,20 @@ La variable &ville $datecourrier sont définies dans dyn/varpdf.inc
 
 
 ============================
-Parematrage des lettres type
+Paramétrage des lettres type
 ============================
 
 Il est conseille d utiliser l assistant etat du generateur
 
+Les paramètres sont les suivants ::
+
     orientation portrait ou paysage
-
     format="A4", A3
-
     position et nom  du logo 
-
     titre de la lettre
-
     position et caractéristiques du titre
-
     corps de la lettre
-
     position et caractéristiques du corps
-
     la requete SQL
 
 
@@ -146,16 +128,13 @@ Un etat pdf peut être genere par le generateur (option)
 
 L'edition est paramétrée dans un fichier sql/sgbd/nom_table.pdf.inc et dans la
 
+Les paramétres sont les suivants ::
+
     texte et caractéristique du Titre
-
     Entete de tableau (nom de colone)
-
     caracteristique du tableau
-
     caracteristique des cellules
-
     tatal, moyenne, nombre
-
     requete sql
 
 Pour le titre et la requete sql :
@@ -184,70 +163,56 @@ Il y aura une integration depuis l utilisation d'openPersonnalite
 Editeur WYSIWYG
 ===============
 
-openMairie 4.0.1
+Un editeur est prevu dans la prochaine version openMairie 4.0.1
 
 
 =======
 scripts
 =======
 
-pdf/
+**pdf/** ::
 
-pdfetat.php : etat et sous etat
+    pdfetat.php : etat et sous etat
+    pdf.php : edition pdf
+    pdfetiquette.php : etiquette
+    pdflettretype.php
 
-pdf.php : edition pdf
+pdfEtiquette sera repris dans la version 4.0.1 d'openMairie
 
-pdfetiquette.php : etiquette
+**specifique openCourrier pour ecriture sur pdf** ::
 
-pdflettretype.php
+    fpdf_tpl.php
+    fpdi.php
+    fpdi2tcpdf_bridge.php
+    fpdi_pdf_parser.php
+    histo.htm
+    pdf_context.php
+    pdf_parser.php
+    testfpdi.php
 
-specifique openCourrier pour ecriture sur pdf
-
-fpdf_tpl.php
-
-fpdi.php
-
-fpdi2tcpdf_bridge.php
-
-fpdi_pdf_parser.php
-
-histo.htm
-
-pdf_context.php
-
-pdf_parser.php
-
-testfpdi.php
-
-il n est pas prévu d integration dans le framework
+il n est pas prévu d integration dans la prochaine version
 
 ==========
 composants
 ==========
 
-php/
+**php/**
 
-/openmairie
+*/openmairie* ::
 
-fpdf_etat.php
+    fpdf_etat.php
+    fpdf_etiquette.php
+    db_fpdf.php
 
-fpdf_etiquette.php
+*/fpdf*
 
-db_fpdf.php
+A ce niveau se situe le composant fpdf
 
-/fpdf
+*/phpmailer*
 
-EN TEST
-
-/phpmailer
-
-gestion de mail (openPersonnalite)
-
-openMairie 4.0.1
+gestion de mail (openPersonnalite) EN TEST pour openMairie 4.0.1
 
 
-lib/
+**lib/**
 
-EN TEST
-
-/tinymce : editeur wisiwig (test sur openrecencement openmairie 4.0.1)
+*/tinymce* : editeur wisiwig (test sur openrecencement  EN TESTopenmairie 4.0.1)

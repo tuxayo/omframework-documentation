@@ -10,6 +10,8 @@ formulairedyn.class.php d openMairie
 Cette classe fait appel a des sous programmes generiques pour certains
 controles au travers de script js/formulairedyn.js
 
+
+
 ******************************** 
 methodes formulairedyn.class.php
 ********************************
@@ -121,8 +123,7 @@ Nouvelles utilisations dans les objets metiers
 * include $db->phptype ::
 
 
-        /if(file_exists ("../sql/".$db->phptype."/".$this->table.".form.inc"))/
-
+        if(file_exists ("../sql/".$db->phptype."/".$this->table.".form.inc"))/
 			/include ("../sql/".$db->phptype."/".$this->table.".form.inc");/
 
 
@@ -132,7 +133,7 @@ om4 ::
 
     database::isError($res); // ($res,true) = sans die
 
-om3 ::
+om3 (deprecated) ::
 
             //    if (database :: isError($res))
             //            $this->erreur_db($res->getDebugInfo(),$res->getMessage(),'');

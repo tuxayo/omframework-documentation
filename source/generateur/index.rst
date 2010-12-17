@@ -1,6 +1,17 @@
 .. _index:
 
 
+Nous vous proposons dans ce chapitre une présentation du générateur openMairie.
+
+- présentation
+
+- les écrans
+
+- l'analyse de la base
+
+- les fichiers generes
+
+- le paramétrage
 
 
 

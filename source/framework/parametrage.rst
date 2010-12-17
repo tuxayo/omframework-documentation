@@ -4,15 +4,18 @@
 Parametrage
 ###########
 
-Le paramétrage de l application est dans le répertoire /dyn
+Le paramétrage de l application est dans le répertoire /dyn.
+
+Il est proposé dans ce chapitre de décrire les différents fichiers de paramétrage.
+
 
 ===============================
 connexion de la base de donnees
 ===============================
 
-database.inc.php
+*dyn/database.inc.php*
 
-parametrage par defaut : 
+Le parametrage par defaut est dans le tableau $conn[1] pour la base 1 : 
 
 
 conn[1] est un tableau php qui contient les parametres de connexion suivants ::
@@ -39,52 +42,53 @@ conn[1] est un tableau php qui contient les parametres de connexion suivants ::
 menu principal
 ==============
 
-menu.inc.php
+*dyn/menu.inc.php*
 
- $menu est le tableau associatif qui contient tout le menu de
- l'application, il contient lui meme un tableau par rubrique, puis chaque
- rubrique contient un tableau par lien
+$menu est le tableau associatif qui contient tout le menu de l'application,
+il contient lui meme un tableau par rubrique, puis chaque
+rubrique contient un tableau par lien :
 
- Caracteristiques :
- 
- --- tableau rubrik ::
- 
-      title (obligatoire)
-      description (texte qui s'affiche au survol de la rubrique)
-      href (contenu du lien href)
-      class (classe css qui s'affiche sur la rubrique)
-      right (droit que l'utilisateur doit avoir pour visionner cette rubrique)
-      links (obligatoire)
+les caracteristiques sont les suivantes :
 
- --- tableau links ::
- 
-      title (obligatoire) 
-      href (obligatoire) (contenu du lien href)
-      class (classe css qui s'affiche sur l'element)
-      right (droit que l'utilisateur doit avoir pour visionner cet element)
-      target (pour ouvrir le lien dans une nouvelle fenetre)
+- tableau rubrik ::
+
+     title (obligatoire)
+     description (texte qui s'affiche au survol de la rubrique)
+     href (contenu du lien href)
+     class (classe css qui s'affiche sur la rubrique)
+     right (droit que l'utilisateur doit avoir pour visionner cette rubrique)
+     links (obligatoire)
+
+- tableau links ::
+
+     title (obligatoire) 
+     href (obligatoire) (contenu du lien href)
+     class (classe css qui s'affiche sur l'element)
+     right (droit que l'utilisateur doit avoir pour visionner cet element)
+     target (pour ouvrir le lien dans une nouvelle fenetre)
 
 =========
 menu haut
 =========
 
-action.inc
+*dyn/action.inc*
 
 $actions est le tableau associatif qui contient tous les liens presents dans
 les actions a cote du login et du nom de la collectivite
 
-Caracteristiques :
+les caracteristiques sont les suivantes :
 
- --- tableau link ::
 
-      title (obligatoire)
-      description (texte qui s'affiche au survol de l'element)
-      href (obligatoire) (contenu du lien href)
-      class (classe css qui s'affiche sur l'element)
-      right (droit que l'utilisateur doit avoir pour visionner cet element)
-      target (pour ouvrir le lien dans une nouvelle fenetre)
+- tableau link ::
 
-shortlinks.inc
+    title (obligatoire)
+    description (texte qui s'affiche au survol de l'element)
+    href (obligatoire) (contenu du lien href)
+    class (classe css qui s'affiche sur l'element)
+    right (droit que l'utilisateur doit avoir pour visionner cet element)
+    target (pour ouvrir le lien dans une nouvelle fenetre)
+
+*dyn/shortlinks.inc*
 
 Ce fichier permet de configurer les liens presents dans la barre de
 raccourcis presente en dessous des actions
@@ -92,25 +96,28 @@ raccourcis presente en dessous des actions
 $shortlinks est le tableau associatif qui contient tous les liens presents
 dans les raccourcis en dessous des actions
  
- Caracteristiques :
+les caracteristiques sont les suivantes :
 
- --- tableau link ::
 
-      title [obligatoire]
-      description (texte qui s'affiche au survol de l'element)
-      href [obligatoire] (contenu du lien href)
-      class (classe css qui s'affiche sur l'element)
-      right (droit que l'utilisateur doit avoir pour visionner cet element)
-      target (pour ouvrir le lien dans une nouvelle fenetre)
+- tableau link ::
+
+    title [obligatoire]
+    description (texte qui s'affiche au survol de l'element)
+    href [obligatoire] (contenu du lien href)
+    class (classe css qui s'affiche sur l'element)
+    right (droit que l'utilisateur doit avoir pour visionner cet element)
+    target (pour ouvrir le lien dans une nouvelle fenetre)
+
 
 ===============
 tableau de bord
 ===============
-tdb.inc 
 
-    Parametrage libre depend de l application 
+*dyn/tdb.inc* 
 
-Exemple ::
+    Le parametrage est libre et depend de l application. 
+
+**Exemple** ::
 
     $description = _("Bienvenue ").$_SESSION["login"]."<br>";    
     $f->displayDescription($description);
@@ -120,44 +127,46 @@ Exemple ::
 locales : langue
 ================
 
-locales.inc.php
+*dyn/locales.inc.php*
+
+Ce fichier contient :
 
 - Codage des caracteres ::
 
         define('CHARSET', 'ISO-8859-1');
 
-- Pour voir les autres locales disponibles, il faut voir le contenu du dossier
 
- locales/ et il faut que cette locale soit installee sur votre systeme ::
+- Pour voir les autres locales disponibles, il faut voir le contenu du dossier locales/ et il faut que cette locale soit installee sur votre systeme ::
 
-        define('LOCALE', 'fr_FR');
+    define('LOCALE', 'fr_FR');
+
 
 - Le dossier contenant les locales et les fichiers de traduction ::
 
-        define('LOCALES_DIRECTORY', '../locales');
+    define('LOCALES_DIRECTORY', '../locales');
+
 
 - Le domaine de traduction ::
 
-        define('DOMAIN', 'openmairie');
+    define('DOMAIN', 'openmairie');
 
 Les zones à traduire sont sous le format : _("zone a traduire")
 
-Voir getText, poEdit
+Voir outil / poEdit
 
 
 ===================================
 parametrage de l application metier 
 ===================================
 
-var.inc
+*dyn/var.inc*
 
-Parametre globaux de l application
-
-toutes bases et toutes collectivités confondues
+Ce script contient les parametres globaux de l application . 
+(toutes bases et toutes collectivités confondues)
 
 Le paramétrage par collectivité se fait dans la table om_parametre 
 
-config.inc.php
+*dyn/config.inc.php*
 
 Exemple openCourrier ::
 
@@ -168,19 +177,15 @@ Exemple openCourrier ::
 
 * Mode demonstration de l'application
 
- Permet de pre-remplir le formulaire de login avec l'identifiant 'demo' et le 
+Il permet de pre-remplir le formulaire de login avec l'identifiant 'demo' et le mot de passe 'demo' ::
 
- mot de passe 'demo'
+    $config['demo'] = false; // true
+    
 
- Default : $config['demo'] = false; ::
-
-    $config['demo'] = false;
 
 * Configuration des extensions autorisees dans le module upload.php
 
- Pour ajouter votre configuration, decommenter la ligne et modifier les extensions avec des ; comme separateur
- 
- Default : $config['upload_extension'] = ".gif;.jpg;.jpeg;.png;.txt;.pdf;.csv;" ::
+ Pour ajouter votre configuration, decommenter la ligne et modifier les extensions avec des ; comme separateur ::
 
     $config['upload_extension'] = ".gif;.jpg;.jpeg;.png;.txt;.pdf;.csv;"
 
@@ -188,16 +193,23 @@ Exemple openCourrier ::
 
   dossier : ../lib/jquery-ui/css/
  
+ 
   Default ::
   
     $config['theme'] = "om_overcast";
 
-  theme open mairie : "om_overcast"; "om_sunny"; "om_ui-darkness";
+
+les themes open mairie exemples sont : "om_overcast"; "om_sunny"; "om_ui-darkness";
+
+Vous pouvez mettre d'autres themes jquery.
+
 
   
 ==========================  
 Parametrage des librairies
 ==========================
+
+*dyn/include.inc.php*
 
  Ce fichier permet de configurer quels paths vont etre ajoutes a la
  directive include_path du fichier php.ini
@@ -209,12 +221,15 @@ Parametrage des librairies
  commenter les lignes suivantes
  
   PEAR ::
+  
         array_push($include, getcwd()."/../php/pear");
 
   DB ::
+  
         array_push($include, getcwd()."/../php/db");
 
   FPDF ::
+  
         array_push($include, getcwd()."/../php/fpdf");
 
   OPENMAIRIE ::
@@ -225,7 +240,7 @@ Parametrage des librairies
 mode debug
 ==========
 
-debug.inc.php
+*dyn/debug.inc.php*
 
 Ce fichier contient le parametrage pour le mode debug
 d'openMairie (om_debug.inc.php)
@@ -238,13 +253,20 @@ Valeur de la variable globale DEBUG
 
   PRODUCTION_MODE : mode de production (pas de message)
    
-============
-informations
-============
+=======
+version
+=======
 
-version.inc : date et numero de la version courante
+*dyn/version.inc*
 
-a la racine du site
+ce fichier contient la date et numero de la version courante
+
+======================
+informations generales
+======================
+
+
+les fichiers textes d'information generale sont a la racine du site
 
 README.txt :
 
@@ -271,6 +293,4 @@ INSTALL.txt : installation de l application
 installation
 ============
 
-Mise en place d une installation automatique
-
-version openMairie 4.0.1
+La mise en place d une installation automatique est prévue dans la version openMairie 4.0.1

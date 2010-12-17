@@ -192,7 +192,7 @@ Il est possible de personnaliser le paramétrage dans le répertoire custom ou e
 
 Il faut mettre dans le répertoire le où les fichiers à personnaliser.
 
-Ne personnaliser que les variables souhaitées dans le fichier. Par défaul, openMairie prendra les paramètres standards.
+Ne personnaliser que les variables souhaitées dans le fichier. Par défaut, openMairie prendra les paramètres standards.
 
 Choisir le paramétrage personnalisé dans l'écran de génération qui affiche les répertoires de paramètres existants.
 

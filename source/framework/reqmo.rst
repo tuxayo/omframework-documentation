@@ -4,9 +4,22 @@
 requete memorisee
 #################
 
-=========================
-Description du parmetrage
-=========================
+les requêtes mémorisées permettent au développeur de fournir un ensemble de requêtes :
+
+- mémorisées
+
+- accessible dans le menu export -> requêtes
+
+- paramétrables par l'utilisateur
+
+- permettant un affichage html en tableau ou un transfert au format csv sur tableur (choix du séparateur à l utilisateur)
+
+
+
+
+==========================
+Description du parametrage
+==========================
  
 
 **Les parametres de reqmo  sont :**

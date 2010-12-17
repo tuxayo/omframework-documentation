@@ -4,17 +4,17 @@
 gestion des acces
 #################
 
-====
-menu
-====
-
-administration -> profil
-
-administration -> droit
-
-administration ->utilisateur
 
 
+Le framework fournit un gestionnaire d'accés accessible dans le menu à :
+
+- administration -> profil
+
+- administration -> droit
+
+- administration ->utilisateur
+
+Les accès sont conservés dans des tables.
 
 ==========
 Les tables
@@ -63,7 +63,7 @@ contrainte
 
 chaque profil a acces a tous les droits des profils d un niveau plus bas
 
-l'adminitrateur a acces a tout.
+l'adminitrateur a acces à tout.
 
 =====
 login
@@ -86,6 +86,7 @@ login.php valorise les variables sessions  permettant la gestion des acces et se
 utilitaires
 ===========
 
+La gestion des droits d'acces se fait dans les méthodes des utilitaires
 
     php/openmairie/om_appication.class.php (composant openMairie)
 

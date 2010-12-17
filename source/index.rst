@@ -11,6 +11,11 @@ Ce document a pour but de rassembler toutes les règles de codage du projet
 openMairie, ainsi que des outils pour aider et guider les développeurs de cette
 communauté.
 
+Il est aussi intégré les documentations sur :
+- le framework
+- le generateur 
+
+
 Cette création est mise à disposition selon le Contrat Paternité-Partage des
 Conditions Initiales à l'Identique 2.0 France disponible en ligne
 http://creativecommons.org/licenses/by-sa/2.0/fr/ ou par courrier postal à
