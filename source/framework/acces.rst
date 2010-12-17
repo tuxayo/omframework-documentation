@@ -22,7 +22,7 @@ Les tables
 
 La gestion des accès est gérée avec 3 tables :
 
-om_profil : gestion des profils ::
+**om_profil** : gestion des profils ::
 
     administrateur
     super utilisateur
@@ -30,7 +30,7 @@ om_profil : gestion des profils ::
     utilisateur limite
     consultation
 
-om_droit : gestion des droits suivant chaque :
+**om_droit**: gestion des droits suivant chaque :
 
     objet métier : $obj om_collectivite, om_parametre ...
 
@@ -40,7 +40,8 @@ om_droit : gestion des droits suivant chaque :
 
             right = ...
             
-om_utilisateur : gestion des utilisateurs
+
+**om_utilisateur** : gestion des utilisateurs
 
 ==============
 Fonctionnement
@@ -48,9 +49,9 @@ Fonctionnement
 
 un profil est attribué à chaque utilisateur
 
-    des droits sont affectés = chaque profil
+    - des droits sont affectés = chaque profil
 
-    le droit d'un objet porte le nom de l'objet
+    - le droit d'un objet porte le nom de l'objet
     
     
 Diagramme de classe
@@ -61,15 +62,15 @@ Diagramme de classe
 contrainte
 ==========
 
-chaque profil a acces a tous les droits des profils d un niveau plus bas
+- chaque profil a acces a tous les droits des profils d un niveau plus bas
 
-l'adminitrateur a acces à tout.
+- l'adminitrateur a acces à tout.
 
 =====
 login
 =====
 
-- scr/login.php
+- *scr/login.php*
 
 login.php valorise les variables sessions  permettant la gestion des acces et securites::
 
@@ -77,9 +78,9 @@ login.php valorise les variables sessions  permettant la gestion des acces et se
       $_SESSION['nom'] = $nom;
       $_SESSION['login'] = $login;
 
-- scr/logout
+- *scr/logout*
 
-- scr/password.php  changement de mot de passe
+- *scr/password.php*  changement de mot de passe
 
 
 ===========
@@ -91,3 +92,8 @@ La gestion des droits d'acces se fait dans les méthodes des utilitaires
     php/openmairie/om_appication.class.php (composant openMairie)
 
     obj/utils.class.php
+    
+voir framework/utilitaire
+
+
+
