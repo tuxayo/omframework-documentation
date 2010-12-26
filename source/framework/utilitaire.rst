@@ -4,52 +4,33 @@
 utilitaire
 ##########
 
+Les méthodes spécifiques a l application sont dans obj/utils.class.php
+qui héritent de la class om_application.class.php d 'openmairie
 
-Les méthodes spécifiques a l application sont dans obj/utils.class.php qui héritent de la class om_application.class.php d 'openmairie
-Vous pouvez surcharger les classes dans utils.class.php
+Vous pouvez surcharger les classes d'om_application.class.php dans utils.class.php
 
-Ces classes contiennent les méthodes pour développer les scripts complémentaires de votre application.
+Exemple : surcharge de la méthode login() pour conserver le service d'un utilisateur
+en variable session dans openCourrier.
 
+Ces classes contiennent les méthodes utilisées par le framework mais
+qui peuvent vous aider à développer les scripts complémentaires de votre application.
 
-***********************
-scripts complementaires
-***********************
+Les scripts complémentaires peuvent être créer pour :
 
-cette partie concerne la mise en oeuvre de script complementaire
+- faire un traitement en répertoire trt/ (remise à 0 d'un registre, archivage, export ....)
 
-Cela peut être :
+- faire un sous programme spécifique en spg/ appellé par un formulaire (bible.php dans openCourrier)
 
-un traitement : trt/
-
-    exemple :
-
-        opencourrier
-
-            num_registre.php remise a 0 du registre
-
-            archivage.php
-
-un sous programme specifique (appelle d'un formulaire) : spg/
-
-    exemple : openCourrier bible.php
-
-                           js/script.js bible() 
-
-
-un affichage scr/
-
-    exemple : courrier.php : affichage d'un courrier
-
-              recherchecourrier.php
+- faire une recherche avec un affichage particulier en scr/.
 
 
 ========
 tutorial
 ========
 
-le script commence par un appel a la bibliotheque utils.class.php et la creation d un objet $f
+Il est proposé ici de vous montrer comment réaliser ce script complémentaire
 
-**obligatoire** ::
+Le script commence obligatoirement par un appel a la bibliotheque utils.class.php et la creation d un objet $f::
 
     require_once "../obj/utils.class.php";
     $f = new utils(NULL,
@@ -58,7 +39,7 @@ le script commence par un appel a la bibliotheque utils.class.php et la creation
                 "ico_recherche.png",
                 "recherche");
 
-*parametres* 
+Les parametres de l'objet sont les suivants :
 
     flag : si flag= Null affichage complete
 
@@ -74,13 +55,13 @@ le script commence par un appel a la bibliotheque utils.class.php et la creation
 
     help  : aide affiché
 
-*Verification*
+utils.class.php fait la *Verification*
 
 - si l utilisateur est authentifié
 
 - si l utilisateur a le droit
 
-**Methode complementaire si right est vide** ::
+Si le paramétre "right" est vide vous pouvez faire appel aux méthodes suivantes ::
 
     isAccredited() // a le droit ou pas
     isAuthentified // si non authentifié, il est rejeté
@@ -97,23 +78,30 @@ le script commence par un appel a la bibliotheque utils.class.php et la creation
     // affichage 
     $f->display();    
 
-**executer une requete dans un fichier sql** ::
+Pour **executer une requete dans un fichier sql** vous devez stocker
+votre requête dans le repertoire sql/type_de_sgbd/nom_de_requete.inc
+afin de préserver la portabilité de vos travaux sur d'autres sgbd::
     
+    // appel au fichier requête
     include ("../sql/".$f->phptype."/courrier_scr.inc");
     
+    // lancement de la requete sql_courrier et test erreur
     $res=$f->db->query($sql_courrier);
-    
     $f->isDatabaseError($res);
 
-**parcourir les enregistrements** ::
+Pour **parcourir les enregistrements** vous utilisez les méthodes dbpear suivantes::
     
+    // du debut à la fin
     while ($row=& $res->fetchRow(DB_FETCHMODE_ASSOC)){
-    
+        // j'affiche le champ courrier
          echo $row['courrier'];
     
     }
 
-**ecrire dans la base** ::
+Pour **ecrire dans la base** vous pouvez utiliser les méthodes insert ou update
+mais vous pouvez utilisez la méthode autoexecute spécifique à db pear::
+
+*requête sql*
 
     $sql = "INSERT INTO ... ";
 
@@ -132,27 +120,27 @@ le script commence par un appel a la bibliotheque utils.class.php et la creation
     $f->isDatabaseError($res1);
 
 
-**Description du role de la page** ::
+Vous pouvez faire une **Description du role de la page** de la manière suivante ::
 
     $description = _("Cette page vous permet de .. ");
     
     $f->displayDescription($description);
 
-**message d erreur**
+Un **message d erreur** s'affiche suivant :
 
-    $class : classe css qui s'affiche sur l'element
+    $class : qui est la classe css qui s'affiche sur l'element et qui peut être
     
-        "error" : message erreur
+        "error" : pour le message erreur
     
-        "valid" : message de validation
+        "valid" : pour le message de validation
 
     
-*code* ::
+le *code* est le sivant ::
     
     $message = _("Mot de passe actuel incorrect");
     $f->displayMessage($class, $message);
 
-**fieldset** ::
+Pour afficher  un **fieldset**, le code est le suivant ::
 
     echo "<fieldset class=\"cadre ui-corner-all ui-widget-content\">\n";
     
@@ -160,32 +148,123 @@ le script commence par un appel a la bibliotheque utils.class.php et la creation
     
     echo _("Courrier")."</legend>";
         ...
-    echo "</fieldset
+    echo "</fieldset>
 
-*ouvert* ::
+
+il peut être par défqut *ouvert* ::
 
     echo "<fieldset class= ... collapsible\">\n";
 
-*ferme* ::
+ou il peut être *ferme* ::
 
     echo "<fieldset ... startClosed\">\n";
 
 
-**appel a des scripts js complementaires** ::
+Vous pouvez faire **appel a des scripts js complementaires** en utilisant la méthode ::
 
     $f->addHTMLHeadJs(array("../js/formulairedyn.js", "../js/onglet.js"));
 
-**gestion des accents**
+Pour la **gestion des accents**, il est conseillé de ne pas mettre d accent dans
+le code (utf8 au lieu de latin1-iso8859-1) et de mettre les accents dans la traduction
 
-    de base ne pas mettre d accent dans le code (utf8 au lieu de latin1-iso8859-1)
-    
-    mettre les accents dans la traduction
-
-**path upload de fichier** ::
+Pour définir le chemin par défaut pour l' ** upload de fichier**, il faut utiliser la méthode ::
   
   $path=$f->getPathFolderTrs()
 
+=======
+exemple
+=======
 
-
+Il est proposé de prendre l'exemple du traitement de la remise du registre
+a 0 dans openCourrier ::
 
     
+    
+    // ENTETE NORMALISEE
+    
+    /**
+     * Cette page permet de remettre a 0 le registre
+     *
+     * @package openmairie_exemple
+     * @version SVN : $Id: xxxx.php 311 2010-12-06 11:43:36Z xxxxx $
+     */
+    
+    
+    // CREATION DE L' OBJET $f
+    
+    require_once "../obj/utils.class.php";
+    $f = new utils(NULL, "traitement", _("remise a 0 du registre"), "ico_registre.png", "recherche");
+
+    
+    
+    // get
+    if (isset ($_GET['validation'])){
+       $validation=$_GET['validation'];
+    }else{
+       $validation=0;
+    }
+
+    
+    /**
+     * Description de la page
+     */
+    
+    $description = _("Cette page vous permet de remettre a 0 le numero de registre ".
+                     "Ce traitement est a faire en debut d annee.");
+    $f->displayDescription($description);
+
+
+    // TEST VALIDATION
+    // SI = 0 affichage du numero de registre
+    // SI = 1 mise à 0 du registre et affichage du résultat
+    
+    if($validation==0){
+        $validation=1;
+        
+        // REQUETE DU REGISTRE
+        
+        $sql= "select id from registre_seq" ;
+        $res1=$f->db->getOne($sql);
+        $f->isDatabaseError($res1);
+        
+        // AFFICHAGE DANS UN FIELDSET
+        
+        echo "<fieldset class=\"cadre ui-corner-all ui-widget-content\">\n";
+        echo "\t<legend class=\"ui-corner-all ui-widget-content ui-state-active\">";
+        echo _("Registre ")."</legend>";
+        if ($res1!=0){
+            echo "<br>"._("le dernier no du registre est")." : &nbsp;&nbsp;".$res1."&nbsp;&nbsp;";
+        }else{
+            echo "<br>"._("vous avez deja fait une remise a 0")."<br>";
+        }
+        echo "<form method=\"POST\" action=\"num_registre.php?validation=".
+        $validation."\" name=f1>";
+        echo "</fieldset>";
+        
+        // BOUTON DE VALIDATION
+        echo "\t<div class=\"formControls\">";
+        echo "<input type='submit' value='"._("remise a 0 du registre").
+              "&nbsp;' >";
+        echo "</div>";
+        echo "</form>";
+    
+    }else { // validation=1
+        
+        // VALORISATION DE $valF
+        $valF=array();
+        $valF['id']=0;
+        
+        // REQUETE MISE A JOUR avec autoExecute
+        $res2= $f->db->autoExecute("registre_seq",$valF,DB_AUTOQUERY_UPDATE);
+        $f->isDatabaseError($res2);
+    
+        // AFFICHAGE DU RESULTAT AVEC UN FIELDSET
+        echo "<fieldset class=\"cadre ui-corner-all ui-widget-content\">\n";
+        echo "\t<legend class=\"ui-corner-all ui-widget-content ui-state-active\">";
+        echo _("Registre ")."</legend>";
+        echo "<center><b>"._("remise a 0 du registre reussie")."</b></center>";
+        echo "</fieldset>";
+    
+    }//validation
+
+

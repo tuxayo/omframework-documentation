@@ -8,47 +8,90 @@ Le paramétrage de l application est dans le répertoire /dyn.
 
 Il est proposé dans ce chapitre de décrire les différents fichiers de paramétrage.
 
+Les fichiers de paramétrage sont les suivants ::
+
+    dyn/database.inc.php           connexion a la base de données
+    dyn/menu.inc.php               menu principal à gauche
+    dyn/action.inc                 menu haut
+    dyn/shortslink.inc             lien sous menu haut
+    dyn/tbd.inc                    tableau de bord
+    dyn/locales.inc                application
+    dyn/config.inc.php             application
+    dyn/include.inc.php            chemin d'accès aux librairies
+    dyn/debug.inc                  mode debug
+    dyn/version.inc                paramétrage de la version
+    
+    README.txt                     fichiers textes
+    HISTORY.txt
+    SPECIFIC.txt
+    LICENCE.txt
+    TODO.txt
+    INSTALL.txt
+    
+
+
 
 ===============================
 connexion de la base de donnees
 ===============================
 
-*dyn/database.inc.php*
+le paramétrage de la connexion se fait dans : *dyn/database.inc.php*
 
 Le parametrage par defaut est dans le tableau $conn[1] pour la base 1 : 
 
+Il peut être paramétrée plusieurs bases : conn[1] , conn[2] ...
 
 conn[1] est un tableau php qui contient les parametres de connexion suivants ::
 
-    'titre => 'openxxx (mysql ou pgsql)',[parametrage openmairie]
-    'phptype'  => 'mysql', ou 'pgsql' [ne pas changer parametrage dbpear]
-    'dbsyntax' => '',[ne pas changer parametrage dbpear]
-    'username' => 'root', [par defaut sur wamp easyphp ou lamp /
-                           a voir avec le fournisseur d acces le cas echeant]
-    'password' => '' [par defaut sur wamp easyphp ou lamp /
-                        a voir avec le fournisseur d acces le cas echeant]                     
-    'protocol' => '',
-    'hostspec' => 'localhost', [nom de serveur par defaut wamp ou easyphp]
-    'port'     => '',  [ne pas changer parametrage dbpear]
-    'socket'   => '',  [ne pas changer parametrage dbpear]
-    'nom de la base' => 'openxxx', [parametrage openmairie]
-    'format date' par defaut =>'AAAA-MM-JJ' [[parametrage openmairie ne pas changer]
-    'shema' => '' ou 'public' pour postgre
-    'prefixe' => '' 
+    'titre          => 'openxxx',       [parametrage openmairie]
+    'phptype'       => 'mysql',         mysql ou 'pgsql' [parametrage dbpear]
+    'dbsyntax'      => '',              [ne pas changer parametrage dbpear]
+    'username'      => 'root',          [par defaut sur wamp easyphp ou lamp /
+                                        a voir avec le fournisseur d acces le cas echeant]
+    'password'      => ''               [par defaut sur wamp easyphp ou lamp /
+                                        a voir avec le fournisseur d acces le cas echeant]                     
+    'protocol'      => '',
+    'hostspec'      => 'localhost',     [nom de serveur par defaut wamp ou easyphp]
+    'port'          => '',              [ne pas changer parametrage dbpear]
+    'socket'        => '',              [ne pas changer parametrage dbpear]
+    'nom de la base'=> 'openxxx',       [parametrage openmairie]
+    'format date'   =>'AAAA-MM-JJ'      [parametrage openmairie ne pas changer]
+    'shema'         => ''               ou 'public' pour postgre
+    'prefixe'       => '' 
 
+Il est possible de définir tout phptype : mysql, pgsql (postgresql), oci8 pour oracle.
+
+Il faut voir la documentation de DB PEAR qui est le module d'abstraction utilisé
+dans openMairie (version 4.0.0)
 
 
 ==============
 menu principal
 ==============
 
-*dyn/menu.inc.php*
+Le paramétrage du menu se fait dans le fichier *dyn/menu.inc.php*.
+
+De base, les rubriques suivantes sont paramétrées ::
+
+    application             vide par défaut, contient l'accès à votre application
+    export                  contient le script "edition" qui reprend
+                                les éditions pdf des tables
+                            contient le menu "reqmo" qui reprend les requêtes
+                                mémorisées
+    traitement              vide par défaut, cet option contient les scripts de
+                                traitement
+    parametrage             Cet option contient vos tables de paramétrage
+    administration          Les scripts de cet option contiennent tout les scripts
+                                du framework pour le paramètrage de la collectivité,
+                                des états / sous états  et la gestion des accès                                
+
+Le paramètrage du menu se fait dans $menu.
 
 $menu est le tableau associatif qui contient tout le menu de l'application,
 il contient lui meme un tableau par rubrique, puis chaque
 rubrique contient un tableau par lien :
 
-les caracteristiques sont les suivantes :
+Les caracteristiques de ce tableau sont les suivantes :
 
 - tableau rubrik ::
 
@@ -67,16 +110,25 @@ les caracteristiques sont les suivantes :
      right (droit que l'utilisateur doit avoir pour visionner cet element)
      target (pour ouvrir le lien dans une nouvelle fenetre)
 
+
 =========
 menu haut
 =========
 
-*dyn/action.inc*
+Le paramétrage du menu haut se fait dans le fichier *dyn/action.inc.php*
+
+Par défaut, il est paramètré :
+
+- le changement de mot de poste
+
+- la deconnexion
+
+
 
 $actions est le tableau associatif qui contient tous les liens presents dans
 les actions a cote du login et du nom de la collectivite
 
-les caracteristiques sont les suivantes :
+les caracteristiques du tableau link sont les suivantes :
 
 
 - tableau link ::
@@ -88,16 +140,14 @@ les caracteristiques sont les suivantes :
     right (droit que l'utilisateur doit avoir pour visionner cet element)
     target (pour ouvrir le lien dans une nouvelle fenetre)
 
-*dyn/shortlinks.inc*
-
-Ce fichier permet de configurer les liens presents dans la barre de
-raccourcis presente en dessous des actions
+Les liens sous le menu des actions se paramètrent dans le fichier : *dyn/shortlinks.inc.php*
 
 $shortlinks est le tableau associatif qui contient tous les liens presents
 dans les raccourcis en dessous des actions
  
-les caracteristiques sont les suivantes :
+Par défaut, il est paramètré l'accès au tableau de bord.
 
+Les caracteristiques du tableau $link sont les suivantes :
 
 - tableau link ::
 
@@ -113,30 +163,34 @@ les caracteristiques sont les suivantes :
 tableau de bord
 ===============
 
-*dyn/tdb.inc* 
+Le tableau de bord se paramètre dans le fichier *dyn/tdb.inc*. 
 
-    Le parametrage est libre et depend de l application. 
+Le parametrage est libre et depend de l application.
 
-**Exemple** ::
+Ce fichier est appellé par le script scr/dashboard.php.
+
+**Exemple de code** ::
 
     $description = _("Bienvenue ").$_SESSION["login"]."<br>";    
     $f->displayDescription($description);
+
+Ce paramétrage va afficher "bienvenue demo"
 
 
 ================
 locales : langue
 ================
 
-*dyn/locales.inc.php*
+Les variables locales sont paramétrées dans le fichier *dyn/locales.inc.php*
 
 Ce fichier contient :
 
-- Codage des caracteres ::
+- le paramétrage du codage des caracteres ::
 
         define('CHARSET', 'ISO-8859-1');
 
 
-- Pour voir les autres locales disponibles, il faut voir le contenu du dossier locales/ et il faut que cette locale soit installee sur votre systeme ::
+- le dossier ou sont installées les variables du systeme ::
 
     define('LOCALE', 'fr_FR');
 
@@ -152,49 +206,54 @@ Ce fichier contient :
 
 Les zones à traduire sont sous le format : _("zone a traduire")
 
-Voir outil / poEdit
+Voir le chapître sur les outils : poEdit
+
 
 
 ===================================
 parametrage de l application metier 
 ===================================
 
-*dyn/var.inc*
+L'application métier est paramétrée dans *dyn/var.inc*
 
 Ce script contient les parametres globaux de l application . 
-(toutes bases et toutes collectivités confondues)
+Attention les paramètres s'appiquent à toutes les bases de l'application.
 
-Le paramétrage par collectivité se fait dans la table om_parametre 
+Le paramétrage spécifique par collectivité doit se faire dans la table om_parametre 
 
-*dyn/config.inc.php*
+La configuration générale de l'application se fait aussi dans *dyn/config.inc.php*.
 
-Exemple openCourrier ::
+Les paramètres sont récupérés avec la création d'un objet utils par :
+$f->config['nom_du_parametre']
+
+Exemple de paramétrage avec openCourrier ::
 
     $config['application'] = _("openCourrier");
     $config['title'] = ":: "._("openMairie")." :: "._("openCourrier");
     $config['session_name'] = "openCourrier";
 
 
-* Mode demonstration de l'application
+* le mode demonstration de l'application se paramétre avec $config['demo']
 
-Il permet de pre-remplir le formulaire de login avec l'identifiant 'demo' et le mot de passe 'demo' ::
+Ce mode permet de pre-remplir le formulaire de login avec l'identifiant 'demo' et le mot de passe 'demo' ::
 
     $config['demo'] = false; // true
-    
+ 
+Attention, pour empêcher de changer le mot de passe, il faut paramétrer l'accès
+dans la table om_droit : password
 
-
-* Configuration des extensions autorisees dans le module upload.php
+* La configuration des extensions autorisees dans le module upload.php
 
  Pour ajouter votre configuration, decommenter la ligne et modifier les extensions avec des ; comme separateur ::
 
     $config['upload_extension'] = ".gif;.jpg;.jpeg;.png;.txt;.pdf;.csv;"
 
-* Theme de l'application - les differents choix possibles se trouvent dans le
+* Le theme de l'application - les differents choix possibles se trouvent dans le
 
   dossier : ../lib/jquery-ui/css/
  
  
-  Default ::
+  Par defaut, le theme d'openExemple est "om_overcast" ::
   
     $config['theme'] = "om_overcast";
 
@@ -209,7 +268,7 @@ Vous pouvez mettre d'autres themes jquery.
 Parametrage des librairies
 ==========================
 
-*dyn/include.inc.php*
+Le paramétrage de l'accès aux librairies se fait dans *dyn/include.inc.php*
 
  Ce fichier permet de configurer quels paths vont etre ajoutes a la
  directive include_path du fichier php.ini
@@ -236,11 +295,19 @@ Parametrage des librairies
 
         define("PATH_OPENMAIRIE", getcwd()."/../php/openmairie/");
 
+Par défaut, les librairies sont incluses dans openmairie_exemple :
+
+- /lib : contient les librairies javascript
+
+- /php : contient les librairies php
+
+
+
 ==========
 mode debug
 ==========
 
-*dyn/debug.inc.php*
+Le mode debug d'openMairie se paramétre dans  *dyn/debug.inc.php*
 
 Ce fichier contient le parametrage pour le mode debug
 d'openMairie (om_debug.inc.php)
@@ -257,16 +324,20 @@ Valeur de la variable globale DEBUG
 version
 =======
 
-*dyn/version.inc*
+Vous devez mettre le numéro de version et la date  de votre application
+dans *dyn/version.inc*
 
-ce fichier contient la date et numero de la version courante
+
+Voir le versionage des applications dans le guide du développeur.
+
+
 
 ======================
 informations generales
 ======================
 
 
-les fichiers textes d'information generale sont a la racine du site
+les fichiers textes d'information generale sont à la racine du site
 
 README.txt :
 
@@ -280,7 +351,7 @@ HISTORY.txt : information sur chaque version :
 
 SPECIFIC.txt :
 
-    description de la specificite de l application courante / framework
+    Ici, vous décrivez la specificite de l application courante par rapport au framework
 
 
 LICENCE.txt : licence libre de l application
@@ -289,8 +360,34 @@ TODO.txt : feuille de route - roadmap
 
 INSTALL.txt : installation de l application
 
+
 ============
 installation
 ============
 
 La mise en place d une installation automatique est prévue dans la version openMairie 4.0.1
+
+
+=====================
+Les paramétres combos
+=====================
+
+Les paramétres combos sont paramétrés dans les fichiers suivants ::
+
+    - comboaffichage.inc.php
+    - comboparametre.inc.php
+    - comboretour.inc.php
+
+Voir chapître formulaire, sous programme générique combo.php
+
+=======================
+Les paramétres éditions
+=======================
+
+Les variables dans les éditions sont paramétrées dans ::
+
+    - varpdf.inc                pour les pdf
+    - varetatpdf.inc            pour les états et les sous états
+    - varlettretypepdf.inc      pour les lettres type
+    
+Voir chapître édition

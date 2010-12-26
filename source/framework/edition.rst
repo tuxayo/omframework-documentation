@@ -23,7 +23,7 @@ Depuis la version 4 d'openMairie, les editions sont conservées dans 3 tables :
 
 Cette modification a été faite pour pouvoir gérer la multi collectivité.
 
-Par contre, les tableaux pdf sont stockés dans un fichier : nom_table.pdf.inc 
+Par contre, les tableaux pdf sont stockés dans un fichier : nom_objet.pdf.inc 
 
 ==============
 fonctionnement
@@ -68,7 +68,8 @@ Pour le corps, le titre et la requete sql :
 
 les zones entre crochets (exemple [nom]) sont les champs selectionnés par la requete.
 
-La variable &ville $datecourrier sont définies dans dyn/varpdf.inc
+Les variable commençant par & sont définies dans dyn/varpdf.inc (exemple &aujourdhui)
+et dans la table om_parametre 
 
 ==========================
 Paramétrage des sous etats
@@ -91,7 +92,8 @@ Pour le titre et la requete sql :
 
 les zones entre crochets sont les champs selectionnés par la requete.
 
-La variable &ville $datecourrier sont définies dans dyn/varpdf.inc
+Les variable commençant par & sont définies dans dyn/varpdf.inc (exemple &aujourdhui)
+et dans la table om_parametre 
 
 
 
@@ -117,8 +119,8 @@ Pour le corps, le titre et la requete sql :
 
 les zones entre crochets  sont les champs selectionnés par la requete.
 
-La variable  &aujourdhui sont définies dans dyn/varlettretypepdf.inc et dans la
-table om_parametre
+Les variable commençant par & sont définies dans dyn/varlettretypepdf.inc (exemple &aujourdhui)
+et dans la table om_parametre 
 
 ===========================
 parametrage des edition pdf
@@ -126,7 +128,7 @@ parametrage des edition pdf
 
 Un etat pdf peut être genere par le generateur (option)
 
-L'edition est paramétrée dans un fichier sql/sgbd/nom_table.pdf.inc et dans la
+L'edition est paramétrée dans un fichier sql/sgbd/nom_objet.pdf.inc et dans la
 
 Les paramétres sont les suivants ::
 
@@ -141,9 +143,8 @@ Pour le titre et la requete sql :
 
 les zones entre crochets sont les champs selectionnés par la requete.
 
-La variable  &aujourdhui sont définies dans dyn/varpdf.inc et dans la
-table om_parametre
-
+Les variable commençant par & sont définies dans dyn/varpdf.inc (exemple &aujourdhui)
+et dans la table om_parametre 
 
 ==========================
 parametrage des etiquettes
@@ -170,7 +171,13 @@ Un editeur est prevu dans la prochaine version openMairie 4.0.1
 scripts
 =======
 
-**pdf/** ::
+**pdf/**
+
+Dans ce répertoire se trouvent les scripts appellés par le framework sous la forme ::
+
+    pdfetat.php?obj=nom_etat&idx=enregistrement_a_editer
+
+les scripts sont les suivants ::
 
     pdfetat.php : etat et sous etat
     pdf.php : edition pdf
@@ -190,15 +197,17 @@ pdfEtiquette sera repris dans la version 4.0.1 d'openMairie
     pdf_parser.php
     testfpdi.php
 
-il n est pas prévu d integration dans la prochaine version
+Il n est pas prévu d integration dans la prochaine version
 
 ==========
 composants
 ==========
 
-**php/**
+Les composants php sont stockés en **php/**
 
-*/openmairie* ::
+*/openmairie* 
+
+Les scripts ci dessous sont les classes qui interfacent openmairie avec fpdf ::
 
     fpdf_etat.php
     fpdf_etiquette.php
@@ -206,13 +215,17 @@ composants
 
 */fpdf*
 
-A ce niveau se situe le composant fpdf
+    A ce niveau se situe le composant fpdf
 
 */phpmailer*
 
-gestion de mail (openPersonnalite) EN TEST pour openMairie 4.0.1
+    la gestion de mail est EN TEST avec openPersonnalite et sera intégré dans  openMairie 4.0.1
 
 
+    Les composants javascript sont stockés dans le repertoire
+    
 **lib/**
 
-*/tinymce* : editeur wisiwig (test sur openrecencement  EN TESTopenmairie 4.0.1)
+*/tinymce*
+
+    est l'editeur wisiwig   EN TEST sur openRecensement et qui sera intégré dans openmairie 4.0.1)

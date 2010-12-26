@@ -16,6 +16,11 @@ les requêtes mémorisées permettent au développeur de fournir un ensemble de 
 
 
 
+menu export-> requete
+
+.. image:: ../_static/reqmo_1.png
+
+
 
 ==========================
 Description du parametrage
@@ -30,13 +35,13 @@ Description du parametrage
     
     Dans la requete, les paramétres sont mis entre []
     
-    et ils sont définis en dessous  sous la forme requete[parametre]=:
+    et ils sont définis en dessous  sous la forme reqmo[parametre]=.
 
-        soit checked : la colonne est affiché ou non
+        "checked" : la colonne est affiché ou non
     
-        soit sous forme de tableau array(a,b) et le choix a ou b est donné à l utilisateur de requete
+        "un tableau" array(a,b) et le choix a ou b est donné à l utilisateur de requete
     
-        soit avec un select : le choix se fait dans la table du select
+        "une requete sql" : le choix se fait dans la table du select
 
 
 La requete executée est celle qui est reconstituée avec les zones sasisies par l'utilisateur
@@ -47,7 +52,9 @@ Enfin, l utilisateur choisi soit un affichage
     
     soit en csv avec un choix de séparateur.
 
-(il n y a pas d'outill de fabrication de requête)
+Il n y a pas d'outil de fabrication de requête à part l'option du générateur
+(voir chapître sur le générateur)
+
 
 =======
 Exemple

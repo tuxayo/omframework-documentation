@@ -30,47 +30,40 @@ La gestion des accès est gérée avec 3 tables :
     utilisateur limite
     consultation
 
-**om_droit**: gestion des droits suivant chaque :
+**om_droit**: la gestion des droits affecte un profil suivant chaque :
 
     objet métier : $obj om_collectivite, om_parametre ...
 
-    rubrique du menu :
+    chaque rubrique du menu :
 
-        Rubrik
-
-            right = ...
+    voir paramétrage menu : tableau Rubrik  right = "om_parametre"
             
 
-**om_utilisateur** : gestion des utilisateurs
+**om_utilisateur** : cette table permet de donner un login, un mot de passe
+et un profil à chaque utilisateur
 
-==============
-Fonctionnement
-==============
-
-un profil est attribué à chaque utilisateur
-
-    - des droits sont affectés = chaque profil
-
-    - le droit d'un objet porte le nom de l'objet
     
     
 Diagramme de classe
 
 .. image:: ../_static/acces_1.png
 
-==========
-contrainte
-==========
+======
+règles
+======
 
-- chaque profil a acces a tous les droits des profils d un niveau plus bas
+- le droit sur un objet porte le nom de l'objet
+
+- chaque profil a acces a tous les droits des profils d un niveau inférieur
 
 - l'adminitrateur a acces à tout.
+
 
 =====
 login
 =====
 
-- *scr/login.php*
+Le login se fait par le script *scr/login.php*
 
 login.php valorise les variables sessions  permettant la gestion des acces et securites::
 
@@ -78,9 +71,12 @@ login.php valorise les variables sessions  permettant la gestion des acces et se
       $_SESSION['nom'] = $nom;
       $_SESSION['login'] = $login;
 
-- *scr/logout*
+La deconnexion se fait avec le script  *scr/logout*
 
-- *scr/password.php*  changement de mot de passe
+Le changement de mot de passe se fait avec le script  *scr/password.php*
+
+L'accès au changement de passe se fait par défaut dans le menu haut
+(voir framework/paramétrage)
 
 
 ===========
@@ -93,7 +89,7 @@ La gestion des droits d'acces se fait dans les méthodes des utilitaires
 
     obj/utils.class.php
     
-voir framework/utilitaire
+(voir framework/utilitaire)
 
 
 

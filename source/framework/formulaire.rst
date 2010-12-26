@@ -77,65 +77,92 @@ et enfin les methodes de date ::
 
    dateAff($val)
 
-========================
-Sous programme generique
-========================
+==========================
+Sous programmes generiques
+==========================
 
-* js/script.js
 
-appel au script d affichage des sous programme generique
 
-* spg/combo.php
+Les sous programmes génériques sont des sous programmes associés aux contrôles
+du formulaire et appellés par eux par un script js dans js/formulairedyn.js 
 
-  parametrage dans
+Les sous programmes génériques sont stockés dans le répertoire /spg.
+
+* **spg/combo.php**
+
+Ce programme est appellé par le contrôle comboD, comboG, comboD2, comboG2
+
+  parametrage dans ::
 
        dyn/comboparametre.inc.php
-
        dyn/comboretour.inc.php
-
        dyn/comboaffichage.inc.php
 
 
-* spg/localisation.php et js/localisation.js
+* **spg/localisation.php** et js/localisation.js
+    
+    ce programme est liée au contrôle formulaire "localisation"
 
+* **spg/voir.php** 
 
-* spg/voir.php 
+    Ce script est associé au contrôle "upload"
+    
+    Ce sous programme permet de visualiser un fichier téléchargé
+    sur le serveur (pdf ou image)
+    
 
-* spg/upload.php
+* **spg/upload.php**
 
-        php/openmairie/upload.class.php (composant openMairie)
+        Ce script utilise la classe php/openmairie/upload.class.php (composant openMairie)
 
-        parametrage de fichier autorise dans dyn/config.inc.php
+        Le paramétrage des extensions téléchargeables se fait dans le fichier autorise dans dyn/config.inc.php
 
-* spg/rvb.php et js/rvb.js
+* **spg/rvb.php** et js/rvb.js
+
+    Ce script est associé au contrôle "rvb" et permet l'accès à une palette de couleur
+    pour récupérer un code couleur rvb
+
 
 ============
 scr/form.php
 ============
 
-affichage des formulaires et sous formulaires
+form.php est le programme appellant d'un formulaire par rapport à un objet
+métier(om_parametre) et un identifiant (2)
+
+form.php affiche le formulaires et éventuellement les sous formulaires (soustab.php et sousform.php)
+
+exemple ::
+
+    form.php?obj=om_parametre&idx=2
+
 
 
 ==============================================
 Nouvelles utilisations dans les objets metiers
 ==============================================
 
-* include $db->phptype ::
+openMairie4 apporte de nouvelles fonctions qu'il est utile d'implémenter dans
+les objets métiers
+
+
+* **récuperer le type de la base** depuis l'objet db : $db->phptype ::
 
 
         if(file_exists ("../sql/".$db->phptype."/".$this->table.".form.inc"))/
 			/include ("../sql/".$db->phptype."/".$this->table.".form.inc");/
 
 
-* erreur base
+* **récuperer une erreur dans la base**
 
 om4 ::
 
     database::isError($res); // ($res,true) = sans die
 
-om3 (deprecated) ::
 
-            //    if (database :: isError($res))
+ce code remplace le code om3 (deprecated) ::
+
+            //   if (DB :: isError($res))
             //            $this->erreur_db($res->getDebugInfo(),$res->getMessage(),'');
             //    else
             //    {

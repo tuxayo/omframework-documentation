@@ -12,6 +12,6 @@ Il est conseillé de lire ce chapitre avant de lire le chapitre sur le framework
 
     creer_base.rst
     utiliser_generateur.rst
-    modifier_menu.rst
-    utiliser_surcharge.rst
+    personnaliser.rst
+    modifier_base.rst
     utiliser_assistant.rst

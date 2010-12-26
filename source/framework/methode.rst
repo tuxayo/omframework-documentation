@@ -6,10 +6,12 @@ la methode
 
 Il est décrit ici la méthode pour la création d' objets métiers:
 
-- Le développement consiste à créer des objets métier (/obj) qui surchargent la classe abstraite  dbformdyn.class.php
-- et modifier les valeurs par défaut
+Le développement consiste à créer des objets métier (/obj) qui surchargent
+la classe abstraite  dbformdyn.class.php et modifier les valeurs par défaut
+dans les fichiers sql (nom_objet.inc et nom_objet.form.inc)
 
-Voir aussi le générateur
+
+Voir aussi le générateur pour automatiser les scripts métier
 
 
 
@@ -21,52 +23,39 @@ Surcharger les classes openMairie
 Il vaut mieux utiliser le générateur pour initialiser les classes metiers
 Le generateur surcharge la classe dbformdyn.class.php par rapport aux informations de la base ::
 
-    classe abstraite openMairie
-                <- classe metier generee
-                   depuis la base de données
-                            <-  classe metier 1
-                                    <- classe metier 2 ...
+    classe abstraite <- classe metier generee <- classe metier 1 <- classe metier 2 ...
+    openMairie             depuis la base
+    
 
-    dbformdyn.class.php
-                <- gen/obj/table.class.php
-                                    <- obj/table.class.php
+    dbformdyn.class.php <- gen/obj/nom_objet.class.php <- obj/nom_objet.class.php
 
-    ou
-
-    dbformdyn.class .php
-                <- gen/obj/table.class.php
-                                <- obj/table.class.php
-                                                <- obj/metier.class.php
 
 
 Exemple avec openCimetiere ::
 
-    dbformdyn.class.php
-                <- gen/obj/emplacement.class.php
-                                <-/obj/emplacement.class.php
-                                                <- /obj/concession.class.php
+    dbformdyn.class.php  <- gen/obj/emplacement.class.php <-/obj/emplacement.class.php <- /obj/concession.class.php
+
+
 
 =================
 valeur par defaut
 =================
 
-dans php/dbformdyn.class.php 
-(composant openMairie)
+Il est décrit ici les valeurs par défaut dans php/dbformdyn.class.php 
+qui est une classe d'openMairie.
 
-Initialisation des valeurs de champ de parametrage formulaire 
 
 Les valeurs suivantes sont mises par defaut afin de pouvoir construire rapidemment un formulaire ::
 
     valeur par defaut  
-       en modification et suppression = initialiser par la valeur des champs dans le SGBD
        en ajout = initialisation vide
    
     type par defaut
-       text pour ajout et modification
-       hiddenstatic pour suppression
+       type text pour ajout et modification
+       type hiddenstatic pour suppression
    
     libelle par défaut :
-       Lib= nom du champ dans le SGBD
+       Libellé = nom du champ dans le SGBD
    
     taille et max d un champ
        Taille et max = longueur du champ dans le SGBD
@@ -80,7 +69,7 @@ Les valeurs suivantes sont mises par defaut afin de pouvoir construire rapidemme
 Modifications des valeurs par defaut par les methodes assesseurs
 ================================================================
 
-Elles se font dans la classe obj/nom_de_table.class.php
+Elles se font dans la classe obj/nom_objet.class.php
 
 Les valeurs par defaut sont modifiés par la methode setVal(nomduchamp, nouvelle valeur)
 
@@ -149,7 +138,14 @@ Les méthodes principales sont les suivantes :
     MoisPHP : controle et recupere le mois de la date saisie (jj/mm/aaaa)
     JourPHP : controle et recupere le jour de la date saisie (jj/mm/aaaa)
 
-La classe dbform.class.php fait appel à la classe formulaire.dyn.class.php pour afficher le formulaire.
+La classe dbformdyn.class.php fait appel à la classe formulaire.dyn.class.php pour afficher le formulaire.
+
+Il est créé 2 objets :
+
+- un objet db qui fait la connexion avec la base
+
+- un objet form qui décrit le formulaire
+
 
 ========
 objet db
@@ -280,6 +276,4 @@ form est l'objet formulaire dont les proprietes sont les suivantes ::
         [regroupe] =>
         [correct] =>
     ) 
-    
-    
-   
+       

@@ -2,7 +2,8 @@
 
 
 
-openMairie_exemple est le framework de base sur lequel vous pouvez développer votre propre application.
+openMairie_exemple est le framework de base dans lequel vous pouvez
+développer votre propre application.
 
 Il contient:
 
@@ -14,8 +15,6 @@ Il contient:
     - un interface geographique
     - la gestion de menu
     
-
-
 
 openMairie_exemple est **téléchargeable sur le site de l'adullact**
 
@@ -33,4 +32,5 @@ http://adullact.net/frs/?group_id=329
     acces.rst
     ergonomie.rst
     utilitaire.rst
+    import.rst
     sig.rst
