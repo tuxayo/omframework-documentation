@@ -5,20 +5,55 @@
 openMairie_exemple est le framework de base dans lequel vous pouvez
 développer votre propre application.
 
-Il contient:
 
-    - un parametrage general
-    - une gestion des acces (en multi collectivite)
-    - des methodes pour construire des formulaires
-    - un outil d'édition
-    - un outil de requete parametrable 
-    - un interface geographique
-    - la gestion de menu
     
 
 openMairie_exemple est **téléchargeable sur le site de l'adullact**
 
 http://adullact.net/frs/?group_id=329
+
+
+Il est proposé ici de décrire le fonctionnement du framework.
+
+Dans un environnement LAMP/WAMP, le framework integre des composants au travers
+de classes qui permettent de créer des formulaires et des états.
+Ces classes sont surchargées par les objets métier à créer.
+
+openMairie integre de nombreux composants : dbpear et fpdf dans toutes les applications,
+mais aussi artichows (pour les graphes), nsoap pour les web services (openfoncier),
+jquery pour l'ergonomie, openLayers pour l interface SIG ...
+
+DBPEAR est un abstracteur de base de données qui permet d'utiliser diverses bases de données notament MYSQL ou POSTGRESQL.
+
+FPDF est le composant qui permet de gérer le PDF.
+
+
+Le développement consiste à créer des objets métier  qui surchargent la classe abstraite
+dbformdyn.class.php. De base, les données de la base de données sont récupérés pour le
+formulaire (longueur, max, nom).
+
+- dbformdyn.class.php ; assure la liaison entre le formulaire et la base de données
+
+- formulairedyn.class.php : rassemble toutes les méthodes permettant de construire des formulaires
+
+
+Ce chapître propose de vous décrire les outils de base du framework de la manière suivante :
+
+    - le parametrage general du framework
+    - la gestion des acces du framework et la multi collectivite
+    - les methodes pour construire des formulaires avec le framework
+    - les outils d'édition du framework
+    - l'outil de requete parametrable du framework
+    - l'ergonomie intégrant jquery
+    - la gestion de traitement et la construction de programme spécifiques avec les utilitaires
+    - l'import des données CSV du framework
+    - l'interface geographique intégrant openlayers avec openCimetiere
+    - l'envoi de mail intégrant phpmail avec openPersonnalite (en projet)
+    - le fonctionnement d'artichow dans openResultat (en projet)
+    - le fonctionnement du nusoap dans openFoncier (enprojet)
+    - l'utilisation de fpdf pour écrire dans un pdf dans openCourrier (en projet)
+    - la mise en oeuvre d'un éditeur wysiwyg pour l'édition des états (en projet)
+
 
 
 .. toctree::

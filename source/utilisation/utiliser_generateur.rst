@@ -10,11 +10,13 @@ Pour cela, il faut aller dans le menu administration -> generateur
 
 Vous devez avoir 3 nouveaux boutons
 
+
 - courrier
 
 - service
 
 - emetteur
+
 
 .. image:: ../_static/utilisation_1.png
 
@@ -34,15 +36,23 @@ En appuyant sur le bouton de courrier, vous avez les choix de génération
 
 Au préalable, le générateur fait une analyse de la base de données  ::
 
-    Tables de la base de donnees  	[ emetteur ] [ service ] et les tables om..
-    Table : courrier 	            [ cle N - cle automatique ]  [ longueur enregistrement : 34 ]
-    Champs 	                        [ courrier 8 int ]
-                                    [ dateenvoi 10 date ]
-                                    [ objetcourrier 65535 blob ]
-                                    [ emetteur 8 int ]
-                                    [ service 8 int ]
+    Tables de la base de donnees
+                [ emetteur ] [ service ] et les tables om..
+    
+    Table :
+                courrier
+                [ cle N - cle automatique ]
+                [ longueur enregistrement : 34 ]
+    
+    Champs
+                [ courrier 8 int ]
+                [ dateenvoi 10 date ]
+                [ objetcourrier 65535 blob ]
+                [ emetteur 8 int ]
+                [ service 8 int ]
     Sous formulaire 	
-    Cle secondaire 	[ emetteur ] [ service ] 
+    Cle secondaire
+                [ emetteur ] [ service ] 
 
 Le generateur a detecté 2 clés secondaires et aucun sous formulaire
 
@@ -91,7 +101,7 @@ Le paramétrage utilisé est le paramétrage standard.
 Vous pouvez le modifier : voir generateur/parametrage
 
 L'affichage par colone est "ok", ce qui veut dire que la taille des colones
-dans le fichier pdf sera complet. (attenion le script ne prend pas le champ text)
+dans le fichier pdf sera complet. (attention le script ne prend pas le champ blob)
 
 ===================================================
 Generation des formulaires et edition de l"emetteur
@@ -101,12 +111,18 @@ Nous allons procéder de la même manière avec le bouton emetteur.
 
 L'analyse de la base de données est la suivante ::
 
-    Tables de la base de donnees  	[ courrier ] [ service ] et les tables om ...
-    Table : emetteur 	            [ cle N - cle automatique ] [ longueur enregistrement : 48 ]
-    Champs 	                        [ emetteur 8 int ]
-                                    [ nom 20 string ]
-                                    [ prenom 20 string ]
-    Sous formulaire 	            [ courrier ]
+    Tables de la base de donnees
+                    [ courrier ] [ service ] et les tables om ...
+    Table :
+                    emetteur
+                    [ cle N - cle automatique ]
+                    [ longueur enregistrement : 48 ]
+    Champs
+                    [ emetteur 8 int ]
+                    [ nom 20 string ]
+                    [ prenom 20 string ]
+    Sous formulaire
+                    [ courrier ]
     Cle secondaire 	
 
 Le générateur repère un sous formulaire courrier.
@@ -131,15 +147,20 @@ En cliquant sur toutes les options, vous avez le message suivant ::
 Generation des formulaires et edition de service
 ================================================
 
-Nous allons procéder de la même manière avec le bouton emetteur.
+Nous allons procéder de la même manière avec le bouton service
 
 L'analyse de la base de données est la suivante ::
 
-    Tables de la base de donnees  	[ courrier ] [ emetteur ] et les tables om ..
-    Table : service 	            [ cle N - cle automatique ] [ longueur enregistrement : 28 ]
-    Champs 	                        [ service 8 int ]
-                                    [ libelle 20 string ]
-    Sous formulaire 	[ courrier ]
+    Tables de la base de donnees
+                [ courrier ] [ emetteur ] et les tables om ..
+    Table :
+            service
+            [ cle N - cle automatique ] [ longueur enregistrement : 28 ]
+    Champs
+            [ service 8 int ]
+            [ libelle 20 string ]
+    Sous formulaire
+            [ courrier ]
     Cle secondaire
 
 Le générateur repère un sous formulaire courrier.
@@ -172,7 +193,9 @@ Nous allons appeller le formulaire depuis
 option application -> tab.php?obj=courrier
 
 option parametrage -> tab.php?obj=emetteur
-                      tab.php?obj=service
+
+option parametrage -> tab.php?obj=service
+
 
 
 Ouvrir avec un éditeur le fichier dyn/menu.inc.php et insérer le code suivant ::
@@ -213,6 +236,9 @@ Ouvrir avec un éditeur le fichier dyn/menu.inc.php et insérer le code suivant 
  
 **application -> courrier**
 
+
+Cette opetion affiche la table courrier :
+
 .. image:: ../_static/utilisation_3.png
 
 On accéde en appuyant sur + au formulaire de saisie ou les champs sont :
@@ -230,6 +256,9 @@ On accéde en appuyant sur + au formulaire de saisie ou les champs sont :
 **parametrage -> emetteur**
 
 
+Cette opetion affiche la table emetteur :
+
+
 .. image:: ../_static/utilisation_5.png
 
 
@@ -242,6 +271,9 @@ L'onglet courrier est inactif tant que l'emetteur n est pas saisi
 
 
 **parametrage -> service**
+
+
+Cette opetion affiche la table service :
 
 
 .. image:: ../_static/utilisation_7.png
@@ -261,6 +293,8 @@ Vous pouvez accéder aux éditions et requêtes mémorisées :
 
 **export -> edition**
 
+Cet option affiche l'ensemble des éditions pdf :
+
 
 .. image:: ../_static/utilisation_9.png
 
@@ -270,6 +304,7 @@ pour en savoir plus voir framework/edition
 
 **export -> reqmo**
 
+Cette option affiche les requêtes mémorisées :
 
 .. image:: ../_static/utilisation_10.png
 
@@ -283,6 +318,9 @@ Vous pouvez accéder au fichiers d'import
 
 
 **administration -> import**
+
+
+Cette option affiche les scripts d'imports :
 
 
 .. image:: ../_static/utilisation_11.png

@@ -1,7 +1,7 @@
 .. _creer_base:
 
-- Copier openmairie_exemple dans le repertoire www de votre serveur apache
-- Donner les droits d'ecriture sur les repertoires /gen, /obj et /sql (linux)
+Vous devez au préalable copier openmairie_exemple dans le repertoire www de votre serveur apache
+
 
 ########################
 creer la base de données
@@ -57,11 +57,7 @@ Il vous est proposé de créer la base de données sous mysql :
 
 Script mysql de creation de la base de l'exemple ::
 
-    --
-    -- Base de données: 'openmairie'
-    --
-    
-    
+
     --
     -- Structure de la table 'courrier'
     --

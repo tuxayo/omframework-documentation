@@ -19,11 +19,8 @@ Nous allons d'abord créer un champ registre dans courrier de la manière suivan
 
     ALTER TABLE courrier ADD registre VARCHAR( 20 ) NOT NULL ;
 
-Regénérer votre application courrier :
-
-administration -> generateur -> courrier
-
-laisser cochées les options par défaut :
+Vous devz regénérer votre application courrier dans l'option du menu : administration -> generateur -> courrier
+et laisser cochées les options par défaut :
 
     gen/obj/courrier.class.php
     
@@ -31,16 +28,17 @@ laisser cochées les options par défaut :
     
     gen/sql/mysql/courrier.form.inc.php
     
-et valider.
+
+Valider l'opération.
 
 
 Vous pouvez remarquer si vous allez sur le formulaire un nouveau champ registre
 en fin de formulaire. Votre personnalisation n'est pas affectée.
 
-Le numero de registre doit se mettre en ajout de manière automatique ,
+Nous voulons que le numero de registre se mette en ajout de manière automatique ,
 une fois le formulaire validé:
 
-Vous devez surcharger les méthodes suivantes dans obj/courrier.class.php ::
+Il faut donc surcharger les méthodes suivantes dans obj/courrier.class.php ::
 
     
     // pour que registre ne soit pas modifiable
@@ -50,7 +48,7 @@ Vous devez surcharger les méthodes suivantes dans obj/courrier.class.php ::
     }
     
 
-    // avant l ajout de l enregistrement
+    // pour la mise a jour de la sequence avant l ajout de l enregistrement
     
     function triggerajouter($id,&$db,$val,$DEBUG)
     {
@@ -63,7 +61,7 @@ Vous devez surcharger les méthodes suivantes dans obj/courrier.class.php ::
     }
 
 Si vous souhaitez que registre apparaisse dans l'affichage de la table, vous
-devez modifier le tableau champAffiche de sql/mysql/courrier.inc de la manière
+devez aussi modifier le tableau champAffiche de sql/mysql/courrier.inc de la manière
 suivante ::
 
     $champAffiche=array('courrier',
@@ -79,26 +77,16 @@ Votre affichage de la table courrier est modifié.
 Rajouter l'adresse dans emetteur
 ================================
 
-Il est proposé de rajouter l'adresse de l'emetteur :
-
-- le libellé 
-
-- le code postal
-
-- la ville
-
-Le script sql est le suivant ::
+Il est proposé de rajouter l'adresse de l'emetteur à savoir : le libellé, le code postal et
+la ville. Le script sql est le suivant ::
 
     ALTER TABLE emetteur ADD adresse VARCHAR( 40 ) NOT NULL ,
     ADD cp VARCHAR( 5 ) NOT NULL ,
     ADD ville VARCHAR( 40 ) NOT NULL ;
 
 
-Regénérer votre application courrier :
-
-administration -> generateur -> emetteur
-
-laisser cochées les options par défaut :
+Vous devez regénérer votre application courrier en allant dans l'option du menu :
+administration -> generateur -> emetteur et laisser cochées les options par défaut :
 
     gen/obj/emetteur.class.php
     
@@ -106,9 +94,10 @@ laisser cochées les options par défaut :
     
     gen/sql/mysql/emetteur.form.inc.php
     
-et valider.
 
-N'ayant pas modifié sql/mysql/emetteur.inc, vous n'avez aucune modification à faire
+Valider l'opération.
+
+N'ayant pas modifié sql/mysql/emetteur.inc, le framework fonctionne avec le code généré
 
 
 ================================================
@@ -155,31 +144,31 @@ Vous avez maintenant la méthode.
 les surcharges  openCourrier
 ============================
 
-Vous pouvez vous reférez à openCourrier version 3.0.0 qui reprend une
-base de données plus complexe.
+Vous pouvez utiliser openCourrier version 3.0.0 qui est téléchargeable au lien suivant :
 
-C'est ainsi que courrier a deux sous formulaires : tache et dossier et qu'il
+http://adullact.net/frs/?group_id=297
+
+
+qui a une
+base de données plus complexe. C'est ainsi que courrier a deux sous formulaires : tache et dossier et qu'il
 est aussi possible de compléter l'objet du courrier avec une bible.
 
-Par contre les surcharges qui ont été faites dans cet exemple sont celles d'openCourrier.
-
-Dans le script courrier.class.php d'openCourrier, il y a d'autre surcharge :
+Si les surcharges qui ont été faites dans notre exemple sont celles d'openCourrier, il y a
+d'autre surcharge dans le script courrier.class.php d'openCourrier,  :
 
 Les méthodes setLib, setGroupe et setRegroupe permettent **une présentation
-en fieldset** (utilisation des champs vide1 à 5 voir sql/mysql/courrier.form.inc)
+en fieldset**  du courrier (utilisation des champs vide1 à 5 voir sql/mysql/courrier.form.inc)
 
-**La gestion des emetteurs enregistre dans la table courrier l'emetteur**:
-
-- voir la methode setType qui utilise les combos et setSelect qui les paramétres
-
-- voir la methode triggerAjouterapres qui enregistre l'emetteur saisi en courrier
-dans la table emetteur si la case vide5 est cochée
+**La gestion des emetteurs enregistre dans la table courrier l'emetteur** (voir la methode
+setType qui utilise les combos et setSelect qui les paramétres
+et la methode triggerAjouterapres qui enregistre l'emetteur saisi en courrier
+dans la table emetteur si la case vide5 est cochée)
 
 Il est possible d'**afficher un courrier préalablement scanné** et d'
 **enregistrer le fichier pdf dans dossier.class.php** après avoir écrit dessus
-le numéro de registre
+le numéro de registre (Voir les méthodes setType et triggerAjouterapres).
 
-Voir les méthodes setType et triggerAjouterapres.
+Il y a d'autres objet métier qui ont des surcharges différentes :
 
 Dans dossier.class.php, vous avez un exemple de type upload pour télécharger des
 fichiers.
@@ -187,15 +176,15 @@ fichiers.
 L'objet obj/tachenonsolde.class.php est un **exemple de surcharge de tache.class.php**
 qui affiche que les taches non soldées
 
-openCourrier fonctionne avec des restrictions d'accès par service et les
-méthodes de login ont été modifiées dans obj/utils.class.php ainsi qu'
+openCourrier fonctionne avec des restrictions d'accès par service et **les
+méthodes de login** ont été modifiées dans obj/utils.class.php ainsi qu'
 utilisateur.class.php qui a dans openCourrier un champ service.
 
 
-Vous pouvez aussi regarder deux scripts de traitement :
+Vous pouvez aussi regarder **deux scripts de traitement** :
 
 - trt/num_registre.php qui remet à 0 le numéro de registre
 
 - trt/archivage.php qui tranfere en archive les courriers avant une date
 
-*voir framework/util*
+Vous avez plus de détail sur les traitements dans le chapître *framework/util*

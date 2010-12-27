@@ -7,7 +7,8 @@ Personnaliser son application
 Nous allons maintenant personnaliser notre application
 
 Pour se faire, nous allons saisir le jeu de données suivantes
-(vous pouvez le faire avec les formulaires, la création des tables stockant les
+
+Vous pouvez le faire avec les formulaires, la création des tables stockant les
 sequences est fait par le framework (methode setId des objets metier) ::
 
     -- insertion de deux emetteurs
@@ -29,8 +30,7 @@ sequences est fait par le framework (methode setId des objets metier) ::
     -- Contenu de la table 'emetteur_seq'
     --
     
-    INSERT INTO emetteur_seq (id) VALUES
-    (2);
+    INSERT INTO emetteur_seq (id) VALUES (2);
 
     --
     -- Contenu de la table 'service'
@@ -54,8 +54,7 @@ sequences est fait par le framework (methode setId des objets metier) ::
     -- Contenu de la table 'service_seq'
     --
     
-    INSERT INTO service_seq (id) VALUES
-    (2);
+    INSERT INTO service_seq (id) VALUES (2);
 
     --
     -- Contenu de la table 'courrier'
@@ -78,25 +77,20 @@ sequences est fait par le framework (methode setId des objets metier) ::
     -- Contenu de la table 'service_seq'
     --
     
-    INSERT INTO service_seq (id) VALUES
-    (2);
+    INSERT INTO service_seq (id) VALUES (2);
 
 
 ===================================
 afficher un courrier plus convivial
 ===================================
 
-L'affichage des courriers n'est pas évident car il apparait les clés secondaires.
+L'affichage des courriers n'est pas lisible car il apparait les clés secondaires et non
+les libellés.
 
 Nous souhaitons avoir le nom_prenom de l'emetteur et le libellé du service.
 
-Dans le fichier sql/mysql/courrier.inc nous allons modifier les variables :
-
-    $table
-
-    $champAffiche
-
-de la manière suivante (après la ligne include(...)::
+Dans le fichier sql/mysql/courrier.inc nous allons modifier les variables  $table
+et  $champAffiche de la manière suivante (après la ligne include)::
 
     $table = DB_PREFIXE."courrier  inner join ".DB_PREFIXE."emetteur
                     on emetteur.emetteur=courrier.emetteur
@@ -104,7 +98,8 @@ de la manière suivante (après la ligne include(...)::
                     on service.service=courrier.service";
 
     $champAffiche=array('courrier',
-                    'concat(substring(dateenvoi,9,2),\'/\',substring(dateenvoi,6,2),\'/\',substring(dateenvoi,1,4)) as dateenvoi',
+                    'concat(substring(dateenvoi,9,2),\'/\',substring(dateenvoi,6,2),
+                                    \'/\',substring(dateenvoi,1,4)) as dateenvoi',
                     'concat(emetteur.nom,\' \',emetteur.prenom) as emetteur',
                     'service.libelle as service');
 
@@ -128,10 +123,10 @@ Vous devez avoir dans la zone recherche la possibilité de selectionner ::
     service.libelle
 
 
-Nous souhaitons maintenant avoir les derniers courriers au début ::
+Nous souhaitons maintenant avoir les derniers courriers au début de la page affichée et nous
+pouvons le faire en insérant la variable $tri dans courrier.inc de la manière suivante::
 
     $tri= " order by dateenvoi desc";
-
 
 Le resultat est le suivant ::
 
@@ -147,30 +142,26 @@ Rendre obligatoire des champs
 
 Nous avons affiché le courrier avec une jointure "inner".
 Donc s'il n'y a pas de lien sur le service et/ou l'emetteur, l'enregistrement
-n'apparaitra pas. Donc il faut rendre obligatoire la saisie :
-
-- de l'emetteur,
-
-- du service (auquel le courrier est affecté)
+n'apparaitra pas. Il faut rendre obligatoire la saisie de  l'emetteur et du service (auquel le courrier est affecté)
 
 Nous allons surcharger la méthode verifier() dans obj/courrier.class.php de la manière suivante
 (par défaut le premier champ, ici dateenvoi est obligatoire)
 
 La methode est à inserer apres le constructeur est la suivante ::
 
-	function verifier($val,&$db,$DEBUG) {
+    function verifier($val,&$db,$DEBUG) {
         parent::verifier($val,$db,$DEBUG);
-		$f="&nbsp!&nbsp;&nbsp;&nbsp;&nbsp;";
-		$imgv="<img src='../img/punaise.png' style='vertical-align:middle' hspace='2' border='0'>";
-		if ($this->valF['service']==""){
-			$this->msg= $this->msg.$imgv._('service')."&nbsp;"._('obligatoire').$f;
-			$this->correct=False;
-		}
+        $f="&nbsp!&nbsp;&nbsp;&nbsp;&nbsp;";
+        $imgv="<img src='../img/punaise.png' style='vertical-align:middle' hspace='2' border='0'>";
+        if ($this->valF['service']==""){
+            $this->msg= $this->msg.$imgv._('service')."&nbsp;"._('obligatoire').$f;
+            $this->correct=False;
+        }
         if ($this->valF['emetteur']==""){
-			$this->msg= $this->msg.$imgv._('emetteur')."&nbsp;"._('obligatoire').$f;
-			$this->correct=False;
-		}
-	}
+            $this->msg= $this->msg.$imgv._('emetteur')."&nbsp;"._('obligatoire').$f;
+            $this->correct=False;
+        }
+    }
 
 La commande "parent::verifier($val,$db,$DEBUG);" permet de ne pas neutraliser la
 fonction surchargée (ici dans gen/obj/courrier.class.php)
@@ -196,13 +187,9 @@ de la manière suivante ::
         }
     }
 
-Le champ dateenvoi contient la date systeme (date('Y_m-d')) si
+Le champ dateenvoi contient la date systeme (date('Y_m-d')) si la validation = 0 : premier affichage avant validation
+ et $maj = 0 (on est en ajout)
 
-- la validation = 0 : premier affichage avant validation
-
-- $maj = 0 (on est en ajout)
-
-En ajout de courrier, la dateenvoi est la date systeme.
 
 ============================
 Mettre en majuscule un champ
@@ -217,7 +204,7 @@ obj/emetteur.class.php de la manière suivante ::
         $form->setOnchange("nom","this.value=this.value.toUpperCase()");
     }
 
-A la saisie du nom, le champ se met en majuscule.
+A la saisie ou à la modification du nom, le champ se met en majuscule.
 
 
 
@@ -226,12 +213,10 @@ Principe
 ========
 
 
-Voila quelques exemples des possibilités de modification :
+Voila quelques exemples des possibilités de modification dans les fichiers sql
+(repertoire sql/ ....) et dans les methodes de l'objet (repertoire obj/ ...)
 
-- dans les fichiers sql dans le repertoire sql/ ....
 
-- dans les methodes de l'objet dans le repertoire obj/ ...
-
-En aucun cas, il ne faut modifier les fichiers dans gen/ , **car cela permet de
-modifier la base et de pouvoir regenerer les écrans sans mettre en danger
+En aucun cas, il ne faut modifier les fichiers dans gen/ qui est l'espace de travail du generateur,
+**car cela permet de modifier la base et de pouvoir regenerer les écrans sans mettre en danger
 votre personnalisation.**
