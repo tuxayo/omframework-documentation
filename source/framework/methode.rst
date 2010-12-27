@@ -1,17 +1,17 @@
 .. _methode:
 
 ##########
-la methode
+la méthode
 ##########
 
 Il est décrit ici la méthode pour la création d' objets métiers:
 
 Le développement consiste à créer des objets métier (/obj) qui surchargent
-la classe abstraite  dbformdyn.class.php et modifier les valeurs par défaut
+la classe abstraite  dbformdyn.class.php et à modifier les valeurs par défaut
 dans les fichiers sql (nom_objet.inc et nom_objet.form.inc)
 
 
-Voir aussi le générateur pour automatiser les scripts métier
+Voir aussi le *générateur* pour automatiser les scripts métier
 
 
 
@@ -37,9 +37,9 @@ Exemple avec openCimetiere ::
 
 
 
-=================
-valeur par defaut
-=================
+===============================
+modifier les valeurs par defaut
+===============================
 
 Il est décrit ici les valeurs par défaut dans php/dbformdyn.class.php 
 qui est une classe d'openMairie.

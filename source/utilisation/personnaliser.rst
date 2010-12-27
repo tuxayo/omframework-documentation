@@ -87,7 +87,7 @@ afficher un courrier plus convivial
 L'affichage des courriers n'est pas lisible car il apparait les clés secondaires et non
 les libellés.
 
-Nous souhaitons avoir le nom_prenom de l'emetteur et le libellé du service.
+Nous souhaitons avoir le nom et le prénom de l'emetteur et le libellé du service.
 
 Dans le fichier sql/mysql/courrier.inc nous allons modifier les variables  $table
 et  $champAffiche de la manière suivante (après la ligne include)::
@@ -134,20 +134,22 @@ Le resultat est le suivant ::
         1 	01/12/2010 	    dupont pierre 	    informatique
 
 
-*Pour en savoir plus sur les variables framework/affichage*
+*Pour en savoir plus sur ces variables voir framework/affichage*
 
 =============================
 Rendre obligatoire des champs
 =============================
 
-Nous avons affiché le courrier avec une jointure "inner".
+Nous avons affiché le courrier avec une jointure de type "inner".
 Donc s'il n'y a pas de lien sur le service et/ou l'emetteur, l'enregistrement
 n'apparaitra pas. Il faut rendre obligatoire la saisie de  l'emetteur et du service (auquel le courrier est affecté)
 
 Nous allons surcharger la méthode verifier() dans obj/courrier.class.php de la manière suivante
-(par défaut le premier champ, ici dateenvoi est obligatoire)
+(par défaut le premier champ, ici dateenvoi est obligatoire, cet option est modifiable
+dans le générateur)
 
-La methode est à inserer apres le constructeur est la suivante ::
+
+La methode à inserer apres le constructeur est la suivante ::
 
     function verifier($val,&$db,$DEBUG) {
         parent::verifier($val,$db,$DEBUG);
@@ -166,14 +168,14 @@ La methode est à inserer apres le constructeur est la suivante ::
 La commande "parent::verifier($val,$db,$DEBUG);" permet de ne pas neutraliser la
 fonction surchargée (ici dans gen/obj/courrier.class.php)
 
-*Pour plus d'information voir framework/methode*
+*Pour plus d'information voir le châpitre framework/methode*
 
 =============================
 valoriser un champ par défaut
 =============================
 
 Pour simplifier la saisie, nous souhaitons mettre la date du jour dans le
-champ dateenvoi.
+champ dateenvoi n ajout de courrier.
 
 Nous allons surcharger la methode setVal() dans obj/courrier.class.php
 de la manière suivante ::
@@ -187,8 +189,9 @@ de la manière suivante ::
         }
     }
 
-Le champ dateenvoi contient la date systeme (date('Y_m-d')) si la validation = 0 : premier affichage avant validation
- et $maj = 0 (on est en ajout)
+
+Le champ dateenvoi contient la date systeme (date('Y_m-d')) si la validation est égal à 0
+et $maj est égal à 0 (on est en ajout)
 
 
 ============================
@@ -218,5 +221,5 @@ Voila quelques exemples des possibilités de modification dans les fichiers sql
 
 
 En aucun cas, il ne faut modifier les fichiers dans gen/ qui est l'espace de travail du generateur,
-**car cela permet de modifier la base et de pouvoir regenerer les écrans sans mettre en danger
+**Nous allons dans le prochain chapître modifier la base et  regenerer les écrans sans mettre en danger
 votre personnalisation.**

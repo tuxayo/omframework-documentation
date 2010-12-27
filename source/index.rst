@@ -24,12 +24,13 @@ Le chapître consacré au "générateur" décrit dans le détail le fonctionneme
 de cet outil et de ses assistants.
 
 Enfin ce document a pour but de rassembler toutes les règles de codage du projet
-openMairie, ainsi que des outils pour aider et guider les développeurs de cette
+openMairie, ainsi que des outils pour aider et guider les développeurs de la
 communauté.
 
 Les règles indiquées doivent être appliquées pour qu'un projet puisse
 intégrer la distribution openMairie car l'objectif est de faciliter la
-lisibilité et la maintenance du code.
+lisibilité et la maintenance du code ainsi que la prise en main par les
+collectivités.
 
 
 Cette création est mise à disposition selon le Contrat Paternité-Partage des
@@ -39,24 +40,17 @@ Creative Commons, 171 Second Street, Suite 300, San Francisco,
 California 94105, USA.
 
 
-Le guide
-========
+
+
+
+   
+Créer une application
+=====================
 
 .. toctree::
    :maxdepth: 3
 
-   regles/index.rst
-   versions/index.rst
-   outils/index.rst
-
-
-   
-Creer une application
-=====================
-
-.. toctree::
-
-    utilisation/index.rst
+   utilisation/index.rst
 
 
 
@@ -76,6 +70,18 @@ Le generateur
 .. toctree::
 
     generateur/index.rst
+
+
+Règles et outils
+================
+
+.. toctree::
+
+   regles/index.rst
+   versions/index.rst
+   outils/index.rst
+
+
 
 
 Contributeurs

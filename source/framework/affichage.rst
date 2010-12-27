@@ -1,12 +1,11 @@
 .. _affichage:
 
-####################
-affichage des tables
-####################
+###################
+Afficher les tables
+###################
 
 Il est décrit dans ce paragraphe l'affichage de requete sous forme de table
 pour faire un choix d'ajout, de mise à jour ou de suppression.
-
 
 
 .. image:: ../_static/tab_1.png
@@ -18,28 +17,36 @@ la requete SQL
 
 Elle se trouve dans sql/type_de_sgbd/nom_objet.inc
 
-Les paramètres sont les suivants pour om_parametre.inc ::
+Les paramétres sont les suivants pour om_parametre.inc ::
 
     $serie=15;                                      Nombre d'enregistrement par page
+    
     $ico="../img/ico_application.png";              Icone affiché
+    
     $ent = _("option")." -> "._("om_parametre");    Titre du tableau
     
     $idz                                            affichage en haut du formulaire
     
-    $table=DB_PREFIXE."om_parametre";               Table de référence (il peut y avoir une ou plusieurs jointure)
+    $table=DB_PREFIXE."om_parametre";               Table de référence
+                                                    (il peut y avoir une ou plusieurs jointure)
     $champAffiche=array('om_parametre',
                         'libelle',
                         'valeur',
                         'om_collectivite');
+    
     $champRecherche=array('libelle','valeur');      Champs pour la recherche
+    
     $tri="";                                        Critere de tri par défaut
+    
     $edition="om_parametre";                        edition pdf
     
     $sousformulaire= array()                        sous formulaire(s) associé(s)
     
-    exemple avec om_collectivite.inc
     
-    $sousformulaire=array('om_etat',
+    
+    autre exemple avec om_collectivite.inc
+    
+        $sousformulaire=array('om_etat',
                         'om_lettretype',
                         'om_parametre',
                         'om_sousetat',
@@ -51,7 +58,7 @@ Les paramètres sont les suivants pour om_parametre.inc ::
 scr/tab.php
 ===========
 
-L'affichage se fait à partir du menu (voir framework/parametrage) sous la forme ::
+L'affichage se fait à partir du menu (voir *framework/parametrage*) sous la forme ::
 
     tab.php?obj=om_parametre
     

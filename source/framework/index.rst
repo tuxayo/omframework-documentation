@@ -4,8 +4,6 @@
 
 openMairie_exemple est le framework de base dans lequel vous pouvez
 développer votre propre application.
-
-
     
 
 openMairie_exemple est **téléchargeable sur le site de l'adullact**
@@ -19,9 +17,9 @@ Dans un environnement LAMP/WAMP, le framework integre des composants au travers
 de classes qui permettent de créer des formulaires et des états.
 Ces classes sont surchargées par les objets métier à créer.
 
-openMairie integre de nombreux composants : dbpear et fpdf dans toutes les applications,
-mais aussi artichows (pour les graphes), nsoap pour les web services (openfoncier),
-jquery pour l'ergonomie, openLayers pour l interface SIG ...
+openMairie integre de nombreux composants : DBPEAR et FPDF dans toutes les applications,
+mais aussi ARTISHOW (pour les graphes), NSOAP pour les web services,
+JQUERY pour l'ergonomie, OPENLAYERS pour l interface SIG ...
 
 DBPEAR est un abstracteur de base de données qui permet d'utiliser diverses bases de données notament MYSQL ou POSTGRESQL.
 
@@ -29,12 +27,13 @@ FPDF est le composant qui permet de gérer le PDF.
 
 
 Le développement consiste à créer des objets métier  qui surchargent la classe abstraite
-dbformdyn.class.php. De base, les données de la base de données sont récupérés pour le
+dbformdyn.class.php (composant openMairie). De base, les données de la base de données sont récupérés pour le
 formulaire (longueur, max, nom).
 
 - dbformdyn.class.php ; assure la liaison entre le formulaire et la base de données
 
 - formulairedyn.class.php : rassemble toutes les méthodes permettant de construire des formulaires
+
 
 
 Ce chapître propose de vous décrire les outils de base du framework de la manière suivante :

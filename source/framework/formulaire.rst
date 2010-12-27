@@ -1,24 +1,24 @@
 .. _formulaire:
 
-##########
-Formulaire
-##########
+###############
+Les formulaires
+###############
 
 Les formulaires se construisent sur la base de la classe
-formulairedyn.class.php d openMairie
+formulairedyn.class.php d'openMairie
 
 Cette classe fait appel a des sous programmes generiques pour certains
 controles au travers de script js/formulairedyn.js
 
 
 
-******************************** 
-methodes formulairedyn.class.php
-********************************
+*************************************** 
+Les methodes de formulairedyn.class.php
+***************************************
 
 La classe formulaire.class.php a les méthodes suivantes :
 
-Les methodes sur les controles du formulaire ::
+Les méthodes sur les controles du formulaire ::
 
     Hiddenstatic -> Champ non modifiable  Valeur récupéré par le formulaire
     Hiddenstaticdate -> date non modifiable Valeur récupéré par le formulaire
@@ -42,7 +42,7 @@ Les methodes sur les controles du formulaire ::
     localisation -> spg/localisation.php
     rvb -> spg/rvb.php
  
-Les  methodes de construction et d affichage ::
+Les  méthodes de construction et d affichage ::
 
 
     afficher() affichage des champs (appelle par dbformdyn.class.php : methode formulaire
@@ -51,7 +51,7 @@ Les  methodes de construction et d affichage ::
     recupererPostvarsousform() et recuperePostVar() recuperation des variables apres validation
     enpied() presentation
 
-Les methodes assesseurs qui change les valeurs des proprietes de formulairedyn ::
+Les méthodes assesseurs qui change les valeurs des proprietes de formulairedyn ::
 
     setType()
     setVal()
@@ -73,13 +73,15 @@ Les methodes assesseurs qui change les valeurs des proprietes de formulairedyn :
         F dernier champ du fieldset
 
  
-et enfin les methodes de date ::
+et enfin les méthodes de date ::
 
    dateAff($val)
 
-==========================
-Sous programmes generiques
-==========================
+
+
+==============================
+Les sous programmes generiques
+==============================
 
 
 
@@ -88,7 +90,8 @@ du formulaire et appellés par eux par un script js dans js/formulairedyn.js
 
 Les sous programmes génériques sont stockés dans le répertoire /spg.
 
-* **spg/combo.php**
+**spg/combo.php**
+
 
 Ce programme est appellé par le contrôle comboD, comboG, comboD2, comboG2
 
@@ -99,11 +102,13 @@ Ce programme est appellé par le contrôle comboD, comboG, comboD2, comboG2
        dyn/comboaffichage.inc.php
 
 
-* **spg/localisation.php** et js/localisation.js
+**spg/localisation.php** et js/localisation.js
+
     
     ce programme est liée au contrôle formulaire "localisation"
 
-* **spg/voir.php** 
+
+**spg/voir.php** 
 
     Ce script est associé au contrôle "upload"
     
@@ -111,16 +116,20 @@ Ce programme est appellé par le contrôle comboD, comboG, comboD2, comboG2
     sur le serveur (pdf ou image)
     
 
-* **spg/upload.php**
+**spg/upload.php**
+
 
         Ce script utilise la classe php/openmairie/upload.class.php (composant openMairie)
 
         Le paramétrage des extensions téléchargeables se fait dans le fichier autorise dans dyn/config.inc.php
 
-* **spg/rvb.php** et js/rvb.js
+
+**spg/rvb.php** et js/rvb.js
+
 
     Ce script est associé au contrôle "rvb" et permet l'accès à une palette de couleur
     pour récupérer un code couleur rvb
+
 
 
 ============
@@ -146,14 +155,14 @@ openMairie4 apporte de nouvelles fonctions qu'il est utile d'implémenter dans
 les objets métiers
 
 
-* **récuperer le type de la base** depuis l'objet db : $db->phptype ::
+**récuperer le type de la base** depuis l'objet db : $db->phptype ::
 
 
         if(file_exists ("../sql/".$db->phptype."/".$this->table.".form.inc"))/
 			/include ("../sql/".$db->phptype."/".$this->table.".form.inc");/
 
 
-* **récuperer une erreur dans la base**
+**récuperer une erreur dans la base**
 
 om4 ::
 
@@ -169,4 +178,3 @@ ce code remplace le code om3 (deprecated) ::
             //    if ($DEBUG == 1)
             //            echo "La requ&ecirc;te de mise &agrave; jour est effectu&eacute;e.<br>";
    
-

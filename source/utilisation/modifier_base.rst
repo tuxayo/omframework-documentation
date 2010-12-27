@@ -1,11 +1,15 @@
 .. _modifier_base:
 
-################
-Modifier la base
-################
+##############################
+Modifier la base et re générer
+##############################
 
-Le framework openMairie permet de modifier la base , de regénérer
-les scripts sans mettre en péril la personnalisation que vous avez effectuée
+Le framework openMairie permet de modifier la base , et de prendre en
+compte ces modifications en regénérant les scripts sans mettre en péril
+la personnalisation que vous avez effectuée
+
+Nous vous proposons de rajouter un champ registre dans la table courrier
+et de rajouter l'adresse dans la table emetteur.
 
 
 ========================================
@@ -19,7 +23,7 @@ Nous allons d'abord créer un champ registre dans courrier de la manière suivan
 
     ALTER TABLE courrier ADD registre VARCHAR( 20 ) NOT NULL ;
 
-Vous devz regénérer votre application courrier dans l'option du menu : administration -> generateur -> courrier
+Vous devez regénérer votre application courrier dans l'option du menu : administration -> generateur -> courrier
 et laisser cochées les options par défaut :
 
     gen/obj/courrier.class.php
@@ -29,7 +33,7 @@ et laisser cochées les options par défaut :
     gen/sql/mysql/courrier.form.inc.php
     
 
-Valider l'opération.
+Validez l'opération.
 
 
 Vous pouvez remarquer si vous allez sur le formulaire un nouveau champ registre
@@ -48,7 +52,7 @@ Il faut donc surcharger les méthodes suivantes dans obj/courrier.class.php ::
     }
     
 
-    // pour la mise a jour de la sequence avant l ajout de l enregistrement
+    // pour la mise a jour de la séquence avant l ajout de l enregistrement
     
     function triggerajouter($id,&$db,$val,$DEBUG)
     {
@@ -95,9 +99,10 @@ administration -> generateur -> emetteur et laisser cochées les options par dé
     gen/sql/mysql/emetteur.form.inc.php
     
 
-Valider l'opération.
+Validez l'opération.
 
 N'ayant pas modifié sql/mysql/emetteur.inc, le framework fonctionne avec le code généré
+
 
 
 ================================================
@@ -111,14 +116,12 @@ obj/emetteur.class.php
 Il vous est proposé d'insérer dans votre script obj/emetteur.class.php
 le code suivant ::
 
-    function setGroupe(&$form, $maj) {
-            
-            $form->setGroupe('nom','D');
-            $form->setGroupe('prenom','F');
-            
-            $form->setGroupe('cp','G');
-            $form->setGroupe('ville','F');
-
+    function setGroupe(&$form, $maj) {           
+        $form->setGroupe('nom','D');
+        $form->setGroupe('prenom','F');
+        
+        $form->setGroupe('cp','D');
+        $form->setGroupe('ville','F');
     }
 
     function setRegroupe(&$form,$maj){
@@ -136,9 +139,8 @@ Le fieldset nom est affiché par défaut, pas celui de l'adresse.
 Vos formulaires sont maintenant au point.
 
 Le paragraphe suivant vous indique les surcharges d'openCourrier que vous
-pouvez intégrés dans votre exemple.
+pouvez intégrer dans votre exemple, maintenant que vous avez la a méthode.
 
-Vous avez maintenant la méthode.
 
 ============================
 les surcharges  openCourrier
@@ -149,8 +151,8 @@ Vous pouvez utiliser openCourrier version 3.0.0 qui est téléchargeable au lien
 http://adullact.net/frs/?group_id=297
 
 
-qui a une
-base de données plus complexe. C'est ainsi que courrier a deux sous formulaires : tache et dossier et qu'il
+La base de données d'openCourrier est plus complexe. C'est ainsi que
+courrier a deux sous formulaires : tache et dossier et qu'il
 est aussi possible de compléter l'objet du courrier avec une bible.
 
 Si les surcharges qui ont été faites dans notre exemple sont celles d'openCourrier, il y a
@@ -168,7 +170,7 @@ Il est possible d'**afficher un courrier préalablement scanné** et d'
 **enregistrer le fichier pdf dans dossier.class.php** après avoir écrit dessus
 le numéro de registre (Voir les méthodes setType et triggerAjouterapres).
 
-Il y a d'autres objet métier qui ont des surcharges différentes :
+Il y a d'autres objet métier qui ont des surcharges interessantes :
 
 Dans dossier.class.php, vous avez un exemple de type upload pour télécharger des
 fichiers.
@@ -187,4 +189,5 @@ Vous pouvez aussi regarder **deux scripts de traitement** :
 
 - trt/archivage.php qui tranfere en archive les courriers avant une date
 
-Vous avez plus de détail sur les traitements dans le chapître *framework/util*
+Vous avez plus de détail sur les traitements dans le chapître
+*framework/util* notament sur la mise à jour du registre.
