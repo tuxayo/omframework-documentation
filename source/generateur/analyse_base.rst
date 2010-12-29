@@ -1,7 +1,7 @@
 .. _analyse_base:
 
 ####################
-l analyse de la base
+L'analyse de la base
 ####################
 
 Les informations de la base sont analysées par la méthode « constructeur » de gen.class.php 

@@ -81,7 +81,7 @@ et enfin les méthodes de date ::
 
 
 ==============================
-Les sous programmes generiques
+Les sous programmes génériques
 ==============================
 
 

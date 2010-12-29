@@ -67,7 +67,7 @@ Les valeurs suivantes sont mises par defaut afin de pouvoir construire rapidemme
 
  
 ===========================================================
-Modifier les valeurs par defaut par les methodes assesseurs
+Modifier les valeurs par defaut par les méthodes assesseurs
 ===========================================================
 
 Elles se font dans la classe obj/nom_objet.class.php

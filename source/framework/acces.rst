@@ -1,7 +1,7 @@
  .. _acces:
 
 ####################
-La gestion des accés
+La gestion des accès
 ####################
 
 
@@ -79,9 +79,9 @@ L'accès au changement de passe se fait par défaut dans le menu haut
 (voir framework/paramétrage)
 
 
-==============
-Lesutilitaires
-==============
+===============
+Les utilitaires
+===============
 
 La gestion des droits d'acces se fait dans les méthodes des utilitaires
 

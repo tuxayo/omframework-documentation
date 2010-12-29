@@ -20,9 +20,9 @@ est implémenté dans openMairie_exemple 4.0.0.
 Pour l'instant les  scripts d'intégration ne sont pas mis en place. Il le seront
 dans la version 4.0.1 dans le répertoire /sig.
 
-==============
-Les script sig
-==============
+===============
+Les scripts sig
+===============
 
 Dans le répertoire sig, il y a 3 scripts :
 

@@ -1,7 +1,7 @@
 .. _parametrage_generateur:
 
 ######################
-Paramétrage generateur
+Paramétrage générateur
 ######################
 
 Le paramétrage de base est dans le répertoire gen/dyn/standard.
@@ -17,7 +17,7 @@ Le paramétrage standard est dans le répertoire gen/dyn/standard
 ========
 Form.inc 
 ========
-Parametres ::
+Voici les paramètres pour la génération de formulaire ::
 
     $serie = 15;                        nombre d'enregistrement par page'
     $ico ="../img/ico_application.png"; icone DEPRECATED ?

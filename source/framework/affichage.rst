@@ -56,7 +56,7 @@ Les paramétres sont les suivants pour om_parametre.inc ::
                     
 
 ====================
-e script scr/tab.php
+Le script scr/tab.php
 ====================
 
 L'affichage se fait à partir du menu (voir *framework/parametrage*) sous la forme ::
