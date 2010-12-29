@@ -1,12 +1,12 @@
 .. _utiliser_assistant:
 
 ###############
-Creer ses états
+Créer ses états
 ###############
 
 Il vous est proposé de créer un état des courriers par service
 
-Il sera utilisé dans ce chapitre l'assistant état et sous état du générateur
+Il sera utilisé dans ce chapître l'assistant état et sous état du générateur
 
 
 
@@ -62,13 +62,13 @@ om_utilisateur ...
 
 
 ===========================
-Creer le sous état courrier
+Créer le sous état courrier
 ===========================
 
 
-Nous allons utiliser l'assistant état du générateur dans le menu :
+Nous allons utiliser l'assistant sous état du générateur dans le menu :
 
-administration -> générateur  : assistant
+administration -> générateur  : assistant : sousetat
 
 Nous choisissons la table courrier et nous surlignons les champs
 dateenvoi, registre, objetcourrier et emetteur
@@ -84,21 +84,21 @@ En cliquant sur "import courrier dans la base", vous créez un enregistrement
 ayant pour identifiant "courrier.service" dans la table om_sousetat
 
 ===================================================
-associer le sous état "courrier" a l état "service"
+Associer le sous état "courrier" à l'état "service"
 ===================================================
 
-Vous devez rendre d'abord votre sous etat courrier.service actif pour pouvoir l associer.
+Vous devez rendre d'abord votre sous etat courrier.service actif pour pouvoir l'associer.
 
 Allez dans l option du menu : administration -> sous etat
 
 Recherchez le sous état "courrier.service" et modifier le en cochant sur actif
 (1er fieldset)
 
-Il vous faut maintenant associer le sous état "courreir.service" à "service"
+Il vous faut maintenant associer le sous état "courrier.service" à l'état "service"
 
 Allez dans l'option du menu administration -> etat.
 
-Cherchez l'état "courrier et modifiez le dans le fieldset (à déplier)
+Cherchez l'état "courrier" et modifiez le dans le fieldset (à déplier)
 sous état selection, choisissez le sous état "courrier.service"
 
 .. image:: ../_static/utilisation_14.png
@@ -109,7 +109,7 @@ Vous avez désormais un état des courriers par service :
 
 
 ==========================================================
-mettre le nom et le prénom de l'emetteur dans le sous état
+Mettre le nom et le prénom de l'emetteur dans le sous état
 ==========================================================
 
 Nous souhaitons mettre le nom et le prénom de l'emetteur à la place de

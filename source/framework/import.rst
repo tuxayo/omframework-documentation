@@ -1,8 +1,8 @@
 .. _import:
 
-########################
-Import de données en csv
-########################
+###########################
+Importer des données en csv
+###########################
 
 Il est possible d'importer des données suivant des scripts pré paramétrées mais qui sont
 modifiables.
@@ -64,17 +64,17 @@ dans utilisateur.import .inc , il est defini: ::
         $obligatoire['nom']=1;// obligatoire = 1
         $obligatoire['login']=1;// obligatoire = 1
     
-    les tests d existence d'une clé secondaire
+    les tests d'existence d'une clé secondaire
     
         $exist['profil']=1 => 0=non / 1=oui
         $sql_exist["profil"]= "select profil from profil where profil = '"
     
-    La liste des champs a inserer
-    il faut mettre en commentaire les zones non traitees
-        $zone['nom']='0' => la 1ere zone contient le nom
-        $zone['login']=1 => la 2eme zone contient le login
-        $zone['pwd']='2' => la 3eme zone contient le mot de passe (crypte)
-        $zone['profil']='3' => la 4 eme zone contient le profil
+    La liste des champs à insérer
+    il faut mettre en commentaire les zones non traitées
+        $zone['nom']='0' => la 1ère zone contient le nom
+        $zone['login']=1 => la 2éme zone contient le login
+        $zone['pwd']='2' => la 3éme zone contient le mot de passe (crypte)
+        $zone['profil']='3' => la 4éme zone contient le profil
     
     La valeur par defaut :
     En effet, si $zone['profil']="" on peut definir un profil par defaut

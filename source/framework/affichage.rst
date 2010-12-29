@@ -8,12 +8,13 @@ Il est décrit dans ce paragraphe l'affichage de requete sous forme de table
 pour faire un choix d'ajout, de mise à jour ou de suppression.
 
 
+
 .. image:: ../_static/tab_1.png
 
 
-==============
-la requete SQL
-==============
+==========================
+La requete SQL d'affichage
+==========================
 
 Elle se trouve dans sql/type_de_sgbd/nom_objet.inc
 
@@ -44,7 +45,7 @@ Les paramétres sont les suivants pour om_parametre.inc ::
     
     
     
-    autre exemple avec om_collectivite.inc
+    autre exemple de sous formulaire avec om_collectivite.inc
     
         $sousformulaire=array('om_etat',
                         'om_lettretype',
@@ -54,9 +55,9 @@ Les paramétres sont les suivants pour om_parametre.inc ::
                     
                     
 
-===========
-scr/tab.php
-===========
+====================
+e script scr/tab.php
+====================
 
 L'affichage se fait à partir du menu (voir *framework/parametrage*) sous la forme ::
 
@@ -67,11 +68,9 @@ L'affichage se fait à partir du menu (voir *framework/parametrage*) sous la for
 
 
 =======================
-le composant openMairie
+Le composant openMairie
 =======================
 
 tab.php utilise les méthodes d'om_table.class.php qui est une classe d'openMairie ::
 
     php/openmairie/om_table.class.php
-
-

@@ -1,7 +1,7 @@
 .. _utiliser_generateur:
 
 #####################
-Creer les formulaires
+Créer les formulaires
 #####################
 
 Nous allons maintenant créer les formulaires à l'aide du générateur
@@ -17,9 +17,9 @@ Avant de commencer, l'utilisateur apache (www-data) doit avoir les droits
 d'écriture dans les repertoires /gen , /sql et /obj
 
 
-=================================================
-Generation des formulaires et edition du courrier
-=================================================
+==============================================
+Générer les formulaires et édition du courrier
+==============================================
 
 En appuyant sur le bouton de courrier, vous avez les choix de génération
 
@@ -47,9 +47,9 @@ Au préalable, le générateur fait une analyse de la base de données  ::
     Cle secondaire
                 [ emetteur ] [ service ] 
 
-Le generateur a detecté 2 clés secondaires et aucun sous formulaire
+Le générateur a détecté 2 clés secondaires et aucun sous formulaire
 
-C'est pour cela qu il propose 3 reqmo : 1 "reqmo" global et 2 "reqmos" suivant la clé secondaire
+C'est pour cela qu'il propose 3 "reqmo" : 1 "reqmo" global et 2 "reqmos" suivant la clé secondaire
 
 Par défaut, 3 options sont cochées, ce sont les 3 fichiers fabriqués par le générateur
 
@@ -99,9 +99,9 @@ L'affichage par colone est "ok", ce qui veut dire que la taille des colones
 dans le fichier pdf sera complet. (attention le script ne prend pas le champ blob)
 
 
-===================================================
-Generation des formulaires et edition de l"emetteur
-===================================================
+================================================
+Générer les formulaires et édition de l'emetteur
+================================================
 
 Nous allons procéder de la même manière avec le bouton emetteur.
 
@@ -146,9 +146,9 @@ En cliquant sur toutes les options, vous avez le message suivant ::
     * ecriture fichier ../sql/mysql/emetteur.import.inc
 
 
-================================================
-Generation des formulaires et edition de service
-================================================
+=============================================
+Générer les formulaires et édition de service
+=============================================
 
 Nous allons procéder de la même manière avec le bouton service
 
@@ -189,14 +189,14 @@ En cliquant sur toutes les options, vous avez le message suivant ::
     * ecriture fichier ../sql/mysql/service.reqmo.inc
     * ecriture fichier ../sql/mysql/service.import.inc
 
-========================================
-Integration des formulaires dans le menu
-========================================
+=====================================
+Integrer les formulaires dans le menu
+=====================================
 
 Pour accéder à nos formulaires, nous allons les intégrer dans le menu
 ( voir *framework/parametrage/menu gauche*)
 
-Nous allons appeller le formulaire depuis
+Nous allons appeller le formulaire depuis le menu :
 
 option application -> tab.php?obj=courrier
 
@@ -206,7 +206,7 @@ option parametrage -> tab.php?obj=service
 
 
 
-Ouvrir avec un éditeur le fichier dyn/menu.inc.php et insérer le code suivant ::
+Il faut ouvrir avec un éditeur le fichier dyn/menu.inc.php et insérer le code suivant ::
 
         // *** APPLICATION ***
         // inserez ici les tables de votre application
@@ -240,7 +240,7 @@ Ouvrir avec un éditeur le fichier dyn/menu.inc.php et insérer le code suivant 
         ));
 
  
- Vous pouvez accéder à vos formulaires par le menu
+ Vous pouvez accéder à vos formulaires par le menu avec les options :
  
 **application -> courrier**
 
@@ -267,13 +267,13 @@ On accéde en appuyant sur + au formulaire d'insertion ou les champs sont :
 **parametrage -> emetteur**
 
 
-Cette opetion affiche la table emetteur :
+Cette operation affiche la table emetteur :
 
 
 .. image:: ../_static/utilisation_5.png
 
 
-En appuyant sur +, on accede à la saisie
+En appuyant sur +, on accède à la saisie
 
 L'onglet courrier est inactif tant que l'emetteur n est pas saisi et validé
 

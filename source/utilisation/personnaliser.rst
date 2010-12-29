@@ -9,7 +9,8 @@ Nous allons maintenant personnaliser notre application
 Pour se faire, nous allons saisir le jeu de données suivantes
 
 Vous pouvez le faire avec les formulaires, la création des tables stockant les
-sequences est fait par le framework (methode setId des objets metier) ::
+sequences est fait par le framework (methode setId des objets metier)  sinon vous pouvez exécuter
+le script sql suivant ::
 
     -- insertion de deux emetteurs
     
@@ -80,11 +81,11 @@ sequences est fait par le framework (methode setId des objets metier) ::
     INSERT INTO service_seq (id) VALUES (2);
 
 
-===================================
-afficher un courrier plus convivial
-===================================
+==========================================
+Faire un affichage courrier plus convivial
+==========================================
 
-L'affichage des courriers n'est pas lisible car il apparait les clés secondaires et non
+L'affichage des courriers se fait avec les clés secondaires et non
 les libellés.
 
 Nous souhaitons avoir le nom et le prénom de l'emetteur et le libellé du service.
@@ -128,7 +129,7 @@ pouvons le faire en insérant la variable $tri dans courrier.inc de la manière 
 
     $tri= " order by dateenvoi desc";
 
-Le resultat est le suivant ::
+Le résultat est le suivant ::
 
         2  	02/12/2010  	durant jacques  	informatique
         1 	01/12/2010 	    dupont pierre 	    informatique
@@ -149,7 +150,7 @@ Nous allons surcharger la méthode verifier() dans obj/courrier.class.php de la 
 dans le générateur)
 
 
-La methode à inserer apres le constructeur est la suivante ::
+La methode à insérer apres le constructeur est la suivante ::
 
     function verifier($val,&$db,$DEBUG) {
         parent::verifier($val,$db,$DEBUG);
@@ -171,7 +172,7 @@ fonction surchargée (ici dans gen/obj/courrier.class.php)
 *Pour plus d'information voir le châpitre framework/methode*
 
 =============================
-valoriser un champ par défaut
+Valoriser un champ par défaut
 =============================
 
 Pour simplifier la saisie, nous souhaitons mettre la date du jour dans le
@@ -191,7 +192,7 @@ de la manière suivante ::
 
 
 Le champ dateenvoi contient la date systeme (date('Y_m-d')) si la validation est égal à 0
-et $maj est égal à 0 (on est en ajout)
+et si $maj est égal à 0 (ajout).
 
 
 ============================
@@ -199,7 +200,7 @@ Mettre en majuscule un champ
 ============================
 
 Nous souhaitons maintenant mettre en majuscule le champ "nom" de la table emetteur.
-Nous allons surcharger la methode setOnchange() de l'objet emetteur dans
+Nous allons surcharger la methode setOnchange() dans
 obj/emetteur.class.php de la manière suivante ::
 
     function setOnchange(&$form,$maj){
@@ -211,15 +212,15 @@ A la saisie ou à la modification du nom, le champ se met en majuscule.
 
 
 
-========
-Principe
-========
+==================
+Principe à retenir
+==================
 
 
 Voila quelques exemples des possibilités de modification dans les fichiers sql
 (repertoire sql/ ....) et dans les methodes de l'objet (repertoire obj/ ...)
 
 
-En aucun cas, il ne faut modifier les fichiers dans gen/ qui est l'espace de travail du generateur,
-**Nous allons dans le prochain chapître modifier la base et  regenerer les écrans sans mettre en danger
+En aucun cas, il ne faut modifier les fichiers dans gen/ qui est l'espace de travail du générateur,
+**Nous allons dans le prochain chapître modifier la base et  regénérer les écrans sans mettre en danger
 votre personnalisation.**

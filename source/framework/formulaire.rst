@@ -48,10 +48,11 @@ Les  méthodes de construction et d affichage ::
     afficher() affichage des champs (appelle par dbformdyn.class.php : methode formulaire
             -> afficherChampRegroupe() affichage des champs par regroupement / groupement
             -> afficherChamp() affichage de champ sans regroupe
-    recupererPostvarsousform() et recuperePostVar() recuperation des variables apres validation
+    recupererPostvarsousform() et recuperePostVar():
+                    recupèrent des variables apres validation
     enpied() presentation
 
-Les méthodes assesseurs qui change les valeurs des proprietes de formulairedyn ::
+Les méthodes assesseurs changent les valeurs des proprietes de l'objet form (formulaire) ::
 
     setType()
     setVal()
@@ -95,7 +96,7 @@ Les sous programmes génériques sont stockés dans le répertoire /spg.
 
 Ce programme est appellé par le contrôle comboD, comboG, comboD2, comboG2
 
-  parametrage dans ::
+  le paramétrage se fait dans les fichiers ::
 
        dyn/comboparametre.inc.php
        dyn/comboretour.inc.php
@@ -132,9 +133,9 @@ Ce programme est appellé par le contrôle comboD, comboG, comboD2, comboG2
 
 
 
-============
-scr/form.php
-============
+======================
+le script scr/form.php
+======================
 
 form.php est le programme appellant d'un formulaire par rapport à un objet
 métier(om_parametre) et un identifiant (2)
@@ -147,9 +148,9 @@ exemple ::
 
 
 
-==============================================
-Nouvelles utilisations dans les objets metiers
-==============================================
+=================================================================
+Les nouvelles utilisations dans les objets metiers (openMairie 4)
+=================================================================
 
 openMairie4 apporte de nouvelles fonctions qu'il est utile d'implémenter dans
 les objets métiers

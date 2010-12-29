@@ -1,8 +1,8 @@
 .. _edition:
 
-#######
-edition
-#######
+############
+Les éditions
+############
 
 Les éditions sont accessibles dans le menu par :
 
@@ -13,6 +13,7 @@ Les éditions sont accessibles dans le menu par :
 - administration -> lettretype
 
 
+
 Depuis la version 4 d'openMairie, les editions sont conservées dans 3 tables :
 
 - om_etat : pour les états
@@ -21,35 +22,37 @@ Depuis la version 4 d'openMairie, les editions sont conservées dans 3 tables :
 
 - om_lettretype : pour les lettres types
 
+
+
 Cette modification a été faite pour pouvoir gérer la multi collectivité.
 
 Par contre, les tableaux pdf sont stockés dans un fichier : nom_objet.pdf.inc 
 
-==============
-fonctionnement
-==============
+================
+Actif, non actif
+================
 
-Les sous etats sont liés a un ou plusieurs sous état
+Les sous etats sont liés a un ou plusieurs état
 
-Etats, sous etats, et lettre type peuvent être :
-
-* actif / non actif
+Les états, sous etats, et lettre type peuvent être actif ou non actif
 
 Par défaut sont pris en compte :
 
-1 l edition  actif de la collectivite
+1 - l'édition  "actif" de la collectivite
 
-2 l'edition actif de la multicollectivite
+2 - l'édition "actif" de la multicollectivite
 
-3 l edition non actif de la multicollectivite
+3 - l'édition "non actif" de la multicollectivite
+
 
 Les editions non actifs d'une collectivite ne sont pas pris en compte
 
-=====================
-Paramétrage des etats
-=====================
 
-Il est conseille d utiliser l assistant etat du generateur
+====================
+Paramétrer des etats
+====================
+
+Il est conseillé d utiliser l'assistant état du generateur
 
 Les paramètres sont les suivants ::
 
@@ -64,18 +67,16 @@ Les paramètres sont les suivants ::
     les sous etats associés et les caractéristiques
 
 
-Pour le corps, le titre et la requete sql :
+Pour le corps, le titre et la requete sql, les zones entre crochets (exemple [nom]) sont les champs selectionnés par la requete.
 
-les zones entre crochets (exemple [nom]) sont les champs selectionnés par la requete.
+Les variables commençant par "&" sont définies dans dyn/varpdf.inc (exemple &aujourdhui)
+et dans la table om_parametre. 
 
-Les variable commençant par & sont définies dans dyn/varpdf.inc (exemple &aujourdhui)
-et dans la table om_parametre 
+=========================
+Paramétrer des sous etats
+=========================
 
-==========================
-Paramétrage des sous etats
-==========================
-
-Il est conseille d utiliser l assistant etat du generateur
+Il est conseillé d utiliser l'assistant sousetat du générateur
 
 Les paramétres  sont les suivants ::
 
@@ -88,22 +89,20 @@ Les paramétres  sont les suivants ::
     requete sql
 
 
-Pour le titre et la requete sql :
+Pour le titre et la requete sql, les zones entre crochets sont les champs selectionnés par la requete.
 
-les zones entre crochets sont les champs selectionnés par la requete.
-
-Les variable commençant par & sont définies dans dyn/varpdf.inc (exemple &aujourdhui)
+Les variables commençant par "&" sont définies dans dyn/varpdf.inc (exemple &aujourdhui)
 et dans la table om_parametre 
 
 
 
-============================
-Paramétrage des lettres type
-============================
+===========================
+Paramétrer des lettres type
+===========================
 
-Il est conseille d utiliser l assistant etat du generateur
+Il est conseillé d utiliser l assistant lettretype du generateur
 
-Les paramètres sont les suivants ::
+Les paramétres sont les suivants ::
 
     orientation portrait ou paysage
     format="A4", A3
@@ -115,18 +114,16 @@ Les paramètres sont les suivants ::
     la requete SQL
 
 
-Pour le corps, le titre et la requete sql :
+Pour le corps, le titre et la requete sql, les zones entre crochets  sont les champs selectionnés par la requete.
 
-les zones entre crochets  sont les champs selectionnés par la requete.
-
-Les variable commençant par & sont définies dans dyn/varlettretypepdf.inc (exemple &aujourdhui)
+Les variables commençant par "&" sont définies dans dyn/varlettretypepdf.inc (exemple &aujourdhui)
 et dans la table om_parametre 
 
-===========================
-parametrage des edition pdf
-===========================
+==========================
+Parametrer des edition pdf
+==========================
 
-Un etat pdf peut être genere par le generateur (option)
+Un etat pdf peut être généré par le generateur (option)
 
 L'edition est paramétrée dans un fichier sql/sgbd/nom_objet.pdf.inc et dans la
 
@@ -139,41 +136,36 @@ Les paramétres sont les suivants ::
     tatal, moyenne, nombre
     requete sql
 
-Pour le titre et la requete sql :
+Pour le titre et la requete sql, les zones entre crochets sont les champs selectionnés par la requete.
 
-les zones entre crochets sont les champs selectionnés par la requete.
-
-Les variable commençant par & sont définies dans dyn/varpdf.inc (exemple &aujourdhui)
+Les variables commençant par "&" sont définies dans dyn/varpdf.inc (exemple &aujourdhui)
 et dans la table om_parametre 
 
-==========================
-parametrage des etiquettes
-==========================
+=========================
+Parametrer les etiquettes
+=========================
 
-openMairie 4.0.1
-
-les zones entre crochets  sont les champs selectionnés par la requete.
-
+Les zones entre crochets  sont les champs selectionnés par la requete.
 La variable  &aujourdhui sont définies dans dyn/varetiquettepdf.inc et dans la
 table om_parametre
 
-Il y aura une integration depuis l utilisation d'openPersonnalite
+Il y aura une integration depuis l utilisation d'openPersonnalite dans la version openMairie 4.0.1..
 
 
-===============
-Editeur WYSIWYG
-===============
+=================
+L'éditeur WYSIWYG
+=================
 
 Un editeur est prevu dans la prochaine version openMairie 4.0.1
 
 
-=======
-scripts
-=======
+===============
+Les scripts PDF
+===============
 
-**pdf/**
 
-Dans ce répertoire se trouvent les scripts appellés par le framework sous la forme ::
+
+Les scripts sont dans le répertoire  **pdf/** et sont  appellés par le framework sous la forme ::
 
     pdfetat.php?obj=nom_etat&idx=enregistrement_a_editer
 
@@ -197,7 +189,7 @@ pdfEtiquette sera repris dans la version 4.0.1 d'openMairie
     pdf_parser.php
     testfpdi.php
 
-Il n est pas prévu d integration dans la prochaine version
+Il n est pas prévu d integration dans la prochaine version 
 
 ==========
 composants
@@ -222,9 +214,7 @@ Les scripts ci dessous sont les classes qui interfacent openmairie avec fpdf ::
     la gestion de mail est EN TEST avec openPersonnalite et sera intégré dans  openMairie 4.0.1
 
 
-    Les composants javascript sont stockés dans le repertoire
-    
-**lib/**
+Les composants javascript sont stockés dans le repertoire **lib/**
 
 */tinymce*
 

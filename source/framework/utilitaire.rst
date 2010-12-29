@@ -1,10 +1,10 @@
 .. _utilitaire:
 
-##########
-utilitaire
-##########
+###############
+Les utilitaires
+###############
 
-Les méthodes spécifiques a l application sont dans obj/utils.class.php
+Les méthodes spécifiques à l'application sont dans obj/utils.class.php
 qui héritent de la class om_application.class.php d 'openmairie
 
 Vous pouvez surcharger les classes d'om_application.class.php dans utils.class.php
@@ -24,13 +24,13 @@ Les scripts complémentaires peuvent être créer pour :
 - faire une recherche avec un affichage particulier en scr/.
 
 
-========
-tutorial
-========
+===========
+Le tutorial
+===========
 
 Il est proposé ici de vous montrer comment réaliser ce script complémentaire
 
-Le script commence obligatoirement par un appel a la bibliotheque utils.class.php et la creation d un objet $f::
+Le script commence obligatoirement par un appel à la bibliothèque utils.class.php et la creation d un objet $f::
 
     require_once "../obj/utils.class.php";
     $f = new utils(NULL,
@@ -55,11 +55,11 @@ Les parametres de l'objet sont les suivants :
 
     help  : aide affiché
 
-utils.class.php fait la *Verification*
 
-- si l utilisateur est authentifié
 
-- si l utilisateur a le droit
+utils.class.php fait la Verification si l utilisateur est authentifié et si l utilisateur a le droit
+
+
 
 Si le paramétre "right" est vide vous pouvez faire appel aux méthodes suivantes ::
 
@@ -78,8 +78,8 @@ Si le paramétre "right" est vide vous pouvez faire appel aux méthodes suivante
     // affichage 
     $f->display();    
 
-Pour **executer une requete dans un fichier sql** vous devez stocker
-votre requête dans le repertoire sql/type_de_sgbd/nom_de_requete.inc
+Pour **executer une requête dans un fichier sql** vous devez stocker
+votre requête dans le répertoire sql/type_de_sgbd/nom_de_requete.inc
 afin de préserver la portabilité de vos travaux sur d'autres sgbd::
     
     // appel au fichier requête
@@ -91,7 +91,7 @@ afin de préserver la portabilité de vos travaux sur d'autres sgbd::
 
 Pour **parcourir les enregistrements** vous utilisez les méthodes dbpear suivantes::
     
-    // du debut à la fin
+    // du debut à la fin de la requête
     while ($row=& $res->fetchRow(DB_FETCHMODE_ASSOC)){
         // j'affiche le champ courrier
          echo $row['courrier'];
@@ -99,9 +99,9 @@ Pour **parcourir les enregistrements** vous utilisez les méthodes dbpear suivan
     }
 
 Pour **ecrire dans la base** vous pouvez utiliser les méthodes insert ou update
-mais vous pouvez utilisez la méthode autoexecute spécifique à db pear::
+mais vous pouvez utilisez la méthode autoexecute spécifique à db pear:
 
-*requête sql*
+*requête sql* ::
 
     $sql = "INSERT INTO ... ";
 
@@ -135,7 +135,7 @@ Un **message d erreur** s'affiche suivant :
         "valid" : pour le message de validation
 
     
-le *code* est le sivant ::
+le *code* est le suivant ::
     
     $message = _("Mot de passe actuel incorrect");
     $f->displayMessage($class, $message);
@@ -155,7 +155,7 @@ il peut être par défqut *ouvert* ::
 
     echo "<fieldset class= ... collapsible\">\n";
 
-ou il peut être *ferme* ::
+ou il peut être *fermé* ::
 
     echo "<fieldset ... startClosed\">\n";
 
@@ -172,7 +172,7 @@ Pour définir le chemin par défaut pour l' ** upload de fichier**, il faut util
   $path=$f->getPathFolderTrs()
 
 =======
-exemple
+Exemple
 =======
 
 Il est proposé de prendre l'exemple du traitement de la remise du registre

@@ -1,30 +1,28 @@
 .. _ergonomie:
 
-#########
-ergonomie
-#########
+##########
+L'ergonomie
+##########
 
-Depuis la version openMairie IV, il est décidé d'utiliser l'ergonomie de jquery.
+Depuis la version openMairie 4, il est décidé d'utiliser l'ergonomie de jquery.
 
 
 
-=======================
-le composant jquery
-=======================
+===================
+Le composant jquery
+===================
 
-Les skins jquery peuvent être rajoutés dans le repertoire /lib/jquery_ui
+Les skins jquery peuvent être rajoutés dans le repertoire /lib/jquery_ui.
+
 Le changement de skin se fait dans le fichier dyn/config.inc.php
 
-voir framework/parametrage
+*voir framework/parametrage*
 
-===
-css
-===
+=====================
+Les feuilles de style
+=====================
 
-Les feuilles de style sont stockées dans le repertoire css/ et sont cascadables
-
-
- feuilles de style cascadable ::
+Les feuilles de style sont stockées dans le repertoire css/ et sont cascadables ::
 
     main.css : principale openMairie
         specific.css : specifique a l application
@@ -32,11 +30,11 @@ Les feuilles de style sont stockées dans le repertoire css/ et sont cascadables
    
 
 
-===============================
-Mise en oeuvre dans les scripts
-===============================
+==================================
+La mise en oeuvre dans les scripts
+==================================
 
-voir framework/utilitaire
+*voir framework/utilitaire*
 
 
 

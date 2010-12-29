@@ -142,9 +142,9 @@ Le paragraphe suivant vous indique les surcharges d'openCourrier que vous
 pouvez intégrer dans votre exemple, maintenant que vous avez la a méthode.
 
 
-============================
-les surcharges  openCourrier
-============================
+=============================
+Les surcharges d'openCourrier
+=============================
 
 Vous pouvez utiliser openCourrier version 3.0.0 qui est téléchargeable au lien suivant :
 
@@ -161,22 +161,22 @@ d'autre surcharge dans le script courrier.class.php d'openCourrier,  :
 Les méthodes setLib, setGroupe et setRegroupe permettent **une présentation
 en fieldset**  du courrier (utilisation des champs vide1 à 5 voir sql/mysql/courrier.form.inc)
 
-**La gestion des emetteurs enregistre dans la table courrier l'emetteur** (voir la methode
-setType qui utilise les combos et setSelect qui les paramétres
-et la methode triggerAjouterapres qui enregistre l'emetteur saisi en courrier
+**La gestion des emetteurs enregistre dans la table courrier l'emetteur** (voir la méthode
+setType qui utilise les combos, la méthode setSelect qui les paramétre
+et la méthode triggerAjouterapres qui enregistre l'emetteur saisi en formulaire courrier
 dans la table emetteur si la case vide5 est cochée)
 
 Il est possible d'**afficher un courrier préalablement scanné** et d'
 **enregistrer le fichier pdf dans dossier.class.php** après avoir écrit dessus
 le numéro de registre (Voir les méthodes setType et triggerAjouterapres).
 
-Il y a d'autres objet métier qui ont des surcharges interessantes :
+Il y a d'autres objet métier qui ont des surcharges intéressantes :
 
 Dans dossier.class.php, vous avez un exemple de type upload pour télécharger des
 fichiers.
 
 L'objet obj/tachenonsolde.class.php est un **exemple de surcharge de tache.class.php**
-qui affiche que les taches non soldées
+qui affiche que les tâches non soldées
 
 openCourrier fonctionne avec des restrictions d'accès par service et **les
 méthodes de login** ont été modifiées dans obj/utils.class.php ainsi qu'

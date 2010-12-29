@@ -4,8 +4,7 @@
 
 Ce chapitre vous propose de créer une application de gestion de courrier pas à pas.
 
-Il est conseillé de lire ce chapitre avant de lire le chapitre sur le framework et le generateur
-(chapitre de réference)
+
 
 .. toctree::
 

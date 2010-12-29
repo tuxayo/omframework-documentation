@@ -1,17 +1,17 @@
 .. _methode:
 
 ##########
-la méthode
+La méthode
 ##########
 
 Il est décrit ici la méthode pour la création d' objets métiers:
 
 Le développement consiste à créer des objets métier (/obj) qui surchargent
 la classe abstraite  dbformdyn.class.php et à modifier les valeurs par défaut
-dans les fichiers sql (nom_objet.inc et nom_objet.form.inc)
+des variables dans les fichiers sql (nom_objet.inc et nom_objet.form.inc)
 
 
-Voir aussi le *générateur* pour automatiser les scripts métier
+Voir aussi le *générateur* pour automatiser les scripts métier.
 
 
 
@@ -20,8 +20,9 @@ Surcharger les classes openMairie
 =================================
 
 
-Il vaut mieux utiliser le générateur pour initialiser les classes metiers
-Le generateur surcharge la classe dbformdyn.class.php par rapport aux informations de la base ::
+Il vaut mieux utiliser le générateur pour initialiser les classes metiers.
+
+Le générateur surcharge la classe dbformdyn.class.php par rapport aux informations de la base ::
 
     classe abstraite <- classe metier generee <- classe metier 1 <- classe metier 2 ...
     openMairie             depuis la base
@@ -31,14 +32,14 @@ Le generateur surcharge la classe dbformdyn.class.php par rapport aux informatio
 
 
 
-Exemple avec openCimetiere ::
+Exemple avec concession d'openCimetiere ::
 
     dbformdyn.class.php  <- gen/obj/emplacement.class.php <-/obj/emplacement.class.php <- /obj/concession.class.php
 
 
 
 ===============================
-modifier les valeurs par defaut
+Modifier les valeurs par défaut
 ===============================
 
 Il est décrit ici les valeurs par défaut dans php/dbformdyn.class.php 
@@ -65,30 +66,30 @@ Les valeurs suivantes sont mises par defaut afin de pouvoir construire rapidemme
     les fonctions javascript ne sont pas utilisées
 
  
-================================================================
-Modifications des valeurs par defaut par les methodes assesseurs
-================================================================
+===========================================================
+Modifier les valeurs par defaut par les methodes assesseurs
+===========================================================
 
 Elles se font dans la classe obj/nom_objet.class.php
 
-Les valeurs par defaut sont modifiés par la methode setVal(nomduchamp, nouvelle valeur)
+Les valeurs par défaut sont modifiées par la méthode setVal(nomduchamp, nouvelle valeur)
 
-Les types par defaut sont modifiés par la methode setType(nomduchamp, nouveau type)
+Les types par défaut sont modifiés par la méthode setType(nomduchamp, nouveau type)
 
-Les longueurs d affichage par defaut sont modifiés par la methode setTaille(nomduchamp, nouvelle valeur)
+Les longueurs d affichage par défaut sont modifiées par la méthode setTaille(nomduchamp, nouvelle valeur)
 
-Les maximums autorises par defaut sont modifiés par la methode setMax(nomduchamp, nouvelle valeur)
+Les maximums autorisés par défaut sont modifiés par la méthode setMax(nomduchamp, nouvelle valeur)
 
-Les libelles de champ par defaut sont modifiés par la methode setLib(nomduchamp, nouvelle valeur)
+Les libelles de champ par défaut sont modifiés par la méthode setLib(nomduchamp, nouvelle valeur)
 
-Les scripts javascript sont appellés dans la methode setOnchange()
+Les scripts javascript sont appellés dans la méthode setOnchange()
 
 
 Voir framework/formulaire
 
-===================
-dbformdyn.class.php
-===================
+============================
+La class dbformdyn.class.php
+============================
 
 dbform.class.php  est une classe openMairie
 
@@ -108,7 +109,7 @@ Les méthodes principales sont les suivantes :
 
 * orientees Formulaire ::
 
-    Formulaire : Constitue le formulaire -> appel à formulaire.dyn.class.php
+    Formulaire : Constitue le formulaire et fait appel à formulaire.dyn.class.php
     sousFormulaire : Constitue le sousformulaire -> appel à formulaire.dyn.class.php
     Message : Retourne le message d erreur (contrôle php)
     bouton : Affiche le bouton
@@ -147,9 +148,9 @@ Il est créé 2 objets :
 - un objet form qui décrit le formulaire
 
 
-========
-objet db
-========
+==========
+L'objet db
+==========
 
 db est l'objet de connexion a la base dont les proprietes sont les suivantes ::
 
@@ -215,9 +216,9 @@ db est l'objet de connexion a la base dont les proprietes sont les suivantes ::
 			[_expected_errors] => Array ( ) 
     )
     
-==========
-objet form
-==========
+============
+L'objet form
+============
 
 form est l'objet formulaire dont les proprietes sont les suivantes ::
   

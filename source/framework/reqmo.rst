@@ -1,8 +1,8 @@
 .. _reqmo:
 
-#################
-requete memorisee
-#################
+#######################
+Les requêtes memorisées
+#######################
 
 les requêtes mémorisées permettent au développeur de fournir un ensemble de requêtes :
 
@@ -46,14 +46,10 @@ Description du parametrage
 
 La requete executée est celle qui est reconstituée avec les zones sasisies par l'utilisateur
 
-Enfin, l utilisateur choisi soit un affichage
-    
-    soit en tableau,
-    
-    soit en csv avec un choix de séparateur.
+Enfin, l utilisateur choisi soit un affichage soit en tableau, soit en csv avec un choix de séparateur.
 
 Il n y a pas d'outil de fabrication de requête à part l'option du générateur
-(voir chapître sur le générateur)
+(voir chapître sur le *générateur*)
 
 
 =======

@@ -11,6 +11,13 @@ openMairie - Guide du développeur
 Ce document a pour but de guider les développeurs dans la mise en oeuvre
 d'un projet openMairie.
 
+Avec plus de 30 applications développées pour les collectivités locales accessibles
+sur le site http://openmairie.org, nous souhaitons au trvers de ce guide , diffuser notre
+expérience auprès  des collectivités et des acteurs économiques du libre qui les accompagnent.
+Bonne lecture, et n'hésitez pas à nous faire part de vos remarques à l'adresse suivante :
+contact@openmairie.org
+
+
 Si vous débutez, il est préférable de commencer par le chapître
 "créer une application" qui permet de prendre en main facilement le générateur et le
 framework openMairie en vous guidant pas à pas dans le mise en place d'une
@@ -23,7 +30,7 @@ de vous informer de manière complète sur le fonctionnement du framework
 Le chapître consacré au "générateur" décrit dans le détail le fonctionnement
 de cet outil et de ses assistants.
 
-Enfin ce document a pour but de rassembler toutes les règles de codage du projet
+Enfin ce document rassemble toutes les règles de codage du projet
 openMairie, ainsi que des outils pour aider et guider les développeurs de la
 communauté.
 
@@ -87,5 +94,5 @@ Règles et outils
 Contributeurs
 =============
 
-* `Florent Michon <fmichon@atreal.net>`_
+* `Florent Michon [ATREAL] <fmichon@atreal.net>`_
 * `Francois Raynaud <contact@openmairie.org>`_

@@ -2,7 +2,7 @@
 
 
 ########################
-creer la base de données
+Créer la base de données
 ########################
 
 Vous devez au préalable copier openmairie_exemple dans le repertoire www de votre serveur apache
@@ -12,7 +12,7 @@ Il vous est proposé de créer la base de données sous mysql :
 
 - Créer une base de données appellée "openmairie"
 
-- Créer les tables necessaires au framework openMairie avec le fichier sql
+- Créer les tables nécessaires au framework openMairie avec le fichier sql
     
     data/mysql/init.sql
 
@@ -44,7 +44,7 @@ Il vous est proposé de créer la base de données sous mysql :
 
 
 
-- modifier le paramétrage openMairie pour faire un acces à la base créée si votre base a un nom différent d'openMairie :
+- modifier le paramétrage openMairie pour faire un accès à la base créée si votre base a un nom différent d'openMairie :
 
 
     dyn/database.inc.php
@@ -53,13 +53,13 @@ Il vous est proposé de créer la base de données sous mysql :
 
 
 
-- acceder avec votre navigateur sur openmairie_exemple ::
+- accéder avec votre navigateur sur openmairie_exemple ::
 
     login : demo
     mot de passe : demo
 
 
-Le script mysql de creation de la base de l'exemple est le suivant ::
+Le script mysql de création de la base de l'exemple est le suivant ::
 
 
     --

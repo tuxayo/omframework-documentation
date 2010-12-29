@@ -1,8 +1,8 @@
  .. _acces:
 
-#################
-gestion des acces
-#################
+####################
+La gestion des accés
+####################
 
 
 
@@ -48,9 +48,9 @@ Diagramme de classe
 
 .. image:: ../_static/acces_1.png
 
-======
-règles
-======
+==========
+Les règles
+==========
 
 - le droit sur un objet porte le nom de l'objet
 
@@ -59,9 +59,9 @@ règles
 - l'adminitrateur a acces à tout.
 
 
-=====
-login
-=====
+===================
+Les login et logout
+===================
 
 Le login se fait par le script *scr/login.php*
 
@@ -79,9 +79,9 @@ L'accès au changement de passe se fait par défaut dans le menu haut
 (voir framework/paramétrage)
 
 
-===========
-utilitaires
-===========
+==============
+Lesutilitaires
+==============
 
 La gestion des droits d'acces se fait dans les méthodes des utilitaires
 
@@ -89,7 +89,4 @@ La gestion des droits d'acces se fait dans les méthodes des utilitaires
 
     obj/utils.class.php
     
-(voir framework/utilitaire)
-
-
-
+(*voir framework/utilitaire*)

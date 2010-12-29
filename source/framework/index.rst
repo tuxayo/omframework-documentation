@@ -32,26 +32,27 @@ formulaire (longueur, max, nom).
 
 - dbformdyn.class.php ; assure la liaison entre le formulaire et la base de données
 
-- formulairedyn.class.php : rassemble toutes les méthodes permettant de construire des formulaires
+- formulairedyn.class.php : rassemble toutes les méthodes permettant de construire des formulaires ::
 
 
 
-Ce chapître propose de vous décrire les outils de base du framework de la manière suivante :
 
-    - le parametrage general du framework
-    - la gestion des acces du framework et la multi collectivite
-    - les methodes pour construire des formulaires avec le framework
-    - les outils d'édition du framework
-    - l'outil de requete parametrable du framework
-    - l'ergonomie intégrant jquery
-    - la gestion de traitement et la construction de programme spécifiques avec les utilitaires
-    - l'import des données CSV du framework
-    - l'interface geographique intégrant openlayers avec openCimetiere
-    - l'envoi de mail intégrant phpmail avec openPersonnalite (en projet)
-    - le fonctionnement d'artichow dans openResultat (en projet)
-    - le fonctionnement du nusoap dans openFoncier (enprojet)
-    - l'utilisation de fpdf pour écrire dans un pdf dans openCourrier (en projet)
-    - la mise en oeuvre d'un éditeur wysiwyg pour l'édition des états (en projet)
+    Ce chapître propose de vous décrire les outils de base du framework de la manière suivante :
+    
+        - le paramétrage général du framework
+        - la gestion des accès du framework et la multi collectivite
+        - les méthodes pour construire des formulaires avec le framework
+        - les outils d'édition du framework
+        - l'outil de requête paramétrable du framework
+        - l'ergonomie intégrant jquery
+        - la gestion de traitement et la construction de programme spécifiques avec les utilitaires
+        - l'import des données CSV du framework
+        - l'interface geographique intégrant openlayers avec openCimetiere
+        - l'envoi de mail intégrant phpmail avec openPersonnalite (en projet)
+        - le fonctionnement d'artichow dans openResultat (en projet)
+        - le fonctionnement du nusoap dans openFoncier (enprojet)
+        - l'utilisation de fpdf pour écrire dans un pdf dans openCourrier (en projet)
+        - la mise en oeuvre d'un éditeur wysiwyg pour l'édition des états (en projet)
 
 
 

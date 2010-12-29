@@ -1,8 +1,8 @@
 .. _sig:
 
-################################
-systeme information geographique
-################################
+############################################
+Intégrer le système information geographique
+############################################
 
 
 La plupart des applications openMairie sont géo localisables
@@ -20,22 +20,22 @@ est implémenté dans openMairie_exemple 4.0.0.
 Pour l'instant les  scripts d'intégration ne sont pas mis en place. Il le seront
 dans la version 4.0.1 dans le répertoire /sig.
 
-==========
-script sig
-==========
+==============
+Les script sig
+==============
 
 Dans le répertoire sig, il y a 3 scripts :
 
-- tab_sig.php : affiche la carte suivant les parametres de nom_objet.sig.inc
-
-- form_sig.php : modifie le champ geometry de l'objet
-
-- delete_sig.php : supprime le contenu  du champ geometry
+    - tab_sig.php : affiche la carte suivant les parametres de nom_objet.sig.inc
+    
+    - form_sig.php : modifie le champ geometry de l'objet
+    
+    - delete_sig.php : supprime le contenu  du champ geometry
 
 
 Il y a un repertoire map ou sont stockés les fichiers map utilisés par mapserver
 
-le fichier var.inc stocke les variables suivantes ::
+Le fichier var.inc stocke les variables suivantes ::
     
     // chemin de la carte pour mapserver
     $path_map="http://localhost/cgi-bin/mapserv?map=/var/www/
@@ -44,7 +44,7 @@ le fichier var.inc stocke les variables suivantes ::
     // polygon créé par défaut
     $creation_polygon="POLYGON((0 0,0 0))";
 
-le fichier style.css contient la css de l interface
+Le fichier style.css contient la css de l interface
 
 Le lancement du sig se fait avec tab_sig.php sous la forme suivante :
 
@@ -52,20 +52,17 @@ Le lancement du sig se fait avec tab_sig.php sous la forme suivante :
 
 où :
 
-$idx , enregistrement ou modifier/ajouter la geometry -champ geom
+$idx est l' enregistrement ou modifier/ajouter/supprimer la geometry  dans le champ geom
 
-$obj , table ou la geometry doit etre modifiee : cimetiere, emplacement, voie, zone
+$obj est la table ou la geometry doit etre modifiée : cimetiere, emplacement, voie, zone
 
 ATTENTION, il ne peut etre saisi qu un enregistrement existant dans la table
 
 
 Dans pgsql, il y a les parametres des affichages tab_sig.php
 
-En effet, il s agit d'afficher pour chaque objet !
-
-- la partie (box) de la carte à afficher
-
-- l'objet courant et le titre
+En effet, il s agit d'afficher pour chaque objet la partie (box) de la carte à afficher et
+l'objet courant et le titre
 
 
 exemple : objet concession : 
@@ -79,9 +76,8 @@ La procedure est la suivante :
 
 -> dessiner un polygone représentant la géometrie de la concession saisie
 
--> saisir la geometry (wkt) : form_sig.php
+-> enregistrer la geometry (wkt) : form_sig.php ou supprimer : delete_sig
 
--> valider cette geometrie dans le champ geometry de l'emplacement concerné
 
 les paramétres sig sont dans sql/pgsql/emplacement.sig.inc::
     
@@ -133,7 +129,8 @@ Les installations sous UBUNTU sont les suivantes ::
     * creer la base opencimetiere (si elle n'est pas deja creee)
     * create language "plpgsql" 
     * executer (version postgis <1.5) la requete lwpostgis.sql -> fonction postgis
-      ou executer (version postgis >= 1.5) la requete /usr/share/postgresql/8.3/contrib/postgis-1.5/postgis.sql 
+      ou executer (version postgis >= 1.5) la requete /usr/share/postgresql/8.3/
+                                                    contrib/postgis-1.5/postgis.sql 
     * executer spatial_ref_sys .sql qui remplit la table de donnees spatial_ref_sys 
     * VERIFICATION : les tables suivantes sont presentes :
         * table geometry_columns : index des geometries (vide) 

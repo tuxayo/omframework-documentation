@@ -1,14 +1,12 @@
 .. _presentation_generateur:
 
 ############
-Presentation
+Présentation
 ############
 
 
 
-
-
-**construire une application sur la base de l'analyse des informations  du SGBD**
+**L'objectif est de construire une application sur la base de l'analyse des informations  du SGBD**
 
 
 Les informations récupérées dans le SGBD sont les suivantes
@@ -38,35 +36,18 @@ La version 4.00 ne reprend pas (par rapport a la version 3):
 - la prise en compte dans la recherche globale
 
 
-**les assistants**
+**Les assistants vont faciliter la mise en oeuvre des états**
 
 
 Il est fourni avec le générateur un assistant pour faire les états et les sous états.
 
-Le générateur dans sa nouvelle version est conforme aux principes adoptés dans openMairie 4.00 qui se simplifie en s'enrichissant des composants standards :
 
-la documentation des applications n'est plus automatique. Il s'agit d'utiliser un lien existant ou sera stocké votre documentation (site internet, wiki de l'ADULLACT ...).
 
-la traduction utilise le standard gettext et un fichier openmairie.po et openmairie.mo (fichier compilé avec poedit) dans le repertoire LOCALES
-
-la présentation est faite avec le standart jquery et la présentation spécifique openMairie est abandonnée
-
-openMairie est multi collectivité : les états et les sous états sont générés dans la base de données et peuvent être associé a une collectivité.
+**openMairie est multi collectivité** : les états et les sous états sont générés dans la base de données et peuvent être associé a une collectivité.
 
 Le générateur gére la multicollectivité si un champ « om_collectivité » est créé.
 
-Les schemas et prefixe sont gérés
+**Les schemas et prefixe sont gérés**
 
-
-**les acquis de l'experience**
-
-
-Cette nouvelle version profite de l'expérience de la précédente :
-
-il s'agit de limiter le nombre de requêtes et d'état générés automatiquement et qui donne peu de lisibilité au fonctionnement de l'application. L'utilisateur a le choix de la requête dans le générateur et choisi les états, sous états à générer avec les assistants.
-
-il s'agit de donner une plus grande souplesse d'utilisation : les fichiers .inc et .form.inc de variables sont créés en répertoire gen/basededonnées. Les variables peuvent être « surchargés » ou customiser dans le répertoire sql/basededonnées
-
-les menus et tableaux de bord ne sont pas générés de manière automatique qui va à l'encontre d'une réflexion sur la présentation ergonomique de ces outils. Le menu est fait avec jquery et la modification n'est plus générée. Il faut modifier manuellement le fichier dyn/menu.inc.php. Pour le tableau de bord, Il faut modifier manuellement le fichier dyn/tbd.inc
 
 

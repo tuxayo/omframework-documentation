@@ -37,7 +37,7 @@ La connexion de la base de donnees
 
 Le paramétrage de la connexion se fait dans : *dyn/database.inc.php*
 
-Le parametrage par défaut est dans le tableau $conn[1] pour la base 1 : 
+Le paramétrage par défaut est dans le tableau $conn[1] pour la base 1 : 
 
 Il peut être paramétré plusieurs bases : conn[1] , conn[2] ...
 
@@ -80,7 +80,7 @@ De base, les rubriques suivantes sont paramétrées dans le framework::
                                 mémorisées
     traitement              vide par défaut, cet option contient les scripts de
                                 traitement
-    parametrage             Cet option contient vos tables de paramétrage
+    parametrage             Cette option contient vos tables de paramétrage
     administration          Les scripts de cet option contiennent tout les scripts
                                 du framework pour le paramètrage de la collectivité,
                                 des états / sous états  et la gestion des accès                                
@@ -94,7 +94,7 @@ rubrique contient un tableau par lien :
 Les caracteristiques de ce tableau sont les suivantes :
 
 
-- tableau rubrik ::
+    tableau rubrik ::
 
      title (obligatoire)
      description (texte qui s'affiche au survol de la rubrique)
@@ -103,7 +103,7 @@ Les caracteristiques de ce tableau sont les suivantes :
      right (droit que l'utilisateur doit avoir pour visionner cette rubrique)
      links (obligatoire)
 
-- tableau links ::
+    tableau links ::
 
      title (obligatoire) 
      href (obligatoire) (contenu du lien href)
@@ -113,21 +113,21 @@ Les caracteristiques de ce tableau sont les suivantes :
 
 
 ============
-le menu haut
+Le menu haut
 ============
 
 Le paramétrage du menu haut se fait dans le fichier *dyn/action.inc.php*
 
-Par défaut, il est paramètré le changement de mot de poste et la deconnexion
+Par défaut, il est paramétré le changement de mot de poste et la déconnexion
 
 
-$actions est le tableau associatif qui contient tous les liens presents dans
-les actions a cote du login et du nom de la collectivite
+$actions est le tableau associatif qui contient tous les liens présents dans
+les actions à côté du login et du nom de la collectivite
 
-les caracteristiques du tableau link sont les suivantes :
+les caractéristiques du tableau link sont les suivantes :
 
 
-- tableau link ::
+    tableau link ::
 
 
     title (obligatoire)
@@ -137,9 +137,9 @@ les caracteristiques du tableau link sont les suivantes :
     right (droit que l'utilisateur doit avoir pour visionner cet element)
     target (pour ouvrir le lien dans une nouvelle fenetre)
 
-Les liens sous le menu des actions se paramètrent dans le fichier : *dyn/shortlinks.inc.php*
+Les liens sous le menu des actions se paramétrent dans le fichier : *dyn/shortlinks.inc.php*
 
-$shortlinks est le tableau associatif qui contient tous les liens presents
+$shortlinks est le tableau associatif qui contient tous les liens présents
 dans les raccourcis qui se situent en dessous des actions du menu haut
  
 Par défaut, il est paramétré l'accès au tableau de bord.
@@ -147,7 +147,7 @@ Par défaut, il est paramétré l'accès au tableau de bord.
 Les caracteristiques du tableau $link sont les suivantes :
 
 
-- tableau link ::
+    tableau link ::
 
     title [obligatoire]
     description (texte qui s'affiche au survol de l'element)
@@ -178,12 +178,13 @@ tableau de bord pour l'utilisateur "demo"
 
 
 ==================================
-les variables locales et la langue
+Les variables locales et la langue
 ==================================
 
 Les variables locales sont paramétrées dans le fichier *dyn/locales.inc.php*
 
 Ce fichier contient :
+
 
 - le paramétrage du codage des caracteres ::
 
@@ -206,6 +207,7 @@ Ce fichier contient :
 
 Les zones à traduire sont sous le format : _("zone a traduire")
 
+
 Voir le chapître sur les outils : *poEdit*
 
 
@@ -216,8 +218,8 @@ Le paramétrage de l application metier
 
 L'application métier est paramétrée dans *dyn/var.inc*
 
-Ce script contient les parametres globaux de l application . 
-Attention les paramètres s'appiquent à toutes les bases de l'application.
+Ce script contient les paramétres globaux de l application . 
+Attention les paramètres s'appliquent à toutes les bases de l'application.
 
 Le paramétrage spécifique par collectivité doit se faire dans la table om_parametre 
 
@@ -242,13 +244,13 @@ Ce mode permet de pre-remplir le formulaire de login avec l'identifiant 'demo' e
     $config['demo'] = false;  l'application n'est pas en mode démo
                       true; l'application est en mode démo
  
-Attention, pour empêcher de changer le mot de passe, il faut paramétrer l'accès
-dans la table om_droit : password
+    Attention, pour empêcher de changer le mot de passe, il faut paramétrer l'accès
+    dans la table om_droit : password
 
 
 * La configuration des extensions autorisees dans le module upload.php
 
- Pour ajouter votre configuration, decommenter la ligne et modifier les extensions avec des ; comme separateur ::
+ Pour changer votre configuration, décommenter la ligne et modifier les extensions avec des ";" comme séparateur ::
 
     $config['upload_extension'] = ".gif;.jpg;.jpeg;.png;.txt;.pdf;.csv;"
 
@@ -263,7 +265,7 @@ dans la table om_droit : password
     $config['theme'] = "om_overcast";
 
 
-les thèmes open mairie exemples sont : "om_overcast"; "om_sunny"; "om_ui-darkness";
+Les thèmes openmairie_exemple sont : "om_overcast"; "om_sunny"; "om_ui-darkness";
 
 Vous pouvez mettre d'autres themes jquery.
 
@@ -275,12 +277,10 @@ Le Parametrage des librairies
 
 Le paramétrage de l'accès aux librairies se fait dans *dyn/include.inc.php*
 
- Ce fichier permet de configurer quels paths vont etre ajoutes a la
- directive include_path du fichier php.ini
-
- Ce tableau permet de stocker la liste des chemins a ajouter a la directive
- include_path, vous pouvez modifier ces chemins avec vos propres valeurs si
- vous voulez personnaliser votre installation,
+ Ce fichier permet de configurer les paths en fonction de la 
+ directive include_path du fichier php.ini. 
+ Vous pouvez aussi modifier ces chemins avec vos propres valeurs si
+ vous voulez personnaliser votre installation :
  
   PEAR ::
   
@@ -313,20 +313,20 @@ Le mode debug
 
 Le mode debug d'openMairie se paramétre dans  *dyn/debug.inc.php*
 
-Ce fichier contient le parametrage pour le mode debug
+Ce fichier contient le paramétrage pour le mode debug
 d'openMairie (om_debug.inc.php)
 
 Valeur de la variable globale DEBUG
 
-  VERBOSE_MODE : mode bavard
+  VERBOSE_MODE : mode "bavard"
 
   DEBUG_MODE : mode debug
 
   PRODUCTION_MODE : mode de production (pas de message)
    
-========================
-version de l'application
-========================
+===============================
+La version de votre application
+===============================
 
 Vous devez mettre le numéro de version et la date  de votre application
 dans *dyn/version.inc*
@@ -337,11 +337,11 @@ Voir *le versionage des applications*.
 
 
 ==========================
-les informations generales
+Les informations generales
 ==========================
 
 
-les fichiers textes d'information generale sont à la racine du site
+Les fichiers textes d'information générale sont à la racine de l'application  :
 
 README.txt :
 
@@ -365,9 +365,9 @@ TODO.txt : feuille de route - roadmap
 INSTALL.txt : installation de l application
 
 
-===========================
-l' installation automatique
-===========================
+==========================
+L'installation automatique
+==========================
 
 La mise en place d une installation automatique est prévue dans la version openMairie 4.0.1
 
