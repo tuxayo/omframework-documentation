@@ -6,11 +6,12 @@ l analyse de la base
 
 Les informations de la base sont analysées par la méthode « constructeur » de gen.class.php 
 
-La construction des formulaires se fait suivant 4 types de champs reconnus par le générateur:
-- string : chaîne de caractère 
-- int : nombre (entier ou décimal)
-- date 
-- blob : texte
+La construction des formulaires se fait suivant 4 types de champs reconnus par le générateur: ::
+
+    - string : chaîne de caractère 
+    - int : nombre (entier ou décimal)
+    - date 
+    - blob : texte
 
 ==============
 Type de champs
@@ -44,8 +45,9 @@ La longueur et la largeur sont définis en fichier de paramétrage form.inc
 
 La taille n est pas pris en compte dans la longueur d'enregistrement
 
-Les paramètres de dyn/form.inc permettent d'établir la longueur et la largeur d'affichage d'un blob :
-	$max=6; // nombre de ligne blob
+Les paramètres de dyn/form.inc permettent d'établir la longueur et la largeur d'affichage d'un blob : ::
+	
+    $max=6; // nombre de ligne blob
 	$taille=80; // taille du blob
 
 
@@ -112,14 +114,15 @@ Dans le cas ou rien n'est saisi, il est proposé dans form.inc ::
     $pgsql_taille_minimum = 10; // taille minimum d affichage d un champ
 
 
-=====================
-Nom de champ et table
-=====================
+============================
+Nom de champ et nom de table
+============================
 
 Attention au nom de tables ou de champs, évitez les termes SQL : match, table, index, type, len ... ou openMairie : objet pour les noms de champs ou table
 
-Specifique au generateur :
+Les règles suivantes sont spécifiques au générateur pour reconnaître
+les clés primaires et les clés secondaires :
 
-cle primaire de la table = nom de la table
+la cle primaire de la table a le même nom que la table
 
-cle secondaire = nom de la table fille
+le cle secondaire a le même nom que la table fille

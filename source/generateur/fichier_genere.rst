@@ -1,7 +1,7 @@
 .. _fichier_genere:
 
 ####################
-Les fichiers generes
+Les fichiers générés
 ####################
 
 Les fichiers générés concernent :
@@ -18,15 +18,16 @@ Les formulaires
 
 Les formulaires sont génèrés suivant le nom de la table dans le répertoire sql, sous repertoire portant le nom de la base pour régler le problème de compatibilité SQL (concaténation, extraction ...) 
 
-Paramètres des 2 formulaires sont générés :
+Deux types de formulaire sont générés : type table, type form.
 
-------------
-Type table :
-------------
+--------------------------
+Paramétres de type table :
+--------------------------
 
 - gen/sql/base/nom_table.inc
 
 - sql/base/nom_table.inc
+
 
 Par défaut :
 
@@ -46,9 +47,9 @@ $serie = nombre d'enregistrement par page
 
 $ico = icône par defaut
 
-----------
-Type Form: 
-----------
+-------------------------
+Paramétres de type Form : 
+-------------------------
 
 gen/sql/base/nom_table.form.inc
 
@@ -71,18 +72,15 @@ Cela permet de pouvoir modifier la base de données (ajout, modification ou supp
 
 Un second script héritant de l'objet généré permet de surcharger les méthodes et de personnalisé l'objet métier.
 
-Toutes les modifications doivent être faites dans ce script :
-
-soit en héritant de la méthode
-
-soit en surchargeant la méthode
+Toutes les modifications doivent être faites dans ce script soit en héritant de la méthode,
+soit en surchargeant la méthode.
 
 
-L'objet destiné à personnaliser l'objet est stocké en obj/nom_table.class.php
+L'objet à personnaliser est stocké en obj/nom_table.class.php
 
 Les méthodes  générés dans l'objet métier gen/obj/nom_table.class.php sont par défaut les suivantes. 
 
-- type de champs
+Le type de champs est :
 
   
     . caché (hidden) en ajout pour la clé primaire automatique, 
@@ -97,90 +95,89 @@ Les méthodes  générés dans l'objet métier gen/obj/nom_table.class.php sont 
  
     . la date est au format français
 
-- longueur des champs :
 
-  
-la longueur d'affichage et le maximum autorisé à la saisie est celle contenu dans la base d'origine (retraitée pour les champs string de pgsql)
+La longueur d'affichage et le maximum autorisé à la saisie est celle contenu dans la base d'origine (retraitée pour les champs string de pgsql)
 
-contrôle des clés secondaires des autres tables : il n'est pas possible de supprimer un enregistrement si des enregistrements sont liés à la clé primaire
+Le contrôle des clés secondaires des autres tables est généré : il n'est pas possible de supprimer un enregistrement si des enregistrements sont liés à la clé primaire
 
-libellés : ce sont les noms des champs.
+Les libellés sont les noms des champs.
+
 
 Ce module sert pour le formulaire et le(s) sous formulaire(s).
 
 Les méthodes qui peuvent être implémentés dans obj/nom_table.class.php sont les suivantes 
 
-- verifier
+    - verifier
+    
+    - regroupe et groupe pour modifier les présentations
+    
+    - trigger avant ou après l'enregistrement:
+    
+    - triggerajouter
+    
+    - triggermodifier
+    
+    - triggersupprimer
+    
+    - triggerajouterapres
+    
+    - triggermodifierapres
+    
+    - triggersupprimerapres
 
-- regroupe et groupe pour modifier les présentations
-
-- trigger avant ou après l'enregistrement:
-
-- triggerajouter
-
-- triggermodifier
-
-- triggersupprimer
-
-- triggerajouterapres
-
-- triggermodifierapres
-
-- triggersupprimerapres
 
 Les méthodes de l'objet généré en gen/obj  peuvent être surchargées totalement ou partiellement :
 
-exemple :
-
-om_profil.class.php :
-
-    surcharge des méthodes
-
-        setValFAjout setId,
-
-        verifierAjout
-
-        et setType car la clé primaire est numérique et non automatique
-
-om_utilisateur.class.php :
-
-    champ pwd pour mot de passe  methode partiellement surchargées (parent::setvalF($val);) setvalF, setType, setValsousformulare, surcharge avec un javascript de mise en majuscule du nom
+Exemple :
+    
+    om_profil.class.php :
+    
+        surcharge des méthodes
+    
+            setValFAjout setId,
+    
+            verifierAjout
+    
+            et setType car la clé primaire est numérique et non automatique
+    
+    om_utilisateur.class.php :
+    
+        champ pwd pour mot de passe  methode partiellement surchargées (parent::setvalF($val);) setvalF, setType, setValsousformulare, surcharge avec un javascript de mise en majuscule du nom
 
 
 Enfin, il est possible de mettre en place d'autres type de champs disponible dans openMairie 
 
 
-Type de champs openMairie
 
 - ComboG  combo gauche
 
-- comboD combo droit
-
-- Localisation (geolocalisation en x, y)
-
-- http (lien)
-
-- httpclick (lien)
-
-- Password (Mot de passe)
-
-- Pagehtml (Textearea pour affichage html)
-
-- Textdisabled (Text non modifiable)
-
-- Selectdisabled (Select non modifiable)
-
-- Textreadonly (Text non modifiable)
-
-- Hidden (champ caché)
-
-- Checkbox (case a cocher oui/non)
-
-- Upload (chargement d'un fichier)
-
-- voir (voir un fichier téléchargé)
-
-- Rvb (choisir une couleur rvn avec la Palette de couleur)
+    - comboD combo droit
+    
+    - Localisation (geolocalisation en x, y)
+    
+    - http (lien)
+    
+    - httpclick (lien)
+    
+    - Password (Mot de passe)
+    
+    - Pagehtml (Textearea pour affichage html)
+    
+    - Textdisabled (Text non modifiable)
+    
+    - Selectdisabled (Select non modifiable)
+    
+    - Textreadonly (Text non modifiable)
+    
+    - Hidden (champ caché)
+    
+    - Checkbox (case a cocher oui/non)
+    
+    - Upload (chargement d'un fichier)
+    
+    - voir (voir un fichier téléchargé)
+    
+    - Rvb (choisir une couleur rvn avec la Palette de couleur)
 
 
 
@@ -221,11 +218,11 @@ les requêtes mémorisées
 
 Les requêtes paramétrées sont crées suivant le principe suivant :
 
-- une requête globale
-
-- une requête avec un champ select pour chaque clé secondaire (il est possible de sélectionner la requête à générer
-
-- Les autres champs sont sélectionnés à l'affichage
+    - une requête globale
+    
+    - une requête avec un champ select pour chaque clé secondaire (il est possible de sélectionner la requête à générer
+    
+    - Les autres champs sont sélectionnés à l'affichage
 
 Les requêtes sont accessibles dans l'option du menu -> export.
 
@@ -236,11 +233,11 @@ les imports
 
 Un script d'import des données est généré suivant le principe suivant :
 
-- si la clé est automatique, génération du compteur
-
-- tous les champs sont importés
-
-- vérification de l'existence de la clé secondaire à chaque enregistrement 
+    - si la clé est automatique, génération du compteur
+    
+    - tous les champs sont importés
+    
+    - vérification de l'existence de la clé secondaire à chaque enregistrement 
 
 
 Les tables avec clés secondaires doivent donc être importées en dernier.

@@ -1,7 +1,7 @@
 .. _parametrage_generateur:
 
 ######################
-Parametrage generateur
+Paramétrage generateur
 ######################
 
 Le paramétrage de base est dans le répertoire gen/dyn/standard.
@@ -184,8 +184,9 @@ Parametres ::
     $C3border=167;// couleur texte  B";
     $bt=1;// border 1ere  et derniere ligne  du tableau par page->0 ou 1";
 
+
 =========================
-customiser le paramétrage
+Customiser le paramétrage
 =========================
 
 Il est possible de personnaliser le paramétrage dans le répertoire custom ou en créant un autre répertoire avec des paramètres personnels.
