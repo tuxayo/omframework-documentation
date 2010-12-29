@@ -66,8 +66,8 @@ Si le paramétre "right" est vide vous pouvez faire appel aux méthodes suivante
     isAccredited() // a le droit ou pas
     isAuthentified // si non authentifié, il est rejeté
     
-    $f->setRight($obj); // affecte un drait d acces
-    $f->isAuthorized(); //verification que l utilisateur accede
+    $f->setRight($obj); // affecte un droit d acces
+    $f->isAuthorized(); //verification que l utilisateur accéde
 
     // Affectation des variables en dehors du constructeur 
     $f->setTitle($ent);

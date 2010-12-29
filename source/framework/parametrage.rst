@@ -127,7 +127,7 @@ les actions à côté du login et du nom de la collectivite
 les caractéristiques du tableau link sont les suivantes :
 
 
-    tableau link ::
+tableau link ::
 
 
     title (obligatoire)
@@ -147,7 +147,7 @@ Par défaut, il est paramétré l'accès au tableau de bord.
 Les caracteristiques du tableau $link sont les suivantes :
 
 
-    tableau link ::
+tableau link ::
 
     title [obligatoire]
     description (texte qui s'affiche au survol de l'element)

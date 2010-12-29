@@ -12,7 +12,7 @@ Ce document a pour but de guider les développeurs dans la mise en oeuvre
 d'un projet openMairie.
 
 Avec plus de 30 applications développées pour les collectivités locales accessibles
-sur le site http://openmairie.org, nous souhaitons au trvers de ce guide , diffuser notre
+sur le site http://openmairie.org, nous souhaitons au travers de ce guide , diffuser notre
 expérience auprès  des collectivités et des acteurs économiques du libre qui les accompagnent.
 Bonne lecture, et n'hésitez pas à nous faire part de vos remarques à l'adresse suivante :
 contact@openmairie.org
@@ -24,7 +24,7 @@ framework openMairie en vous guidant pas à pas dans le mise en place d'une
 gestion de courrier.
 
 Le chapître sur le "framework" complète l'exemple ci dessus en vous décrivant
-le paramètrage, les classes formulaires et éditions du framework. Il a pur but
+le paramètrage, les classes formulaires et éditions du framework. Il a pour but
 de vous informer de manière complète sur le fonctionnement du framework
 
 Le chapître consacré au "générateur" décrit dans le détail le fonctionnement
@@ -71,7 +71,7 @@ Le framework
 
 
 
-Le generateur
+Le générateur
 =============
 
 .. toctree::

@@ -16,25 +16,25 @@ Les informations récupérées dans le SGBD sont les suivantes
  		les tables : nom, type , et longueur de chaque champs
 
 
-Le générateur construit sur cette base le modèle de données sur les principes suivants:
+Le générateur construit sur cette base le modèle de données sur les principes suivants: ::
 
-    - le nom de la clé primaire est le nom de la table et c'est le premier champ : ::
+     le nom de la clé primaire est le nom de la table et c'est le premier champ 
     
-    - la clé secondaire est le nom de la table en lien 
+     la clé secondaire est le nom de la table en lien 
     
-    - si la clé est numérique, elle est automatique. 
+     si la clé est numérique, elle est automatique. 
     
-    - avec la multicollectivité, la création d'un champ « om_collectivite » met en place les accès multicollectivités d'openMairie 4
+     avec la multicollectivité, la création d'un champ « om_collectivite » met en place les accès multicollectivités d'openMairie 4
 
-La version 4.00 ne reprend pas (par rapport a la version 3):: 
+La version 4.00 ne reprend pas (par rapport a la version 3): :: 
 
-    - l'état reprenant l'enregistrement et les sous états rattachés  à l'état principal par la ou les clés secondaires
+     l'état reprenant l'enregistrement et les sous états rattachés  à l'état principal par la ou les clés secondaires
     
-    - la documentation avec un lien sur les pages des tables reliées par la clé secondaire et l'option dans la documentation globale
+     la documentation avec un lien sur les pages des tables reliées par la clé secondaire et l'option dans la documentation globale
     
-    - l'option dans le menu et le tableau de bord  
+     l'option dans le menu et le tableau de bord  
     
-    - la prise en compte dans la recherche globale
+     la prise en compte dans la recherche globale
 
 
 **Les assistants vont faciliter la mise en oeuvre des états**
