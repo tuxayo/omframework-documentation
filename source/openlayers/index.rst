@@ -35,37 +35,3 @@ service
 
 
 
-
-===============
-getCapabilities
-===============
-http://vmap0.tiles.osgeo.org/wms/vmap0?request=GetCapabilities&version=1.0.0&service=WMS
-
-?request
-&version 
-& 
-
-getMap
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
