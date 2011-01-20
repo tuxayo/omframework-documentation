@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Les éditions &mdash; openMairie - Guide du développeur v0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="top" title="openMairie - Guide du développeur v0.0 documentation" href="../index.html" />
+    <link rel="up" title="<no title>" href="index.html" />
+    <link rel="next" title="Les requêtes memorisées" href="reqmo.html" />
+    <link rel="prev" title="La méthode" href="methode.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="reqmo.html" title="Les requêtes memorisées"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="methode.html" title="La méthode"
+             accesskey="P">précédent</a> |</li>
+        <li><a href="../index.html">openMairie - Guide du développeur v0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="les-ditions">
+<span id="edition"></span><h1>Les éditions<a class="headerlink" href="#les-ditions" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Les éditions sont accessibles dans le menu par :</p>
+<ul class="simple">
+<li>administration -&gt; etat</li>
+<li>administration -&gt; sousetat</li>
+<li>administration -&gt; lettretype</li>
+</ul>
+<p>Depuis la version 4 d&#8217;openMairie, les editions sont conservées dans 3 tables :</p>
+<ul class="simple">
+<li>om_etat : pour les états</li>
+<li>om_sousetat : pour les sous etats</li>
+<li>om_lettretype : pour les lettres types</li>
+</ul>
+<p>Cette modification a été faite pour pouvoir gérer la multi collectivité.</p>
+<p>Par contre, les tableaux pdf sont stockés dans un fichier : nom_objet.pdf.inc</p>
+<div class="section" id="actif-non-actif">
+<h2>Actif, non actif<a class="headerlink" href="#actif-non-actif" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les sous etats sont liés a un ou plusieurs état</p>
+<p>Les états, sous etats, et lettre type peuvent être actif ou non actif</p>
+<p>Par défaut sont pris en compte :</p>
+<p>1 - l&#8217;édition  &#8220;actif&#8221; de la collectivite</p>
+<p>2 - l&#8217;édition &#8220;actif&#8221; de la multicollectivite</p>
+<p>3 - l&#8217;édition &#8220;non actif&#8221; de la multicollectivite</p>
+<p>Les editions non actifs d&#8217;une collectivite ne sont pas pris en compte</p>
+</div>
+<div class="section" id="param-trer-des-etats">
+<h2>Paramétrer des etats<a class="headerlink" href="#param-trer-des-etats" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est conseillé d utiliser l&#8217;assistant état du generateur</p>
+<p>Les paramètres sont les suivants</p>
+<div class="highlight-python"><pre>orientation portrait ou paysage
+format="A4", A3
+position et nom  du logo
+titre de l etat
+position et caractéristiques du titre
+corps de l etat
+position et caractéristiques du corps
+la requete SQL
+les sous etats associés et les caractéristiques</pre>
+</div>
+<p>Pour le corps, le titre et la requete sql, les zones entre crochets (exemple [nom]) sont les champs selectionnés par la requete.</p>
+<p>Les variables commençant par &#8220;&amp;&#8221; sont définies dans dyn/varpdf.inc (exemple &amp;aujourdhui)
+et dans la table om_parametre.</p>
+</div>
+<div class="section" id="param-trer-des-sous-etats">
+<h2>Paramétrer des sous etats<a class="headerlink" href="#param-trer-des-sous-etats" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est conseillé d utiliser l&#8217;assistant sousetat du générateur</p>
+<p>Les paramétres  sont les suivants</p>
+<div class="highlight-python"><pre>texte et caractéristique du Titre
+Intervalle avant et apres le tableau
+Entete de tableau (nom de colone)
+caracteristique du tableau
+caracteristique des cellules
+tatal, moyenne, nombre
+requete sql</pre>
+</div>
+<p>Pour le titre et la requete sql, les zones entre crochets sont les champs selectionnés par la requete.</p>
+<p>Les variables commençant par &#8220;&amp;&#8221; sont définies dans dyn/varpdf.inc (exemple &amp;aujourdhui)
+et dans la table om_parametre</p>
+</div>
+<div class="section" id="param-trer-des-lettres-type">
+<h2>Paramétrer des lettres type<a class="headerlink" href="#param-trer-des-lettres-type" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est conseillé d utiliser l assistant lettretype du generateur</p>
+<p>Les paramétres sont les suivants</p>
+<div class="highlight-python"><pre>orientation portrait ou paysage
+format="A4", A3
+position et nom  du logo
+titre de la lettre
+position et caractéristiques du titre
+corps de la lettre
+position et caractéristiques du corps
+la requete SQL</pre>
+</div>
+<p>Pour le corps, le titre et la requete sql, les zones entre crochets  sont les champs selectionnés par la requete.</p>
+<p>Les variables commençant par &#8220;&amp;&#8221; sont définies dans dyn/varlettretypepdf.inc (exemple &amp;aujourdhui)
+et dans la table om_parametre</p>
+</div>
+<div class="section" id="parametrer-des-edition-pdf">
+<h2>Parametrer des edition pdf<a class="headerlink" href="#parametrer-des-edition-pdf" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un etat pdf peut être généré par le generateur (option)</p>
+<p>L&#8217;edition est paramétrée dans un fichier sql/sgbd/nom_objet.pdf.inc et dans la</p>
+<p>Les paramétres sont les suivants</p>
+<div class="highlight-python"><pre>texte et caractéristique du Titre
+Entete de tableau (nom de colone)
+caracteristique du tableau
+caracteristique des cellules
+tatal, moyenne, nombre
+requete sql</pre>
+</div>
+<p>Pour le titre et la requete sql, les zones entre crochets sont les champs selectionnés par la requete.</p>
+<p>Les variables commençant par &#8220;&amp;&#8221; sont définies dans dyn/varpdf.inc (exemple &amp;aujourdhui)
+et dans la table om_parametre</p>
+</div>
+<div class="section" id="parametrer-les-etiquettes">
+<h2>Parametrer les etiquettes<a class="headerlink" href="#parametrer-les-etiquettes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les zones entre crochets  sont les champs selectionnés par la requete.
+La variable  &amp;aujourdhui sont définies dans dyn/varetiquettepdf.inc et dans la
+table om_parametre</p>
+<p>Il y aura une integration depuis l utilisation d&#8217;openPersonnalite dans la version openMairie 4.0.1..</p>
+</div>
+<div class="section" id="l-diteur-wysiwyg">
+<h2>L&#8217;éditeur WYSIWYG<a class="headerlink" href="#l-diteur-wysiwyg" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un editeur est prevu dans la prochaine version openMairie 4.0.1</p>
+</div>
+<div class="section" id="les-scripts-pdf">
+<h2>Les scripts PDF<a class="headerlink" href="#les-scripts-pdf" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les scripts sont dans le répertoire  <strong>pdf/</strong> et sont  appellés par le framework sous la forme</p>
+<div class="highlight-python"><pre>pdfetat.php?obj=nom_etat&amp;idx=enregistrement_a_editer</pre>
+</div>
+<p>les scripts sont les suivants</p>
+<div class="highlight-python"><pre>pdfetat.php : etat et sous etat
+pdf.php : edition pdf
+pdfetiquette.php : etiquette
+pdflettretype.php</pre>
+</div>
+<p>pdfEtiquette sera repris dans la version 4.0.1 d&#8217;openMairie</p>
+<p><strong>specifique openCourrier pour ecriture sur pdf</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">fpdf_tpl</span><span class="o">.</span><span class="n">php</span>
+<span class="n">fpdi</span><span class="o">.</span><span class="n">php</span>
+<span class="n">fpdi2tcpdf_bridge</span><span class="o">.</span><span class="n">php</span>
+<span class="n">fpdi_pdf_parser</span><span class="o">.</span><span class="n">php</span>
+<span class="n">histo</span><span class="o">.</span><span class="n">htm</span>
+<span class="n">pdf_context</span><span class="o">.</span><span class="n">php</span>
+<span class="n">pdf_parser</span><span class="o">.</span><span class="n">php</span>
+<span class="n">testfpdi</span><span class="o">.</span><span class="n">php</span>
+</pre></div>
+</div>
+<p>Il n est pas prévu d integration dans la prochaine version</p>
+</div>
+<div class="section" id="composants">
+<h2>composants<a class="headerlink" href="#composants" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les composants php sont stockés en <strong>php/</strong></p>
+<p><em>/openmairie</em></p>
+<p>Les scripts ci dessous sont les classes qui interfacent openmairie avec fpdf</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">fpdf_etat</span><span class="o">.</span><span class="n">php</span>
+<span class="n">fpdf_etiquette</span><span class="o">.</span><span class="n">php</span>
+<span class="n">db_fpdf</span><span class="o">.</span><span class="n">php</span>
+</pre></div>
+</div>
+<p><em>/fpdf</em></p>
+<blockquote>
+A ce niveau se situe le composant fpdf</blockquote>
+<p><em>/phpmailer</em></p>
+<blockquote>
+la gestion de mail est EN TEST avec openPersonnalite et sera intégré dans  openMairie 4.0.1</blockquote>
+<p>Les composants javascript sont stockés dans le repertoire <strong>lib/</strong></p>
+<p><em>/tinymce</em></p>
+<blockquote>
+est l&#8217;editeur wisiwig   EN TEST sur openRecensement et qui sera intégré dans openmairie 4.0.1)</blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table des matières</a></h3>
+            <ul>
+<li><a class="reference external" href="">Les éditions</a><ul>
+<li><a class="reference external" href="#actif-non-actif">Actif, non actif</a></li>
+<li><a class="reference external" href="#param-trer-des-etats">Paramétrer des etats</a></li>
+<li><a class="reference external" href="#param-trer-des-sous-etats">Paramétrer des sous etats</a></li>
+<li><a class="reference external" href="#param-trer-des-lettres-type">Paramétrer des lettres type</a></li>
+<li><a class="reference external" href="#parametrer-des-edition-pdf">Parametrer des edition pdf</a></li>
+<li><a class="reference external" href="#parametrer-les-etiquettes">Parametrer les etiquettes</a></li>
+<li><a class="reference external" href="#l-diteur-wysiwyg">L&#8217;éditeur WYSIWYG</a></li>
+<li><a class="reference external" href="#les-scripts-pdf">Les scripts PDF</a></li>
+<li><a class="reference external" href="#composants">composants</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Sujet précédent</h4>
+            <p class="topless"><a href="methode.html"
+                                  title="Chapitre précédent">La méthode</a></p>
+            <h4>Sujet suivant</h4>
+            <p class="topless"><a href="reqmo.html"
+                                  title="Chapitre suivant">Les requêtes memorisées</a></p>
+            <h3>Cette page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/framework/edition.txt"
+                     rel="nofollow">Montrer la source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Recherche rapide</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             >index</a></li>
+        <li class="right" >
+          <a href="reqmo.html" title="Les requêtes memorisées"
+             >suivant</a> |</li>
+        <li class="right" >
+          <a href="methode.html" title="La méthode"
+             >précédent</a> |</li>
+        <li><a href="../index.html">openMairie - Guide du développeur v0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, openMairie.
+      Créé avec <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>

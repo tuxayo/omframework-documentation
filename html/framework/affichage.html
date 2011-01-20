@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Afficher les tables &mdash; openMairie - Guide du développeur v0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="top" title="openMairie - Guide du développeur v0.0 documentation" href="../index.html" />
+    <link rel="up" title="<no title>" href="index.html" />
+    <link rel="next" title="Les formulaires" href="formulaire.html" />
+    <link rel="prev" title="Paramétrage du framework" href="parametrage.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="formulaire.html" title="Les formulaires"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="parametrage.html" title="Paramétrage du framework"
+             accesskey="P">précédent</a> |</li>
+        <li><a href="../index.html">openMairie - Guide du développeur v0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="afficher-les-tables">
+<span id="affichage"></span><h1>Afficher les tables<a class="headerlink" href="#afficher-les-tables" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Il est décrit dans ce paragraphe l&#8217;affichage de requete sous forme de table
+pour faire un choix d&#8217;ajout, de mise à jour ou de suppression.</p>
+<img alt="../_images/tab_1.png" src="../_images/tab_1.png" />
+<div class="section" id="la-requete-sql-d-affichage">
+<h2>La requete SQL d&#8217;affichage<a class="headerlink" href="#la-requete-sql-d-affichage" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Elle se trouve dans sql/type_de_sgbd/nom_objet.inc</p>
+<p>Les paramétres sont les suivants pour om_parametre.inc</p>
+<div class="highlight-python"><pre>$serie=15;                                      Nombre d'enregistrement par page
+
+$ico="../img/ico_application.png";              Icone affiché
+
+$ent = _("option")." -&gt; "._("om_parametre");    Titre du tableau
+
+$idz                                            affichage en haut du formulaire
+
+$table=DB_PREFIXE."om_parametre";               Table de référence
+                                                (il peut y avoir une ou plusieurs jointure)
+$champAffiche=array('om_parametre',
+                    'libelle',
+                    'valeur',
+                    'om_collectivite');
+
+$champRecherche=array('libelle','valeur');      Champs pour la recherche
+
+$tri="";                                        Critere de tri par défaut
+
+$edition="om_parametre";                        edition pdf
+
+$sousformulaire= array()                        sous formulaire(s) associé(s)
+
+
+
+autre exemple de sous formulaire avec om_collectivite.inc
+
+    $sousformulaire=array('om_etat',
+                    'om_lettretype',
+                    'om_parametre',
+                    'om_sousetat',
+                    'om_utilisateur');</pre>
+</div>
+</div>
+<div class="section" id="le-script-scr-tab-php">
+<h2>Le script scr/tab.php<a class="headerlink" href="#le-script-scr-tab-php" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L&#8217;affichage se fait à partir du menu (voir <em>framework/parametrage</em>) sous la forme</p>
+<div class="highlight-python"><pre>tab.php?obj=om_parametre
+
+où obj = nom_d_objet</pre>
+</div>
+</div>
+<div class="section" id="le-composant-openmairie">
+<h2>Le composant openMairie<a class="headerlink" href="#le-composant-openmairie" title="Lien permanent vers ce titre">¶</a></h2>
+<p>tab.php utilise les méthodes d&#8217;om_table.class.php qui est une classe d&#8217;openMairie</p>
+<div class="highlight-python"><pre>php/openmairie/om_table.class.php</pre>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table des matières</a></h3>
+            <ul>
+<li><a class="reference external" href="">Afficher les tables</a><ul>
+<li><a class="reference external" href="#la-requete-sql-d-affichage">La requete SQL d&#8217;affichage</a></li>
+<li><a class="reference external" href="#le-script-scr-tab-php">Le script scr/tab.php</a></li>
+<li><a class="reference external" href="#le-composant-openmairie">Le composant openMairie</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Sujet précédent</h4>
+            <p class="topless"><a href="parametrage.html"
+                                  title="Chapitre précédent">Paramétrage du framework</a></p>
+            <h4>Sujet suivant</h4>
+            <p class="topless"><a href="formulaire.html"
+                                  title="Chapitre suivant">Les formulaires</a></p>
+            <h3>Cette page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/framework/affichage.txt"
+                     rel="nofollow">Montrer la source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Recherche rapide</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             >index</a></li>
+        <li class="right" >
+          <a href="formulaire.html" title="Les formulaires"
+             >suivant</a> |</li>
+        <li class="right" >
+          <a href="parametrage.html" title="Paramétrage du framework"
+             >précédent</a> |</li>
+        <li><a href="../index.html">openMairie - Guide du développeur v0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, openMairie.
+      Créé avec <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>

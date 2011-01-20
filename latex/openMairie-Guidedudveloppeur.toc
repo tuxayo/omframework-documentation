@@ -1,0 +1,145 @@
+\select@language {french}
+\contentsline {chapter}{\numberline {1}Cr\IeC {\'e}er une application}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Cr\IeC {\'e}er la base de donn\IeC {\'e}es}{3}{section.1.1}
+\contentsline {section}{\numberline {1.2}Cr\IeC {\'e}er les formulaires}{4}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}G\IeC {\'e}n\IeC {\'e}rer les formulaires et \IeC {\'e}dition du courrier}{5}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}G\IeC {\'e}n\IeC {\'e}rer les formulaires et \IeC {\'e}dition de l'emetteur}{7}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}G\IeC {\'e}n\IeC {\'e}rer les formulaires et \IeC {\'e}dition de service}{7}{subsection.1.2.3}
+\contentsline {subsection}{\numberline {1.2.4}Integrer les formulaires dans le menu}{8}{subsection.1.2.4}
+\contentsline {section}{\numberline {1.3}Personnaliser son application}{11}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Faire un affichage courrier plus convivial}{13}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Rendre obligatoire des champs}{14}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}Valoriser un champ par d\IeC {\'e}faut}{14}{subsection.1.3.3}
+\contentsline {subsection}{\numberline {1.3.4}Mettre en majuscule un champ}{15}{subsection.1.3.4}
+\contentsline {subsection}{\numberline {1.3.5}Principe \IeC {\`a} retenir}{15}{subsection.1.3.5}
+\contentsline {section}{\numberline {1.4}Modifier la base et re g\IeC {\'e}n\IeC {\'e}rer}{15}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Rajouter un champ registre dans courrier}{15}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}Rajouter l'adresse dans emetteur}{16}{subsection.1.4.2}
+\contentsline {subsection}{\numberline {1.4.3}Am\IeC {\'e}liorer la pr\IeC {\'e}sentation du formulaire emetteur}{16}{subsection.1.4.3}
+\contentsline {subsection}{\numberline {1.4.4}Les surcharges d'openCourrier}{17}{subsection.1.4.4}
+\contentsline {section}{\numberline {1.5}Cr\IeC {\'e}er ses \IeC {\'e}tats}{18}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}Cr\IeC {\'e}er l'\IeC {\'e}tat service}{18}{subsection.1.5.1}
+\contentsline {subsection}{\numberline {1.5.2}Cr\IeC {\'e}er le sous \IeC {\'e}tat courrier}{19}{subsection.1.5.2}
+\contentsline {subsection}{\numberline {1.5.3}Associer le sous \IeC {\'e}tat ``courrier'' \IeC {\`a} l'\IeC {\'e}tat ``service''}{19}{subsection.1.5.3}
+\contentsline {subsection}{\numberline {1.5.4}Mettre le nom et le pr\IeC {\'e}nom de l'emetteur dans le sous \IeC {\'e}tat}{20}{subsection.1.5.4}
+\contentsline {chapter}{\numberline {2}Le framework}{23}{chapter.2}
+\contentsline {section}{\numberline {2.1}Param\IeC {\'e}trage du framework}{24}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}La connexion de la base de donnees}{24}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Le menu principal}{25}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Le menu haut}{25}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}Le tableau de bord}{26}{subsection.2.1.4}
+\contentsline {subsection}{\numberline {2.1.5}Les variables locales et la langue}{26}{subsection.2.1.5}
+\contentsline {subsection}{\numberline {2.1.6}Le param\IeC {\'e}trage de l application metier}{27}{subsection.2.1.6}
+\contentsline {subsection}{\numberline {2.1.7}Le Parametrage des librairies}{27}{subsection.2.1.7}
+\contentsline {subsection}{\numberline {2.1.8}Le mode debug}{28}{subsection.2.1.8}
+\contentsline {subsection}{\numberline {2.1.9}La version de votre application}{28}{subsection.2.1.9}
+\contentsline {subsection}{\numberline {2.1.10}Les informations generales}{28}{subsection.2.1.10}
+\contentsline {subsection}{\numberline {2.1.11}L'installation automatique}{28}{subsection.2.1.11}
+\contentsline {subsection}{\numberline {2.1.12}Les param\IeC {\'e}tres des combos}{29}{subsection.2.1.12}
+\contentsline {subsection}{\numberline {2.1.13}Les param\IeC {\'e}tres \IeC {\'e}ditions}{29}{subsection.2.1.13}
+\contentsline {section}{\numberline {2.2}Afficher les tables}{29}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}La requete SQL d'affichage}{30}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Le script scr/tab.php}{30}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Le composant openMairie}{30}{subsection.2.2.3}
+\contentsline {section}{\numberline {2.3}Les formulaires}{31}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Les methodes de formulairedyn.class.php}{31}{subsection.2.3.1}
+\contentsline {subsubsection}{Les sous programmes g\IeC {\'e}n\IeC {\'e}riques}{32}{subsubsection*.2}
+\contentsline {subsubsection}{le script scr/form.php}{32}{subsubsection*.3}
+\contentsline {subsubsection}{Les nouvelles utilisations dans les objets metiers (openMairie 4)}{33}{subsubsection*.4}
+\contentsline {section}{\numberline {2.4}La m\IeC {\'e}thode}{33}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Surcharger les classes openMairie}{33}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Modifier les valeurs par d\IeC {\'e}faut}{34}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}Modifier les valeurs par defaut par les m\IeC {\'e}thodes assesseurs}{34}{subsection.2.4.3}
+\contentsline {subsection}{\numberline {2.4.4}La class dbformdyn.class.php}{34}{subsection.2.4.4}
+\contentsline {subsection}{\numberline {2.4.5}L'objet db}{35}{subsection.2.4.5}
+\contentsline {subsection}{\numberline {2.4.6}L'objet form}{36}{subsection.2.4.6}
+\contentsline {section}{\numberline {2.5}Les \IeC {\'e}ditions}{37}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Actif, non actif}{38}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}Param\IeC {\'e}trer des etats}{38}{subsection.2.5.2}
+\contentsline {subsection}{\numberline {2.5.3}Param\IeC {\'e}trer des sous etats}{38}{subsection.2.5.3}
+\contentsline {subsection}{\numberline {2.5.4}Param\IeC {\'e}trer des lettres type}{39}{subsection.2.5.4}
+\contentsline {subsection}{\numberline {2.5.5}Parametrer des edition pdf}{39}{subsection.2.5.5}
+\contentsline {subsection}{\numberline {2.5.6}Parametrer les etiquettes}{39}{subsection.2.5.6}
+\contentsline {subsection}{\numberline {2.5.7}L'\IeC {\'e}diteur WYSIWYG}{39}{subsection.2.5.7}
+\contentsline {subsection}{\numberline {2.5.8}Les scripts PDF}{40}{subsection.2.5.8}
+\contentsline {subsection}{\numberline {2.5.9}composants}{40}{subsection.2.5.9}
+\contentsline {section}{\numberline {2.6}Les requ\IeC {\^e}tes memoris\IeC {\'e}es}{41}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}Description du parametrage}{41}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.2}Exemple}{42}{subsection.2.6.2}
+\contentsline {section}{\numberline {2.7}La gestion des acc\IeC {\`e}s}{42}{section.2.7}
+\contentsline {subsection}{\numberline {2.7.1}Les tables}{42}{subsection.2.7.1}
+\contentsline {subsection}{\numberline {2.7.2}Les r\IeC {\`e}gles}{43}{subsection.2.7.2}
+\contentsline {subsection}{\numberline {2.7.3}Les login et logout}{43}{subsection.2.7.3}
+\contentsline {subsection}{\numberline {2.7.4}Les utilitaires}{44}{subsection.2.7.4}
+\contentsline {section}{\numberline {2.8}L'ergonomie}{44}{section.2.8}
+\contentsline {subsection}{\numberline {2.8.1}Le composant jquery}{44}{subsection.2.8.1}
+\contentsline {subsection}{\numberline {2.8.2}Les feuilles de style}{44}{subsection.2.8.2}
+\contentsline {subsection}{\numberline {2.8.3}La mise en oeuvre dans les scripts}{44}{subsection.2.8.3}
+\contentsline {section}{\numberline {2.9}Les utilitaires}{44}{section.2.9}
+\contentsline {subsection}{\numberline {2.9.1}Le tutorial}{45}{subsection.2.9.1}
+\contentsline {subsection}{\numberline {2.9.2}Exemple}{47}{subsection.2.9.2}
+\contentsline {section}{\numberline {2.10}Importer des donn\IeC {\'e}es en csv}{48}{section.2.10}
+\contentsline {section}{\numberline {2.11}Int\IeC {\'e}grer le syst\IeC {\`e}me information geographique}{50}{section.2.11}
+\contentsline {subsection}{\numberline {2.11.1}Les scripts sig}{50}{subsection.2.11.1}
+\contentsline {subsection}{\numberline {2.11.2}Installation}{51}{subsection.2.11.2}
+\contentsline {chapter}{\numberline {3}Le g\IeC {\'e}n\IeC {\'e}rateur}{53}{chapter.3}
+\contentsline {section}{\numberline {3.1}G\IeC {\'e}n\IeC {\'e}rateur}{53}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Pr\IeC {\'e}sentation}{53}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Les \IeC {\'e}crans du g\IeC {\'e}n\IeC {\'e}rateur}{54}{subsection.3.1.2}
+\contentsline {subsubsection}{Analyse de la base}{55}{subsubsection*.5}
+\contentsline {subsubsection}{Les fichiers \IeC {\`a} generer}{55}{subsubsection*.6}
+\contentsline {subsection}{\numberline {3.1.3}L'analyse de la base}{56}{subsection.3.1.3}
+\contentsline {subsubsection}{Type de champs}{56}{subsubsection*.7}
+\contentsline {subsubsection}{Equivalence type mysql / type openMairie}{56}{subsubsection*.8}
+\contentsline {subsubsection}{Equivalence type pgsql / type openMairie}{57}{subsubsection*.9}
+\contentsline {subsubsection}{Nom de champ et nom de table}{57}{subsubsection*.10}
+\contentsline {subsection}{\numberline {3.1.4}Les fichiers g\IeC {\'e}n\IeC {\'e}r\IeC {\'e}s}{57}{subsection.3.1.4}
+\contentsline {subsubsection}{Les formulaires}{58}{subsubsection*.11}
+\contentsline {paragraph}{Param\IeC {\'e}tres de type table :}{58}{paragraph*.12}
+\contentsline {paragraph}{Param\IeC {\'e}tres de type Form :}{58}{paragraph*.13}
+\contentsline {subsubsection}{Les Objets \IeC {\guillemotleft }\GenericError {(inputenc) }{Package inputenc Error: Unicode char \u 8:  not set up for use with LaTeX}{See the inputenc package documentation for explanation.}{Your command was ignored.\MessageBreak Type I <command> <return> to replace it with another command,\MessageBreak or <return> to continue without it.}m\IeC {\'e}tier\GenericError {(inputenc) }{Package inputenc Error: Unicode char \u 8:  not set up for use with LaTeX}{See the inputenc package documentation for explanation.}{Your command was ignored.\MessageBreak Type I <command> <return> to replace it with another command,\MessageBreak or <return> to continue without it.}\IeC {\guillemotright }}{58}{subsubsection*.14}
+\contentsline {subsubsection}{Les \IeC {\'e}tats}{60}{subsubsection*.15}
+\contentsline {subsubsection}{les requ\IeC {\^e}tes m\IeC {\'e}moris\IeC {\'e}es}{60}{subsubsection*.16}
+\contentsline {subsubsection}{les imports}{60}{subsubsection*.17}
+\contentsline {subsection}{\numberline {3.1.5}Param\IeC {\'e}trage g\IeC {\'e}n\IeC {\'e}rateur}{60}{subsection.3.1.5}
+\contentsline {subsubsection}{le param\IeC {\'e}trage standard}{60}{subsubsection*.18}
+\contentsline {subsubsection}{Form.inc}{60}{subsubsection*.19}
+\contentsline {subsubsection}{Etat.inc}{61}{subsubsection*.20}
+\contentsline {subsubsection}{Sousetat.inc}{61}{subsubsection*.21}
+\contentsline {subsubsection}{Pdf.inc}{62}{subsubsection*.22}
+\contentsline {subsubsection}{Customiser le param\IeC {\'e}trage}{63}{subsubsection*.23}
+\contentsline {chapter}{\numberline {4}R\IeC {\`e}gles et outils}{65}{chapter.4}
+\contentsline {section}{\numberline {4.1}Les r\IeC {\`e}gles de codage}{65}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}L'indentation du code}{65}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}L'encodage des fichiers}{65}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Tags dans le code PHP}{65}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}Les normes \IeC {\`a} respecter}{65}{subsection.4.1.4}
+\contentsline {subsubsection}{Pourquoi respecter des normes ?}{65}{subsubsection*.24}
+\contentsline {subsubsection}{XHTML Valide et le W3C}{66}{subsubsection*.25}
+\contentsline {subsection}{\numberline {4.1.5}Les commentaires dans le code}{66}{subsection.4.1.5}
+\contentsline {subsection}{\numberline {4.1.6}S\IeC {\'e}paration du contenu et de la pr\IeC {\'e}sentation dans le couple XHTML CSS}{66}{subsection.4.1.6}
+\contentsline {subsection}{\numberline {4.1.7}Images}{66}{subsection.4.1.7}
+\contentsline {section}{\numberline {4.2}Le versionning du code et la version des applications}{66}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Convention de num\IeC {\'e}rotation des versions des applications et librairies}{66}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Apache Subversion (SVN)}{66}{subsection.4.2.2}
+\contentsline {subsubsection}{Pr\IeC {\'e}-requis}{67}{subsubsection*.26}
+\contentsline {subsubsection}{L'arborescence}{67}{subsubsection*.27}
+\contentsline {subsubsection}{Les r\IeC {\`e}gles d'or}{67}{subsubsection*.28}
+\contentsline {subsubsection}{Les commandes basiques \IeC {\`a} conna\IeC {\^\i }tre}{67}{subsubsection*.29}
+\contentsline {subsubsection}{Externals}{67}{subsubsection*.30}
+\contentsline {subsubsection}{Keywords}{68}{subsubsection*.31}
+\contentsline {subsubsection}{Les clients graphiques}{68}{subsubsection*.32}
+\contentsline {subsubsection}{Tutoriaux}{68}{subsubsection*.33}
+\contentsline {paragraph}{Importer un nouveau projet}{68}{paragraph*.34}
+\contentsline {paragraph}{Publier une nouvelle version}{69}{paragraph*.35}
+\contentsline {subsection}{\numberline {4.2.3}Concurrent versions system (CVS)}{70}{subsection.4.2.3}
+\contentsline {section}{\numberline {4.3}Les outils du d\IeC {\'e}veloppeur}{70}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Le navigateur Mozilla Firefox}{70}{subsection.4.3.1}
+\contentsline {subsubsection}{Web Developer}{70}{subsubsection*.36}
+\contentsline {subsubsection}{Firebug}{70}{subsubsection*.37}
+\contentsline {subsubsection}{HTML Validator}{70}{subsubsection*.38}
+\contentsline {subsubsection}{YSlow}{70}{subsubsection*.39}
+\contentsline {subsection}{\numberline {4.3.2}Komodo Edit}{70}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Meld}{71}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}POEdit}{71}{subsection.4.3.4}
+\contentsline {chapter}{\numberline {5}Contributeurs}{73}{chapter.5}

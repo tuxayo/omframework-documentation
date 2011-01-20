@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Créer la base de données &mdash; openMairie - Guide du développeur v0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="top" title="openMairie - Guide du développeur v0.0 documentation" href="../index.html" />
+    <link rel="up" title="<no title>" href="index.html" />
+    <link rel="next" title="Créer les formulaires" href="utiliser_generateur.html" />
+    <link rel="prev" title="<no title>" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="utiliser_generateur.html" title="Créer les formulaires"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="<no title>"
+             accesskey="P">précédent</a> |</li>
+        <li><a href="../index.html">openMairie - Guide du développeur v0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="cr-er-la-base-de-donn-es">
+<span id="creer-base"></span><h1>Créer la base de données<a class="headerlink" href="#cr-er-la-base-de-donn-es" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Vous devez au préalable copier openmairie_exemple dans le repertoire www de votre serveur apache</p>
+<p>Il vous est proposé de créer la base de données sous mysql :</p>
+<ul>
+<li><p class="first">Créer une base de données appellée &#8220;openmairie&#8221;</p>
+</li>
+<li><p class="first">Créer les tables nécessaires au framework openMairie avec le fichier sql</p>
+<blockquote>
+<p>data/mysql/init.sql</p>
+</blockquote>
+</li>
+<li><p class="first">Creer les tables necessaires a notre exemple</p>
+<blockquote>
+<ul>
+<li><p class="first">table courrier</p>
+<div class="highlight-python"><pre>courrier        int 8       cle primaire
+dateenvoi       date
+objetcourrier   text
+emetteur        int8        cle secondaire
+service         int8        cle secondaire</pre>
+</div>
+</li>
+<li><p class="first">table emetteur</p>
+<div class="highlight-python"><pre>emetteur        int 8       cle primaire
+nom             varchar 20
+prenom          varchar 20</pre>
+</div>
+</li>
+<li><p class="first">table service</p>
+<div class="highlight-python"><pre>service         int 8        cle primaire
+libelle         varchar 20</pre>
+</div>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">modifier le paramétrage openMairie pour faire un accès à la base créée si votre base a un nom différent d&#8217;openMairie :</p>
+<blockquote>
+<p>dyn/database.inc.php</p>
+<p>voir framework/parametrage</p>
+</blockquote>
+</li>
+<li><p class="first">accéder avec votre navigateur sur openmairie_exemple</p>
+<div class="highlight-python"><pre>login : demo
+mot de passe : demo</pre>
+</div>
+</li>
+</ul>
+<p>Le script mysql de création de la base de l&#8217;exemple est le suivant</p>
+<div class="highlight-python"><pre>--
+-- Structure de la table 'courrier'
+--
+
+CREATE TABLE courrier (
+  courrier int(8) NOT NULL,
+  dateenvoi date NOT NULL,
+  objetcourrier text NOT NULL,
+  emetteur int(8) NOT NULL,
+  service int(8) NOT NULL,
+  PRIMARY KEY  (courrier)
+) TYPE=MyISAM;
+
+--
+-- Structure de la table 'emetteur'
+--
+
+CREATE TABLE emetteur (
+  emetteur int(8) NOT NULL,
+  nom varchar(20) NOT NULL,
+  prenom varchar(20) NOT NULL,
+  PRIMARY KEY  (emetteur)
+) TYPE=MyISAM;
+
+--
+-- Structure de la table 'service'
+--
+
+CREATE TABLE service (
+  service int(8) NOT NULL,
+  libelle varchar(20) NOT NULL,
+  PRIMARY KEY  (service)
+) TYPE=MyISAM;</pre>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Sujet précédent</h4>
+            <p class="topless"><a href="index.html"
+                                  title="Chapitre précédent">&lt;no title&gt;</a></p>
+            <h4>Sujet suivant</h4>
+            <p class="topless"><a href="utiliser_generateur.html"
+                                  title="Chapitre suivant">Créer les formulaires</a></p>
+            <h3>Cette page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/utilisation/creer_base.txt"
+                     rel="nofollow">Montrer la source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Recherche rapide</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             >index</a></li>
+        <li class="right" >
+          <a href="utiliser_generateur.html" title="Créer les formulaires"
+             >suivant</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="<no title>"
+             >précédent</a> |</li>
+        <li><a href="../index.html">openMairie - Guide du développeur v0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, openMairie.
+      Créé avec <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>La méthode &mdash; openMairie - Guide du développeur v0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="top" title="openMairie - Guide du développeur v0.0 documentation" href="../index.html" />
+    <link rel="up" title="<no title>" href="index.html" />
+    <link rel="next" title="Les éditions" href="edition.html" />
+    <link rel="prev" title="Les formulaires" href="formulaire.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="edition.html" title="Les éditions"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="formulaire.html" title="Les formulaires"
+             accesskey="P">précédent</a> |</li>
+        <li><a href="../index.html">openMairie - Guide du développeur v0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="la-m-thode">
+<span id="methode"></span><h1>La méthode<a class="headerlink" href="#la-m-thode" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Il est décrit ici la méthode pour la création d&#8217; objets métiers:</p>
+<p>Le développement consiste à créer des objets métier (/obj) qui surchargent
+la classe abstraite  dbformdyn.class.php et à modifier les valeurs par défaut
+des variables dans les fichiers sql (nom_objet.inc et nom_objet.form.inc)</p>
+<p>Voir aussi le <em>générateur</em> pour automatiser les scripts métier.</p>
+<div class="section" id="surcharger-les-classes-openmairie">
+<h2>Surcharger les classes openMairie<a class="headerlink" href="#surcharger-les-classes-openmairie" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il vaut mieux utiliser le générateur pour initialiser les classes metiers.</p>
+<p>Le générateur surcharge la classe dbformdyn.class.php par rapport aux informations de la base</p>
+<div class="highlight-python"><pre>classe abstraite &lt;- classe metier generee &lt;- classe metier 1 &lt;- classe metier 2 ...
+openMairie             depuis la base
+
+
+dbformdyn.class.php &lt;- gen/obj/nom_objet.class.php &lt;- obj/nom_objet.class.php</pre>
+</div>
+<p>Exemple avec concession d&#8217;openCimetiere</p>
+<div class="highlight-python"><pre>dbformdyn.class.php  &lt;- gen/obj/emplacement.class.php &lt;-/obj/emplacement.class.php &lt;- /obj/concession.class.php</pre>
+</div>
+</div>
+<div class="section" id="modifier-les-valeurs-par-d-faut">
+<h2>Modifier les valeurs par défaut<a class="headerlink" href="#modifier-les-valeurs-par-d-faut" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est décrit ici les valeurs par défaut dans php/dbformdyn.class.php
+qui est une classe d&#8217;openMairie.</p>
+<p>Les valeurs suivantes sont mises par defaut afin de pouvoir construire rapidemment un formulaire</p>
+<div class="highlight-python"><pre>valeur par defaut
+   en ajout = initialisation vide
+
+type par defaut
+   type text pour ajout et modification
+   type hiddenstatic pour suppression
+
+libelle par défaut :
+   Libellé = nom du champ dans le SGBD
+
+taille et max d un champ
+   Taille et max = longueur du champ dans le SGBD
+
+les regroupements et groupements de champs sont vides
+
+les fonctions javascript ne sont pas utilisées</pre>
+</div>
+</div>
+<div class="section" id="modifier-les-valeurs-par-defaut-par-les-m-thodes-assesseurs">
+<h2>Modifier les valeurs par defaut par les méthodes assesseurs<a class="headerlink" href="#modifier-les-valeurs-par-defaut-par-les-m-thodes-assesseurs" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Elles se font dans la classe obj/nom_objet.class.php</p>
+<p>Les valeurs par défaut sont modifiées par la méthode setVal(nomduchamp, nouvelle valeur)</p>
+<p>Les types par défaut sont modifiés par la méthode setType(nomduchamp, nouveau type)</p>
+<p>Les longueurs d affichage par défaut sont modifiées par la méthode setTaille(nomduchamp, nouvelle valeur)</p>
+<p>Les maximums autorisés par défaut sont modifiés par la méthode setMax(nomduchamp, nouvelle valeur)</p>
+<p>Les libelles de champ par défaut sont modifiés par la méthode setLib(nomduchamp, nouvelle valeur)</p>
+<p>Les scripts javascript sont appellés dans la méthode setOnchange()</p>
+<p>Voir framework/formulaire</p>
+</div>
+<div class="section" id="la-class-dbformdyn-class-php">
+<h2>La class dbformdyn.class.php<a class="headerlink" href="#la-class-dbformdyn-class-php" title="Lien permanent vers ce titre">¶</a></h2>
+<p>dbform.class.php  est une classe openMairie</p>
+<p>La classe abstraite dbform gère l’interface entre l&#8217;objet métier et la base de données connectée via DBPEAR.</p>
+<p>Les méthodes principales sont les suivantes :</p>
+<ul>
+<li><p class="first">orientées sgbd</p>
+<div class="highlight-python"><pre>constructeur
+ajouter : Ajoute un objet
+Modifier : Modifie un objet
+Supprimer : Supprime un objet
+Verifier : Contrôle un objet
+Clesecondaire : Contrôle les cles secondaires
+triggers avant/apres ajout/modification/suppression</pre>
+</div>
+</li>
+<li><p class="first">orientees Formulaire</p>
+<div class="highlight-python"><pre>Formulaire : Constitue le formulaire et fait appel à formulaire.dyn.class.php
+sousFormulaire : Constitue le sousformulaire -&gt; appel à formulaire.dyn.class.php
+Message : Retourne le message d erreur (contrôle php)
+bouton : Affiche le bouton
+Retour : gére le retour à une interface php en fin de saisie
+sousformulaireRetour : gére le retour à une interface php en fin de saisie de sous formulaire
+setType : Envoi au formulaire les type de champ
+setVal : Envoi au formulaire les valeurs par défaut
+setValSousformulaire : Envoi au sousformulaire les valeurs par défaut
+setlib : Envoi au formulaire les libellés de champs
+setTaille : Envoi au formulaire la taille du champ
+setMax : Envoi au formulaire la taille maximum autorisée du champ
+setSelect : Envoi au formulaire les champs select à afficher
+setOnchange : Envoi au formulaire les controles javascript à effectuer en cas de changement de données dans le champ
+setGroupe : Envoi au formulaire le regroupement de champ par ligne
+setRegroupe : Envoi au formulaire un fieldset</pre>
+</div>
+</li>
+<li><p class="first">des fonctions de traitement de champ heure et date:</p>
+<div class="highlight-python"><pre>DateDB : transforme les dates affichées en date pour base de données
+HeureDB : controle du champs heure saisi 00 ou 00:00 ou 00:00:00
+DateSystemeDB : mise au format base de donnees de la date systeme
+DatePHP : controle et transforme la date saisie (jj/mm/aaaa) en date format PHP</pre>
+</div>
+</li>
+<li><p class="first">des fonctions pour faire des calculs</p>
+<div class="highlight-python"><pre>AnneePHP : controle et recupere l’année de la date saisie (jj/mm/aaaa)
+MoisPHP : controle et recupere le mois de la date saisie (jj/mm/aaaa)
+JourPHP : controle et recupere le jour de la date saisie (jj/mm/aaaa)</pre>
+</div>
+</li>
+</ul>
+<p>La classe dbformdyn.class.php fait appel à la classe formulaire.dyn.class.php pour afficher le formulaire.</p>
+<p>Il est créé 2 objets :</p>
+<ul class="simple">
+<li>un objet db qui fait la connexion avec la base</li>
+<li>un objet form qui décrit le formulaire</li>
+</ul>
+</div>
+<div class="section" id="l-objet-db">
+<h2>L&#8217;objet db<a class="headerlink" href="#l-objet-db" title="Lien permanent vers ce titre">¶</a></h2>
+<p>db est l&#8217;objet de connexion a la base dont les proprietes sont les suivantes</p>
+<div class="highlight-python"><pre>DB_pgsql Object
+
+(
+[phptype] =&gt; pgsql
+    [dbsyntax] =&gt; pgsql
+    [features] =&gt; Array (
+                    [limit] =&gt; alter
+                    [new_link] =&gt; 4.3.0
+                    [numrows] =&gt; 1
+                    [pconnect] =&gt; 1
+                    [prepare] =&gt;
+                    [ssl] =&gt; 1
+                    [transactions] =&gt; 1 )
+                    [errorcode_map] =&gt; Array ( )
+                    [connection] =&gt; Resource id #19
+                    [dsn] =&gt; Array (
+                            [phptype] =&gt; pgsql
+                            [dbsyntax] =&gt; pgsql
+                            [username] =&gt; postgres
+                            [password] =&gt; postgres
+                            [protocol] =&gt; tcp
+                            [hostspec] =&gt; localhost
+                            [port] =&gt; 5432
+                            [socket] =&gt;
+                            [database] =&gt; sig
+                            [title] =&gt; Openmairie Exemple PostGreSQL schema SIG
+                            [formatdate] =&gt; AAAA-MM-JJ
+                            [schema] =&gt; openmairie
+                    )
+                    [autocommit] =&gt; 1
+                    [transaction_opcount] =&gt; 0
+                    [affected] =&gt; 0
+                    [row] =&gt; Array ([20] =&gt; 10 )
+                    [_num_rows] =&gt; Array ( [20] =&gt; 10 )
+                    [fetchmode] =&gt; 1
+                    [fetchmode_object_class] =&gt; stdClass
+                    [was_connected] =&gt;
+                    [last_query] =&gt; select * from openmairie.om_parametre where om_collectivite=2
+                    [options] =&gt; Array (
+            [result_buffering] =&gt; 500
+                            [persistent] =&gt;
+                            [ssl] =&gt;
+            [debug] =&gt; 2
+            [seqname_format] =&gt; %s_seq
+            [autofree] =&gt;
+            [portability] =&gt; 63
+            [optimize] =&gt; performance
+            )
+                    [last_parameters] =&gt; Array ( )
+                    [prepare_tokens] =&gt; Array ( )
+                    [prepare_types] =&gt; Array ( )
+                    [prepared_queries] =&gt; Array ( )
+                    [_last_query_manip] =&gt;
+                    [_next_query_manip] =&gt;
+                    [_debug] =&gt;
+                    [_default_error_mode] =&gt;
+                    [_default_error_options] =&gt;
+                    [_default_error_handler] =&gt;
+                    [_error_class] =&gt; DB_Error
+                    [_expected_errors] =&gt; Array ( )
+)</pre>
+</div>
+</div>
+<div class="section" id="l-objet-form">
+<h2>L&#8217;objet form<a class="headerlink" href="#l-objet-form" title="Lien permanent vers ce titre">¶</a></h2>
+<p>form est l&#8217;objet formulaire dont les proprietes sont les suivantes</p>
+<div class="highlight-python"><pre>formulaire Object (
+    [enteteTab] =&gt;
+    [val] =&gt; Array (
+            [om_parametre] =&gt; 1
+            [libelle] =&gt; maire
+            [valeur] =&gt; O PENMAIRIE
+            [om_collectivite] =&gt; 1 )
+    [type] =&gt; Array (
+            [om_parametre] =&gt; text
+            [libelle] =&gt; text
+            [valeur] =&gt; text
+            [om_collectivite] =&gt; text )
+    [taille] =&gt; Array (
+            [om_parametre] =&gt; 11
+            [libelle] =&gt; 20
+            [valeur] =&gt; 50
+            [om_collectivite] =&gt; 11 )
+    [max] =&gt; Array (
+            [om_parametre] =&gt; 11
+            [libelle] =&gt; 20
+            [valeur] =&gt; 50
+            [om_collectivite] =&gt; 11 )
+    [lib] =&gt; Array (
+            [om_parametre] =&gt; Om_parametre
+            [libelle] =&gt; Libelle
+            [valeur] =&gt; Valeur
+            [om_collectivite] =&gt; Om_collectivite )
+    [groupe] =&gt; Array (
+            [om_parametre] =&gt;
+            [libelle] =&gt;
+            [valeur] =&gt;
+            [om_collectivite] =&gt; )
+    [select] =&gt; Array (
+            [om_parametre] =&gt;  Array ([0] =&gt; [1] =&gt; )
+            [libelle] =&gt; Array ( [0] =&gt; [1] =&gt; )
+            [valeur] =&gt; Array ( [0] =&gt; [1] =&gt; )
+            [om_collectivite] =&gt; Array ( [0] =&gt; [1] =&gt; ) )
+    [onchange] =&gt; Array (
+            [om_parametre] =&gt;
+            [libelle] =&gt;
+            [valeur] =&gt;
+            [om_collectivite] =&gt; )
+    [onkeyup] =&gt; Array (
+            [om_parametre] =&gt;
+            [libelle] =&gt;
+            [valeur] =&gt;
+            [om_collectivite] =&gt; )
+    [onclick] =&gt; Array (
+            [om_parametre] =&gt;
+            [libelle] =&gt;
+            [valeur] =&gt;
+            [om_collectivite] =&gt; )
+    [regroupe] =&gt;
+    [correct] =&gt;
+)</pre>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table des matières</a></h3>
+            <ul>
+<li><a class="reference external" href="">La méthode</a><ul>
+<li><a class="reference external" href="#surcharger-les-classes-openmairie">Surcharger les classes openMairie</a></li>
+<li><a class="reference external" href="#modifier-les-valeurs-par-d-faut">Modifier les valeurs par défaut</a></li>
+<li><a class="reference external" href="#modifier-les-valeurs-par-defaut-par-les-m-thodes-assesseurs">Modifier les valeurs par defaut par les méthodes assesseurs</a></li>
+<li><a class="reference external" href="#la-class-dbformdyn-class-php">La class dbformdyn.class.php</a></li>
+<li><a class="reference external" href="#l-objet-db">L&#8217;objet db</a></li>
+<li><a class="reference external" href="#l-objet-form">L&#8217;objet form</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Sujet précédent</h4>
+            <p class="topless"><a href="formulaire.html"
+                                  title="Chapitre précédent">Les formulaires</a></p>
+            <h4>Sujet suivant</h4>
+            <p class="topless"><a href="edition.html"
+                                  title="Chapitre suivant">Les éditions</a></p>
+            <h3>Cette page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/framework/methode.txt"
+                     rel="nofollow">Montrer la source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Recherche rapide</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             >index</a></li>
+        <li class="right" >
+          <a href="edition.html" title="Les éditions"
+             >suivant</a> |</li>
+        <li class="right" >
+          <a href="formulaire.html" title="Les formulaires"
+             >précédent</a> |</li>
+        <li><a href="../index.html">openMairie - Guide du développeur v0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, openMairie.
+      Créé avec <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>

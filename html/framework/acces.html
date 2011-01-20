@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>La gestion des accès &mdash; openMairie - Guide du développeur v0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="top" title="openMairie - Guide du développeur v0.0 documentation" href="../index.html" />
+    <link rel="up" title="<no title>" href="index.html" />
+    <link rel="next" title="L’ergonomie" href="ergonomie.html" />
+    <link rel="prev" title="Les requêtes memorisées" href="reqmo.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ergonomie.html" title="L’ergonomie"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="reqmo.html" title="Les requêtes memorisées"
+             accesskey="P">précédent</a> |</li>
+        <li><a href="../index.html">openMairie - Guide du développeur v0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <blockquote>
+</blockquote>
+<div class="section" id="la-gestion-des-acc-s">
+<span id="acces"></span><h1>La gestion des accès<a class="headerlink" href="#la-gestion-des-acc-s" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Le framework fournit un gestionnaire d&#8217;accés accessible dans le menu à :</p>
+<ul class="simple">
+<li>administration -&gt; profil</li>
+<li>administration -&gt; droit</li>
+<li>administration -&gt;utilisateur</li>
+</ul>
+<p>Les accès sont conservés dans des tables.</p>
+<div class="section" id="les-tables">
+<h2>Les tables<a class="headerlink" href="#les-tables" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La gestion des accès est gérée avec 3 tables :</p>
+<p><strong>om_profil</strong> : gestion des profils</p>
+<div class="highlight-python"><pre>administrateur
+super utilisateur
+utilisateur
+utilisateur limite
+consultation</pre>
+</div>
+<p><strong>om_droit</strong>: la gestion des droits affecte un profil suivant chaque :</p>
+<blockquote>
+<p>objet métier : $obj om_collectivite, om_parametre ...</p>
+<p>chaque rubrique du menu :</p>
+<p>voir paramétrage menu : tableau Rubrik  right = &#8220;om_parametre&#8221;</p>
+</blockquote>
+<p><strong>om_utilisateur</strong> : cette table permet de donner un login, un mot de passe
+et un profil à chaque utilisateur</p>
+<p>Diagramme de classe</p>
+<img alt="../_images/acces_1.png" src="../_images/acces_1.png" />
+</div>
+<div class="section" id="les-r-gles">
+<h2>Les règles<a class="headerlink" href="#les-r-gles" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li>le droit sur un objet porte le nom de l&#8217;objet</li>
+<li>chaque profil a acces a tous les droits des profils d un niveau inférieur</li>
+<li>l&#8217;adminitrateur a acces à tout.</li>
+</ul>
+</div>
+<div class="section" id="les-login-et-logout">
+<h2>Les login et logout<a class="headerlink" href="#les-login-et-logout" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le login se fait par le script <em>scr/login.php</em></p>
+<p>login.php valorise les variables sessions  permettant la gestion des acces et securites:</p>
+<div class="highlight-python"><pre>$_SESSION['profil'] = $profil;
+$_SESSION['nom'] = $nom;
+$_SESSION['login'] = $login;</pre>
+</div>
+<p>La deconnexion se fait avec le script  <em>scr/logout</em></p>
+<p>Le changement de mot de passe se fait avec le script  <em>scr/password.php</em></p>
+<p>L&#8217;accès au changement de passe se fait par défaut dans le menu haut
+(voir framework/paramétrage)</p>
+</div>
+<div class="section" id="les-utilitaires">
+<h2>Les utilitaires<a class="headerlink" href="#les-utilitaires" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La gestion des droits d&#8217;acces se fait dans les méthodes des utilitaires</p>
+<blockquote>
+<p>php/openmairie/om_appication.class.php (composant openMairie)</p>
+<p>obj/utils.class.php</p>
+</blockquote>
+<p>(<em>voir framework/utilitaire</em>)</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table des matières</a></h3>
+            <ul>
+<li><a class="reference external" href="">La gestion des accès</a><ul>
+<li><a class="reference external" href="#les-tables">Les tables</a></li>
+<li><a class="reference external" href="#les-r-gles">Les règles</a></li>
+<li><a class="reference external" href="#les-login-et-logout">Les login et logout</a></li>
+<li><a class="reference external" href="#les-utilitaires">Les utilitaires</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Sujet précédent</h4>
+            <p class="topless"><a href="reqmo.html"
+                                  title="Chapitre précédent">Les requêtes memorisées</a></p>
+            <h4>Sujet suivant</h4>
+            <p class="topless"><a href="ergonomie.html"
+                                  title="Chapitre suivant">L&#8217;ergonomie</a></p>
+            <h3>Cette page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/framework/acces.txt"
+                     rel="nofollow">Montrer la source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Recherche rapide</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             >index</a></li>
+        <li class="right" >
+          <a href="ergonomie.html" title="L’ergonomie"
+             >suivant</a> |</li>
+        <li class="right" >
+          <a href="reqmo.html" title="Les requêtes memorisées"
+             >précédent</a> |</li>
+        <li><a href="../index.html">openMairie - Guide du développeur v0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, openMairie.
+      Créé avec <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>

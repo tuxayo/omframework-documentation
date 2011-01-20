@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>openMairie - Guide du développeur &mdash; openMairie - Guide du développeur v0.0 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="top" title="openMairie - Guide du développeur v0.0 documentation" href="" />
+    <link rel="next" title="<no title>" href="utilisation/index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="utilisation/index.html" title="<no title>"
+             accesskey="N">suivant</a> |</li>
+        <li><a href="">openMairie - Guide du développeur v0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="openmairie-guide-du-d-veloppeur">
+<h1>openMairie - Guide du développeur<a class="headerlink" href="#openmairie-guide-du-d-veloppeur" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Ce document a pour but de guider les développeurs dans la mise en oeuvre
+d&#8217;un projet openMairie.</p>
+<p>Avec plus de 30 applications développées pour les collectivités locales accessibles
+sur le site <a class="reference external" href="http://openmairie.org">http://openmairie.org</a>, nous souhaitons au travers de ce guide , diffuser notre
+expérience auprès  des collectivités et des acteurs économiques du libre qui les accompagnent.
+Bonne lecture, et n&#8217;hésitez pas à nous faire part de vos remarques à l&#8217;adresse suivante :
+<a class="reference external" href="mailto:contact&#37;&#52;&#48;openmairie&#46;org">contact<span>&#64;</span>openmairie<span>&#46;</span>org</a></p>
+<p>Si vous débutez, il est préférable de commencer par le chapître
+&#8220;créer une application&#8221; qui permet de prendre en main facilement le générateur et le
+framework openMairie en vous guidant pas à pas dans le mise en place d&#8217;une
+gestion de courrier.</p>
+<p>Le chapître sur le &#8220;framework&#8221; complète l&#8217;exemple ci dessus en vous décrivant
+le paramètrage, les classes formulaires et éditions du framework. Il a pour but
+de vous informer de manière complète sur le fonctionnement du framework</p>
+<p>Le chapître consacré au &#8220;générateur&#8221; décrit dans le détail le fonctionnement
+de cet outil et de ses assistants.</p>
+<p>Enfin ce document rassemble toutes les règles de codage du projet
+openMairie, ainsi que des outils pour aider et guider les développeurs de la
+communauté.</p>
+<p>Les règles indiquées doivent être appliquées pour qu&#8217;un projet puisse
+intégrer la distribution openMairie car l&#8217;objectif est de faciliter la
+lisibilité et la maintenance du code ainsi que la prise en main par les
+collectivités.</p>
+<p>Cette création est mise à disposition selon le Contrat Paternité-Partage des
+Conditions Initiales à l&#8217;Identique 2.0 France disponible en ligne
+<a class="reference external" href="http://creativecommons.org/licenses/by-sa/2.0/fr/">http://creativecommons.org/licenses/by-sa/2.0/fr/</a> ou par courrier postal à
+Creative Commons, 171 Second Street, Suite 300, San Francisco,
+California 94105, USA.</p>
+<div class="section" id="cr-er-une-application">
+<h2>Créer une application<a class="headerlink" href="#cr-er-une-application" title="Lien permanent vers ce titre">¶</a></h2>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="utilisation/creer_base.html">Créer la base de données</a></li>
+<li class="toctree-l1"><a class="reference external" href="utilisation/utiliser_generateur.html">Créer les formulaires</a><ul>
+<li class="toctree-l2"><a class="reference external" href="utilisation/utiliser_generateur.html#g-n-rer-les-formulaires-et-dition-du-courrier">Générer les formulaires et édition du courrier</a></li>
+<li class="toctree-l2"><a class="reference external" href="utilisation/utiliser_generateur.html#g-n-rer-les-formulaires-et-dition-de-l-emetteur">Générer les formulaires et édition de l&#8217;emetteur</a></li>
+<li class="toctree-l2"><a class="reference external" href="utilisation/utiliser_generateur.html#g-n-rer-les-formulaires-et-dition-de-service">Générer les formulaires et édition de service</a></li>
+<li class="toctree-l2"><a class="reference external" href="utilisation/utiliser_generateur.html#integrer-les-formulaires-dans-le-menu">Integrer les formulaires dans le menu</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="utilisation/personnaliser.html">Personnaliser son application</a><ul>
+<li class="toctree-l2"><a class="reference external" href="utilisation/personnaliser.html#faire-un-affichage-courrier-plus-convivial">Faire un affichage courrier plus convivial</a></li>
+<li class="toctree-l2"><a class="reference external" href="utilisation/personnaliser.html#rendre-obligatoire-des-champs">Rendre obligatoire des champs</a></li>
+<li class="toctree-l2"><a class="reference external" href="utilisation/personnaliser.html#valoriser-un-champ-par-d-faut">Valoriser un champ par défaut</a></li>
+<li class="toctree-l2"><a class="reference external" href="utilisation/personnaliser.html#mettre-en-majuscule-un-champ">Mettre en majuscule un champ</a></li>
+<li class="toctree-l2"><a class="reference external" href="utilisation/personnaliser.html#principe-retenir">Principe à retenir</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="utilisation/modifier_base.html">Modifier la base et re générer</a><ul>
+<li class="toctree-l2"><a class="reference external" href="utilisation/modifier_base.html#rajouter-un-champ-registre-dans-courrier">Rajouter un champ registre dans courrier</a></li>
+<li class="toctree-l2"><a class="reference external" href="utilisation/modifier_base.html#rajouter-l-adresse-dans-emetteur">Rajouter l&#8217;adresse dans emetteur</a></li>
+<li class="toctree-l2"><a class="reference external" href="utilisation/modifier_base.html#am-liorer-la-pr-sentation-du-formulaire-emetteur">Améliorer la présentation du formulaire emetteur</a></li>
+<li class="toctree-l2"><a class="reference external" href="utilisation/modifier_base.html#les-surcharges-d-opencourrier">Les surcharges d&#8217;openCourrier</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="utilisation/utiliser_assistant.html">Créer ses états</a><ul>
+<li class="toctree-l2"><a class="reference external" href="utilisation/utiliser_assistant.html#cr-er-l-tat-service">Créer l&#8217;état service</a></li>
+<li class="toctree-l2"><a class="reference external" href="utilisation/utiliser_assistant.html#cr-er-le-sous-tat-courrier">Créer le sous état courrier</a></li>
+<li class="toctree-l2"><a class="reference external" href="utilisation/utiliser_assistant.html#associer-le-sous-tat-courrier-l-tat-service">Associer le sous état &#8220;courrier&#8221; à l&#8217;état &#8220;service&#8221;</a></li>
+<li class="toctree-l2"><a class="reference external" href="utilisation/utiliser_assistant.html#mettre-le-nom-et-le-pr-nom-de-l-emetteur-dans-le-sous-tat">Mettre le nom et le prénom de l&#8217;emetteur dans le sous état</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="le-framework">
+<h2>Le framework<a class="headerlink" href="#le-framework" title="Lien permanent vers ce titre">¶</a></h2>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="framework/parametrage.html">Paramétrage du framework</a><ul>
+<li class="toctree-l2"><a class="reference external" href="framework/parametrage.html#la-connexion-de-la-base-de-donnees">La connexion de la base de donnees</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/parametrage.html#le-menu-principal">Le menu principal</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/parametrage.html#le-menu-haut">Le menu haut</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/parametrage.html#le-tableau-de-bord">Le tableau de bord</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/parametrage.html#les-variables-locales-et-la-langue">Les variables locales et la langue</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/parametrage.html#le-param-trage-de-l-application-metier">Le paramétrage de l application metier</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/parametrage.html#le-parametrage-des-librairies">Le Parametrage des librairies</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/parametrage.html#le-mode-debug">Le mode debug</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/parametrage.html#la-version-de-votre-application">La version de votre application</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/parametrage.html#les-informations-generales">Les informations generales</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/parametrage.html#l-installation-automatique">L&#8217;installation automatique</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/parametrage.html#les-param-tres-des-combos">Les paramétres des combos</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/parametrage.html#les-param-tres-ditions">Les paramétres éditions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="framework/affichage.html">Afficher les tables</a><ul>
+<li class="toctree-l2"><a class="reference external" href="framework/affichage.html#la-requete-sql-d-affichage">La requete SQL d&#8217;affichage</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/affichage.html#le-script-scr-tab-php">Le script scr/tab.php</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/affichage.html#le-composant-openmairie">Le composant openMairie</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="framework/formulaire.html">Les formulaires</a><ul>
+<li class="toctree-l2"><a class="reference external" href="framework/formulaire.html#les-methodes-de-formulairedyn-class-php">Les methodes de formulairedyn.class.php</a><ul>
+<li class="toctree-l3"><a class="reference external" href="framework/formulaire.html#les-sous-programmes-g-n-riques">Les sous programmes génériques</a></li>
+<li class="toctree-l3"><a class="reference external" href="framework/formulaire.html#le-script-scr-form-php">le script scr/form.php</a></li>
+<li class="toctree-l3"><a class="reference external" href="framework/formulaire.html#les-nouvelles-utilisations-dans-les-objets-metiers-openmairie-4">Les nouvelles utilisations dans les objets metiers (openMairie 4)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="framework/methode.html">La méthode</a><ul>
+<li class="toctree-l2"><a class="reference external" href="framework/methode.html#surcharger-les-classes-openmairie">Surcharger les classes openMairie</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/methode.html#modifier-les-valeurs-par-d-faut">Modifier les valeurs par défaut</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/methode.html#modifier-les-valeurs-par-defaut-par-les-m-thodes-assesseurs">Modifier les valeurs par defaut par les méthodes assesseurs</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/methode.html#la-class-dbformdyn-class-php">La class dbformdyn.class.php</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/methode.html#l-objet-db">L&#8217;objet db</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/methode.html#l-objet-form">L&#8217;objet form</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="framework/edition.html">Les éditions</a><ul>
+<li class="toctree-l2"><a class="reference external" href="framework/edition.html#actif-non-actif">Actif, non actif</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/edition.html#param-trer-des-etats">Paramétrer des etats</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/edition.html#param-trer-des-sous-etats">Paramétrer des sous etats</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/edition.html#param-trer-des-lettres-type">Paramétrer des lettres type</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/edition.html#parametrer-des-edition-pdf">Parametrer des edition pdf</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/edition.html#parametrer-les-etiquettes">Parametrer les etiquettes</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/edition.html#l-diteur-wysiwyg">L&#8217;éditeur WYSIWYG</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/edition.html#les-scripts-pdf">Les scripts PDF</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/edition.html#composants">composants</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="framework/reqmo.html">Les requêtes memorisées</a><ul>
+<li class="toctree-l2"><a class="reference external" href="framework/reqmo.html#description-du-parametrage">Description du parametrage</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/reqmo.html#exemple">Exemple</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="framework/acces.html">La gestion des accès</a><ul>
+<li class="toctree-l2"><a class="reference external" href="framework/acces.html#les-tables">Les tables</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/acces.html#les-r-gles">Les règles</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/acces.html#les-login-et-logout">Les login et logout</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/acces.html#les-utilitaires">Les utilitaires</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="framework/ergonomie.html">L&#8217;ergonomie</a><ul>
+<li class="toctree-l2"><a class="reference external" href="framework/ergonomie.html#le-composant-jquery">Le composant jquery</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/ergonomie.html#les-feuilles-de-style">Les feuilles de style</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/ergonomie.html#la-mise-en-oeuvre-dans-les-scripts">La mise en oeuvre dans les scripts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="framework/utilitaire.html">Les utilitaires</a><ul>
+<li class="toctree-l2"><a class="reference external" href="framework/utilitaire.html#le-tutorial">Le tutorial</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/utilitaire.html#exemple">Exemple</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="framework/import.html">Importer des données en csv</a></li>
+<li class="toctree-l1"><a class="reference external" href="framework/sig.html">Intégrer le système information geographique</a><ul>
+<li class="toctree-l2"><a class="reference external" href="framework/sig.html#les-scripts-sig">Les scripts sig</a></li>
+<li class="toctree-l2"><a class="reference external" href="framework/sig.html#installation">Installation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="le-g-n-rateur">
+<h2>Le générateur<a class="headerlink" href="#le-g-n-rateur" title="Lien permanent vers ce titre">¶</a></h2>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="generateur/index.html">Générateur</a><ul>
+<li class="toctree-l2"><a class="reference external" href="generateur/presentation_generateur.html">Présentation</a></li>
+<li class="toctree-l2"><a class="reference external" href="generateur/ecran.html">Les écrans du générateur</a><ul>
+<li class="toctree-l3"><a class="reference external" href="generateur/ecran.html#analyse-de-la-base">Analyse de la base</a></li>
+<li class="toctree-l3"><a class="reference external" href="generateur/ecran.html#les-fichiers-generer">Les fichiers à generer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference external" href="generateur/analyse_base.html">L&#8217;analyse de la base</a><ul>
+<li class="toctree-l3"><a class="reference external" href="generateur/analyse_base.html#type-de-champs">Type de champs</a></li>
+<li class="toctree-l3"><a class="reference external" href="generateur/analyse_base.html#equivalence-type-mysql-type-openmairie">Equivalence type mysql / type openMairie</a></li>
+<li class="toctree-l3"><a class="reference external" href="generateur/analyse_base.html#equivalence-type-pgsql-type-openmairie">Equivalence type pgsql / type openMairie</a></li>
+<li class="toctree-l3"><a class="reference external" href="generateur/analyse_base.html#nom-de-champ-et-nom-de-table">Nom de champ et nom de table</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference external" href="generateur/fichier_genere.html">Les fichiers générés</a><ul>
+<li class="toctree-l3"><a class="reference external" href="generateur/fichier_genere.html#les-formulaires">Les formulaires</a><ul>
+<li class="toctree-l4"><a class="reference external" href="generateur/fichier_genere.html#param-tres-de-type-table">Paramétres de type table :</a></li>
+<li class="toctree-l4"><a class="reference external" href="generateur/fichier_genere.html#param-tres-de-type-form">Paramétres de type Form :</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference external" href="generateur/fichier_genere.html#les-objets-m-tier">Les Objets «&nbsp;métier&nbsp;»</a></li>
+<li class="toctree-l3"><a class="reference external" href="generateur/fichier_genere.html#les-tats">Les états</a></li>
+<li class="toctree-l3"><a class="reference external" href="generateur/fichier_genere.html#les-requ-tes-m-moris-es">les requêtes mémorisées</a></li>
+<li class="toctree-l3"><a class="reference external" href="generateur/fichier_genere.html#les-imports">les imports</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference external" href="generateur/parametrage_generateur.html">Paramétrage générateur</a><ul>
+<li class="toctree-l3"><a class="reference external" href="generateur/parametrage_generateur.html#le-param-trage-standard">le paramétrage standard</a></li>
+<li class="toctree-l3"><a class="reference external" href="generateur/parametrage_generateur.html#form-inc">Form.inc</a></li>
+<li class="toctree-l3"><a class="reference external" href="generateur/parametrage_generateur.html#etat-inc">Etat.inc</a></li>
+<li class="toctree-l3"><a class="reference external" href="generateur/parametrage_generateur.html#sousetat-inc">Sousetat.inc</a></li>
+<li class="toctree-l3"><a class="reference external" href="generateur/parametrage_generateur.html#pdf-inc">Pdf.inc</a></li>
+<li class="toctree-l3"><a class="reference external" href="generateur/parametrage_generateur.html#customiser-le-param-trage">Customiser le paramétrage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="r-gles-et-outils">
+<h2>Règles et outils<a class="headerlink" href="#r-gles-et-outils" title="Lien permanent vers ce titre">¶</a></h2>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="regles/index.html">Les règles de codage</a><ul>
+<li class="toctree-l2"><a class="reference external" href="regles/indentation.html">L&#8217;indentation du code</a></li>
+<li class="toctree-l2"><a class="reference external" href="regles/encodage.html">L&#8217;encodage des fichiers</a></li>
+<li class="toctree-l2"><a class="reference external" href="regles/tags.html">Tags dans le code PHP</a></li>
+<li class="toctree-l2"><a class="reference external" href="regles/norme.html">Les normes à respecter</a><ul>
+<li class="toctree-l3"><a class="reference external" href="regles/norme.html#pourquoi-respecter-des-normes">Pourquoi respecter des normes ?</a></li>
+<li class="toctree-l3"><a class="reference external" href="regles/norme.html#xhtml-valide-et-le-w3c">XHTML Valide et le W3C</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference external" href="regles/commentaire.html">Les commentaires dans le code</a></li>
+<li class="toctree-l2"><a class="reference external" href="regles/separation-contenu-presentation.html">Séparation du contenu et de la présentation dans le couple XHTML CSS</a></li>
+<li class="toctree-l2"><a class="reference external" href="regles/image.html">Images</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="versions/index.html">Le versionning du code et la version des applications</a><ul>
+<li class="toctree-l2"><a class="reference external" href="versions/numerotation.html">Convention de numérotation des versions des applications et librairies</a></li>
+<li class="toctree-l2"><a class="reference external" href="versions/svn.html">Apache Subversion (SVN)</a><ul>
+<li class="toctree-l3"><a class="reference external" href="versions/svn.html#pr-requis">Pré-requis</a></li>
+<li class="toctree-l3"><a class="reference external" href="versions/svn.html#l-arborescence">L&#8217;arborescence</a></li>
+<li class="toctree-l3"><a class="reference external" href="versions/svn.html#les-r-gles-d-or">Les règles d&#8217;or</a></li>
+<li class="toctree-l3"><a class="reference external" href="versions/svn.html#les-commandes-basiques-conna-tre">Les commandes basiques à connaître</a></li>
+<li class="toctree-l3"><a class="reference external" href="versions/svn.html#externals">Externals</a></li>
+<li class="toctree-l3"><a class="reference external" href="versions/svn.html#keywords">Keywords</a></li>
+<li class="toctree-l3"><a class="reference external" href="versions/svn.html#les-clients-graphiques">Les clients graphiques</a></li>
+<li class="toctree-l3"><a class="reference external" href="versions/svn.html#tutoriaux">Tutoriaux</a><ul>
+<li class="toctree-l4"><a class="reference external" href="versions/svn.html#importer-un-nouveau-projet">Importer un nouveau projet</a></li>
+<li class="toctree-l4"><a class="reference external" href="versions/svn.html#publier-une-nouvelle-version">Publier une nouvelle version</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference external" href="versions/cvs.html">Concurrent versions system (CVS)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="outils/index.html">Les outils du développeur</a><ul>
+<li class="toctree-l2"><a class="reference external" href="outils/firefox.html">Le navigateur Mozilla Firefox</a><ul>
+<li class="toctree-l3"><a class="reference external" href="outils/firefox.html#web-developer">Web Developer</a></li>
+<li class="toctree-l3"><a class="reference external" href="outils/firefox.html#firebug">Firebug</a></li>
+<li class="toctree-l3"><a class="reference external" href="outils/firefox.html#html-validator">HTML Validator</a></li>
+<li class="toctree-l3"><a class="reference external" href="outils/firefox.html#yslow">YSlow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference external" href="outils/komodo-edit.html">Komodo Edit</a></li>
+<li class="toctree-l2"><a class="reference external" href="outils/meld.html">Meld</a></li>
+<li class="toctree-l2"><a class="reference external" href="outils/poedit.html">POEdit</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="contributeurs">
+<h2>Contributeurs<a class="headerlink" href="#contributeurs" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="mailto:fmichon&#37;&#52;&#48;atreal&#46;net">Florent Michon [ATREAL]</a></li>
+<li><a class="reference external" href="mailto:contact&#37;&#52;&#48;openmairie&#46;org">Francois Raynaud</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="">Table des matières</a></h3>
+            <ul>
+<li><a class="reference external" href="">openMairie - Guide du développeur</a><ul>
+<li><a class="reference external" href="#cr-er-une-application">Créer une application</a><ul>
+</ul>
+</li>
+<li><a class="reference external" href="#le-framework">Le framework</a><ul>
+</ul>
+</li>
+<li><a class="reference external" href="#le-g-n-rateur">Le générateur</a><ul>
+</ul>
+</li>
+<li><a class="reference external" href="#r-gles-et-outils">Règles et outils</a><ul>
+</ul>
+</li>
+<li><a class="reference external" href="#contributeurs">Contributeurs</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Sujet suivant</h4>
+            <p class="topless"><a href="utilisation/index.html"
+                                  title="Chapitre suivant">&lt;no title&gt;</a></p>
+            <h3>Cette page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/index.txt"
+                     rel="nofollow">Montrer la source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Recherche rapide</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Index général"
+             >index</a></li>
+        <li class="right" >
+          <a href="utilisation/index.html" title="<no title>"
+             >suivant</a> |</li>
+        <li><a href="">openMairie - Guide du développeur v0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, openMairie.
+      Créé avec <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>

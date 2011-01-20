@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Personnaliser son application &mdash; openMairie - Guide du développeur v0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="top" title="openMairie - Guide du développeur v0.0 documentation" href="../index.html" />
+    <link rel="up" title="<no title>" href="index.html" />
+    <link rel="next" title="Modifier la base et re générer" href="modifier_base.html" />
+    <link rel="prev" title="Créer les formulaires" href="utiliser_generateur.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modifier_base.html" title="Modifier la base et re générer"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="utiliser_generateur.html" title="Créer les formulaires"
+             accesskey="P">précédent</a> |</li>
+        <li><a href="../index.html">openMairie - Guide du développeur v0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="personnaliser-son-application">
+<span id="personnaliser"></span><h1>Personnaliser son application<a class="headerlink" href="#personnaliser-son-application" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Nous allons maintenant personnaliser notre application</p>
+<p>Pour se faire, nous allons saisir le jeu de données suivantes</p>
+<p>Vous pouvez le faire avec les formulaires, la création des tables stockant les
+sequences est fait par le framework (methode setId des objets metier)  sinon vous pouvez exécuter
+le script sql suivant</p>
+<div class="highlight-python"><pre>-- insertion de deux emetteurs
+
+INSERT INTO emetteur (emetteur, nom, prenom) VALUES
+(1, 'dupont', 'pierre'),
+(2, 'durant', 'jacques');
+
+--
+-- Structure de la table 'emetteur_seq'
+--
+
+CREATE TABLE emetteur_seq (
+  id int(10) unsigned NOT NULL auto_increment,
+  PRIMARY KEY  (id)
+) TYPE=MyISAM ;
+
+--
+-- Contenu de la table 'emetteur_seq'
+--
+
+INSERT INTO emetteur_seq (id) VALUES (2);
+
+--
+-- Contenu de la table 'service'
+--
+
+INSERT INTO service (service, libelle) VALUES
+(1, 'informatique'),
+(2, 'telephonie');
+
+
+--
+-- Structure de la table 'service_seq'
+--
+
+CREATE TABLE service_seq (
+  id int(10) unsigned NOT NULL auto_increment,
+  PRIMARY KEY  (id)
+) TYPE=MyISAM ;
+
+--
+-- Contenu de la table 'service_seq'
+--
+
+INSERT INTO service_seq (id) VALUES (2);
+
+--
+-- Contenu de la table 'courrier'
+--
+
+INSERT INTO courrier (courrier, dateenvoi, objetcourrier, emetteur, service) VALUES
+(1, '2010-12-01', 'Proposition de fourniture de service', 1, 1),
+(2, '2010-12-02', 'Envoi de devis pour formation openMairie', 2, 1);
+
+--
+-- Structure de la table 'service_seq'
+--
+
+CREATE TABLE service_seq (
+  id int(10) unsigned NOT NULL auto_increment,
+  PRIMARY KEY  (id)
+) TYPE=MyISAM ;
+
+--
+-- Contenu de la table 'service_seq'
+--
+
+INSERT INTO service_seq (id) VALUES (2);</pre>
+</div>
+<div class="section" id="faire-un-affichage-courrier-plus-convivial">
+<h2>Faire un affichage courrier plus convivial<a class="headerlink" href="#faire-un-affichage-courrier-plus-convivial" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L&#8217;affichage des courriers se fait avec les clés secondaires et non
+les libellés.</p>
+<p>Nous souhaitons avoir le nom et le prénom de l&#8217;emetteur et le libellé du service.</p>
+<p>Dans le fichier sql/mysql/courrier.inc nous allons modifier les variables  $table
+et  $champAffiche de la manière suivante (après la ligne include):</p>
+<div class="highlight-python"><pre>$table = DB_PREFIXE."courrier  inner join ".DB_PREFIXE."emetteur
+                on emetteur.emetteur=courrier.emetteur
+                inner join ".DB_PREFIXE."service
+                on service.service=courrier.service";
+
+$champAffiche=array('courrier',
+                'concat(substring(dateenvoi,9,2),\'/\',substring(dateenvoi,6,2),
+                                \'/\',substring(dateenvoi,1,4)) as dateenvoi',
+                'concat(emetteur.nom,\' \',emetteur.prenom) as emetteur',
+                'service.libelle as service');</pre>
+</div>
+<p>Le résultat est le suivant</p>
+<div class="highlight-python"><pre>Courrier Dateenvoi  Emetteur            Service
+    1       01/12/2010      dupont pierre   informatique
+    2       02/12/2010      durant jacques  informatique</pre>
+</div>
+<p>De la même manière nous souhaitons rechercher dans les courriers sur le
+nom de l&#8217;emetteur et sur le libellé du service. Dans le fichier sql/mysql/courrier.inc,
+nous allons modifier la variable tableau $champRecherche de la manière suivante</p>
+<div class="highlight-python"><pre>$champRecherche=array("emetteur.nom", "service.libelle");</pre>
+</div>
+<p>Vous devez avoir dans la zone recherche la possibilité de selectionner</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Tous</span>
+<span class="n">emetteur</span><span class="o">.</span><span class="n">nom</span>
+<span class="n">service</span><span class="o">.</span><span class="n">libelle</span>
+</pre></div>
+</div>
+<p>Nous souhaitons maintenant avoir les derniers courriers au début de la page affichée et nous
+pouvons le faire en insérant la variable $tri dans courrier.inc de la manière suivante:</p>
+<div class="highlight-python"><pre>$tri= " order by dateenvoi desc";</pre>
+</div>
+<p>Le résultat est le suivant</p>
+<div class="highlight-python"><pre>2       02/12/2010      durant jacques          informatique
+1       01/12/2010          dupont pierre           informatique</pre>
+</div>
+<p><em>Pour en savoir plus sur ces variables voir framework/affichage</em></p>
+</div>
+<div class="section" id="rendre-obligatoire-des-champs">
+<h2>Rendre obligatoire des champs<a class="headerlink" href="#rendre-obligatoire-des-champs" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Nous avons affiché le courrier avec une jointure de type &#8220;inner&#8221;.
+Donc s&#8217;il n&#8217;y a pas de lien sur le service et/ou l&#8217;emetteur, l&#8217;enregistrement
+n&#8217;apparaitra pas. Il faut rendre obligatoire la saisie de  l&#8217;emetteur et du service (auquel le courrier est affecté)</p>
+<p>Nous allons surcharger la méthode verifier() dans obj/courrier.class.php de la manière suivante
+(par défaut le premier champ, ici dateenvoi est obligatoire, cet option est modifiable
+dans le générateur)</p>
+<p>La methode à insérer apres le constructeur est la suivante</p>
+<div class="highlight-python"><pre>function verifier($val,&amp;$db,$DEBUG) {
+    parent::verifier($val,$db,$DEBUG);
+    $f="&amp;nbsp!&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;";
+    $imgv="&lt;img src='../img/punaise.png' style='vertical-align:middle' hspace='2' border='0'&gt;";
+    if ($this-&gt;valF['service']==""){
+        $this-&gt;msg= $this-&gt;msg.$imgv._('service')."&amp;nbsp;"._('obligatoire').$f;
+        $this-&gt;correct=False;
+    }
+    if ($this-&gt;valF['emetteur']==""){
+        $this-&gt;msg= $this-&gt;msg.$imgv._('emetteur')."&amp;nbsp;"._('obligatoire').$f;
+        $this-&gt;correct=False;
+    }
+}</pre>
+</div>
+<p>La commande &#8220;parent::verifier($val,$db,$DEBUG);&#8221; permet de ne pas neutraliser la
+fonction surchargée (ici dans gen/obj/courrier.class.php)</p>
+<p><em>Pour plus d&#8217;information voir le châpitre framework/methode</em></p>
+</div>
+<div class="section" id="valoriser-un-champ-par-d-faut">
+<h2>Valoriser un champ par défaut<a class="headerlink" href="#valoriser-un-champ-par-d-faut" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour simplifier la saisie, nous souhaitons mettre la date du jour dans le
+champ dateenvoi n ajout de courrier.</p>
+<p>Nous allons surcharger la methode setVal() dans obj/courrier.class.php
+de la manière suivante</p>
+<div class="highlight-python"><pre>function setVal(&amp;$form, $maj, $validation, &amp;$db, $DEBUG=null){
+    parent::setVal($form, $maj, $validation, $db, $DEBUG=null);
+    if ($validation==0) {
+        if ($maj == 0){
+            $form-&gt;setVal("dateenvoi", date('Y-m-d'));
+        }
+    }
+}</pre>
+</div>
+<p>Le champ dateenvoi contient la date systeme (date(&#8216;Y_m-d&#8217;)) si la validation est égal à 0
+et si $maj est égal à 0 (ajout).</p>
+</div>
+<div class="section" id="mettre-en-majuscule-un-champ">
+<h2>Mettre en majuscule un champ<a class="headerlink" href="#mettre-en-majuscule-un-champ" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Nous souhaitons maintenant mettre en majuscule le champ &#8220;nom&#8221; de la table emetteur.
+Nous allons surcharger la methode setOnchange() dans
+obj/emetteur.class.php de la manière suivante</p>
+<div class="highlight-python"><pre>function setOnchange(&amp;$form,$maj){
+    parent::setOnchange($form,$maj);
+    $form-&gt;setOnchange("nom","this.value=this.value.toUpperCase()");
+}</pre>
+</div>
+<p>A la saisie ou à la modification du nom, le champ se met en majuscule.</p>
+</div>
+<div class="section" id="principe-retenir">
+<h2>Principe à retenir<a class="headerlink" href="#principe-retenir" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Voila quelques exemples des possibilités de modification dans les fichiers sql
+(repertoire sql/ ....) et dans les methodes de l&#8217;objet (repertoire obj/ ...)</p>
+<p>En aucun cas, il ne faut modifier les fichiers dans gen/ qui est l&#8217;espace de travail du générateur,
+<strong>Nous allons dans le prochain chapître modifier la base et  regénérer les écrans sans mettre en danger
+votre personnalisation.</strong></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table des matières</a></h3>
+            <ul>
+<li><a class="reference external" href="">Personnaliser son application</a><ul>
+<li><a class="reference external" href="#faire-un-affichage-courrier-plus-convivial">Faire un affichage courrier plus convivial</a></li>
+<li><a class="reference external" href="#rendre-obligatoire-des-champs">Rendre obligatoire des champs</a></li>
+<li><a class="reference external" href="#valoriser-un-champ-par-d-faut">Valoriser un champ par défaut</a></li>
+<li><a class="reference external" href="#mettre-en-majuscule-un-champ">Mettre en majuscule un champ</a></li>
+<li><a class="reference external" href="#principe-retenir">Principe à retenir</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Sujet précédent</h4>
+            <p class="topless"><a href="utiliser_generateur.html"
+                                  title="Chapitre précédent">Créer les formulaires</a></p>
+            <h4>Sujet suivant</h4>
+            <p class="topless"><a href="modifier_base.html"
+                                  title="Chapitre suivant">Modifier la base et re générer</a></p>
+            <h3>Cette page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/utilisation/personnaliser.txt"
+                     rel="nofollow">Montrer la source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Recherche rapide</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             >index</a></li>
+        <li class="right" >
+          <a href="modifier_base.html" title="Modifier la base et re générer"
+             >suivant</a> |</li>
+        <li class="right" >
+          <a href="utiliser_generateur.html" title="Créer les formulaires"
+             >précédent</a> |</li>
+        <li><a href="../index.html">openMairie - Guide du développeur v0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, openMairie.
+      Créé avec <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Les formulaires &mdash; openMairie - Guide du développeur v0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="top" title="openMairie - Guide du développeur v0.0 documentation" href="../index.html" />
+    <link rel="up" title="<no title>" href="index.html" />
+    <link rel="next" title="La méthode" href="methode.html" />
+    <link rel="prev" title="Afficher les tables" href="affichage.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="methode.html" title="La méthode"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="affichage.html" title="Afficher les tables"
+             accesskey="P">précédent</a> |</li>
+        <li><a href="../index.html">openMairie - Guide du développeur v0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="les-formulaires">
+<span id="formulaire"></span><h1>Les formulaires<a class="headerlink" href="#les-formulaires" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Les formulaires se construisent sur la base de la classe
+formulairedyn.class.php d&#8217;openMairie</p>
+<p>Cette classe fait appel a des sous programmes generiques pour certains
+controles au travers de script js/formulairedyn.js</p>
+<div class="section" id="les-methodes-de-formulairedyn-class-php">
+<h2>Les methodes de formulairedyn.class.php<a class="headerlink" href="#les-methodes-de-formulairedyn-class-php" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La classe formulaire.class.php a les méthodes suivantes :</p>
+<p>Les méthodes sur les controles du formulaire</p>
+<div class="highlight-python"><pre>Hiddenstatic -&gt; Champ non modifiable  Valeur récupéré par le formulaire
+Hiddenstaticdate -&gt; date non modifiable Valeur récupéré par le formulaire
+statiq -&gt; Valeur non modifiable
+date -&gt; date modifiable  js/calendrier
+select -&gt; Controle select
+selectdisabled -&gt; Controle select non modifiable
+Text -&gt; Controle text
+hidden -&gt; Controle non visible avec valeur conservée
+password -&gt; Controle password
+Textdisabled -&gt; Controle text non modifiable
+comboG -&gt; Appel à un programme de correspondance à une table
+           Cas ou il y a une grosse table en correspondance
+           spg/combo
+ComboD -&gt; Appel à un programme de correspondance à une table
+           Cas ou il y a une grosse table en correspondance
+           spg/combo
+Upload -&gt; spg/upload et spg/voir.php
+textarea
+textarea_html
+localisation -&gt; spg/localisation.php
+rvb -&gt; spg/rvb.php</pre>
+</div>
+<p>Les  méthodes de construction et d affichage</p>
+<div class="highlight-python"><pre>afficher() affichage des champs (appelle par dbformdyn.class.php : methode formulaire
+        -&gt; afficherChampRegroupe() affichage des champs par regroupement / groupement
+        -&gt; afficherChamp() affichage de champ sans regroupe
+recupererPostvarsousform() et recuperePostVar():
+                recupèrent des variables apres validation
+enpied() presentation</pre>
+</div>
+<p>Les méthodes assesseurs changent les valeurs des proprietes de l&#8217;objet form (formulaire)</p>
+<div class="highlight-python"><pre>setType()
+setVal()
+setLib()
+setSelect()
+setTaille()
+setMax()
+setOnchange()
+setKeyup()
+setOnclick()
+setSelect()
+setGroupe()
+    D premier champ du groupe
+    G champ groupe
+    F dernier champ du groupe
+setRegroupe()
+    D premier champ du fieldset
+    G champ dans le fieldset
+    F dernier champ du fieldset</pre>
+</div>
+<p>et enfin les méthodes de date</p>
+<div class="highlight-python"><pre>dateAff($val)</pre>
+</div>
+<div class="section" id="les-sous-programmes-g-n-riques">
+<h3>Les sous programmes génériques<a class="headerlink" href="#les-sous-programmes-g-n-riques" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les sous programmes génériques sont des sous programmes associés aux contrôles
+du formulaire et appellés par eux par un script js dans js/formulairedyn.js</p>
+<p>Les sous programmes génériques sont stockés dans le répertoire /spg.</p>
+<p><strong>spg/combo.php</strong></p>
+<p>Ce programme est appellé par le contrôle comboD, comboG, comboD2, comboG2</p>
+<blockquote>
+<p>le paramétrage se fait dans les fichiers</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dyn</span><span class="o">/</span><span class="n">comboparametre</span><span class="o">.</span><span class="n">inc</span><span class="o">.</span><span class="n">php</span>
+<span class="n">dyn</span><span class="o">/</span><span class="n">comboretour</span><span class="o">.</span><span class="n">inc</span><span class="o">.</span><span class="n">php</span>
+<span class="n">dyn</span><span class="o">/</span><span class="n">comboaffichage</span><span class="o">.</span><span class="n">inc</span><span class="o">.</span><span class="n">php</span>
+</pre></div>
+</div>
+</blockquote>
+<p><strong>spg/localisation.php</strong> et js/localisation.js</p>
+<blockquote>
+ce programme est liée au contrôle formulaire &#8220;localisation&#8221;</blockquote>
+<p><strong>spg/voir.php</strong></p>
+<blockquote>
+<p>Ce script est associé au contrôle &#8220;upload&#8221;</p>
+<p>Ce sous programme permet de visualiser un fichier téléchargé
+sur le serveur (pdf ou image)</p>
+</blockquote>
+<p><strong>spg/upload.php</strong></p>
+<blockquote>
+<p>Ce script utilise la classe php/openmairie/upload.class.php (composant openMairie)</p>
+<p>Le paramétrage des extensions téléchargeables se fait dans le fichier autorise dans dyn/config.inc.php</p>
+</blockquote>
+<p><strong>spg/rvb.php</strong> et js/rvb.js</p>
+<blockquote>
+Ce script est associé au contrôle &#8220;rvb&#8221; et permet l&#8217;accès à une palette de couleur
+pour récupérer un code couleur rvb</blockquote>
+</div>
+<div class="section" id="le-script-scr-form-php">
+<h3>le script scr/form.php<a class="headerlink" href="#le-script-scr-form-php" title="Lien permanent vers ce titre">¶</a></h3>
+<p>form.php est le programme appellant d&#8217;un formulaire par rapport à un objet
+métier(om_parametre) et un identifiant (2)</p>
+<p>form.php affiche le formulaires et éventuellement les sous formulaires (soustab.php et sousform.php)</p>
+<p>exemple</p>
+<div class="highlight-python"><pre>form.php?obj=om_parametre&amp;idx=2</pre>
+</div>
+</div>
+<div class="section" id="les-nouvelles-utilisations-dans-les-objets-metiers-openmairie-4">
+<h3>Les nouvelles utilisations dans les objets metiers (openMairie 4)<a class="headerlink" href="#les-nouvelles-utilisations-dans-les-objets-metiers-openmairie-4" title="Lien permanent vers ce titre">¶</a></h3>
+<p>openMairie4 apporte de nouvelles fonctions qu&#8217;il est utile d&#8217;implémenter dans
+les objets métiers</p>
+<p><strong>récuperer le type de la base</strong> depuis l&#8217;objet db : $db-&gt;phptype</p>
+<div class="highlight-python"><pre>if(file_exists ("../sql/".$db-&gt;phptype."/".$this-&gt;table.".form.inc"))/
+                /include ("../sql/".$db-&gt;phptype."/".$this-&gt;table.".form.inc");/</pre>
+</div>
+<p><strong>récuperer une erreur dans la base</strong></p>
+<p>om4</p>
+<div class="highlight-python"><pre>database::isError($res); // ($res,true) = sans die</pre>
+</div>
+<p>ce code remplace le code om3 (deprecated)</p>
+<div class="highlight-python"><pre>//   if (DB :: isError($res))
+//            $this-&gt;erreur_db($res-&gt;getDebugInfo(),$res-&gt;getMessage(),'');
+//    else
+//    {
+//    if ($DEBUG == 1)
+//            echo "La requ&amp;ecirc;te de mise &amp;agrave; jour est effectu&amp;eacute;e.&lt;br&gt;";</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table des matières</a></h3>
+            <ul>
+<li><a class="reference external" href="">Les formulaires</a><ul>
+<li><a class="reference external" href="#les-methodes-de-formulairedyn-class-php">Les methodes de formulairedyn.class.php</a><ul>
+<li><a class="reference external" href="#les-sous-programmes-g-n-riques">Les sous programmes génériques</a></li>
+<li><a class="reference external" href="#le-script-scr-form-php">le script scr/form.php</a></li>
+<li><a class="reference external" href="#les-nouvelles-utilisations-dans-les-objets-metiers-openmairie-4">Les nouvelles utilisations dans les objets metiers (openMairie 4)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h4>Sujet précédent</h4>
+            <p class="topless"><a href="affichage.html"
+                                  title="Chapitre précédent">Afficher les tables</a></p>
+            <h4>Sujet suivant</h4>
+            <p class="topless"><a href="methode.html"
+                                  title="Chapitre suivant">La méthode</a></p>
+            <h3>Cette page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/framework/formulaire.txt"
+                     rel="nofollow">Montrer la source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Recherche rapide</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             >index</a></li>
+        <li class="right" >
+          <a href="methode.html" title="La méthode"
+             >suivant</a> |</li>
+        <li class="right" >
+          <a href="affichage.html" title="Afficher les tables"
+             >précédent</a> |</li>
+        <li><a href="../index.html">openMairie - Guide du développeur v0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, openMairie.
+      Créé avec <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>

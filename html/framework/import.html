@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Importer des données en csv &mdash; openMairie - Guide du développeur v0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="top" title="openMairie - Guide du développeur v0.0 documentation" href="../index.html" />
+    <link rel="up" title="<no title>" href="index.html" />
+    <link rel="next" title="Intégrer le système information geographique" href="sig.html" />
+    <link rel="prev" title="Les utilitaires" href="utilitaire.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="sig.html" title="Intégrer le système information geographique"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="utilitaire.html" title="Les utilitaires"
+             accesskey="P">précédent</a> |</li>
+        <li><a href="../index.html">openMairie - Guide du développeur v0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="importer-des-donn-es-en-csv">
+<span id="import"></span><h1>Importer des données en csv<a class="headerlink" href="#importer-des-donn-es-en-csv" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Il est possible d&#8217;importer des données suivant des scripts pré paramétrées mais qui sont
+modifiables.</p>
+<p>Pour lancer le menu import, prenez l&#8217;option : administration -&gt; import</p>
+<p>import_script.php permet les imports dans la base de donnees de fichier au
+format csv telecharge</p>
+<p>Exemple de format de fichier à importer (utilisateur.txt):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">nom</span><span class="p">,</span><span class="n">login</span><span class="p">,</span><span class="n">pwd</span><span class="p">,</span><span class="n">profil</span>
+<span class="s">&quot;Georges DANDIN&quot;</span><span class="p">;</span><span class="s">&quot;Georges&quot;</span><span class="p">;</span><span class="s">&quot;21232f297a57a5a743894a0e4a801fc3&quot;</span><span class="p">;</span><span class="s">&quot;3&quot;</span>
+<span class="s">&quot;Raymond DAVOS&quot;</span><span class="p">;</span><span class="s">&quot;Raymond&quot;</span><span class="p">;</span><span class="s">&quot;fe01ce2a7fbac8fafaed7c982a04e229&quot;</span><span class="p">;</span><span class="s">&quot;3&quot;</span>
+<span class="s">&quot;Albert DUPONT&quot;</span><span class="p">;</span><span class="s">&quot;Albert&quot;</span><span class="p">;</span><span class="s">&quot;05c7e24700502a079cdd88012b5a76d3&quot;</span><span class="p">;</span><span class="s">&quot;6&quot;</span>
+</pre></div>
+</div>
+<p>La description du transfert se fait dans le fichier extension import_nomobjet.inc dans /sql/...:</p>
+<p>exemple : import_script.php?obj=utilisateur</p>
+<p>dans utilisateur.import .inc , il est defini:</p>
+<div class="highlight-python"><pre>le message affiché en import :
+    $import= "Insert utilisateur" : Message
+
+la table d importation
+    $table= "utilisateur"
+
+le clé primaire si elle est automatique (mise en place d une séquence)
+ce champ est vide sinon
+    $id="utilisateur"
+
+Le verrouillage de la base de sonnées
+    $verrou = 1  mise a jour de la base
+            = 0 pas de mise a jour pour une phase de test
+
+Le mode debug
+    $DEBUG  =1 affichage des enregistrements a l ecran
+            =0 pas d affichage
+
+La mise en place d un fichier d'erreur :
+    $fic_erreur=1 fichier erreur
+               =0 pas de fichier d erreur
+
+La mise en place d un fichier de rejet reprenant les enregistrements csv rejetés
+ce fichier contient les enregistrements en erreur et permet de relancer le
+traitement apres correction (manuelle)
+    $fic_rejet=1 fichier de rejet pour relance traitement
+              =0 pas de fichier rejet
+
+La première ligne affiche le nom des champs :
+$ligne1=1 la premiere ligne contient les noms de champs
+       =0 sinon
+
+Les zones obligatoires : tableau $obligatoire
+
+    $obligatoire['nom']=1;// obligatoire = 1
+    $obligatoire['login']=1;// obligatoire = 1
+
+les tests d'existence d'une clé secondaire
+
+    $exist['profil']=1 =&gt; 0=non / 1=oui
+    $sql_exist["profil"]= "select profil from profil where profil = '"
+
+La liste des champs à insérer
+il faut mettre en commentaire les zones non traitées
+    $zone['nom']='0' =&gt; la 1ère zone contient le nom
+    $zone['login']=1 =&gt; la 2éme zone contient le login
+    $zone['pwd']='2' =&gt; la 3éme zone contient le mot de passe (crypte)
+    $zone['profil']='3' =&gt; la 4éme zone contient le profil
+
+La valeur par defaut :
+En effet, si $zone['profil']="" on peut definir un profil par defaut
+    $defaut['profil']='5' Le profil par defaut  sera 5</pre>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Sujet précédent</h4>
+            <p class="topless"><a href="utilitaire.html"
+                                  title="Chapitre précédent">Les utilitaires</a></p>
+            <h4>Sujet suivant</h4>
+            <p class="topless"><a href="sig.html"
+                                  title="Chapitre suivant">Intégrer le système information geographique</a></p>
+            <h3>Cette page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/framework/import.txt"
+                     rel="nofollow">Montrer la source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Recherche rapide</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             >index</a></li>
+        <li class="right" >
+          <a href="sig.html" title="Intégrer le système information geographique"
+             >suivant</a> |</li>
+        <li class="right" >
+          <a href="utilitaire.html" title="Les utilitaires"
+             >précédent</a> |</li>
+        <li><a href="../index.html">openMairie - Guide du développeur v0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, openMairie.
+      Créé avec <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>

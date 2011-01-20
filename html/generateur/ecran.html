@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Les écrans du générateur &mdash; openMairie - Guide du développeur v0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="top" title="openMairie - Guide du développeur v0.0 documentation" href="../index.html" />
+    <link rel="up" title="Générateur" href="index.html" />
+    <link rel="next" title="L’analyse de la base" href="analyse_base.html" />
+    <link rel="prev" title="Présentation" href="presentation_generateur.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="analyse_base.html" title="L’analyse de la base"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="presentation_generateur.html" title="Présentation"
+             accesskey="P">précédent</a> |</li>
+        <li><a href="../index.html">openMairie - Guide du développeur v0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Générateur</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="les-crans-du-g-n-rateur">
+<span id="ecran"></span><h1>Les écrans du générateur<a class="headerlink" href="#les-crans-du-g-n-rateur" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Le menu generateur est le suivant :</p>
+<img alt="../_images/ecran_1.png" src="../_images/ecran_1.png" />
+<p>En appuyant sur la touche generation
+on accède à l&#8217;écran de génération qui se décompose en :</p>
+<ul class="simple">
+<li>une analyse  de la base de donnée en cours et de la table choisie</li>
+<li>un état des fichiers existants ou non</li>
+<li>les options de génération</li>
+</ul>
+<p>le choix du fichier de paramétrage par défaut</p>
+<img alt="../_images/ecran_2.png" src="../_images/ecran_2.png" />
+<div class="section" id="analyse-de-la-base">
+<h2>Analyse de la base<a class="headerlink" href="#analyse-de-la-base" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le programme propose une analyse de la base en cours :</p>
+<ul class="simple">
+<li>liste des tables de la base</li>
+<li>l&#8217;information sur la clé primaire de la table</li>
+<li>la longueur de l&#8217;enregistrement de la table</li>
+<li>les informations sur les champs : nom, type et longueur</li>
+<li>les clés secondaires (exemple table om_colllectivite</li>
+<li>les sous formulaires à associer</li>
+</ul>
+</div>
+<div class="section" id="les-fichiers-generer">
+<h2>Les fichiers à generer<a class="headerlink" href="#les-fichiers-generer" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est proposé une liste de case à cocher :</p>
+<p>La case est cochée sur le fichier correspondant n&#8217;existe pas (colonne de droite)</p>
+<p>Le formulaire métier auto généré, table.inc, tableform.inc est toujours coché (fichiers en gen/):</p>
+<blockquote>
+<p>gen/obj/table.class.php</p>
+<p>gen/sql/basededonnees/table.inc</p>
+<p>sql/basededonnees/table.form.inc</p>
+</blockquote>
+<p>La génération de ces 3 fichiers ne met pas en péril votre programmation qui est en :</p>
+<blockquote>
+<p>obj/table.class.php</p>
+<p>sql/basededonnees/table.inc</p>
+<p>sql/basededonnees/table.form.inc</p>
+</blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table des matières</a></h3>
+            <ul>
+<li><a class="reference external" href="">Les écrans du générateur</a><ul>
+<li><a class="reference external" href="#analyse-de-la-base">Analyse de la base</a></li>
+<li><a class="reference external" href="#les-fichiers-generer">Les fichiers à generer</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Sujet précédent</h4>
+            <p class="topless"><a href="presentation_generateur.html"
+                                  title="Chapitre précédent">Présentation</a></p>
+            <h4>Sujet suivant</h4>
+            <p class="topless"><a href="analyse_base.html"
+                                  title="Chapitre suivant">L&#8217;analyse de la base</a></p>
+            <h3>Cette page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/generateur/ecran.txt"
+                     rel="nofollow">Montrer la source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Recherche rapide</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             >index</a></li>
+        <li class="right" >
+          <a href="analyse_base.html" title="L’analyse de la base"
+             >suivant</a> |</li>
+        <li class="right" >
+          <a href="presentation_generateur.html" title="Présentation"
+             >précédent</a> |</li>
+        <li><a href="../index.html">openMairie - Guide du développeur v0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Générateur</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, openMairie.
+      Créé avec <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>

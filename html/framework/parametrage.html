@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Paramétrage du framework &mdash; openMairie - Guide du développeur v0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="top" title="openMairie - Guide du développeur v0.0 documentation" href="../index.html" />
+    <link rel="up" title="<no title>" href="index.html" />
+    <link rel="next" title="Afficher les tables" href="affichage.html" />
+    <link rel="prev" title="<no title>" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="affichage.html" title="Afficher les tables"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="<no title>"
+             accesskey="P">précédent</a> |</li>
+        <li><a href="../index.html">openMairie - Guide du développeur v0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="param-trage-du-framework">
+<span id="parametrage"></span><h1>Paramétrage du framework<a class="headerlink" href="#param-trage-du-framework" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Le paramétrage de l application se fait dans le répertoire /dyn.</p>
+<p>Il est proposé dans ce chapitre de décrire les différents fichiers de paramétrage.</p>
+<p>Les fichiers de paramétrage sont les suivants</p>
+<div class="highlight-python"><pre>dyn/database.inc.php           connexion a la base de données
+dyn/menu.inc.php               menu principal à gauche
+dyn/action.inc                 menu haut
+dyn/shortslink.inc             lien sous menu haut
+dyn/tbd.inc                    tableau de bord
+dyn/locales.inc                application
+dyn/config.inc.php             application
+dyn/include.inc.php            chemin d'accès aux librairies
+dyn/debug.inc.php              mode debug
+dyn/version.inc                paramétrage de la version
+
+README.txt                     fichiers textes
+HISTORY.txt
+SPECIFIC.txt
+LICENCE.txt
+TODO.txt
+INSTALL.txt</pre>
+</div>
+<div class="section" id="la-connexion-de-la-base-de-donnees">
+<h2>La connexion de la base de donnees<a class="headerlink" href="#la-connexion-de-la-base-de-donnees" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le paramétrage de la connexion se fait dans : <em>dyn/database.inc.php</em></p>
+<p>Le paramétrage par défaut est dans le tableau $conn[1] pour la base 1 :</p>
+<p>Il peut être paramétré plusieurs bases : conn[1] , conn[2] ...</p>
+<p>conn[1] est un tableau php qui contient les parametres de connexion suivants</p>
+<div class="highlight-python"><pre>'titre          =&gt; 'openxxx',       [parametrage openmairie]
+'phptype'       =&gt; 'mysql',         mysql ou 'pgsql' [parametrage dbpear]
+'dbsyntax'      =&gt; '',              [ne pas changer parametrage dbpear]
+'username'      =&gt; 'root',          [par defaut sur wamp easyphp ou lamp /
+                                    a voir avec le fournisseur d acces le cas echeant]
+'password'      =&gt; ''               [par defaut sur wamp easyphp ou lamp /
+                                    a voir avec le fournisseur d acces le cas echeant]
+'protocol'      =&gt; '',
+'hostspec'      =&gt; 'localhost',     [nom de serveur par defaut wamp ou easyphp]
+'port'          =&gt; '',              [ne pas changer parametrage dbpear]
+'socket'        =&gt; '',              [ne pas changer parametrage dbpear]
+'nom de la base'=&gt; 'openxxx',       [parametrage openmairie]
+'format date'   =&gt;'AAAA-MM-JJ'      [parametrage openmairie ne pas changer]
+'shema'         =&gt; ''               ou 'public' pour postgre
+'prefixe'       =&gt; ''</pre>
+</div>
+<p>Il est possible de définir tout phptype : mysql, pgsql (postgresql), oci8 pour oracle.</p>
+<p>Il faut voir la documentation de DB PEAR qui est le module d&#8217;abstraction utilisé
+dans openMairie (version 4.0.0)</p>
+</div>
+<div class="section" id="le-menu-principal">
+<h2>Le menu principal<a class="headerlink" href="#le-menu-principal" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le paramétrage du menu se fait dans le fichier <em>dyn/menu.inc.php</em>.</p>
+<p>De base, les rubriques suivantes sont paramétrées dans le framework:</p>
+<div class="highlight-python"><pre>application             vide par défaut, contient l'accès à votre application
+export                  contient le script "edition" qui reprend
+                            les éditions pdf des tables
+                        contient le menu "reqmo" qui reprend les requêtes
+                            mémorisées
+traitement              vide par défaut, cet option contient les scripts de
+                            traitement
+parametrage             Cette option contient vos tables de paramétrage
+administration          Les scripts de cet option contiennent tout les scripts
+                            du framework pour le paramètrage de la collectivité,
+                            des états / sous états  et la gestion des accès</pre>
+</div>
+<p>Le paramétrage du menu se fait dans $menu.</p>
+<p>$menu est le tableau associatif qui contient tout le menu de l&#8217;application,
+il contient lui meme un tableau par rubrique, puis chaque
+rubrique contient un tableau par lien :</p>
+<p>Les caracteristiques de ce tableau sont les suivantes :</p>
+<blockquote>
+<p>tableau rubrik</p>
+<div class="highlight-python"><pre>title (obligatoire)
+description (texte qui s'affiche au survol de la rubrique)
+href (contenu du lien href)
+class (classe css qui s'affiche sur la rubrique)
+right (droit que l'utilisateur doit avoir pour visionner cette rubrique)
+links (obligatoire)</pre>
+</div>
+<p>tableau links</p>
+<div class="highlight-python"><pre>title (obligatoire)
+href (obligatoire) (contenu du lien href)
+class (classe css qui s'affiche sur l'element)
+right (droit que l'utilisateur doit avoir pour visionner cet element)
+target (pour ouvrir le lien dans une nouvelle fenetre)</pre>
+</div>
+</blockquote>
+</div>
+<div class="section" id="le-menu-haut">
+<h2>Le menu haut<a class="headerlink" href="#le-menu-haut" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le paramétrage du menu haut se fait dans le fichier <em>dyn/action.inc.php</em></p>
+<p>Par défaut, il est paramétré le changement de mot de poste et la déconnexion</p>
+<p>$actions est le tableau associatif qui contient tous les liens présents dans
+les actions à côté du login et du nom de la collectivite</p>
+<p>les caractéristiques du tableau link sont les suivantes :</p>
+<p>tableau link</p>
+<div class="highlight-python"><pre>title (obligatoire)
+description (texte qui s'affiche au survol de l'element)
+href (obligatoire) (contenu du lien href)
+class (classe css qui s'affiche sur l'element)
+right (droit que l'utilisateur doit avoir pour visionner cet element)
+target (pour ouvrir le lien dans une nouvelle fenetre)</pre>
+</div>
+<p>Les liens sous le menu des actions se paramétrent dans le fichier : <em>dyn/shortlinks.inc.php</em></p>
+<p>$shortlinks est le tableau associatif qui contient tous les liens présents
+dans les raccourcis qui se situent en dessous des actions du menu haut</p>
+<p>Par défaut, il est paramétré l&#8217;accès au tableau de bord.</p>
+<p>Les caracteristiques du tableau $link sont les suivantes :</p>
+<p>tableau link</p>
+<div class="highlight-python"><pre>title [obligatoire]
+description (texte qui s'affiche au survol de l'element)
+href [obligatoire] (contenu du lien href)
+class (classe css qui s'affiche sur l'element)
+right (droit que l'utilisateur doit avoir pour visionner cet element)
+target (pour ouvrir le lien dans une nouvelle fenetre)</pre>
+</div>
+</div>
+<div class="section" id="le-tableau-de-bord">
+<h2>Le tableau de bord<a class="headerlink" href="#le-tableau-de-bord" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le tableau de bord se paramètre dans le fichier <em>dyn/tdb.inc</em>.</p>
+<p>Le parametrage est libre et depend de l&#8217;application.</p>
+<p>Ce fichier est appellé par le script scr/dashboard.php.</p>
+<p>Nous proposons cet exemple de code</p>
+<div class="highlight-python"><pre>$description = _("Bienvenue ").$_SESSION["login"]."&lt;br&gt;";
+$f-&gt;displayDescription($description);</pre>
+</div>
+<p>Ce paramétrage va afficher &#8220;bienvenue demo&#8221; dans la page d&#8217;accueil ou
+tableau de bord pour l&#8217;utilisateur &#8220;demo&#8221;</p>
+</div>
+<div class="section" id="les-variables-locales-et-la-langue">
+<h2>Les variables locales et la langue<a class="headerlink" href="#les-variables-locales-et-la-langue" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les variables locales sont paramétrées dans le fichier <em>dyn/locales.inc.php</em></p>
+<p>Ce fichier contient :</p>
+<ul>
+<li><p class="first">le paramétrage du codage des caracteres</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">define</span><span class="p">(</span><span class="s">&#39;CHARSET&#39;</span><span class="p">,</span> <span class="s">&#39;ISO-8859-1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">le dossier ou sont installées les variables du systeme</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">define</span><span class="p">(</span><span class="s">&#39;LOCALE&#39;</span><span class="p">,</span> <span class="s">&#39;fr_FR&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Le dossier contenant les locales et les fichiers de traduction</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">define</span><span class="p">(</span><span class="s">&#39;LOCALES_DIRECTORY&#39;</span><span class="p">,</span> <span class="s">&#39;../locales&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Le domaine de traduction</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">define</span><span class="p">(</span><span class="s">&#39;DOMAIN&#39;</span><span class="p">,</span> <span class="s">&#39;openmairie&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Les zones à traduire sont sous le format : _(&#8220;zone a traduire&#8221;)</p>
+<p>Voir le chapître sur les outils : <em>poEdit</em></p>
+</div>
+<div class="section" id="le-param-trage-de-l-application-metier">
+<h2>Le paramétrage de l application metier<a class="headerlink" href="#le-param-trage-de-l-application-metier" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L&#8217;application métier est paramétrée dans <em>dyn/var.inc</em></p>
+<p>Ce script contient les paramétres globaux de l application .
+Attention les paramètres s&#8217;appliquent à toutes les bases de l&#8217;application.</p>
+<p>Le paramétrage spécifique par collectivité doit se faire dans la table om_parametre</p>
+<p>La configuration générale de l&#8217;application se fait aussi dans <em>dyn/config.inc.php</em>.</p>
+<p>Les paramètres sont récupérés avec la création d&#8217;un objet utils par :
+$f-&gt;config[&#8216;nom_du_parametre&#8217;]</p>
+<p><em>Voir framework/utilitaire</em></p>
+<p>Exemple de paramétrage avec openCourrier</p>
+<div class="highlight-python"><pre>$config['application'] = _("openCourrier");
+$config['title'] = ":: "._("openMairie")." :: "._("openCourrier");
+$config['session_name'] = "openCourrier";</pre>
+</div>
+<ul class="simple">
+<li>le mode demonstration de l&#8217;application se paramétre avec $config[&#8216;demo&#8217;]</li>
+</ul>
+<p>Ce mode permet de pre-remplir le formulaire de login avec l&#8217;identifiant &#8216;demo&#8217; et le mot de passe &#8216;demo&#8217;</p>
+<div class="highlight-python"><pre>$config['demo'] = false;  l'application n'est pas en mode démo
+                  true; l'application est en mode démo
+
+Attention, pour empêcher de changer le mot de passe, il faut paramétrer l'accès
+dans la table om_droit : password</pre>
+</div>
+<ul class="simple">
+<li>La configuration des extensions autorisees dans le module upload.php</li>
+</ul>
+<blockquote>
+<p>Pour changer votre configuration, décommenter la ligne et modifier les extensions avec des &#8220;;&#8221; comme séparateur</p>
+<div class="highlight-python"><pre>$config['upload_extension'] = ".gif;.jpg;.jpeg;.png;.txt;.pdf;.csv;"</pre>
+</div>
+</blockquote>
+<ul>
+<li><p class="first">Le thème de l&#8217;application - les différents choix possibles se trouvent dans le</p>
+<p>dossier : ../lib/jquery-ui/css/</p>
+<p>Par defaut, le thème d&#8217;openExemple est &#8220;om_overcast&#8221;</p>
+<div class="highlight-python"><pre>$config['theme'] = "om_overcast";</pre>
+</div>
+</li>
+</ul>
+<p>Les thèmes openmairie_exemple sont : &#8220;om_overcast&#8221;; &#8220;om_sunny&#8221;; &#8220;om_ui-darkness&#8221;;</p>
+<p>Vous pouvez mettre d&#8217;autres themes jquery.</p>
+</div>
+<div class="section" id="le-parametrage-des-librairies">
+<h2>Le Parametrage des librairies<a class="headerlink" href="#le-parametrage-des-librairies" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le paramétrage de l&#8217;accès aux librairies se fait dans <em>dyn/include.inc.php</em></p>
+<blockquote>
+<p>Ce fichier permet de configurer les paths en fonction de la
+directive include_path du fichier php.ini.
+Vous pouvez aussi modifier ces chemins avec vos propres valeurs si
+vous voulez personnaliser votre installation :</p>
+<blockquote>
+<p>PEAR</p>
+<div class="highlight-python"><pre>array_push($include, getcwd()."/../php/pear");</pre>
+</div>
+<p>DB</p>
+<div class="highlight-python"><pre>array_push($include, getcwd()."/../php/db");</pre>
+</div>
+<p>FPDF</p>
+<div class="highlight-python"><pre>array_push($include, getcwd()."/../php/fpdf");</pre>
+</div>
+<p>OPENMAIRIE</p>
+<div class="highlight-python"><pre>define("PATH_OPENMAIRIE", getcwd()."/../php/openmairie/");</pre>
+</div>
+</blockquote>
+</blockquote>
+<p>Par défaut, les librairies sont incluses dans openmairie_exemple :</p>
+<ul class="simple">
+<li>/lib : contient les librairies javascript</li>
+<li>/php : contient les librairies php</li>
+</ul>
+</div>
+<div class="section" id="le-mode-debug">
+<h2>Le mode debug<a class="headerlink" href="#le-mode-debug" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le mode debug d&#8217;openMairie se paramétre dans  <em>dyn/debug.inc.php</em></p>
+<p>Ce fichier contient le paramétrage pour le mode debug
+d&#8217;openMairie (om_debug.inc.php)</p>
+<p>Valeur de la variable globale DEBUG</p>
+<blockquote>
+<p>VERBOSE_MODE : mode &#8220;bavard&#8221;</p>
+<p>DEBUG_MODE : mode debug</p>
+<p>PRODUCTION_MODE : mode de production (pas de message)</p>
+</blockquote>
+</div>
+<div class="section" id="la-version-de-votre-application">
+<h2>La version de votre application<a class="headerlink" href="#la-version-de-votre-application" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Vous devez mettre le numéro de version et la date  de votre application
+dans <em>dyn/version.inc</em></p>
+<p>Voir <em>le versionage des applications</em>.</p>
+</div>
+<div class="section" id="les-informations-generales">
+<h2>Les informations generales<a class="headerlink" href="#les-informations-generales" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les fichiers textes d&#8217;information générale sont à la racine de l&#8217;application  :</p>
+<p>README.txt :</p>
+<blockquote>
+ce fichier peut contenir entre autre, la liste des auteurs ayant participé au projet</blockquote>
+<p>HISTORY.txt : information sur chaque version :</p>
+<blockquote>
+les (+) et les (bugs) corrigés</blockquote>
+<p>SPECIFIC.txt :</p>
+<blockquote>
+Ici, vous décrivez la specificite de l application courante par rapport au framework</blockquote>
+<p>LICENCE.txt : licence libre de l application</p>
+<p>TODO.txt : feuille de route - roadmap</p>
+<p>INSTALL.txt : installation de l application</p>
+</div>
+<div class="section" id="l-installation-automatique">
+<h2>L&#8217;installation automatique<a class="headerlink" href="#l-installation-automatique" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La mise en place d une installation automatique est prévue dans la version openMairie 4.0.1</p>
+</div>
+<div class="section" id="les-param-tres-des-combos">
+<h2>Les paramétres des combos<a class="headerlink" href="#les-param-tres-des-combos" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les paramétres combos sont paramétrés dans les fichiers suivants</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">-</span> <span class="n">comboaffichage</span><span class="o">.</span><span class="n">inc</span><span class="o">.</span><span class="n">php</span>
+<span class="o">-</span> <span class="n">comboparametre</span><span class="o">.</span><span class="n">inc</span><span class="o">.</span><span class="n">php</span>
+<span class="o">-</span> <span class="n">comboretour</span><span class="o">.</span><span class="n">inc</span><span class="o">.</span><span class="n">php</span>
+</pre></div>
+</div>
+<p>Voir <em>chapître framework/formulaire, sous programme générique combo.php</em></p>
+</div>
+<div class="section" id="les-param-tres-ditions">
+<h2>Les paramétres éditions<a class="headerlink" href="#les-param-tres-ditions" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les variables dans les éditions sont paramétrées dans</p>
+<div class="highlight-python"><pre>- varpdf.inc                pour les pdf
+- varetatpdf.inc            pour les états et les sous états
+- varlettretypepdf.inc      pour les lettres type</pre>
+</div>
+<p>Voir <em>chapître framework/édition</em></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table des matières</a></h3>
+            <ul>
+<li><a class="reference external" href="">Paramétrage du framework</a><ul>
+<li><a class="reference external" href="#la-connexion-de-la-base-de-donnees">La connexion de la base de donnees</a></li>
+<li><a class="reference external" href="#le-menu-principal">Le menu principal</a></li>
+<li><a class="reference external" href="#le-menu-haut">Le menu haut</a></li>
+<li><a class="reference external" href="#le-tableau-de-bord">Le tableau de bord</a></li>
+<li><a class="reference external" href="#les-variables-locales-et-la-langue">Les variables locales et la langue</a></li>
+<li><a class="reference external" href="#le-param-trage-de-l-application-metier">Le paramétrage de l application metier</a></li>
+<li><a class="reference external" href="#le-parametrage-des-librairies">Le Parametrage des librairies</a></li>
+<li><a class="reference external" href="#le-mode-debug">Le mode debug</a></li>
+<li><a class="reference external" href="#la-version-de-votre-application">La version de votre application</a></li>
+<li><a class="reference external" href="#les-informations-generales">Les informations generales</a></li>
+<li><a class="reference external" href="#l-installation-automatique">L&#8217;installation automatique</a></li>
+<li><a class="reference external" href="#les-param-tres-des-combos">Les paramétres des combos</a></li>
+<li><a class="reference external" href="#les-param-tres-ditions">Les paramétres éditions</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Sujet précédent</h4>
+            <p class="topless"><a href="index.html"
+                                  title="Chapitre précédent">&lt;no title&gt;</a></p>
+            <h4>Sujet suivant</h4>
+            <p class="topless"><a href="affichage.html"
+                                  title="Chapitre suivant">Afficher les tables</a></p>
+            <h3>Cette page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/framework/parametrage.txt"
+                     rel="nofollow">Montrer la source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Recherche rapide</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             >index</a></li>
+        <li class="right" >
+          <a href="affichage.html" title="Afficher les tables"
+             >suivant</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="<no title>"
+             >précédent</a> |</li>
+        <li><a href="../index.html">openMairie - Guide du développeur v0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, openMairie.
+      Créé avec <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>
