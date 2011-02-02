@@ -162,22 +162,8 @@ la racine du mapfile, paramètres de la carte à générer.
             
     Le bloc PROJECTION ::
     
-        L'indication d'un géoréférencement pour la carte produite par le mapfile nécessite un 
-        bloc PROJECTION. Ce bloc contient les informations de référencement, qui peuvent être de 
-        deux formes, une série de paramètres PROJ.4 (Cf. http://proj.maptools.org/gen_parms.html) ou 
-        un code EPSG (Cf : http://www.epsg.org/). 
-            Par exemple : 
-                              PROJECTION 
-                                "proj=utm" 
-                                "ellps=GRS80" 
-                                "zone=15" 
-                                "north" 
-                                "no_defs" 
-                              END 
-            Ou : 
-                             PROJECTION 
-                               "init=epsg:28992" 
-                             END 
+        voir mapserver_transform
+
     Le bloc SCALEBAR ::
     
         MapServer gère les échelles selon une technique assez particulière. En effet, il part du 
@@ -247,117 +233,83 @@ la racine du mapfile, paramètres de la carte à générer.
               IMAGEMODE RGBA 
              END
     
-    Le bloc LAYER 
-        Ce bloc va définir les propriétés de création et d'affichage d'une couche de données 
-        SIG par MapServer. Les blocs LAYER sont dessinés dans l'ordre du mapfile, c'est à dire que le 
-        premier bloc du mapfile est dessiné en premier, les suivants viendront par-dessus sur la carte. 
-        L'ordre du mapfile est donc l'ordre inverse de la superposition verticale des sources. 
-                   
+    Le bloc LAYER
+    
+        Les blocs LAYER sont dessinés dans l'ordre du mapfile
+        
         Paramètres généraux : 
         
-        NAME : Nom de la couche, utilisé comme identifiant par l'interface web. Doit être 
-        unique dans le mapfile et d'une longueur maximale de 20 caractères. Entre 
-        guillemets de préférence (ou apostrophes). 
+        NAME : Nom de la couche (unique, maximale 20 caractères, entre guillemets) 
         
-        GROUP : Groupe auquel le LAYER appartient. Utilisé dans les modèles HTML pour 
-        activer/désactiver les couches par groupes. 
+        GROUP : Groupe auquel le LAYER appartient.
+                Utilisé dans les modèles HTML pour activer/désactiver les couches par groupes. 
         
         METADATA : Bloc secondaire utiliser pour stocker des paires nom – valeur. Utilisé 
-        par les modèles HTML et en mode serveur WMS. 
+                   par les modèles HTML et en mode serveur WMS. 
         
-        STATUS : Statut (visibilité) du layer. Valeurs : default, on, off. Doit prendre la valeur 
-        « default » pour que le layer soit visible lorsque l'on utilise MapServer en mode Map 
-        (le STATUS ON ne suffit pas à le rendre visible, il faut que le layer soit expressément 
-        requis). 
+        STATUS :
+            Statut (visibilité) du layer.
+            Valeurs : default(=visible), on, off
         
-        TYPE : Type d'objet géométrique ou modalité selon laquelle la couche doit être 
-        dessinée. Valeurs : point|line|polygon|circle|annotation|raster|query. Ce paramètre peut 
-        prendre une valeur différente du type géométrique des objets contenus dans la 
-        couche d'origine, par exemple une couche de polygones peut être représentée comme 
-        un LAYER de type POINT, ce qui affichera les centroïdes des polygones ( 
+        TYPE :
+
+            Type d'objet géométrique ou
+            modalité selon laquelle la couche doit être dessinée.
+            Valeurs : point|line|polygon|circle|annotation|raster|query.
+                peut prendre une valeur différente du type géométrique des objets contenus
+                (exemple une couche de polygones peut être représentée par des points 
+                ce qui affichera les centroïdes des polygones) 
         
-        MINSCALE : Échelle minimale à laquelle la couche sera dessinée. Si une échelle plus 
-        petite est demandée, MapServer dessinera la couche à l'échelle précisée par ce 
-        paramètre. 
+        MINSCALE : Échelle minimale à laquelle la couche sera dessinée.
         
         MAXSCALE : Idem pour l'échelle maximale. 
         
-        SYMBOLESCALE : Échelle à laquelle les symboles et/ou les textes apparaissent à 
+        SYMBOLESCALE : echelle des symboles et/ou les textes apparaissent à 
         leur taille normale. Ce paramètre permet un dimensionnement dynamique de ce type 
         d'objets selon l'échelle de la carte, dans les limites des deux paramètres précédents. 
         Obligatoire pour l'utilisation du paramètre SIZEITEM dans un bloc CLASS. 
         
-        OPACITY : Degré de transparence de la couche, exprimé en pourcentage (sans le 
-        signe %), de 100 – opaque à 0 – totalement transparent. 
+        OPACITY : Degré de transparence de la couche, exprimé en pourcentage
+                  de 100 – opaque à 0 – totalement transparent. 
         
         OFFSITE : Le numéro d'index de la couleur d'une couche raster à traiter comme 
         transparent. Cela permet de ne garder que la région utile d'une couche raster. 
         
-        POSTLABELCACHE : Valeur booléenne (true / false) qui indique à MapServer de 
-        dessiner cette couche après avoir dessiné les libellés (labels) qui sont dans le tampon 
-        des libellés. Prend la valeur false par défaut. 
+        POSTLABELCACHE: true / false 
+                        couche après labels
+                        false par défaut. 
         
-        CLASSITEM : Nom de la colonne attributaire qui est utilisée dans les expressions de 
-        sélection des blocs CLASS. 
+        CLASSITEM : Nom de la colonne attributaire blocs CLASS. 
         
         LABELITEM : Nom de la colonne attributaire qui fournira le texte des étiquettes. 
         
         TEMPLATE : Nom du fichier modèle HTML qui prend en compte cette couche. 
-        Obligatoire pour rendre cette couche interrogeable par requête, même si on n'utilise 
-        pas de modèle HTML. 
+                   Obligatoire pour rendre cette couche interrogeable par requête,
+                   même si on n'utilise pas de modèle HTML. 
         
-        DEBUG : Valeur On ou Off. Si le paramètre général LOG est défini, les messages de 
-        débogage détaillés seront ajoutés au fichier de log, en plus des messages d'erreur. 
+        DEBUG : Valeur On ou Off.
+                Si le paramètre général LOG est défini, les messages de 
+                débogage détaillés seront ajoutés au fichier de log,
+                en plus des messages d'erreur. 
              
         Paramètres de données :
         
-            • Shapefiles 
+            • Shapefiles voir mapserver_shapefile
 
             • Couches vectorielles accédées avec OGR 
-                La bibiothèque de fonctions OGR permet à MapServer de lire un grand nombre de 
-                formats SIG vectoriels : http://www.gdal.org/ogr/ogr_formats.html 
-                Pour indiquer une source de données OGR, il faut utiliser la syntaxe suivante : 
-                    CONNECTIONTYPE OGR 
-                    CONNECTION [nom de la source] 
-                Ce dernier paramètre dépend du type de source, généralement il s'agit du chemin relatif au 
-                SHAPEPATH et du nom du fichier, ou du nom du répertoire (source ArcInfo coverage par 
-                exemple). Certains types de sources vectorielles sont organisées en couches multiples par 
-                fichier, il faut donc choisir la couche à utiliser avec le paramètre DATA [numéro/nom de la 
-                couche]. MapServer peut aussi récupérer en partie les éventuels styles d'affichage présents 
-                dans les couches, avec le paramètre STYLEITEM AUTO. Le paramètre FILTER est utilisable 
-                aussi avec ce type de données, comme pour les shapefiles. 
         
-            • Source serveurs de données 
-                MapServer peut se connecter à des serveurs SIG directement, et ainsi assembler des 
-                couches de diverses origines de façon transparente. Cela permet de construire une 
-                organisation des données dispersée sur des serveurs spécialisés. Les paramètres de 
-                connexion sont fournis dans une chaîne de caractères passée en valeur au paramètre 
+            • Source serveurs de données
+            
                 CONNECTION. 
-                ArcSDE : 
-                PostGIS
-                Oracle Spatial : 
-                Web Map Services (WMS) 
+                    ArcSDE
+                    PostGIS  voir mapserver_postgis
+                    Oracle Spatial 
+                    Web Map Services (WMS) voir mapserver_web 
 
-                            
-            • Couches raster
-                Les données raster géoréférencées sont gérées avec le paramètre TYPE raster, le 
-                paramètre DATA devant pointer vers le fichier (et son éventuel chemin relatif à SHAPEPATH). 
-                GDAL supporte un grand nombre de formats de fichier, cf.: http://www.gdal.org/ 
-                formats_list.html 
-                MapServer possède quelques fonctions de traitement des rasters, accessibles avec le 
-                paramètre PROCESSING. GDAL est capable de réaliser des traitements de rééchantillonage / 
-                mise à l'échelle (SCALE), de tramage (DITHERING), et de sélection de bande (BAND). Cf. : la 
-                documentation spécifique aux données raster : http://mapserver.gis.umn.edu/docs/howto/ 
-                raster_data 
-                Les sources de données raster composées de nombreux fichiers juxtaposés sont gérables en 
-                une seule fois par MapServer, sous la forme d'un tuilage (tiles). Ce tuilage consiste en un 
-                fichier shape qui contient des objets polygone représentant l'extension de chaque tuile raster, 
-                et ayant comme attribut le nom du fichier. Ce type de tuilage peut être produt en utilisant 
-                l'utilitaire gdaltindex distribué avec GDAL. Cela permet une gestion beaucoup plus rapide des 
-                grandes couvertures raster, notamment si les bitmaps sont eux aussi optimisés pour être lus à 
-                différentes résolutions (index pyramidal dans les tif par exemple). 
-                     
-        Le bloc CLASS 
+            • Couches raster voir mapserver_raster
+
+        Le bloc CLASS
+        
             Ce bloc permet de définir des classes thématiques dans la couche, qui vont pouvoir 
             être affichées différemment sur la carte globale. Les blocs CLASS sont traités dans l'ordre du 
             fichier map, selon l'ordre de classement vertical. Ce bloc peut contenir les paramètres 
@@ -401,7 +353,8 @@ la racine du mapfile, paramètres de la carte à générer.
                 débogage détaillés seront ajoutés au fichier de log, en plus des messages d'erreur. 
             Les bloc CLASS peut contenir des blocs secondaires LABEL et STYLE.
             
-            Le bloc LABEL 
+            Le bloc LABEL
+            
             Ce bloc permet de configurer l'étiquetage des éléments de la classe, selon un champ 
             attributaire indisué par le paramètre LABELITEM du bloc LAYER qui contient le bloc LABEL. 
                             
