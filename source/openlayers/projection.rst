@@ -9,12 +9,11 @@ Divers systeme de projection ::
                         terre		type			    EPSG	x/y		    fournisseur
     sphericalmercator 	sphere		tuiles raster		900913	en metre	osm, google, bing
     wgs84		    	elipsoide	latitude longitude	4326	en degre ?	ign	
-		
+
 
 ==================
 reference spatiale
 ==================
-
 
 http://spatialreference.org/ref/
 
