@@ -312,17 +312,7 @@ la racine du mapfile, paramètres de la carte à générer.
         Paramètres de données :
         
             • Shapefiles 
-                Les shapefiles sont la source de données la plus courante pour MapServer, qui au 
-                départ était construit uniquement autour de ce format (issu de la bibliothèque shapelib). On 
-                indique que la source de données du layer est un shapefile avec le paramètre DATA, qui prend 
-                comme valeur le chemin vers le shapefile, relatif au chemin SHAPEPATH (préciser 
-                l'extension .shp est inutile). Le paramètre FILTER permet d'utiliser les expressions régulières 
-                pour filtrer les objets de la source de données au niveau du bloc LAYER, c'est à dire avant le 
-                traitement des blocs CLASS qui peuvent eux aussi comporter une sélection. 
-                        L'utilisation d'une source de données shapefile offre de plus la possibilité de lier 
-                (jointure) une table dbf de données attributaires, en utilisant un bloc secondaire JOIN. Ces 
-                données deviennent ainsi interrogeables par MapServer en mode Query. 
-        
+
             • Couches vectorielles accédées avec OGR 
                 La bibiothèque de fonctions OGR permet à MapServer de lire un grand nombre de 
                 formats SIG vectoriels : http://www.gdal.org/ogr/ogr_formats.html 
@@ -342,25 +332,12 @@ la racine du mapfile, paramètres de la carte à générer.
                 couches de diverses origines de façon transparente. Cela permet de construire une 
                 organisation des données dispersée sur des serveurs spécialisés. Les paramètres de 
                 connexion sont fournis dans une chaîne de caractères passée en valeur au paramètre 
-                CONNECTION. Le paramètre FILTER peut contenir une expression de requête SQL (c'est à 
-                dire le texte venant après un élément SQL WHERE). 
+                CONNECTION. 
                 ArcSDE : 
-                    CONNECTIONTYPE sde 
-                    CONNECTION "myhost,esri_sde,gisdb,userid,password" 
-                    DATA table, colonne_geom 
-                PostGIS (objet de la prochaine séance) : 
-                    CONNECTIONTYPE postgis 
-                    CONNECTION "user=nom_utilisateur dbname=nom_bdd host=serveur" 
-                    DATA "colonne_géométrique FROM table_ou_requête_SQL" 
+                PostGIS
                 Oracle Spatial : 
-                    CONNECTIONTYPE oraclespatial 
-                    CONNECTION "snom_utilisateur/mot_de_passe@bdd" 
-                    DATA "colonne_géométrique FROM table_ou_requête_SQL" 
                 Web Map Services (WMS) 
-                    L'utilisation d'une source WMS nécéssite la présence d'un bloc PROJECTION dans le bloc 
-                    MAP ainsi que l'utilisation d'un bloc METADATA (dans le bloc WEB et dans les blocs LAYER) 
-                    qui va préciser la requête faite au serveur. Cette fonctionnalité sera explorée en détails lors 
-                    d’une prochaine séance. 
+
                             
             • Couches raster
                 Les données raster géoréférencées sont gérées avec le paramètre TYPE raster, le 

@@ -7,9 +7,18 @@ mapserver et postgis
 Cette page presente les differentes manieres de formaliser la requete
 postgresql/postgis
 
+data du layer
+
+CONNECTIONTYPE postgis 
+CONNECTION "user=nom_utilisateur dbname=nom_bdd host=serveur" 
+DATA "colonne_géométrique FROM table_ou_requête_SQL" 
+
 ======
 filter
 ======
+
+Le paramètre FILTER peut contenir une expression de requête SQL
+(texte venant après un élément SQL WHERE). 
 
     DATA "the_geom FROM communes USING UNIQUE gid USING srid=27572"
     FILTER "nom = 'TOULOUSE'"
