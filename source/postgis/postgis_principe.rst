@@ -82,3 +82,36 @@ Exemple : Installation de la base opencimetiere avec postgis
     * data/pgsql/init.sql
     * data/pgsql/initsig.sql
     * data/pgsql/initsig_data.sql (optionnel) jeu de donnees
+
+
+
+acces pgsql en console
+
+$ psql -l
+
+        Liste des bases de données
+      Nom      | Propriétaire | Encodage  
+---------------+--------------+-----------
+ alaska        | postgres     | UTF8
+ cadastre      | postgres     | SQL_ASCII
+ opencimetiere | postgres     | SQL_ASCII
+ openelec      | postgres     | SQL_ASCII
+ openelec1     | postgres     | SQL_ASCII
+ openerp       | postgres     | SQL_ASCII
+ openfoncier   | postgres     | SQL_ASCII
+ openmairie    | postgres     | SQL_ASCII
+ postgres      | postgres     | UTF8
+ sig           | postgres     | SQL_ASCII
+ template0     | postgres     | UTF8
+ template1     | postgres     | UTF8
+ xx            | postgres     | SQL_ASCII
+(13 lignes)
+
+$ psql opencimetiere
+Bienvenue dans psql 8.3.11, l'interface interactive de PostgreSQL.
+
+    \h pour l'aide-mémoire des commandes SQL
+    \? pour l'aide-mémoire des commandes psql
+    \g ou point-virgule en fin d'instruction pour exécuter la requête
+    \q pour quitter
+
