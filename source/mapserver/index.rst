@@ -2,12 +2,7 @@
 
 
 
-Ce chapitre permet d aborder l API openLayers.
-
-
-API de documentation openLayers
-===============================
-http://dev.openlayers.org/apidocs/files/OpenLayers/Map-js.html
+Ce chapitre permet d aborder la configuration de fichier MAP
 
 
 .. toctree::
@@ -30,6 +25,14 @@ service
 	WFS feature (donnees)
 	TMS ou WMS-C (C= cache) tuiles  application  tilecache	
 
+De nombreuses explications et exemples sont inspirés de :
+
+"Les sig et les technologies de l information" Alexandre PAUTHONNIER
+
+http://fad.ensg.eu/moodle/mod/resource/view.php?id=587
+
+
+"atelier de cartographie" Laurent JEGOU
 
 
 
