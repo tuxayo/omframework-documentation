@@ -27,6 +27,7 @@ creer un projet ::
 
 creation dans le repertoire et recuperer les fichiers ::
 
+
     exemple du courrier ::
     /var/www/openmairie_courrier3$ svn co svn+ssh://fraynaud@scm.adullact.net/svnroot/opencourrier/tags
     /var/www/openmairie_courrier3$ svn co svn+ssh://fraynaud@scm.adullact.net/svnroot/opencourrier/branches
@@ -47,6 +48,8 @@ Creation du repertoire sur cible + fichiers ::
     avec checkout
 
     /var/www$ svn checkout svn+ssh://fraynaud@scm.adullact.net/svnroot/openrecensement/trunk openmairie_recensement
+    
+    svn checkout svn+ssh://nom-du-développeur@scm.adullact.net/svnroot/openodp
 
 taguer une version tag 2.00 (n importe ou) ::
 
