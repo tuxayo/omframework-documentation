@@ -4,7 +4,7 @@
 svn utilisation
 ###############
 
-il est propose dans ce chapitre de lister des commandes testees
+il est propose dans ce chapitre de lister des commandes testees en svn
 
 ==============
 commande linux 
@@ -96,9 +96,20 @@ resolution de conflit ::
     svn revert openmairie_exemple/trunk/authors.txt
         'openmairie_exemple/trunk/authors.txt' réinitialisé
 
+deplacer un dossier sur le svn -> commande mv ::
 
+Exemple : on a créé trunk/trunk/dossiers_source
+
+D'abord on renomme le premier dossier trunk en dossier branches
+> svn mv svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/trunk svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/branches
+cela fait branches/trunk/dossiers_souce
+
+Ensuite on déplace le dossier trunk qui se trouve maintenant dans branches à la racine du dépôt
+> svn mv svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/branches/trunk svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/trunk
+cela fait trunk/dossiers_source
 
 	
 meld : comparer les versions ::
+===============================
 
-    meld openmairie_recensement/ svn.openmairie/openmairie_exemple/trunk/
+    meld openmairie_recensement/ svn.openmairtrunck/trun
