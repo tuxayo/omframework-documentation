@@ -2,10 +2,10 @@
 erver_ogc:
 
 #############
-mapserver ogc
+mapserver ogr
 #############
 
-Cette page presente l'afichage ogc ::
+Cette page presente l'affichage ogr ::
 
 La bibiothèque de fonctions OGR permet à MapServer de lire un grand nombre de 
 formats SIG vectoriels :
