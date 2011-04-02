@@ -138,6 +138,8 @@ Postgis comme mapserver ou qgis utilisent les outils suivants ::
     OGR pour l'interrogation des données
     PROJ pour la projection
 
+Voir exemples d'utilisation : http://zoo-project.org/
+
 
 PROJ pour les projectios
 ========================
