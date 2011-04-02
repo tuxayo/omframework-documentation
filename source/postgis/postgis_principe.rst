@@ -58,6 +58,8 @@ postgre > select postgis_full_version() ::
 
 "POSTGIS="1.3.5" GEOS="3.1.0-CAPI-1.5.0" PROJ="Rel. 4.6.1, 21 August 2008" USE_STATS (procs from 1.3.3 need upgrade)"
 
+Voir paragraphe "outils SIG" ci dessous
+
 
 Paramétrage d'une base en postgis
 =================================
@@ -78,40 +80,138 @@ Exemple : Installation de la base opencimetiere avec postgis
     * table geometry_columns : index des geometries (vide) 
     * table spation_ref_sys : liste des references spatiales (3162 lignes environ)
 
-* executer les scripts d'initialisation de la base opencimetiere
+* executer les scripts d'initialisation de la base exemple opencimetiere ::
     * data/pgsql/init.sql
     * data/pgsql/initsig.sql
     * data/pgsql/initsig_data.sql (optionnel) jeu de donnees
 
 
 
-acces pgsql en console
+acces pgsql en console ::
 
-$ psql -l
+    liste des bases
+    $ psql -l 
+    
+            Liste des bases de données
+          Nom      | Propriétaire | Encodage  
+    ---------------+--------------+-----------
+     alaska        | postgres     | UTF8
+     cadastre      | postgres     | SQL_ASCII
+     opencimetiere | postgres     | SQL_ASCII
+     openelec      | postgres     | SQL_ASCII
+     openelec1     | postgres     | SQL_ASCII
+     openerp       | postgres     | SQL_ASCII
+     openfoncier   | postgres     | SQL_ASCII
+     openmairie    | postgres     | SQL_ASCII
+     postgres      | postgres     | UTF8
+     sig           | postgres     | SQL_ASCII
+     template0     | postgres     | UTF8
+     template1     | postgres     | UTF8
+     xx            | postgres     | SQL_ASCII
+    (13 lignes)
+    
+    acces a opencimetiere
+    $ psql opencimetiere
+    Bienvenue dans psql 8.3.11, l'interface interactive de PostgreSQL.
+        \h pour l'aide-mémoire des commandes SQL
+        \? pour l'aide-mémoire des commandes psql
+        \g ou point-virgule en fin d'instruction pour exécuter la requête
+        \q pour quitter
 
-        Liste des bases de données
-      Nom      | Propriétaire | Encodage  
----------------+--------------+-----------
- alaska        | postgres     | UTF8
- cadastre      | postgres     | SQL_ASCII
- opencimetiere | postgres     | SQL_ASCII
- openelec      | postgres     | SQL_ASCII
- openelec1     | postgres     | SQL_ASCII
- openerp       | postgres     | SQL_ASCII
- openfoncier   | postgres     | SQL_ASCII
- openmairie    | postgres     | SQL_ASCII
- postgres      | postgres     | UTF8
- sig           | postgres     | SQL_ASCII
- template0     | postgres     | UTF8
- template1     | postgres     | UTF8
- xx            | postgres     | SQL_ASCII
-(13 lignes)
+    exemple de selection des colones geometriques de la base "odp"
+    $ psql odp -Atc "SELECT f_table_name|| '('||type||')' from geometry_columns"
+    
+    odp(POINT)
 
-$ psql opencimetiere
-Bienvenue dans psql 8.3.11, l'interface interactive de PostgreSQL.
+La version 8.4 de postgresql ne supporte plus sql_ascii. Le choix UTF8 doit etre fait
+et il faut modifier le fichier dyn/locales?inc.php : define('CHARSET', 'UTF8');
 
-    \h pour l'aide-mémoire des commandes SQL
-    \? pour l'aide-mémoire des commandes psql
-    \g ou point-virgule en fin d'instruction pour exécuter la requête
-    \q pour quitter
+
+
+Outils géographiques
+====================
+
+Postgis comme mapserver ou qgis utilisent les outils suivants ::
+
+    GEOS pour le calcul geometrique
+    GDAL pour les rasters
+    OGR pour l'interrogation des données
+    PROJ pour la projection
+
+
+PROJ pour les projectios
+========================
+Version de proj ::
+    $ proj -- version 
+
+la table des projection est dans usr/share/proj/epsg ::
+    # Google
+    <900913> +proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs<>
+
+postgis utilise proj et  la table ref_spatial_sys
+
+
+GDAL pour les rasters
+=====================
+
+installation ::
+    $ sudo apt-get install gdal-bin
+    $ gdalinfo --formats
+    dependance de gdalinfo
+    $ ldd usr/bin/gdalinfo
+    $ apt-get install lib-gdal1-dev
+    pour faire des tuiles
+    apt-get install python_gdal  (pour tuiles)
+    gdap to tile ?
+    
+
+format rasters ::
+    Origine : point bas gauche
+    largeur : pixelsize H
+    longueur : pixelsize V
+    taille du pixel
+    pixel : x,y + altitude (z)
+
+
+
+Exemple d'utilisation de gdal pour merger deux images :: 
+    $ gdal_merge.py -o srtm_location.tif srtm_37_04.tif srtm_38_04.tif
+    $ gdaldem hillshade srtm_location.tif shade.tif -z 5 -s 111120 -az 90
+
+
+http://gdal.org/ogr/index.html
+
+
+OGR pour l interogation de tout type de format
+==============================================
+
+liste des format accessibles parogr ::
+
+    $ ogrinfo --formats
+    $ history | grep odp ogr
+
+acces au sgbd postgres base "odp" ::
+    $ ogrinfo -so "PG:dbname=odp"
+    $ ogrinfo -so "PG:dbname=odp" odp | less
+
+acces a un fichier shape ::
+    $ ogrinfo -so ./natural.shp 
+    faire une requete sur un shape
+    $ ogrinfo -sql "SELECT type from natural" ./natural.shp  ogrinfo -so ./natural.shp
+    requete fabriquant un shape ::
+    $ ogr2ogr -sql "SELECT ST_Buffer(geom,10),ville,voie,complement from odp" test_data.shp "PG:dbname=odp"
+    $ ogr2ogr -sql "SELECT ST_Buffer(geom,1),ville,voie,complement from odp" test_data2.shp "PG:dbname=odp"
+
+
+http://dl.maptools.org/dl/php_ogr/php_ogr_documentation.html
+
+GEOS 
+====
+
+calcul geometrique
+- distance
+
+
+
+
 

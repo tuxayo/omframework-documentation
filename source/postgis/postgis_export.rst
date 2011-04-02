@@ -5,11 +5,32 @@
 export
 ######
 
-===
-klm
-===
+=============
+sauvegarde ::
+=============
 
-exemple::
+    $ pg-dump -Fc
+    met la geometry au format wkb dans un fichier texte
+
+=================================
+strategie d utilisation de format
+=================================
+
+formats geometriques ::
+    
+    utiliser kml ou gml (plus standard) plutot que json (specifique js)
+    pour moins de 100 geometries dans openLayers en export
+    sinon utiliser mapserver avec :
+            strategy : il n y a que la partie en fenetre qui est chargé
+            ondraystop -> et chargements suivants en fonction du deplacement
+    l export wkt permet d'utiliser plus facilement la géometrie sous openlayers
+
+
+===========
+export klm
+===========
+
+exemple d utilisation de la onction postgis ::
 
     select cimetierelib, ST_asKML(transform(geom, 3385)) as
         geom from cimetiere
@@ -17,10 +38,6 @@ exemple::
 script ::
 
     <?php
-    $_SESSION['profil'] = 5;
-    $_SESSION['nom'] = "admin";
-    $_SESSION['login'] = "admin";
-    $_SESSION['coll'] = 2;
     include ("../obj/utils.class.php");
     $f = new utils ();
     $sql="select cimetierelib, ST_asKML(transform(geom, 3385)) as geom from cimetiere"; //900915
@@ -43,9 +60,9 @@ script ::
 
 
 
-=======
-geojson
-=======
+==============
+export geojson
+==============
 
 http://dev.openlayers.org/docs/files/OpenLayers/Format/GeoJSON-js.html
 
@@ -64,13 +81,10 @@ exemple ::
         ]]
     }"
 
-fabrication d un geogson : openCimetiere ::
+
+script php d export de  geogson avec la fonction postgis dans openCimetiere ::
     
     <?php
-    $_SESSION['profil'] = 5;
-    $_SESSION['nom'] = "admin";
-    $_SESSION['login'] = "admin";
-    $_SESSION['coll'] = 2;
     include ("../obj/utils.class.php");
     $f = new utils ();
     $sql="select st_asgeojson(geom) as geom, cimetierelib, adresse1,cimetiere as n  from cimetiere"; 
@@ -102,17 +116,18 @@ fabrication d un geogson : openCimetiere ::
 attention la fonction st_asgeojson n existe pas en version de postgis dans la la 1.3.5
 (<1.5) 
 
-===
-wkt
-===
+script dans openodp qui n utilise pas la fonction postgis ::
+
+
+
+
+==========
+export wkt
+==========
 
 Exemple de transfert donnees wkt ::
 
     <?php
-    $_SESSION['profil'] = 5;
-    $_SESSION['nom'] = "admin";
-    $_SESSION['login'] = "admin";
-    $_SESSION['coll'] = 2;
     include ("../obj/utils.class.php");
     $f = new utils ();
     $sql="select astext(geom) as geom from cimetiere"; 
