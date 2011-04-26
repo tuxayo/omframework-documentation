@@ -10,16 +10,16 @@ d'openLayers dans om_sig.
 
 Cet objet permet de définir
 
-- le div ou la carte sera affiché (dans l'exemple :map-Id)
+- le div ou la carte sera affichée (dans l'exemple :map-Id)
 
 - les options de la carte et les controles affichés
 
-constructeur ::
+La commande constructeur s'ecrit ainsi ::
 
     map = newOpenLayers.map(div, option)
     
     
-dans tab_sig_point_db.php ::
+dans tab_sig_point_db.php, elle est décrite comme suit ::
 
    map = new OpenLayers.Map('map-id',{projection: mercator,
 			      units: "m",
@@ -46,7 +46,7 @@ methodes
 ========
 
 
-Les methodes utilisées dans tab_sig_point_db.php sont les suivantes ::
+Les methodes utilisées dans tab_sig_point_db.php pour l'objet map sont les suivantes ::
 
     map.addLayer(s) pour ajouter une ou des couches
     map.setCenter(etendue, zoom); pour centrer sur l etendue défini et le zoom
@@ -64,8 +64,10 @@ Les controles
 
 Dans tab_sig_point_db.php, les controles sont initialisés :
 
-- au niveau de l'objet map (voir plu haut)
+- au niveau de l'objet map (voir plus haut)
 
 - au niveau des layers
+
+
 
 

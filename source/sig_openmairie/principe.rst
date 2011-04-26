@@ -6,23 +6,35 @@ principe
 
 
 Il est proposé dans ce chapitre de decrire le module
-om_sig_point qui est la gestion de la geo localisation dans openMairie
+om_sig_point qui permet la geo localisation d'objet dan dans openMairie
+avec un  point
 
-Ce module est accessible dans ::
 
-openmairie domainepublic
-openmairie foncier
-openmairie debitboisson
-openmairie erp
-openmairie cimetiere
+Ce module est accessible dans la version 4.01 du framework et il est utilisé
+dans les applications openMairie suivantes ::
 
-Le but est de fournir une géo localisation  automatique ou manuelle
-par un point sur des fonds existants sur internet : google sat, openStretmap
-ou bing (pour l instant)
+    openmairie domainepublic
+    openmairie foncier
+    openmairie debitboisson
+    openmairie erp
+    openmairie cimetiere
+
+L'objectif d'om_sig_point  est de fournir une géo localisation  automatique ou manuelle
+par un point stocké dans la base métier postgresql sur des fonds existants sur internet :
+google sat, openStretmap ou bing (pour l instant) en utilisant le composant javascript openLayers
+
+Il n'est donc pas nécessaire de disposer d'un SIG pour utiliser OM SIG.
+
+Le format de stockage des données pgsql est celui de l'OGC et il est accessible aux
+clients libres où propriétaire qui respectent ce format
+(QGIS, GRASS, VEREMAP  ... pour les clients libres)
 
 ============================
 géo localisation automatique
 ============================
+
+L'enjeu est de limiter au maximum la géo localisation manuelle dès
+qu'il y a possibilité de géo localisation automatique.
 
 Elle se fait au travers de 2 programmes :
 
@@ -33,7 +45,7 @@ Elle se fait au travers de 2 programmes :
 La géolocalisation automatique peut se faire sur une base externe
 postgresql suivant un systeme de bus de données
 
-om_sig_point permet de saisir manuellement le point.
+le script om_sig permet de saisir manuellement le point.
 
 
 ==================
@@ -54,15 +66,16 @@ postgresql - postgis (les communes devant utiliser le lambert93) en mercator
 pour être lisible avec les cartes accessibles sur internet en mercator
 
 L'affichage des datas est fait au travers d'une requête postgresql
-qui alimente un tableau json.
+qui alimente un tableau json lu comme une couche openLayers.
 
-La data à modifier est fourni par requete postgresql au format wkt.
+La data à modifier est fourni par requete postgresql au format wkt à openLayers.
+(voir paragraphe layers)
 
 =======================
 paramétrage de la carte
 =======================
 
-Le paramétrage généra des cartes  se fait dans :
+Le paramétrage général des cartes  se fait dans :
 
 sig/var_sig_point ::
 
@@ -94,6 +107,7 @@ sig/var_sig_point ::
     $img_w=14;
     $img_h=32;
     $img_click="1.3";// multiplication hauteur et largeur image cliquee
+    
     // parametrage des etendues et espg pour om_point_sig.class.php
     $contenu_etendue[0]= array('4.5868,43.6518,4.6738,43.7018',
                               '4.701,43.3966,4.7636,43.4298',
@@ -114,9 +128,9 @@ sig/var_sig_point ::
 Le paramétrage particulier d'une carte se fait avec l'objet métier
 om_point_sig.class.php accessible dans le menu administration -> OM SIG
 
-Il est possible de copier une carte et de paramétrer ::
+Il est possible de copier une carte et de paramétrer  les champs suivants::
 
-    - id : identifiant unique
+    - id : identifiant unique (obligatoire)
     - libelle
     - fonds a afficher et data
     - étendue et epsg (voir sig/var_sig_point.inc)

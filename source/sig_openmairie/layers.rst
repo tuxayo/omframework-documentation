@@ -11,9 +11,9 @@ d'openLayers dans om_sig.
 
 Dans tab_sig_point_db.php, il y a 2 types de layers :
 
-- les fonds de cartes existants sur le net
-
-- les données issus de postgresql
+- les fonds de cartes existants sur internet (base layers)
+ 
+- les données issus de postgresql (overlays)
 
 =========
 les fonds
@@ -131,6 +131,7 @@ centrée sur ce point::
 form_sig_point_db.php est chargé en fenetre et permet de supprimer
 la géométrie (champ geometrique = null)  ou modifier cette géométrie.
 
+Les fonctions javascript et les controles sont activer suivant chaque état.
 
 
     
