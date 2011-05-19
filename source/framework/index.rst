@@ -68,4 +68,3 @@ formulaire (longueur, max, nom).
     ergonomie.rst
     utilitaire.rst
     import.rst
-    sig.rst
