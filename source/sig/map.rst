@@ -62,7 +62,7 @@ Le zoom et l'etendu sont paramétrables :
 Les controles
 =============
 
-Dans tab_sig_point_db.php, les controles sont initialisés :
+Dans tab_sig_point.php, les controles sont initialisés :
 
 - au niveau de l'objet map (voir plus haut)
 

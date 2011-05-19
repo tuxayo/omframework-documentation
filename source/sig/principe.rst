@@ -1,5 +1,12 @@
 .. _principe:
 
+
+Il est necessaire que l'API openLayers soit dans le framework :
+
+lib/openlayers
+
+
+
 #########
 principe
 #########
@@ -74,6 +81,36 @@ qui alimente un tableau json lu comme une couche openLayers.
 
 La data à modifier est fourni par requete postgresql au format wkt à openLayers.
 (voir paragraphe layers)
+
+om_sig_point permet :
+
+- l affichage de/des  fond(s)
+
+- l'affichage de données (data)
+
+- l affichage du point qui peut être créé ou déplacé (couche wkt)
+
+Ces commandes sont dans les onglets du haut : dessiner, deplacer, enregistrer, data
+
+
+.. image:: ../_static/sig_1.png
+
+
+L'enregistrement du point se fait avec le script sig/form_point.php
+
+
+.. image:: ../_static/sig_2.png
+
+
+
+Enfin, il est possible d'associer le point avec une fiche, ici scr/odp.php pour
+openDomainePublic :
+
+
+
+.. image:: ../_static/sig_3.png
+
+
 
 =======================
 paramétrage de la carte
@@ -151,6 +188,8 @@ sig/var_sig_point ::
 Le paramétrage particulier d'une carte se fait avec l'objet métier
 om_point_sig.class.php accessible dans le menu administration -> OM SIG
 
+.. image:: ../_static/sig_4.png
+
 Il est possible de copier une carte et de paramétrer  les champs suivants::
 
     - id : identifiant unique (obligatoire)
@@ -167,6 +206,8 @@ Il est possible de copier une carte et de paramétrer  les champs suivants::
 
 Ces cartes sont possibles d'intégrer dans des menus, dans un formulaire tab
 (si mise a jour) ou dans le tableau de bord (voir widget)
+
+.. image:: ../_static/sig_5.png
 
 Dans le lien, il est possible de définir ::
 

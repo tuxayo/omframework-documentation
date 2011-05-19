@@ -43,7 +43,7 @@ Affichage simple d’une fenêtre GéoPortail avec les paramètres par défaut :
     </body>  
     </html>
     
-Personnalisation ne charger que la carte ::
+Personnalisation : ne charger que la carte ::
     
     function initGeoportalMap() { 
         geoportalLoadmap("GeoportalMapDiv", "normal", "FXX"); 

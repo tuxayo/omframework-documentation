@@ -9,5 +9,6 @@ Le versionning du code et la version des applications
    
    numerotation.rst
    svn.rst
+   svn_utilisation.rst
    cvs.rst
    

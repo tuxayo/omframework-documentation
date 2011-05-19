@@ -11,7 +11,7 @@ Pour faire fonctionner om_sig_point, il faut :
 - openlayers qui est de base dans le framework en version 
 
 
-=======
+
 postgis
 =======
 
@@ -19,36 +19,34 @@ postgis
 - postgis 
 - postgresql-8.3.postgis
 
-* Verification de l install postgresql-postgis
+* Verification de l install postgresql-postgis ::
 
-postgre> select version() ::
+    postgre> select version() 
 
     "PostgreSQL 8.3.9 on i486-pc-linux-gnu, compiled by GCC gcc-4.3.real (Ubuntu 4.3.3-5ubuntu4) 4.3.3" 
 
-postgre> show server_version ::
+    postgre> show server_version 
     
     "8.3.9" 
 
-postgre> show data_directory ::
+    postgre> show data_directory 
 
     "/var/lib/postgresql/8.3/main"
     
      
-* version proj et geao 
+* version proj et geao ::
 
-postgre > select postgis_full_version() ::
+    postgre > select postgis_full_version() ::
 
-"POSTGIS="1.3.5" GEOS="3.1.0-CAPI-1.5.0" PROJ="Rel. 4.6.1, 21 August 2008" USE_STATS (procs from 1.3.3 need upgrade)"
+    "POSTGIS="1.3.5" GEOS="3.1.0-CAPI-1.5.0" PROJ="Rel. 4.6.1, 21 August 2008" USE_STATS (procs from 1.3.3 need upgrade)"
 
-Voir paragraphe "outils SIG" ci dessous
+Voir paragraphe "outils"
 
 
-Paramétrage d'une base en postgis
-=================================
+Paramétrage d'une base avec postgis
+===================================
 
-Exemple : Installation de la base opencimetiere avec postgis
-
-- creer la base opencimetiere (si elle n'est pas deja creee)
+- creer la base openmairie (si elle n'est pas deja creee)
 
 - postgre> create language "plpgsql" 
 
@@ -62,16 +60,14 @@ Exemple : Installation de la base opencimetiere avec postgis
     * table geometry_columns : index des geometries (vide) 
     * table spation_ref_sys : liste des references spatiales (3162 lignes environ)
 
-* executer les scripts d'initialisation de la base exemple opencimetiere ::
+* executer les scripts d'initialisation de la base ::
     * data/pgsql/init.sql
     * data/pgsql/initsig.sql
     * data/pgsql/initsig_data.sql (optionnel) jeu de donnees
 
 
+verification des bases : liste des bases en console ::
 
-acces pgsql en console ::
-
-    liste des bases
     $ psql -l 
     
             Liste des bases de données
@@ -92,7 +88,8 @@ acces pgsql en console ::
      xx            | postgres     | SQL_ASCII
     (13 lignes)
     
-    acces a opencimetiere
+acces a opencimetiere ::
+
     $ psql opencimetiere
     Bienvenue dans psql 8.3.11, l'interface interactive de PostgreSQL.
         \h pour l'aide-mémoire des commandes SQL
@@ -100,31 +97,25 @@ acces pgsql en console ::
         \g ou point-virgule en fin d'instruction pour exécuter la requête
         \q pour quitter
 
-    exemple de selection des colones geometriques de la base "odp"
+exemple de selection des colones geometriques de la base "odp" ::
+    
     $ psql odp -Atc "SELECT f_table_name|| '('||type||')' from geometry_columns"
     
     odp(POINT)
 
-La version 8.4 de postgresql ne supporte plus sql_ascii. Le choix UTF8 doit etre fait
-et il faut modifier le fichier dyn/locales?inc.php : define('CHARSET', 'UTF8');
+
+encodage de postgresql
+======================
+
+La version 8.4 de postgresql ne supporte plus sql_ascii par defaut.
+il faut faire ::
+
+    il suffit d'ajouter l'option -T template0
+    exemple : createdb -E SQL_ASCII -T template0 openelec
+
+Si le choix UTF8 est fait et il faut modifier le fichier dyn/locales?inc.php : define('CHARSET', 'UTF8');
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=================================
 optimisation composant openLayers
 =================================
 

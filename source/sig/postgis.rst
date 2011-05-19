@@ -1,8 +1,8 @@
 .. _postgis:
 
-#############
-objet postgis
-#############
+#######
+postgis
+#######
 
 
 ce chapitre propose de décrire l'utilisation de postgis
@@ -35,114 +35,18 @@ Le principe est donc de pouvoir : ::
     -  retourner des informations géographiques (géométries et/ou attributaires) selon 
        un format précis, sur le réseau. 
 
-Installation de postgis
-=======================
-
-* sur UBUNTU installer les paquets postgis 
-- postgis 
-- postgresql-8.3.postgis
-
-* Verification de l install postgresql-postgis
-
-postgre> select version() ::
-
-    "PostgreSQL 8.3.9 on i486-pc-linux-gnu, compiled by GCC gcc-4.3.real (Ubuntu 4.3.3-5ubuntu4) 4.3.3" 
-
-postgre> show server_version ::
-    
-    "8.3.9" 
-
-postgre> show data_directory ::
-
-    "/var/lib/postgresql/8.3/main"
-    
-     
-* version proj et geao 
-
-postgre > select postgis_full_version() ::
-
-"POSTGIS="1.3.5" GEOS="3.1.0-CAPI-1.5.0" PROJ="Rel. 4.6.1, 21 August 2008" USE_STATS (procs from 1.3.3 need upgrade)"
-
-Voir paragraphe "outils SIG" ci dessous
-
-
-Paramétrage d'une base en postgis
-=================================
-
-Exemple : Installation de la base opencimetiere avec postgis
-
-- creer la base opencimetiere (si elle n'est pas deja creee)
-
-- postgre> create language "plpgsql" 
-
-- executer (version postgis <1.5) la requete lwpostgis.sql -> fonction postgis
-  ou executer (version postgis >= 1.5) la requete /usr/share/postgresql/8.3/contrib/postgis-1.5/postgis.sql 
-
-* executer spatial_ref_sys .sql qui remplit la table de donnees spatial_ref_sys 
-
-* VERIFICATION : les tables suivantes sont presentes ::
-
-    * table geometry_columns : index des geometries (vide) 
-    * table spation_ref_sys : liste des references spatiales (3162 lignes environ)
-
-* executer les scripts d'initialisation de la base exemple opencimetiere ::
-    * data/pgsql/init.sql
-    * data/pgsql/initsig.sql
-    * data/pgsql/initsig_data.sql (optionnel) jeu de donnees
 
 
 
-acces pgsql en console ::
+sauvegarde
+==========
 
-    liste des bases
-    $ psql -l 
-    
-            Liste des bases de données
-          Nom      | Propriétaire | Encodage  
-    ---------------+--------------+-----------
-     alaska        | postgres     | UTF8
-     cadastre      | postgres     | SQL_ASCII
-     opencimetiere | postgres     | SQL_ASCII
-     openelec      | postgres     | SQL_ASCII
-     openelec1     | postgres     | SQL_ASCII
-     openerp       | postgres     | SQL_ASCII
-     openfoncier   | postgres     | SQL_ASCII
-     openmairie    | postgres     | SQL_ASCII
-     postgres      | postgres     | UTF8
-     sig           | postgres     | SQL_ASCII
-     template0     | postgres     | UTF8
-     template1     | postgres     | UTF8
-     xx            | postgres     | SQL_ASCII
-    (13 lignes)
-    
-    acces a opencimetiere
-    $ psql opencimetiere
-    Bienvenue dans psql 8.3.11, l'interface interactive de PostgreSQL.
-        \h pour l'aide-mémoire des commandes SQL
-        \? pour l'aide-mémoire des commandes psql
-        \g ou point-virgule en fin d'instruction pour exécuter la requête
-        \q pour quitter
-
-    exemple de selection des colones geometriques de la base "odp"
-    $ psql odp -Atc "SELECT f_table_name|| '('||type||')' from geometry_columns"
-    
-    odp(POINT)
-
-La version 8.4 de postgresql ne supporte plus sql_ascii. Le choix UTF8 doit etre fait
-et il faut modifier le fichier dyn/locales?inc.php : define('CHARSET', 'UTF8');
-
-######
-export
-######
-
-=============
-sauvegarde ::
-=============
+sur postgis.fr ::
 
     $ pg-dump -Fc
     met la geometry au format wkb dans un fichier texte
 
-=================================
+
 strategie d utilisation de format
 =================================
 
@@ -156,7 +60,6 @@ formats geometriques ::
     l export wkt permet d'utiliser plus facilement la géometrie sous openlayers
 
 
-===========
 export klm
 ===========
 
@@ -188,9 +91,6 @@ script ::
     echo $kml;
     ?>
 
-
-
-==============
 export geojson
 ==============
 
@@ -249,9 +149,6 @@ attention la fonction st_asgeojson n existe pas en version de postgis dans la la
 script dans openodp qui n utilise pas la fonction postgis ::
 
 
-
-
-==========
 export wkt
 ==========
 
@@ -276,32 +173,34 @@ Exemple de transfert donnees wkt ::
     echo $wkt;
     ?>
     
-==========
 import shp
 ==========
 
-*** Recuperation fichier shp
+*** Recuperation fichier shp ::
 -> 3 fichiers avec extension shp shx dbf
-shp2pgsql -D -I /home/utilisateur/cadastreArles/13004/PARCELLE_area.shp parcelle | psql cadastre 
-shp2pgsql -D -I /home/utilisateur/cadastreArles/13004/BATIMENT_area.shp batiment  | psql cadastre 
-par defaut column_geometry = -1
+    shp2pgsql -D -I /home/utilisateur/cadastreArles/13004/PARCELLE_area.shp parcelle | psql cadastre 
+    shp2pgsql -D -I /home/utilisateur/cadastreArles/13004/BATIMENT_area.shp batiment  | psql cadastre 
+    par defaut column_geometry = -1
+    
+    shp2pgsql -s [srid] -I -D communes.shp | psql [base] 
 
-shp2pgsql -s [srid] -I -D communes.shp | psql [base] 
+exemple ::
 
-exemple :
-
-shp2pgsql -s 2154 -I -D DEPARTEMENT.SHP | psql postgis
+    shp2pgsql -s 2154 -I -D DEPARTEMENT.SHP | psql postgis
 
 
-surface :
+fonctions postgis
+=================
+
+surface ::
 
     SELECT Area2d(geom) FROM cimetiere;
 
-perimetre :
+perimetre ::
 
     SELECT perimeter(geom) FROM cimetiere;
 
-Les	départements limitrophes du Tarn	 
+Les	départements limitrophes du Tarn ::	 
   
           SELECT d.nom_dept 
           FROM departement as d, 
@@ -309,7 +208,7 @@ Les	départements limitrophes du Tarn
           departement.code_dept = '81') as tarn 
           WHERE ST_Touches(d.the_geom, tarn.the_geom)
           
-Les départements à moins de 200km de la limite du Tarn :
+Les départements à moins de 200km de la limite du Tarn ::
 
           SELECT DISTINCT d.code_dept, d.nom_dept 
           FROM departement as d, 
@@ -318,37 +217,37 @@ Les départements à moins de 200km de la limite du Tarn :
           ST_buffer(tarn.the_geom, 200000) as le_buffer 
           WHERE ST_contains(le_buffer, d.the_geom) 
 
-Les cours d'eau du Tarn : 
+Les cours d'eau du Tarn :: 
           SELECT DISTINCT ce.toponyme 
           FROM cours_eau as ce, 
           (SELECT the_geom FROM departement WHERE code_dept = '81') as tarn 
           WHERE ST_intersects(tarn.the_geom, ce.the_geom) 
 
-Les points de mesure hydrologiques du Tarn : 
+Les points de mesure hydrologiques du Tarn :: 
 
           SELECT DISTINCT mes.nom_usuel 
           FROM st_eausup_ag as mes, 
           (SELECT the_geom FROM departement WHERE code_dept = '81') as tarn 
           WHERE ST_Contains(tarn.the_geom, mes.the_geom) 
 
-Le nom des points de mesure a proximité de la Garonne : 
-                                      7 
+Le nom des points de mesure a proximité de la Garonne :: 
 
-Création d’une table temporaire pour stocker un buffer de 100m autour de la Garonne : 
-   create table bgaronne as 
-   select st_buffer(the_geom, 100) as the_geom 
-   from cours 
-   where toponyme = 'La Garonne'
+
+    Création d’une table temporaire pour stocker un buffer de 100m autour de la Garonne : 
+        create table bgaronne as 
+        select st_buffer(the_geom, 100) as the_geom 
+        from cours 
+        where toponyme = 'La Garonne'
    
-Recherche des points de mesure dans ce polygone : 
+    Recherche des points de mesure dans ce polygone : 
 
-   select st_eausup_ag.nom_usuel 
-   from st_eausup_ag, bgaronne 
-   where st_contains(bgaronne.the_geom, st_eausup_ag.the_geom) 
+        select st_eausup_ag.nom_usuel 
+        from st_eausup_ag, bgaronne 
+        where st_contains(bgaronne.the_geom, st_eausup_ag.the_geom) 
 
-#########
+
 transform
-#########
+=========
 
 SRID ::
 

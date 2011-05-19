@@ -120,12 +120,12 @@ exemple ::
 	    </Folder>
 	</kml>
 
-=============
-format GeoRSS
-=============
+======
+GeoRSS
+======
 
-couche GeoRSS
 marqueur cliquable
+
 uniquement point ::
 
 	<item xmlns="http://backend.userland.com/rss2">
@@ -143,9 +143,11 @@ uniquement point ::
 couche GML sous classe vector
 affichage de vecteurs
 
-======
-gml v2  ::
-======
+===
+gml
+===
+
+v2::
 
     <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xsi:schemaLocation="http://www.opengis.net/gml 
 		http://schemas.opengis.net/gml/2.1.2/feature.xsd" 

@@ -15,7 +15,7 @@ Dans tab_sig_point_db.php, il y a 2 types de layers :
  
 - les données issus de postgresql (overlays)
 
-=========
+
 les fonds
 =========
 
@@ -29,7 +29,8 @@ osm ::
 sat : satelite google ::
 
     // acces à l API
-    echo "<script src='http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAjpkAC9ePGem0lIq5XcMiuhR_wWLPFku8Ix9i2SXYRVK3e45q1BQUd_beF8dtzKET_EteAjPdGDwqpQ'></script>";
+    echo "<script src='http://maps.google.com/maps?file=api&amp;v=2&amp;
+    key=ABQIAAAAjpkAC9ePGem0lIq5XcMiuhR_wWLPFku8Ix9i2SXYRVK3e45q1BQUd_beF8dtzKET_EteAjPdGDwqpQ'></script>";
 
     // layer
     var sat = new OpenLayers.Layer.Google(
@@ -57,24 +58,23 @@ bing ::
     );
 
 
-=========
 les datas
 =========
 
-Information de la carte : layer_info ::
-=========================
+Information de la carte :
+layer_info ::
 
-        layer_json = new OpenLayers.Layer.GML("data",tmp,{
-             format:OpenLayers.Format.GeoJSON,
-             formatOptions:{
-                 internalProjection:mercator,
-                 externalProjection:projection_externe
-             },
-              styleMap: new OpenLayers.StyleMap({
-                 "default": {externalGraphic: imgdata, graphicWidth:img_w, graphicHeight: img_h, graphicYOffset: -img_h},
-                 "select": {externalGraphic: img_hover,graphicWidth:  img_w_c, graphicHeight:  img_h_c, graphicYOffset: -img_h_c}
-             })
-         });
+    layer_json = new OpenLayers.Layer.GML("data",tmp,{
+         format:OpenLayers.Format.GeoJSON,
+         formatOptions:{
+             internalProjection:mercator,
+             externalProjection:projection_externe
+         },
+          styleMap: new OpenLayers.StyleMap({
+             "default": {externalGraphic: imgdata, graphicWidth:img_w, graphicHeight: img_h, graphicYOffset: -img_h},
+             "select": {externalGraphic: img_hover,graphicWidth:  img_w_c, graphicHeight:  img_h_c, graphicYOffset: -img_h_c}
+         })
+     });
 
 Cette couche fait appel à json_points.php
 
@@ -103,7 +103,7 @@ et donne la possibilité à un accès URL parametrée dans om_sig_point::
 Le point à modifier : couche vectors :
 ===================
 
-Le chargement de la couche vectors se fait si dans om_sig_piont,
+Le chargement de la couche vectors se fait si dans om_sig_point,
 la case maj est activé ::
 
       vectors = new OpenLayers.Layer.GML("vectors",tmp,{
@@ -124,14 +124,14 @@ Le point est récupéré par le script wkt_point.php (appel a un script parametr
 et la carte est centrée sur ce point::
 
  il est possible de :
-
-- positionner manellement le point : onglet dessiner
-
-- déplacer le point : onglet déplacer
-
-- enregistrer le point  : selectionner le point, le programme
-form_sig_point_db.php est chargé en fenetre et permet de supprimer
-la géométrie (champ geometrique = null)  ou modifier cette géométrie.
-
-Les fonctions javascript et les controles sont activer suivant chaque état.
+    
+    - positionner manellement le point : onglet dessiner
+    
+    - déplacer le point : onglet déplacer
+    
+    - enregistrer le point  : selectionner le point, le programme
+    form_sig_point.php est chargé en fenetre et permet de supprimer
+    la géométrie (champ geometrique = null)  ou modifier cette géométrie.
+    
+    Les fonctions javascript et les controles sont activées suivant chaque état.
    

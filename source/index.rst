@@ -48,9 +48,6 @@ Creative Commons, 171 Second Street, Suite 300, San Francisco,
 California 94105, USA.
 
 
-
-
-
    
 Créer une application
 =====================
@@ -59,8 +56,6 @@ Créer une application
    :maxdepth: 3
 
    utilisation/index.rst
-
-
 
 
 Le framework
@@ -85,7 +80,9 @@ L information geographique
 
 .. toctree::
 
-    sig_openmairie/index.rst
+    sig/index.rst
+    
+
 
 Règles et outils
 ================
