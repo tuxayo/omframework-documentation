@@ -17,7 +17,6 @@ expérience auprès  des collectivités et des acteurs économiques du libre qui
 Bonne lecture, et n'hésitez pas à nous faire part de vos remarques à l'adresse suivante :
 contact@openmairie.org
 
-
 Si vous débutez, il est préférable de commencer par le chapître
 "créer une application" qui permet de prendre en main facilement le générateur et le
 framework openMairie en vous guidant pas à pas dans le mise en place d'une
@@ -30,6 +29,9 @@ de vous informer de manière complète sur le fonctionnement du framework
 Le chapître consacré au "générateur" décrit dans le détail le fonctionnement
 de cet outil et de ses assistants.
 
+Le chapître consacré a l' "information geographique" décrit dans le détail le
+fonctionnement SIG interne d'openMairie.
+
 Enfin ce document rassemble toutes les règles de codage du projet
 openMairie, ainsi que des outils pour aider et guider les développeurs de la
 communauté.
@@ -38,7 +40,6 @@ Les règles indiquées doivent être appliquées pour qu'un projet puisse
 intégrer la distribution openMairie car l'objectif est de faciliter la
 lisibilité et la maintenance du code ainsi que la prise en main par les
 collectivités.
-
 
 Cette création est mise à disposition selon le Contrat Paternité-Partage des
 Conditions Initiales à l'Identique 2.0 France disponible en ligne
@@ -78,6 +79,13 @@ Le générateur
 
     generateur/index.rst
 
+
+L information geographique
+==========================
+
+.. toctree::
+
+    sig_openmairie/index.rst
 
 Règles et outils
 ================
