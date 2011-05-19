@@ -76,7 +76,9 @@ Information de la carte : layer_info ::
              })
          });
 
-Cette couche fait appel à json_points_db.php
+Cette couche fait appel à json_points.php
+
+Il est possible de faire appel a un autre script (voirvar.point.inc)
 
 La requête pgsql est paramétrée dans la table om_sig_point.
 
@@ -89,7 +91,7 @@ Requete ODP ::
             from odp order by geom,etablissement
 
 
-json_points_db.php présente tous les enregistrements d'un même
+json_points.php présente tous les enregistrements d'un même
 point (même géom) sur un  seul popup
 
 En effet, il est constitué un popup lorsque l on clique sur l objet
@@ -101,7 +103,7 @@ et donne la possibilité à un accès URL parametrée dans om_sig_point::
 Le point à modifier : couche vectors :
 ===================
 
-Le chargement de la couche vectors se fait si dans om_sig_pont,
+Le chargement de la couche vectors se fait si dans om_sig_piont,
 la case maj est activé ::
 
       vectors = new OpenLayers.Layer.GML("vectors",tmp,{
@@ -118,8 +120,8 @@ la case maj est activé ::
 
 
 
-Le point est récupérer par le script wkt_point_db.php et la carte est
-centrée sur ce point::
+Le point est récupéré par le script wkt_point.php (appel a un script parametrable dans var_pointinc
+et la carte est centrée sur ce point::
 
  il est possible de :
 
@@ -132,6 +134,4 @@ form_sig_point_db.php est chargé en fenetre et permet de supprimer
 la géométrie (champ geometrique = null)  ou modifier cette géométrie.
 
 Les fonctions javascript et les controles sont activer suivant chaque état.
-
-
-    
+   

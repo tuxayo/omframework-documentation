@@ -66,7 +66,7 @@ Dans tab_sig_point_db.php, les controles sont initialisés :
 
 - au niveau de l'objet map (voir plus haut)
 
-- au niveau des layers
+- au niveau des layers (voir layers)
 
 
 

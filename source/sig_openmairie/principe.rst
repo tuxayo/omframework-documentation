@@ -6,7 +6,7 @@ principe
 
 
 Il est proposé dans ce chapitre de decrire le module
-om_sig_point qui permet la geo localisation d'objet dan dans openMairie
+om_sig_point qui permet la geo localisation d'objet dans dans openMairie
 avec un  point
 
 
@@ -40,12 +40,16 @@ Elle se fait au travers de 2 programmes :
 
 - adresse_postale.php : positionnement suivant le numero et rue
 
+- adresse_postale_google.php : positionnement suivant le numero et rue avec google
+
 - centroid_parcelle.php : positionnement suivant calcul du centre de la parcelle
 
 La géolocalisation automatique peut se faire sur une base externe
 postgresql suivant un systeme de bus de données
 
 le script om_sig permet de saisir manuellement le point.
+
+Une reflexion est en cours pour utiliser le geoportail de l IGN
 
 
 ==================
@@ -79,8 +83,12 @@ Le paramétrage général des cartes  se fait dans :
 
 sig/var_sig_point ::
 
-    // objet par defaut
-    $obj='odp';
+    // *** sig_point.php ***
+    fichiers php qui vont chercher au travers d une requete sql
+    // la couche json qui est affichée    
+    $fichier_jsons="json_points.php?obj=";
+    // la couche vecteur qui est à modifier
+    $fichier_wkt="wkt_point.php";
     
     //zoom par couche : zoom standard permettant un passage de zoom a l autre
     $zoom_osm_maj=18;
@@ -90,7 +98,7 @@ sig/var_sig_point ::
     $zoom_bing_maj=8;
     $zoom_bing=4;
     
-    // parametrage du popup
+    // parametres du popup data contenuHTML
     $width_popup=200;
     $cadre_popup=1;
     $couleurcadre_popup="black";
@@ -99,7 +107,8 @@ sig/var_sig_point ::
     $weightitre_popup="bold";
     $fond_popup="yellow";
     $opacity_popup="0.7";
-    // parametrage des images localisation maj ou consultation
+    
+    // image de localisation pour mise a jour pour consultation
     $img_maj="img/punaise.png";
     $img_maj_hover="img/punaise_hover.png";
     $img_consult="img/punaise_point.png";
@@ -108,7 +117,10 @@ sig/var_sig_point ::
     $img_h=32;
     $img_click="1.3";// multiplication hauteur et largeur image cliquee
     
-    // parametrage des etendues et espg pour om_point_sig.class.php
+    // *** SIG POINT CLASS
+    Ci desous, les paramétres d affichage utilisés dans  obj/sig_point.class.php
+    Les étendues sont deux points en longitudes/ lattitudes
+    
     $contenu_etendue[0]= array('4.5868,43.6518,4.6738,43.7018',
                               '4.701,43.3966,4.7636,43.4298',
                               '4.71417,43.64,4.72994,43.65166',
@@ -121,8 +133,19 @@ sig/var_sig_point ::
                               'Mas thibert',
                               'vitrolles'
                               );
+    // les projections sont celles utilisés en france : lambertsud et lambert93
+    
     $contenu_epsg[0] = array("","EPSG:2154","EPSG:27563");
     $contenu_epsg[1] = array("choisir la projection",'lambert93','lambertSud');
+    
+    // *** ADRESSE POSTALE ***
+    // est defini ici le script adresse_postale utilisée
+    // valeur adresse_postale (table adresse postale)
+    // valeur adresse_postale_google
+    $adresse_postale_script="adresse_postale";
+    // Dans le cas de l utilisation de google il faut preciser la ville et le CP
+    $cp="13200"; 
+    $ville="Arles";
     
 
 Le paramétrage particulier d'une carte se fait avec l'objet métier

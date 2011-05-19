@@ -2,10 +2,10 @@
 
 
 
-Ce chapitre est consacre a l'utilisation de l API openLayers
+Ce chapitre est consacre a l'utilisation d' om_sig
 
-dans openMairie SIG.
-
+Il est necessaire que l'API openLayers soit dans le framework :
+lib/openlayers
 
 API de documentation openLayers
 ===============================
@@ -14,21 +14,22 @@ http://dev.openlayers.org/apidocs/files/OpenLayers/Map-js.html
 
 .. toctree::
 
-
+principe
 map
 layers
 format
 projection
+install
 postgis
 mapserver
+outils
+geoportail
 
+service ::
 
-
-
-service
-	WMS images
-	WFS feature (donnees)
-	TMS ou WMS-C (C= cache) tuiles  application  tilecache	
+    WMS images
+    WFS feature (donnees)
+    TMS ou WMS-C (C= cache) tuiles  application  tilecache	
 
 
 
