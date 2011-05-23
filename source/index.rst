@@ -78,13 +78,21 @@ Le générateur
     generateur/index.rst
 
 
-L information geographique
+L'information geographique
 ==========================
 
 .. toctree::
 
     sig/index.rst
     
+
+Le tableau de bord et les widgets
+=================================
+
+.. toctree::
+
+    tdb/index.rst
+
 
 
 Règles et outils
