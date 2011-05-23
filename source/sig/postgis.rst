@@ -147,9 +147,6 @@ script php d export de  geogson avec la fonction postgis dans openCimetiere ::
 attention la fonction st_asgeojson n existe pas en version de postgis dans la la 1.3.5
 (<1.5) 
 
-script dans openodp qui n utilise pas la fonction postgis ::
-
-
 export wkt
 ==========
 
@@ -177,11 +174,12 @@ Exemple de transfert donnees wkt ::
 import shp
 ==========
 
-*** Recuperation fichier shp ::
--> 3 fichiers avec extension shp shx dbf
-    shp2pgsql -D -I /home/utilisateur/cadastreArles/13004/PARCELLE_area.shp parcelle | psql cadastre 
-    shp2pgsql -D -I /home/utilisateur/cadastreArles/13004/BATIMENT_area.shp batiment  | psql cadastre 
-    par defaut column_geometry = -1
+- Recuperation fichier shp ::
+
+    -> 3 fichiers avec extension shp shx dbf
+        shp2pgsql -D -I /home/utilisateur/cadastreArles/13004/PARCELLE_area.shp parcelle | psql cadastre 
+        shp2pgsql -D -I /home/utilisateur/cadastreArles/13004/BATIMENT_area.shp batiment  | psql cadastre 
+        par defaut column_geometry = -1
     
     shp2pgsql -s [srid] -I -D communes.shp | psql [base] 
 

@@ -47,15 +47,14 @@ installer les paquets suivants
 
 *** creer un repertoire avec droit d ecriture pour www.data pour stocker les images crees par mapinfo
     var/www/tmp/ pour ubuntu
-    ou changer le chemin de ce repertoire dans les openmairie_cimetiere/sig/map/*.map ::
+    ou changer le chemin de ce repertoire dans les openmairie_cimetiere/sig/map/xxxx.map ::
     
         WEB
             IMAGEPATH "/var/www/tmp/" 
             IMAGEURL "/tmp/" 
         END
 
-- ATTENTION Verifier le chemin dans  openmairie_cimetiere/sig/var.inc qui doit correspondre a 
-votre installation
+- ATTENTION Verifier le chemin dans  openmairie_cimetiere/sig/var.inc qui doit correspondre a votre installation
 
 
 getCapabilities
@@ -65,7 +64,7 @@ http://vmap0.tiles.osgeo.org/wms/vmap0?request=GetCapabilities&version=1.0.0&ser
 
 renvoi un fichier xml avec
 
-*** la version du serveur et les installs ::
+- la version du serveur et les installs ::
 
 	<WMT_MS_Capabilities version="1.0.0">
 	<!--
@@ -93,14 +92,16 @@ renvoi un fichier xml avec
             INPUT=SHAPEFILE 
 	-->
 
-*** les referentiels ::
+- les referentiels ::
 
 	<SRS>EPSG:4269 EPSG:4326 EPSG:900913</SRS>
 
 
-***  les layers ::
+-  les layers ::
+
 	<Layer>
 	<Name>basic</Name>
+
         
 Analyse d'une requete WMS
 =========================

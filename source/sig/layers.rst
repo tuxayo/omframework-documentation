@@ -106,7 +106,7 @@ et donne la possibilité à un accès URL parametrée dans om_sig_point::
    
 
 Le point à modifier : couche vectors :
-===================
+======================================
 
 Le chargement de la couche vectors se fait si dans la table om_sig_point,
 la case maj est activé ::

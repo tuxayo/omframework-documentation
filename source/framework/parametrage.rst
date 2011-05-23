@@ -65,9 +65,9 @@ Il faut voir la documentation de DB PEAR qui est le module d'abstraction utilis√
 dans openMairie dans sa version actuelle
 
 
-================
+=================
 Le menu principal
-================
+=================
 
 Le param√©trage du menu se fait dans le fichier *dyn/menu.inc.php*.
 

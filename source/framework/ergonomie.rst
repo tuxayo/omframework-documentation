@@ -1,8 +1,8 @@
 .. _ergonomie:
 
-##########
+###########
 L'ergonomie
-##########
+###########
 
 Depuis la version openMairie 4, il est utilisé l'ergonomie de jquery.
 

@@ -108,7 +108,7 @@ diff/log ::
 export
 ======
     
-exemple opencimetiere_ facture
+exemple opencimetiere_facture
 
 - se mettre dans le repertoire : openmairie_cimetiere_facture
 
@@ -118,12 +118,13 @@ exemple opencimetiere_ facture
 
 - faire l export ::
 
-$ cvs export - r version_2_03 -d version/opencimetiere_facture_2.03 openmairie_cimetiere_facture
-                               [      version   ]   [        repertoire export        ] [       module             ]
+    $ cvs export - r version_2_03 -d version/opencimetiere_facture_2.03 openmairie_cimetiere_facture
+                               [      version   ]   [repertoire export ] [module]
 
 
 
 tag
+===
 
 Les identifiants logiques (noms donnés à une version par un utilisateur) sont différents
 des identifiants CVS (du type 1.1.2.1). La gestion d'identifiant (ou tag) d'une arborescence se fait ainsi ::
@@ -152,19 +153,21 @@ un export sur PC transforme les retours chariots (\n -> \r \n)
 Import
 ======
 
-cvs -d :pserver:user@cvs.mpl.ird.fr:/projet login
-       (1)     (2)      (3)          (4)      
-        |       |        |            |
-        |       |        |            +- Répertoire du
-        |       |        |    SERVEUR contenant les sources
-        |       |        |              (racine)
-        |       |        |    
-        |       |        |  
-        |       |        +-------- adresse du SERVEUR CVS
-        |       |
-        |       +------ Votre login à vous sur le SERVEUR
-        |
-        +----- le type d'authentification
+requete cvs ::
+
+    cvs -d :pserver:user@cvs.mpl.ird.fr:/projet login
+           (1)     (2)      (3)          (4)      
+            |       |        |            |
+            |       |        |            +- Répertoire du
+            |       |        |    SERVEUR contenant les sources
+            |       |        |              (racine)
+            |       |        |    
+            |       |        |  
+            |       |        +-------- adresse du SERVEUR CVS
+            |       |
+            |       +------ Votre login à vous sur le SERVEUR
+            |
+            +----- le type d'authentification
 
 a voir ...
 

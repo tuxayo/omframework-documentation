@@ -45,10 +45,6 @@ Le format JSON correspond à la notation {paramètre : valeur, paramètre : vale
 JavaScript, qui a l’avantage de ne pas nécessiter de conversion (« parsing »), puisqu’il est 
 directement intégré par le moteur d’exécution JavaScript du navigateur
 
-$ find /var/www/ -name "*json"
-*
-$ less /var/www/ol_workshop/openlayers/examples/data/poly.json ::
-
 format 2 polygones ::
 
     {
