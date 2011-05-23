@@ -33,14 +33,17 @@ resolution de conflit ::
 
 deplacer un dossier sur le svn -> commande mv ::
 
-Exemple : on a créé trunk/trunk/dossiers_source
-
-D'abord on renomme le premier dossier trunk en dossier branches
-> svn mv svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/trunk svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/branches
-cela fait branches/trunk/dossiers_souce
-
-Ensuite on déplace le dossier trunk qui se trouve maintenant dans branches à la racine du dépôt
-> svn mv svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/branches/trunk svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/trunk
-cela fait trunk/dossiers_source
+    Exemple : on a créé trunk/trunk/dossiers_source
+    
+    D'abord on renomme le premier dossier trunk en dossier branches
+    > svn mv svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/trunk
+        svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/branches
+    cela fait branches/trunk/dossiers_souce
+    
+    Ensuite on déplace le dossier trunk qui se trouve maintenant dans branches à la racine du dépôt
+    > svn mv svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/branches/trunk
+        svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/trunk
+    
+    cela fait trunk/dossiers_source
 
    
