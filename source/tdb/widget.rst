@@ -6,27 +6,20 @@ widget
 
 
 Le widget est un petit script qui s'exécute dans le tableau de bord
-dans une fenêtre normalisée
+dans une fenêtre normalisée.
 
 Le script peut faire appel à l'application en cours ou a une application externe.
-
-Le tableau de bord, peut gérer toutes sortes d'informations ::
-
-    les taches non soldees pour openCourrier
-    les appels à la maintenance
-    l'horoscope, la météo, une vidéo, des photos ...
-
-Nous avons mis quelques exemples dans les deux derniers paragrapĥes 
+Nous avons mis quelques exemples dans les deux derniers paragrapĥes. 
+Il est proposé d'abord de vous aider à créer les widgets.
 
 
 =====================
 la création de widget
 =====================
 
-la saisie des widget se fait dans ::
+La saisie des widget se fait dans administration -> om_widget.
 
-    administration -> om_widget
-    
+
 La grille de saisie est la suivante ::
 
     libellé du widget qui apparaitra à l adition du widget dans le tableau de bord
@@ -35,7 +28,19 @@ La grille de saisie est la suivante ::
     profil : profil autorisé pour le tableau de bord
 
 
+
+
+
 .. image:: ../_static/widget_1.png
+
+
+
+Le tableau de bord, peut gérer toutes sortes d'informations internes ou externes à
+l'application ::
+
+    les taches non soldees pour openCourrier
+    les appels à la maintenance
+    l'horoscope, la météo, une vidéo, des photos ...
 
 
 ====================
@@ -160,10 +165,10 @@ Affichage de photos avec flick 'r (appel javascript)::
 
 
 
-Jeux avec des fichiers flash
-----------------------------
+mauvais exemples avec du flash
+------------------------------
     
-    // lancer de chaussure sur bush
+lancer de chaussure sur président des USA ::
     
     <!--Debut du code Kidsclae.com -->
     <div style='width:220px;font-size:x-small; text-align:center; border: 1px solid #6699cc;
@@ -171,7 +176,8 @@ Jeux avec des fichiers flash
     padding-left: 2px; background-color:#cccccc;'>
     <noscript>
     <a href='http://www.kidsclae.com'>Kidsclae.com les jeux gratuits online</a>
-    </noscript><object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000' codebase='http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0' width='100%' height='150'>
+    </noscript><object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000'
+    codebase='http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0' width='100%' height='150'>
     <param name='movie' value='http://www.kidsclae.com/downloads/chaussurebush.swf' />
     <param name='quality' value='high' />
     <embed src='http://www.kidsclae.com/downloads/chaussurebush.swf' quality='high'
@@ -186,7 +192,7 @@ Jeux avec des fichiers flash
     <!--Fin du code Kidsclae.com-->"
     
     
-    //faire marcher un soulo
+accompagner un homme ivre ::
     
     <div id='lecteurVideo'>
     <object type='application/x-shockwave-flash'
@@ -201,7 +207,7 @@ Jeux avec des fichiers flash
     
     
     
-    // jouer de la guitare avec "guitar hero II"
+jouer de la guitare avec "guitar hero II"::
     
     
     "<div style='clear:both;'>

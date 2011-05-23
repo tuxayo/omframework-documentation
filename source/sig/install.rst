@@ -4,7 +4,7 @@
 install
 #######
 
-Pour faire fonctionner om_sig_point, il faut :
+Pour faire fonctionner tab_sig_point.php, il faut :
 
 - postgis
 
@@ -15,11 +15,12 @@ Pour faire fonctionner om_sig_point, il faut :
 postgis
 =======
 
-* sur UBUNTU installer les paquets postgis 
-- postgis 
-- postgresql-8.3.postgis
+sur UBUNTU installer les paquets postgis ::
 
-* Verification de l install postgresql-postgis ::
+    - postgis 
+    - postgresql-8.3.postgis
+
+Verification de l install postgresql-postgis ::
 
     postgre> select version() 
 
@@ -34,7 +35,7 @@ postgis
     "/var/lib/postgresql/8.3/main"
     
      
-* version proj et geao ::
+version proj et geao ::
 
     postgre > select postgis_full_version() ::
 
@@ -53,14 +54,15 @@ Paramétrage d'une base avec postgis
 - executer (version postgis <1.5) la requete lwpostgis.sql -> fonction postgis
   ou executer (version postgis >= 1.5) la requete /usr/share/postgresql/8.3/contrib/postgis-1.5/postgis.sql 
 
-* executer spatial_ref_sys .sql qui remplit la table de donnees spatial_ref_sys 
+- executer spatial_ref_sys .sql qui remplit la table de donnees spatial_ref_sys 
 
-* VERIFICATION : les tables suivantes sont presentes ::
+- VERIFICATION : les tables suivantes sont presentes ::
 
     * table geometry_columns : index des geometries (vide) 
     * table spation_ref_sys : liste des references spatiales (3162 lignes environ)
 
-* executer les scripts d'initialisation de la base ::
+- executer les scripts d'initialisation de la base ::
+
     * data/pgsql/init.sql
     * data/pgsql/initsig.sql
     * data/pgsql/initsig_data.sql (optionnel) jeu de donnees
@@ -91,6 +93,7 @@ verification des bases : liste des bases en console ::
 acces a opencimetiere ::
 
     $ psql opencimetiere
+    
     Bienvenue dans psql 8.3.11, l'interface interactive de PostgreSQL.
         \h pour l'aide-mémoire des commandes SQL
         \? pour l'aide-mémoire des commandes psql
@@ -102,18 +105,6 @@ exemple de selection des colones geometriques de la base "odp" ::
     $ psql odp -Atc "SELECT f_table_name|| '('||type||')' from geometry_columns"
     
     odp(POINT)
-
-
-encodage de postgresql
-======================
-
-La version 8.4 de postgresql ne supporte plus sql_ascii par defaut.
-il faut faire ::
-
-    il suffit d'ajouter l'option -T template0
-    exemple : createdb -E SQL_ASCII -T template0 openelec
-
-Si le choix UTF8 est fait et il faut modifier le fichier dyn/locales?inc.php : define('CHARSET', 'UTF8');
 
 
 optimisation composant openLayers
@@ -130,5 +121,5 @@ le fichier fait 800 ko au lieu de 3 Mo
 
     $ python build.py lite.cfg
     le fichier fait 120 ko
-    regarder dans lite les fichiers inclus
-
+    regarder dans le fichier "lite" les fichiers qui sont inclus
+    et éventuellement le compléter

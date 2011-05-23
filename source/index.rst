@@ -14,8 +14,18 @@ d'un projet openMairie.
 Avec plus de 30 applications développées pour les collectivités locales accessibles
 sur le site http://openmairie.org, nous souhaitons au travers de ce guide , diffuser notre
 expérience auprès  des collectivités et des acteurs économiques du libre qui les accompagnent.
-Bonne lecture, et n'hésitez pas à nous faire part de vos remarques à l'adresse suivante :
-contact@openmairie.org
+
+C'est donc une méthode conçue au fur à mesure de notre expérience que nous vous
+proposons de partager et toutes remarques sont les bienvenues, alors n'hésitez pas à nous
+en faire part à l'adresse mail suivante : contact@openmairie.org
+
+Nous avons conçu openMairie pour fabriquer une maquette le plus en amont possible
+en s'appuyant sur le modèle de données créé dans la base de données et en
+intégrant les composants standards du "monde libre".
+
+Cette maquette permet très rapidement d'engager un dialogue participatif avec les
+utilisateurs, de  concentrer le développeur uniquement sur le "métier" et de faire valider
+par l'utilisateur les évolutions successives.
 
 Si vous débutez, il est préférable de commencer par le chapître
 "créer une application" qui permet de prendre en main facilement le générateur et le
@@ -27,13 +37,13 @@ le paramètrage, les classes formulaires et éditions du framework. Il a pour bu
 de vous informer de manière complète sur le fonctionnement du framework
 
 Le chapître consacré au "générateur" décrit dans le détail le fonctionnement
-de cet outil et de ses assistants.
+de cet outil et de ses assistants. Cet outil permet de fabriquer la maquette.
 
 Le chapître consacré a l' "information geographique" décrit dans le détail le
-fonctionnement SIG interne d'openMairie. (version 4.01)
+fonctionnement SIG interne d'openMairie. (version 4.0.1)
 
 Le chapître sur les widgets décrit le tableau de bord paramétrable et individualisé
-par utilisateur (version 4.01) 
+par l'utilisateur (version 4.0.1) 
 
 Enfin ce document rassemble toutes les règles de codage du projet
 openMairie, ainsi que des outils pour aider et guider les développeurs de la
@@ -43,6 +53,8 @@ Les règles indiquées doivent être appliquées pour qu'un projet puisse
 intégrer la distribution openMairie car l'objectif est de faciliter la
 lisibilité et la maintenance du code ainsi que la prise en main par les
 collectivités.
+
+Bonne lecture !
 
 Cette création est mise à disposition selon le Contrat Paternité-Partage des
 Conditions Initiales à l'Identique 2.0 France disponible en ligne

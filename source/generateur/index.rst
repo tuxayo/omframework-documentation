@@ -1,8 +1,6 @@
 .. _index:
 
-##########
-Générateur
-##########
+
 
 Nous vous proposons dans ce chapitre de décrire le générateur openMairie.
 

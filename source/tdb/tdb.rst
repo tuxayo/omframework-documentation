@@ -4,7 +4,7 @@
 le tableau de bord paramétrable
 ###############################
 
-ce paragraphe propose de décrire l'utilisation du tableau de bord paramétrable
+ce paragraphe propose de décrire l'utilisation du tableau de bord paramétrable par utilisateur
 
 ========================
 accès au tableau de bord
@@ -40,3 +40,5 @@ La table om_tbd comprend les champs suivants ::
     position int(8),   : position dans la colone
     om_widget int(8) NOT NULL, : numero de widget dans om_widget
     
+
+Attention, en cas de changement de login, un utilisateur perd ses paramètres

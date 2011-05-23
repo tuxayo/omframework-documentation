@@ -11,10 +11,14 @@ exemple: openMairie 4.0.0
 
 Le premier chiffre représente une version majeure
 
-Le deuxièeme chiffre est une évolution mineure
+Le deuxième chiffre est une évolution mineure
 
 Le troisième chiffre est une correction de bug
 
-Les versions beta sont indiqué en fin de numérotation et ne sont jamais maintenu.
+Les versions beta sont indiqués en fin de numérotation et ne sont jamais maintenues
+
+    openmairie_exemple_4.0.0beta
+
+    
 
 Seule la dernière version opérationnelle est maintenu

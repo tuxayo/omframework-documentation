@@ -1,4 +1,4 @@
-.. _tdb:
+.. _index:
 
 
 
@@ -7,10 +7,3 @@
     principe
     widget
     tdb
-
-
-
-
-
-
-

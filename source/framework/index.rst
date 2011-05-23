@@ -58,7 +58,7 @@ formulaire (longueur, max, nom).
         - l'information géographique
         - les widgets et le tableau de bord paraùètrable
 
-    Les modules suivants utilisés dans des applications openMairie ne sont pas décrit
+    Les modules suivants utilisés dans des applications openMairie ne sont pas décrits
     dans ce chapître car ils n'ont pas encore intégrés dans le framework openExemple
     
         - l'envoi de mail intégrant phpmail (openPersonnalite)
