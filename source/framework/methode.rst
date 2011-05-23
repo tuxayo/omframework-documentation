@@ -34,7 +34,9 @@ Le générateur surcharge la classe dbformdyn.class.php par rapport aux informat
 
 Exemple avec concession d'openCimetiere ::
 
-    dbformdyn.class.php  <- gen/obj/emplacement.class.php <-/obj/emplacement.class.php <- /obj/concession.class.php
+    dbformdyn.class.php
+            <- gen/obj/emplacement.class.php
+                <-/obj/emplacement.class.php <- /obj/concession.class.php
 
 
 
@@ -125,6 +127,11 @@ Les méthodes principales sont les suivantes :
     setOnchange : Envoi au formulaire les controles javascript à effectuer en cas de changement de données dans le champ
     setGroupe : Envoi au formulaire le regroupement de champ par ligne
     setRegroupe : Envoi au formulaire un fieldset
+    setOnkeyup
+    setOnclick
+    mail
+    selectiste
+    selectlistemulti
 
 * des fonctions de traitement de champ heure et date::
 

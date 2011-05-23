@@ -6,10 +6,10 @@ objet layers
 
 
 ce chapitre propose de décrire l'utilisation de l'objet layers
-d'openLayers dans om_sig.
+d'openLayers dans tab_sig_point.php.
 
 
-Dans tab_sig_point_db.php, il y a 2 types de layers :
+Dans tab_sig_point.php, il y a 2 types de layers :
 
 - les fonds de cartes existants sur internet (base layers)
  
@@ -30,7 +30,8 @@ sat : satelite google ::
 
     // acces à l API
     echo "<script src='http://maps.google.com/maps?file=api&amp;v=2&amp;
-    key=ABQIAAAAjpkAC9ePGem0lIq5XcMiuhR_wWLPFku8Ix9i2SXYRVK3e45q1BQUd_beF8dtzKET_EteAjPdGDwqpQ'></script>";
+    key=ABQIAAAAjpkAC9ePGem0lIq5XcMiuhR_wWLPFku8Ix9i2SXYRVK3e45q1BQUd_beF8dtzKET_EteAjPdGDwqpQ'>
+    </script>";
 
     // layer
     var sat = new OpenLayers.Layer.Google(
@@ -45,7 +46,8 @@ sat : satelite google ::
 bing ::
 
     // acces à l API
-    echo "<script src='http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=6.2&amp;mkt=en-us'></script>";
+    echo "<script src='http://ecn.dev.virtualearth.net/mapcontrol/
+                        mapcontrol.ashx?v=6.2&amp;mkt=en-us'></script>";
 
     // layer
     var bing = new OpenLayers.Layer.VirtualEarth("Bing", { 
@@ -71,8 +73,10 @@ layer_info ::
              externalProjection:projection_externe
          },
           styleMap: new OpenLayers.StyleMap({
-             "default": {externalGraphic: imgdata, graphicWidth:img_w, graphicHeight: img_h, graphicYOffset: -img_h},
-             "select": {externalGraphic: img_hover,graphicWidth:  img_w_c, graphicHeight:  img_h_c, graphicYOffset: -img_h_c}
+             "default": {externalGraphic: imgdata, graphicWidth:img_w,
+                        graphicHeight: img_h, graphicYOffset: -img_h},
+             "select": {externalGraphic: img_hover,graphicWidth:  img_w_c,
+                        graphicHeight:  img_h_c, graphicYOffset: -img_h_c}
          })
      });
 
@@ -80,7 +84,8 @@ Cette couche fait appel à json_points.php
 
 Il est possible de faire appel a un autre script (voirvar.point.inc)
 
-La requête pgsql est paramétrée dans la table om_sig_point.
+La requête pgsql est paramétrée dans la table om_sig_point et doit définir les champs
+geom, titre, description et texte.
 
 Requete ODP ::
 
@@ -103,7 +108,7 @@ et donne la possibilité à un accès URL parametrée dans om_sig_point::
 Le point à modifier : couche vectors :
 ===================
 
-Le chargement de la couche vectors se fait si dans om_sig_point,
+Le chargement de la couche vectors se fait si dans la table om_sig_point,
 la case maj est activé ::
 
       vectors = new OpenLayers.Layer.GML("vectors",tmp,{
@@ -125,13 +130,11 @@ et la carte est centrée sur ce point::
 
  il est possible de :
     
-    - positionner manellement le point : onglet dessiner
-    
+    - positionner manellement le point : onglet dessiner  
     - déplacer le point : onglet déplacer
-    
     - enregistrer le point  : selectionner le point, le programme
-    form_sig_point.php est chargé en fenetre et permet de supprimer
-    la géométrie (champ geometrique = null)  ou modifier cette géométrie.
+        form_sig_point.php est chargé en fenetre et permet de supprimer
+        la géométrie (champ geometrique = null)  ou modifier cette géométrie.
     
     Les fonctions javascript et les controles sont activées suivant chaque état.
    

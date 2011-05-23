@@ -14,7 +14,7 @@ Il necessite :
 
 - le module lib/openLayers
 
-- map server installé sur le serveur (voir mapserver)
+- map server doit être installé sur le serveur (voir mapserver)
 
 
 ===============

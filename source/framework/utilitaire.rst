@@ -151,7 +151,7 @@ Pour afficher  un **fieldset**, le code est le suivant ::
     echo "</fieldset>
 
 
-il peut être par défqut *ouvert* ::
+il peut être par défaut *ouvert* ::
 
     echo "<fieldset class= ... collapsible\">\n";
 
@@ -186,7 +186,7 @@ a 0 dans openCourrier ::
      * Cette page permet de remettre a 0 le registre
      *
      * @package openmairie_exemple
-     * @version SVN : $Id: xxxx.php 311 2010-12-06 11:43:36Z xxxxx $
+     * @version SVN : $Id: xxxx.php 311 2010-12-06 11:43:36 xxxxx $
      */
     
     

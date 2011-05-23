@@ -4,23 +4,24 @@
 postgis
 #######
 
-
-ce chapitre propose de décrire l'utilisation de postgis
-
-Ce chapitre propose les principes de map server.
+ce chapitre propose de décrire les possibilités d'utilisation de postgis dans openMairie.
+Il n'est pas bien sûr exhaustif et se completera au fur à mesure de notre expérience
+dans les applications openMairie.
 
 
 principes
 =========
 
 
-PostGIS ajoute à postgresql :
-- ses types de données
-- ses fonctions,  
--  deux tables utilitaires : geometry_colums et spatial_ref_sys.
-geometry_colums sert à indiquer au logiciel quels sont les champs contenantdes types
-géographiques dans chacune des tables.
-spatial_ref_sys contient les paramètres des systèmes de projection  supportés et sert en interne au logiciel. 
+PostGIS ajoute à postgresql ::
+
+    - ses types de données
+    - ses fonctions,  
+    - deux tables utilitaires : geometry_colums et spatial_ref_sys.
+        geometry_colums sert à indiquer au logiciel quels sont les champs contenant des types
+        géographiques dans chacune des tables.
+        spatial_ref_sys contient les paramètres des systèmes de projection  supportés
+        et sert en interne au logiciel. 
 
 Cf. : http://postgis.refractions.net/documentation/manual-1.3/ch06.html 
 
@@ -63,7 +64,7 @@ formats geometriques ::
 export klm
 ===========
 
-exemple d utilisation de la onction postgis ::
+exemple d utilisation de la fonction postgis ::
 
     select cimetierelib, ST_asKML(transform(geom, 3385)) as
         geom from cimetiere
@@ -199,38 +200,52 @@ surface ::
 perimetre ::
 
     SELECT perimeter(geom) FROM cimetiere;
+    
+distance ::
 
-Les	départements limitrophes du Tarn ::	 
+    exemple demande_licence d'opendebitboisson
+
+    selection des perimetre a moins de longueur_exclusion_metre (longueur du perimetre
+    d'exclusion), $res0 est la valeur du point de l etablissement
+
+    select distance(geom,'".$res0."') as distance,
+    perimetre,libelle from perimetre
+    where  distance(geom,'".$res0."')  < longueur_exclusion_metre
+    order by perimetre";
+
+
+ST_Touches : Les départements limitrophes du Tarn ::	 
   
-          SELECT d.nom_dept 
-          FROM departement as d, 
-          (SELECT the_geom FROM departement WHERE 
-          departement.code_dept = '81') as tarn 
-          WHERE ST_Touches(d.the_geom, tarn.the_geom)
+    SELECT d.nom_dept 
+    FROM departement as d, 
+    (SELECT the_geom FROM departement WHERE 
+    departement.code_dept = '81') as tarn 
+    WHERE ST_Touches(d.the_geom, tarn.the_geom)
           
-Les départements à moins de 200km de la limite du Tarn ::
+ST_buffers et ST_contains : Les départements à moins de 200km de la limite du Tarn ::
 
-          SELECT DISTINCT d.code_dept, d.nom_dept 
-          FROM departement as d, 
-          (SELECT the_geom FROM departement WHERE 
-          departement.code_dept = '81') as tarn, 
-          ST_buffer(tarn.the_geom, 200000) as le_buffer 
-          WHERE ST_contains(le_buffer, d.the_geom) 
+    SELECT DISTINCT d.code_dept, d.nom_dept 
+    FROM departement as d, 
+    (SELECT the_geom FROM departement WHERE 
+    departement.code_dept = '81') as tarn, 
+    ST_buffer(tarn.the_geom, 200000) as le_buffer 
+    WHERE ST_contains(le_buffer, d.the_geom) 
 
-Les cours d'eau du Tarn :: 
-          SELECT DISTINCT ce.toponyme 
-          FROM cours_eau as ce, 
-          (SELECT the_geom FROM departement WHERE code_dept = '81') as tarn 
-          WHERE ST_intersects(tarn.the_geom, ce.the_geom) 
+ST_intersects : Les cours d'eau du Tarn ::
 
-Les points de mesure hydrologiques du Tarn :: 
+    SELECT DISTINCT ce.toponyme 
+    FROM cours_eau as ce, 
+    (SELECT the_geom FROM departement WHERE code_dept = '81') as tarn 
+    WHERE ST_intersects(tarn.the_geom, ce.the_geom) 
 
-          SELECT DISTINCT mes.nom_usuel 
-          FROM st_eausup_ag as mes, 
-          (SELECT the_geom FROM departement WHERE code_dept = '81') as tarn 
-          WHERE ST_Contains(tarn.the_geom, mes.the_geom) 
+Sous requete ST_contains : Les points de mesure hydrologiques du Tarn :: 
 
-Le nom des points de mesure a proximité de la Garonne :: 
+    SELECT DISTINCT mes.nom_usuel 
+    FROM st_eausup_ag as mes, 
+    (SELECT the_geom FROM departement WHERE code_dept = '81') as tarn 
+    WHERE ST_Contains(tarn.the_geom, mes.the_geom) 
+
+Double requête : Le nom des points de mesure a proximité de la Garonne :: 
 
 
     Création d’une table temporaire pour stocker un buffer de 100m autour de la Garonne : 
@@ -249,14 +264,15 @@ Le nom des points de mesure a proximité de la Garonne ::
 transform
 =========
 
-SRID ::
+Il est proposé ici quelques utilisation de la fonction transform de postgis
+
+
+recupérer le SRID d'une colone géométrique dan la table geometry_columns::
 
     select srid from geometry_columns where f_table_name='cimetiere';
 
 
-
-
-Transformer en lambert 93 dans la meme table ::
+Transformer du lamber sud en lambert 93 dans la meme table sur un champ different (geom_rf93)::
     
     SELECT addGeometryColumn( 'cimetiere', 'geom_rgf93', 2154, 'POLYGON', 2);
 
@@ -277,19 +293,15 @@ Transformer en lambert 93 dans la meme table ::
                   831811.956095086 6287815.89024952 ...
 
 
-Transformer en mercator et envoi en fichier kml  ::
+Transformer un champ geom en mercator et envoi en fichier kml  ::
 
     select cimetierelib, ST_asKML(transform(geom, 3385)) as geom from cimetiere
 
 
-Transformer un point ::
+Transformer un point en geographic ::
 
     select astext(transform(setsrid(geometryfromtext
         ('POINT(4.632438 43.684858)'),4326),27563));
         
                 POINT(785074.087673277 156458.572267362)
         
-    select astext(transform(setsrid(geometryfromtext
-        ('POINT(4.632438 43.684858)'),4326),27563));
-
-                POINT(785074.087673277 156458.572267362)    

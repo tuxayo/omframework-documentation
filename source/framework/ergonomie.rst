@@ -4,7 +4,7 @@
 L'ergonomie
 ##########
 
-Depuis la version openMairie 4, il est décidé d'utiliser l'ergonomie de jquery.
+Depuis la version openMairie 4, il est utilisé l'ergonomie de jquery.
 
 
 

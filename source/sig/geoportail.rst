@@ -4,16 +4,26 @@
 geoportail
 ##########
 
-Le GéoPortail de l’IGN propose depuis avril 2008, en version bêta, l’accès à ses 
-données par le biais d’une API JavaScript basée sur la bibliothèque de fonctions OpenLayers. 
+Le géoportail sera implémenté dans une prochaine version d'openMairie.
+
+Les éléments de ce chapître sont mis à titre d'information et reprennent une explication existante. 
+
+Depuis janvier 2011, l'accès est gratuit pour les collectivités pour un panel de service ::
+
+    la base parcellaire
+    la base orthophoto
+    la base topographique
+    la base adresse
+
+Il est utilisé la projection lambert 93.
+
+Le GéoPortail de l’IGN propose , l’accès à ses 
+données par le biais d’une API JavaScript basée sur la bibliothèque de fonctions OpenLayers.
 
 La gestion des projections est réalisée par la version JavaScript de PROJ4, et les effets 
 graphiques le sont par la bibliothèque script.aculo.us
 
-Le fichier de l’API pèse 370ko compacté, ce qui est assez important  
-L’utilisation  de l’API permet visualiser que 
-le contenu classique du GéoPortail : cartes scannées et orthophotos :(base cadastre,
-adresse, topo et ortho photo)
+L’utilisation  de l’API permet visualiser que le contenu classique du GéoPortail.
 
 Il est aussi possible d’accéder aux données du GéoPortail par les services WMS/WMS-C et 
 WFS, avec un système d’identification et de gestion des accès gratuit pour les collectivites. 
@@ -115,5 +125,3 @@ Ajout de données KML : On utilise simplement la fonction OpenLayers corresponda
     } 
                     
 http://www.geotests.net/apis/geoportail/ex2.html 
-
-

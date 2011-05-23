@@ -6,6 +6,8 @@ format
 
 
 ce chapitre se propose de decrire les divers formats de transfert avec openLayers
+tab_sig_point.php n'utilise que le format json et wkt. Les autres formats sont donnés
+à titre indicatif.
 
 ===    
 txt

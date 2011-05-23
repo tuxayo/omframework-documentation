@@ -6,13 +6,11 @@ La gestion des accès
 
 
 
-Le framework fournit un gestionnaire d'accés accessible dans le menu à :
+Le framework fournit un gestionnaire d'accés accessible dans le menu à ::
 
-- administration -> profil
-
-- administration -> droit
-
-- administration ->utilisateur
+    - administration -> profil
+    - administration -> droit
+    - administration ->utilisateur
 
 Les accès sont conservés dans des tables.
 

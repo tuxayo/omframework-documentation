@@ -53,7 +53,8 @@ Les commandes basiques à connaître
 
 Récupérer une copie locale : ::
 
-    svn co svn+ssh://nom-du-développeur@scm.adullact.net/openmairie/openmairie_exemple/trunk openmairie_exemple
+    svn co svn+ssh://nom-du-développeur@scm.adullact.net/openmairie/openmairie_exemple/trunk
+        openmairie_exemple
     
 
 Mettre à jour sa copie locale : ::
@@ -130,13 +131,16 @@ Un nouveau projet est une nouvelle application qui se base sur la dernière
 version taggée d'openmairie_exemple. Ce tutorial contient certains pré-requis
 comme la création du projet sur la forge, le fait d'avoir un utilisateur avec
 les droits corrects sur le projet, le fait d'avoir consulter la `dernière
-version taggée d'openmairie_exemple <https://adullact.net/scm/viewvc.php/openmairie_exemple/tags/?root=openmairie>`_
+version taggée d'openmairie_exemple
+
+<https://adullact.net/scm/viewvc.php/openmairie_exemple/tags/?root=openmairie>`_
 
 On se positionne dans la dossier tmp pour récupérer la dernière version
 d'openmairie_exemple ::
 
     cd /tmp
-    svn export --ignore-externals svn://scm.adullact.net/svnroot/openmairie/openmairie_exemple/tags/<DERNIERE_VERSION_OPENMAIRIE_EXEMPLE>/ openexemple
+    svn export --ignore-externals svn://scm.adullact.net/svnroot/openmairie/
+        openmairie_exemple/tags/<DERNIERE_VERSION_OPENMAIRIE_EXEMPLE>/ openexemple
 
 On cré l'arborescence standard sur le dépôt ::
 
@@ -154,7 +158,8 @@ On se positionne dans son dossier de développement pour créer la copie
 locale du projet ::
     
     cd ~/public_html/
-    svn co svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/svnroot/<NOUVEAU_PROJET>/trunk <NOUVEAU_PROJET>
+    svn co svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/svnroot/<NOUVEAU_PROJET>/trunk
+            <NOUVEAU_PROJET>
 
 On se positionne dans le dossier php de l'application pour appliquer
 les externals ::
@@ -190,7 +195,8 @@ librairie openMairie ne pointe pas vers le 'trunk'. Pour cela ::
 Ici on voit que openmairie pointe vers le 'trunk'. Nous devons d'abord publier
 la librairie ::
 
-   svn cp svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/openmairie/openmairie/trunk svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/openmairie/openmairie/tags/<NOUVELLE_VERSION>
+   svn cp svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/openmairie/openmairie/trunk
+          svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/openmairie/openmairie/tags/<NOUVELLE_VERSION>
 
 Le message pourra être : Tag openmairie <NOUVELLE_VERSION>.
 
@@ -229,5 +235,6 @@ publication de l'application ::
 Ici on fait une copie du 'trunk' vers le dossier 'tags' de l'application
 openmairie_exemple ::
 
-    svn cp svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/openmairie/openmairie_exemple/trunk svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/openmairie/openmairie_exemple/tags/<NOUVELLE_VERSION>
+    svn cp svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/openmairie/openmairie_exemple/trunk
+           svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/openmairie/openmairie_exemple/tags/<NOUVELLE_VERSION>
 

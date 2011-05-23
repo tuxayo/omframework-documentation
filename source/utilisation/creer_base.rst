@@ -17,7 +17,7 @@ Il vous est proposé de créer la base de données sous mysql :
     data/mysql/init.sql
 
 
-- Creer les tables necessaires a notre exemple
+- Créer les tables necessaires a notre exemple
 
 
 

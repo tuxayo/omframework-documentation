@@ -6,7 +6,7 @@ objet map
 
 
 ce chapitre propose de décrire l'utilisation de l'objet map
-d'openLayers dans om_sig.
+d'openLayers dans tab_sig_point.php.
 
 Cet objet permet de définir
 
@@ -19,7 +19,7 @@ La commande constructeur s'ecrit ainsi ::
     map = newOpenLayers.map(div, option)
     
     
-dans tab_sig_point_db.php, elle est décrite comme suit ::
+dans tab_sig_point.php, elle est décrite comme suit ::
 
    map = new OpenLayers.Map('map-id',{projection: mercator,
 			      units: "m",
@@ -46,7 +46,7 @@ methodes
 ========
 
 
-Les methodes utilisées dans tab_sig_point_db.php pour l'objet map sont les suivantes ::
+Les methodes utilisées dans tab_sig_point.php pour l'objet map sont les suivantes ::
 
     map.addLayer(s) pour ajouter une ou des couches
     map.setCenter(etendue, zoom); pour centrer sur l etendue défini et le zoom

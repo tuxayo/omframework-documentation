@@ -9,11 +9,11 @@ Présentation
 **L'objectif est de construire une application sur la base de l'analyse des informations  du SGBD**
 
 
-Les informations récupérées dans le SGBD sont les suivantes
+Les informations récupérées dans le SGBD sont les suivantes ::
 
- 		la liste des tables de la base de données
+    la liste des tables de la base de données
 
- 		les tables : nom, type , et longueur de chaque champs
+    les tables : nom, type , et longueur de chaque champs
 
 
 Le générateur construit sur cette base le modèle de données sur les principes suivants: ::
@@ -24,17 +24,9 @@ Le générateur construit sur cette base le modèle de données sur les principe
     
      si la clé est numérique, elle est automatique. 
     
-     avec la multicollectivité, la création d'un champ « om_collectivite » met en place les accès multicollectivités d'openMairie 4
+     avec la multicollectivité, la création d'un champ « om_collectivite »
+     met en place les accès multicollectivités d'openMairie 4
 
-La version 4.00 ne reprend pas (par rapport a la version 3): :: 
-
-     l'état reprenant l'enregistrement et les sous états rattachés  à l'état principal par la ou les clés secondaires
-    
-     la documentation avec un lien sur les pages des tables reliées par la clé secondaire et l'option dans la documentation globale
-    
-     l'option dans le menu et le tableau de bord  
-    
-     la prise en compte dans la recherche globale
 
 
 **Les assistants vont faciliter la mise en oeuvre des états**

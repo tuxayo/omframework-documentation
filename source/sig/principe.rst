@@ -13,7 +13,7 @@ principe
 
 
 Il est proposé dans ce chapitre de decrire le module
-om_sig_point qui permet la geo localisation d'objet dans dans openMairie
+tab_sig_point.php qui permet la geo localisation d'objet dans openMairie
 avec un  point
 
 
@@ -26,14 +26,14 @@ dans les applications openMairie suivantes ::
     openmairie erp
     openmairie cimetiere
 
-L'objectif d'om_sig_point  est de fournir une géo localisation  automatique ou manuelle
+L'objectif d'tab_sig_point  est de fournir une géo localisation  automatique ou manuelle
 par un point stocké dans la base métier postgresql sur des fonds existants sur internet :
 google sat, openStretmap ou bing (pour l instant) en utilisant le composant javascript openLayers
 
-Il n'est donc pas nécessaire de disposer d'un SIG pour utiliser OM SIG.
+Il n'est donc pas nécessaire de disposer d'un SIG pour utiliser tab_sig_point.php.
 
 Le format de stockage des données pgsql est celui de l'OGC et il est accessible aux
-clients libres où propriétaire qui respectent ce format
+clients libres où propriétaires qui respectent ce format
 (QGIS, GRASS, VEREMAP  ... pour les clients libres)
 
 ============================
@@ -41,22 +41,23 @@ géo localisation automatique
 ============================
 
 L'enjeu est de limiter au maximum la géo localisation manuelle dès
-qu'il y a possibilité de géo localisation automatique.
+qu'il y a une possibilité de géo localisation automatique.
 
-Elle se fait au travers de 2 programmes :
+Elle se fait au travers de 3 programmes :
 
 - adresse_postale.php : positionnement suivant le numero et rue
 
 - adresse_postale_google.php : positionnement suivant le numero et rue avec google
 
 - centroid_parcelle.php : positionnement suivant calcul du centre de la parcelle
+  (prochaine version openMairie) 
 
 La géolocalisation automatique peut se faire sur une base externe
 postgresql suivant un systeme de bus de données
 
-le script om_sig permet de saisir manuellement le point.
+le script tab_sig_point permet de saisir manuellement le point.
 
-Une reflexion est en cours pour utiliser le geoportail de l IGN
+Une reflexion est en cours pour utiliser le geoportail de l IGN (voir geoportail)
 
 
 ==================
@@ -65,7 +66,7 @@ affichage de carte
 
 L'affichage se fait avec openLayers dont le composant est de base
 dans le framework openMairie : lib/openLayers. (le composant est
-installé de manière a être optimisé et il est utilisé une css openmairie)
+installé de manière a être optimisé avec une css openmairie)
 
 La librairie proj4 inclus dans lib/openLayers permet de pouvoir utiliser
 les projections lambert sud et lambert 93.
@@ -74,7 +75,7 @@ La projection géographique et Mercator est de base dans openLayers
 
 L'enjeu est donc de projeter les données stockées dans la base "métier"
 postgresql - postgis (les communes devant utiliser le lambert93) en mercator
-pour être lisible avec les cartes accessibles sur internet en mercator
+pour être lisible avec les cartes accessibles sur internet.
 
 L'affichage des datas est fait au travers d'une requête postgresql
 qui alimente un tableau json lu comme une couche openLayers.
@@ -82,15 +83,13 @@ qui alimente un tableau json lu comme une couche openLayers.
 La data à modifier est fourni par requete postgresql au format wkt à openLayers.
 (voir paragraphe layers)
 
-om_sig_point permet :
+tab_sig_point.php permet ::
 
-- l affichage de/des  fond(s)
+    - l affichage de/des  fond(s)
+    - l'affichage de données (data)
+    - l affichage du point qui peut être créé ou déplacé (couche wkt)
 
-- l'affichage de données (data)
-
-- l affichage du point qui peut être créé ou déplacé (couche wkt)
-
-Ces commandes sont dans les onglets du haut : dessiner, deplacer, enregistrer, data
+Les commandes sont dans les onglets du haut : dessiner, deplacer, enregistrer, data
 
 
 .. image:: ../_static/sig_1.png
@@ -120,7 +119,7 @@ Le paramétrage général des cartes  se fait dans :
 
 sig/var_sig_point ::
 
-    // *** sig_point.php ***
+    // *** tab_sig_point.php ***
     fichiers php qui vont chercher au travers d une requete sql
     // la couche json qui est affichée    
     $fichier_jsons="json_points.php?obj=";
@@ -155,7 +154,7 @@ sig/var_sig_point ::
     $img_click="1.3";// multiplication hauteur et largeur image cliquee
     
     // *** SIG POINT CLASS
-    Ci desous, les paramétres d affichage utilisés dans  obj/sig_point.class.php
+    Ci dessous, les paramétres d affichage utilisés dans  obj/om_sig.class.php
     Les étendues sont deux points en longitudes/ lattitudes
     
     $contenu_etendue[0]= array('4.5868,43.6518,4.6738,43.7018',

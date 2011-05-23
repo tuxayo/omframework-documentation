@@ -98,7 +98,8 @@ type pgsql (longueur) type tableinfo si different -> type openMairie ::
     Character   (-1)                Bpchar      -> String (Utilisation de la longueur d'affichage)
     Character varying (-1)          Varchar     -> String (Utilisation de la longueur d'affichage)
     Text        (-1)                text        -> blob  (Utilisation des paramètres de form.inc)
-    Date        (4)                 Date        -> Date (Utilisation des paramètres de form.inc - $pgsql_longueur_date)
+    Date        (4)                 Date        -> Date (Utilisation des paramètres de form.inc -
+                                                   $pgsql_longueur_date)
 
 
 

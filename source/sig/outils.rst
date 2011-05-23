@@ -5,8 +5,8 @@ outils
 ######
 
 
-ce chapitre propose de décrire les outils geographiques
-pouvant être utile à l extension d'om_sig ::
+ce chapitre propose de décrire de manière sommaire les outils geographiques
+pouvant être utiles à l extension d'om_sig ::
 
     GEOS pour le calcul geometrique
     GDAL pour les rasters
@@ -45,7 +45,7 @@ installation ::
     $ apt-get install lib-gdal1-dev
 
     pour faire des tuiles
-    apt-get install python_gdal  (pour tuiles)
+    apt-get install python_gdal
     gdap to tile ?
     
 

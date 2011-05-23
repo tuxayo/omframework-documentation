@@ -4,23 +4,19 @@
 Les éditions
 ############
 
-Les éditions sont accessibles dans le menu par :
+Les éditions sont accessibles dans le menu par ::
 
-- administration -> etat
-
-- administration -> sousetat
-
-- administration -> lettretype
+    - administration -> etat 
+    - administration -> sousetat
+    - administration -> lettretype
 
 
 
-Depuis la version 4 d'openMairie, les editions sont conservées dans 3 tables :
+Depuis la version 4 d'openMairie, les editions sont conservées dans 3 tables ::
 
-- om_etat : pour les états
-
-- om_sousetat : pour les sous etats
-
-- om_lettretype : pour les lettres types
+    - om_etat : pour les états  
+    - om_sousetat : pour les sous etats
+    - om_lettretype : pour les lettres types
 
 
 
@@ -67,7 +63,7 @@ Les paramètres sont les suivants ::
     les sous etats associés et les caractéristiques
 
 
-Pour le corps, le titre et la requete sql, les zones entre crochets (exemple [nom]) sont les champs selectionnés par la requete.
+Pour le corps et le titre, les zones entre crochets (exemple [nom]) sont les champs selectionnés par la requete.
 
 Les variables commençant par "&" sont définies dans dyn/varpdf.inc (exemple &aujourdhui)
 et dans la table om_parametre. 
@@ -89,7 +85,7 @@ Les paramétres  sont les suivants ::
     requete sql
 
 
-Pour le titre et la requete sql, les zones entre crochets sont les champs selectionnés par la requete.
+Pour le titre, les zones entre crochets sont les champs selectionnés par la requete.
 
 Les variables commençant par "&" sont définies dans dyn/varpdf.inc (exemple &aujourdhui)
 et dans la table om_parametre 
@@ -114,7 +110,7 @@ Les paramétres sont les suivants ::
     la requete SQL
 
 
-Pour le corps, le titre et la requete sql, les zones entre crochets  sont les champs selectionnés par la requete.
+Pour le corps et le titre, les zones entre crochets  sont les champs selectionnés par la requete.
 
 Les variables commençant par "&" sont définies dans dyn/varlettretypepdf.inc (exemple &aujourdhui)
 et dans la table om_parametre 
@@ -136,7 +132,7 @@ Les paramétres sont les suivants ::
     tatal, moyenne, nombre
     requete sql
 
-Pour le titre et la requete sql, les zones entre crochets sont les champs selectionnés par la requete.
+Pour le titre, les zones entre crochets sont les champs selectionnés par la requete.
 
 Les variables commençant par "&" sont définies dans dyn/varpdf.inc (exemple &aujourdhui)
 et dans la table om_parametre 
@@ -149,14 +145,14 @@ Les zones entre crochets  sont les champs selectionnés par la requete.
 La variable  &aujourdhui sont définies dans dyn/varetiquettepdf.inc et dans la
 table om_parametre
 
-Il y aura une integration depuis l utilisation d'openPersonnalite dans la version openMairie 4.0.1..
+Il y aura une integration depuis l utilisation d'openPersonnalite dans une prochaine version openMairie.
 
 
 =================
 L'éditeur WYSIWYG
 =================
 
-Un editeur est prevu dans la prochaine version openMairie 4.0.1
+Un editeur est prevu dans une prochaine version openMairie.
 
 
 ===============
@@ -176,7 +172,7 @@ les scripts sont les suivants ::
     pdfetiquette.php : etiquette
     pdflettretype.php
 
-pdfEtiquette sera repris dans la version 4.0.1 d'openMairie
+pdfEtiquette sera repris dans une prochaine version d'openMairie
 
 **specifique openCourrier pour ecriture sur pdf** ::
 
@@ -189,7 +185,7 @@ pdfEtiquette sera repris dans la version 4.0.1 d'openMairie
     pdf_parser.php
     testfpdi.php
 
-Il n est pas prévu d integration dans la prochaine version 
+Il n est pas prévu d integration dans la prochaine version
 
 ==========
 composants
@@ -211,11 +207,23 @@ Les scripts ci dessous sont les classes qui interfacent openmairie avec fpdf ::
 
 */phpmailer*
 
-    la gestion de mail est EN TEST avec openPersonnalite et sera intégré dans  openMairie 4.0.1
+    la gestion de mail est EN TEST avec openPersonnalite et sera intégré à terme
+    dans  openMairie
 
 
 Les composants javascript sont stockés dans le repertoire **lib/**
 
 */tinymce*
 
-    est l'editeur wisiwig   EN TEST sur openRecensement et qui sera intégré dans openmairie 4.0.1)
+    est l'editeur wisiwig
+    EN TEST sur openRecensement et qui sera intégré à terme dans openmairie
+    
+*/openlayers*
+
+    est la librairie pour le SIG
+    voir chapître sur l'information géographique
+    
+*/jquery-ui et jquery-misc*
+
+    librairies jquery
+

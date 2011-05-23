@@ -30,7 +30,10 @@ Le chapître consacré au "générateur" décrit dans le détail le fonctionneme
 de cet outil et de ses assistants.
 
 Le chapître consacré a l' "information geographique" décrit dans le détail le
-fonctionnement SIG interne d'openMairie.
+fonctionnement SIG interne d'openMairie. (version 4.01)
+
+Le chapître sur les widgets décrit le tableau de bord paramétrable et individualisé
+par utilisateur (version 4.01) 
 
 Enfin ce document rassemble toutes les règles de codage du projet
 openMairie, ainsi que des outils pour aider et guider les développeurs de la

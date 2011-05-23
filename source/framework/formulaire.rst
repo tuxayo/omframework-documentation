@@ -20,28 +20,53 @@ La classe formulaire.class.php a les méthodes suivantes :
 
 Les méthodes sur les controles du formulaire ::
 
-    Hiddenstatic -> Champ non modifiable  Valeur récupéré par le formulaire
-    Hiddenstaticdate -> date non modifiable Valeur récupéré par le formulaire
-    statiq -> Valeur non modifiable
-    date -> date modifiable  js/calendrier
-    select -> Controle select
-    selectdisabled -> Controle select non modifiable
-    Text -> Controle text
-    hidden -> Controle non visible avec valeur conservée
-    password -> Controle password
-    Textdisabled -> Controle text non modifiable
-    comboG -> Appel à un programme de correspondance à une table
+    text : Controle text (format standart)
+    hidden : Controle non visible avec valeur conservée
+    password : Controle password
+    textdisabled : Controle text non modifiable
+    textreadonly : contrôle text non modifiable
+    hiddenstatic : Champ non modifiable  Valeur récupéré par le formulaire
+    hiddenstaticnum : champ numerique non modifiable et valeur récupérer
+    statiq : Valeur affichée et non modifiable
+    affichepdf : récupére un nom d'objet (un scan pdf)
+    
+    checkbox : controle case à cocher : cochée = Oui, Non cochée = Non
+    checkboxnum : cochée = 1 , non cochée = 0
+    
+    http : lien http avec target = _blank (affichage dans une autre fenêtre)
+    httpclick : lien avec affichage dans la même fenêtre.
+    
+    date et date2 : date modifiable  avec affichage de calendrier jquery
+    Hiddenstaticdate  date non modifiable Valeur récupéré par le formulaire
+
+    textarea : affichage d un textarea
+    textareamulti : textarea qui récupére plusieurs valeurs d'un select
+    textareahiddenstatic : affichage non modifiable d'un textarea et recupération de la valeur
+    pagehtml : affichage d'un textarea et tranforme les retour charriot en <br>
+   
+    select : Controle select
+    selectdisabled : Controle select non modifiable
+
+    comboG  et comboG2-> Appel à un programme de correspondance à une table
                Cas ou il y a une grosse table en correspondance
-               spg/combo             
-    ComboD -> Appel à un programme de correspondance à une table
+               spg/combo.php             
+    ComboD et comboD2 -> Appel à un programme de correspondance à une table
                Cas ou il y a une grosse table en correspondance
-               spg/combo
-    Upload -> spg/upload et spg/voir.php
-    textarea
-    textarea_html
-    localisation -> spg/localisation.php
-    rvb -> spg/rvb.php
- 
+               spg/combo.php
+    
+    Upload et upload2 fait appel à spg/upload.php pout télécharger un fichier
+    voir et voir2 : fait appel à spg/voir.php pour visualiser un fichier
+    
+    localisation et localisation2 : fait appel à spg/localisation.php
+    rvb et rvb2 : fait appel à spg/rvb.php pour affichage de la palette couleur
+
+    
+    Les contrôle comboG, comboD, date, upload, voir et localisation sont à mettre dans
+    les formulaires (retour de l'affichage dans le formulaire f1)
+    Les contrôle comboG2, comboD2, date2, upload2, voir2 et localisation sont à mettre dans
+    les sous formulaires (retour de l'affichage dans le formulaire f2)  
+
+
 Les  méthodes de construction et d affichage ::
 
 

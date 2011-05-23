@@ -4,7 +4,7 @@
 Paramétrage du framework
 ########################
 
-Le paramétrage de l application se fait dans le répertoire /dyn.
+Le paramétrage de l'application se fait dans le répertoire /dyn.
 
 Il est proposé dans ce chapitre de décrire les différents fichiers de paramétrage.
 
@@ -62,7 +62,7 @@ conn[1] est un tableau php qui contient les parametres de connexion suivants ::
 Il est possible de définir tout phptype : mysql, pgsql (postgresql), oci8 pour oracle.
 
 Il faut voir la documentation de DB PEAR qui est le module d'abstraction utilisé
-dans openMairie (version 4.0.0)
+dans openMairie dans sa version actuelle
 
 
 ================
@@ -175,6 +175,16 @@ Nous proposons cet exemple de code ::
 Ce paramétrage va afficher "bienvenue demo" dans la page d'accueil ou
 tableau de bord pour l'utilisateur "demo"
 
+Dans lea version 4.01, tbc.inc pointe de base sur le tableau de bord
+paramétrable avec des widgets (repertoire /tdb) ::
+
+    $description = _("Bienvenue ").$_SESSION["login"]."&nbsp;";
+    $description.= _("dans votre tableau de bord ").
+    "<a href='../scr/dashboard.php?edition=1'>"._("parametrable en cliquant ici")."</a>";
+    $f->displayDescription($description);
+    include ("../tdb/tdb.php");  
+
+Voir chapître : widget et tableau de bord paramétrable
 
 
 ==================================
@@ -186,7 +196,7 @@ Les variables locales sont paramétrées dans le fichier *dyn/locales.inc.php*
 Ce fichier contient :
 
 
-- le paramétrage du codage des caracteres ::
+- le paramétrage du codage des caracteres (ISO-8859-1 ou UTF8)  ::
 
         define('CHARSET', 'ISO-8859-1');
 
@@ -316,13 +326,16 @@ Le mode debug d'openMairie se paramétre dans  *dyn/debug.inc.php*
 Ce fichier contient le paramétrage pour le mode debug
 d'openMairie (om_debug.inc.php)
 
-Valeur de la variable globale DEBUG
+Valeur de la variable globale DEBUG ::
 
   VERBOSE_MODE : mode "bavard"
+  dans ce mode , il est créé un fielset sous les formulaires qui indiquent
+  toutes les étapes de réalisation des scripts
 
   DEBUG_MODE : mode debug
+  Les messages d'erreur sont visibles
 
-  PRODUCTION_MODE : mode de production (pas de message)
+  PRODUCTION_MODE : mode de production (il n y a pas de message)
    
 ===============================
 La version de votre application
@@ -369,18 +382,24 @@ INSTALL.txt : installation de l application
 L'installation automatique
 ==========================
 
-La mise en place d une installation automatique est prévue dans la version openMairie 4.0.1
+La mise en place d une installation automatique est prévue dans une prochaine version openMairie.
 
 
 =========================
 Les paramétres des combos
 =========================
 
-Les paramétres combos sont paramétrés dans les fichiers suivants ::
+Les paramétres des combos sont paramétrés dans les fichiers suivants (type de contrôle
+de formulaire comboD et comboG (pour formulaire) ou comboD2 et comboG2 (pour sous formulaire) ::
 
-    - comboaffichage.inc.php
+    - comboaffichage.inc.php :
+        paramétre de l'affichage dans la fenêtre combo.php
     - comboparametre.inc.php
+        affecte des valeus spécifiques au formulaire parent si il y a plusieurs
+        enregistrement en lien (choix en affichage)
     - comboretour.inc.php
+        meme chose que comboparametre.inc si il n'y a qu un enregistrement en lien
+        (pas d'affichage de la fenetre)
 
 Voir *chapître framework/formulaire, sous programme générique combo.php*
 

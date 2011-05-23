@@ -4,9 +4,10 @@
 mapserver
 #########
 
-mapserver n est pas utilise dans om_sig_point mais dans tab_sig (openCimetiere)
+mapserver n est pas utilise dans om_sig_point mais dans tab_sig (openCimetiere version 2.02)
 
-Ce chapitre propose les principes de map server.
+Ce chapitre propose quelques principes de map server et peu d'exemples
+car pour l'instant mapserver est peu utilisé.
 
 
 principes
@@ -130,6 +131,3 @@ Requete ::
 	STYLES	
 	VERSION	1.1.1
 	WIDTH	256
-
-
-

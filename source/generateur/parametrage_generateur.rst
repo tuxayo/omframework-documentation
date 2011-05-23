@@ -20,7 +20,7 @@ Form.inc
 Voici les paramètres pour la génération de formulaire ::
 
     $serie = 15;                        nombre d'enregistrement par page'
-    $ico ="../img/ico_application.png"; icone DEPRECATED ?
+    $ico ="../img/ico_application.png"; icone DEPRECATED 
     $max=6;                             nb de ligne blob
     $taille=80;                         taille du blob
     $pgsql_taille_defaut = 20;          taille du champ par defaut si retour pg_field_prtlen =0

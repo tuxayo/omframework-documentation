@@ -22,7 +22,7 @@ Les paramétres sont les suivants pour om_parametre.inc ::
 
     $serie=15;                                      Nombre d'enregistrement par page
     
-    $ico="../img/ico_application.png";              Icone affiché
+    $ico="../img/ico_application.png";              Icone affiché (a voir deprecated)
     
     $ent = _("option")." -> "._("om_parametre");    Titre du tableau
     

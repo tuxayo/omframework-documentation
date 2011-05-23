@@ -58,7 +58,7 @@ Le formulaire métier auto généré, table.inc, tableform.inc est toujours coch
     
     gen/sql/basededonnees/table.inc
     
-    sql/basededonnees/table.form.inc
+    gen/sql/basededonnees/table.form.inc
 
 
 La génération de ces 3 fichiers ne met pas en péril votre programmation qui est en :
@@ -69,3 +69,5 @@ La génération de ces 3 fichiers ne met pas en péril votre programmation qui e
     
     sql/basededonnees/table.form.inc
 
+
+basededonnees = mysql ou pgsql
