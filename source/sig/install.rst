@@ -107,6 +107,52 @@ exemple de selection des colones geometriques de la base "odp" ::
     odp(POINT)
 
 
+partager un serveur postgresql
+==============================
+
+se connecter sur le serveur postgresql en ssh ::
+
+    $ ssh numeroIP
+    
+autoriser les IP externes a se connecter ::
+
+    etc/postgresql/8.x/main/pg_hba.conf
+    rajouter la ligne des postes ayant acces
+    $ sudo nano pg_hba.conf
+        # toutes les IP commencant par 10.1
+        host    all all 10.1.0.0/16 trust
+        # permis pour IP 10.1.30.10
+        host    all all 10.1.30.10/32   trust
+
+
+configurer le port 5432 comme port d ecoute ::
+
+
+    etc/postgresql/8.x/postgresql.conf
+    $ sudo nano postgresql.conf
+    # ecoute sur le port 5430 toutes adresses
+    listen_adresses='*'
+
+    $ netstat -lpn
+    
+    tcp  0  0 0.0.0.0:5432   0.0.0.0:*               LISTEN      -         
+
+changer le mot de passe postgresql ::
+
+    $ sudo su - postgres
+    postgres@ubuntu-1011015:~$ psql 
+    postgres=# alter user postgres  with password 'postgres'
+    postgres-# \q
+
+connexion distante sur pgadmin
+    nom : serveurdev
+    hote : 10.1.0.12
+    util : postgres
+    pwd : postgres
+
+
+
+
 optimisation composant openLayers
 =================================
 

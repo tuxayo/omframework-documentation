@@ -46,4 +46,14 @@ deplacer un dossier sur le svn -> commande mv ::
     
     cela fait trunk/dossiers_source
 
-   
+Creation d une nouvelle version ::
+
+    Copie en tag de la version
+
+    svn cp  svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/trunk
+            svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/tags/1.0.0beta
+
+    export dans un repertoire local sans les .svn
+
+    svn export  svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/tags/1.0.0beta
+            openmairie_debitboisson_1.0.0beta
