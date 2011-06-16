@@ -11,4 +11,5 @@ Le versionning du code et la version des applications
    svn.rst
    svn_utilisation.rst
    cvs.rst
+   cvs2svn.rst
    
