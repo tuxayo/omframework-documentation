@@ -97,4 +97,4 @@ Dans ce cas, il faut donc importer le nouveau code dans le dossier 'trunk' :
 
     svn import <NOM_DU_DOSSIER> svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/svnroot/<NOM_DU_PROJET>/trunk -m "Import initial de l'application"
 
-
+  Il faut bien sur valider les EXTERNALS pour récupérer les librairies externes.
