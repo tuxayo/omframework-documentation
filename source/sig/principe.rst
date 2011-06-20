@@ -126,6 +126,10 @@ sig/var_sig_point ::
     // la couche vecteur qui est à modifier
     $fichier_wkt="wkt_point.php";
     
+    // generer une cle pour votre site :
+    // http://code.google.com/intl/fr/apis/maps/signup.html
+    $cle_google= "xxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+    
     //zoom par couche : zoom standard permettant un passage de zoom a l autre
     $zoom_osm_maj=18;
     $zoom_osm=14;
