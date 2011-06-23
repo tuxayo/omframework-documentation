@@ -102,6 +102,7 @@ Ensuite 3 API peuvent être initialisés : google, bing et mapquest
 
 
 Mise en oeuvre dans un formulaire d'un bouton de la geolocalisation
+===================================================================
 
 La géolocalisation se fait sur la base du script ::
 
@@ -111,6 +112,9 @@ La géolocalisation se fait sur la base du script ::
         adresse_postale_google.php
         adresse_postale_mapquest.php
  
+.. image:: ../_static/geocodage_1.png 
+
+
 Il est appelé depuis la classe métier suivant l'exemple suivant :
 
 Exemple de openmairie_domainepublic : objet odp ::
