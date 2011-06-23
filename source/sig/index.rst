@@ -12,7 +12,6 @@
     geocodage
     mapserver
     outils
-    geoportail
     opencimetiere
 
 
