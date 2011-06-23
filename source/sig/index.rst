@@ -9,6 +9,7 @@
     format
     install
     postgis
+    geocodage
     mapserver
     outils
     geoportail
