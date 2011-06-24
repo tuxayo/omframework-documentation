@@ -30,7 +30,7 @@ sat : satelite google ::
 
     // acces à l API
     echo "<script src='http://maps.google.com/maps?file=api&amp;v=2&amp;
-    key=ABQIAAAAjpkAC9ePGem0lIq5XcMiuhR_wWLPFku8Ix9i2SXYRVK3e45q1BQUd_beF8dtzKET_EteAjPdGDwqpQ'>
+    key=google_key'>
     </script>";
 
     // layer
@@ -102,7 +102,7 @@ point (même géom) sur un  seul popup
 En effet, il est constitué un popup lorsque l on clique sur l objet
 et donne la possibilité à un accès URL parametrée dans om_sig_point::
 
-   ../scr/odp.php?idx=
+exemple : dans open_domainepublic   ../scr/odp.php?idx=
    
 
 Le point à modifier : couche vectors :
@@ -118,8 +118,10 @@ la case maj est activé ::
 			  externalProjection:projection_externe
 		  },
 	  styleMap: new OpenLayers.StyleMap({
-	      "default": {strokeColor: "black",strokeWidth:3,strokeOpacity: 0.5,fillColor : "red", pointRadius : 5},
-	      "select": {strokeColor: "black",strokeWidth:3,strokeOpacity: 0.5,fillColor : "green", pointRadius : 5}
+	      "default": {strokeColor: "black",strokeWidth:3,strokeOpacity: 0.5,
+          fillColor : "red", pointRadius : 5},
+	      "select": {strokeColor: "black",strokeWidth:3,strokeOpacity: 0.5,
+          fillColor : "green", pointRadius : 5}
 	    })
       });
 

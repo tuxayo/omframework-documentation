@@ -36,7 +36,7 @@ message ::
     ? éléments inconnus de CVS (non présents dans la version de CVS) ;
     U pour les éléments modifiés dans CVS (par rapport à la version locale) ;
     C pour les éléments différents entre les versions locale et CVS, et qui posent un conflit à règler manuellement.
-    ?D fichier supprimés (a verifier)
+    D fichier supprimés
 
 
 
@@ -168,8 +168,6 @@ requete cvs ::
             |       +------ Votre login à vous sur le SERVEUR
             |
             +----- le type d'authentification
-
-a voir ...
 
 ========
 checkout

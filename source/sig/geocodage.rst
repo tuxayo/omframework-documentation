@@ -5,7 +5,7 @@ geocodage
 #########
 
 
-Ce chapitre est consacré au probleme de geocodage.
+Ce chapitre est consacré au problème de geocodage.
 
 
 Il est propose un geocodage interne (sgbd adresse en reseau interne) ou un geocodage externe
@@ -26,13 +26,13 @@ Le parametrage se fait dans le fichier sig/var_adresse_postale.php
 var_adresse_postale.inc
 =======================
 
-parametrage general ::
+paramètrage général ::
 
 
     $longueurRecherche=1;
 
 
-adresse postale stocké sur une base dans le réseau interne ::
+adresse postale stockée sur une base dans le réseau interne ::
 
     // table et champs de la requete adresse postale ou l information doit etre recupere
     $t="adresse_postale";                       // table adresse postale

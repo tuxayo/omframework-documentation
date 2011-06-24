@@ -43,7 +43,7 @@ géo localisation automatique
 L'enjeu est de limiter au maximum la géo localisation manuelle dès
 qu'il y a une possibilité de géo localisation automatique.
 
-Elle se fait au travers de 3 programmes :
+Elle se fait au travers de 2 programmes (voir paragraphe sur le geocodage):
 
 - adresse_postale.php : positionnement suivant le numero et rue
 
@@ -53,11 +53,10 @@ Elle se fait au travers de 3 programmes :
   (prochaine version openMairie) 
 
 La géolocalisation automatique peut se faire sur une base externe
-postgresql suivant un systeme de bus de données
+postgresql (eventuellement via une vue)
 
 le script tab_sig_point permet de saisir manuellement le point.
 
-Une reflexion est en cours pour utiliser le geoportail de l IGN (voir geoportail)
 
 
 ==================

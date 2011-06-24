@@ -56,7 +56,7 @@ Les methodes utilisées dans tab_sig_point.php pour l'objet map sont les suivant
 Le zoom et l'etendu sont paramétrables :
 
 - dans la table om_sig_point
-- en url (pioritaire)
+- en url (prioritaire)
 
 =============
 Les controles

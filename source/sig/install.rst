@@ -24,7 +24,8 @@ Verification de l install postgresql-postgis ::
 
     postgre> select version() 
 
-    "PostgreSQL 8.3.9 on i486-pc-linux-gnu, compiled by GCC gcc-4.3.real (Ubuntu 4.3.3-5ubuntu4) 4.3.3" 
+    "PostgreSQL 8.3.9 on i486-pc-linux-gnu, compiled by GCC gcc-4.3.real
+    (Ubuntu 4.3.3-5ubuntu4) 4.3.3" 
 
     postgre> show server_version 
     
@@ -39,7 +40,8 @@ version proj et geao ::
 
     postgre > select postgis_full_version() ::
 
-    "POSTGIS="1.3.5" GEOS="3.1.0-CAPI-1.5.0" PROJ="Rel. 4.6.1, 21 August 2008" USE_STATS (procs from 1.3.3 need upgrade)"
+    "POSTGIS="1.3.5" GEOS="3.1.0-CAPI-1.5.0" PROJ="Rel. 4.6.1, 21 August 2008"
+    USE_STATS (procs from 1.3.3 need upgrade)"
 
 Voir paragraphe "outils"
 
@@ -162,6 +164,8 @@ construire un OpenLayers.js compresse dans le repertoire build ::
     $ python build.py 
 
 le fichier fait 800 ko au lieu de 3 Mo
+
+
 
 - compression lite ::
 
