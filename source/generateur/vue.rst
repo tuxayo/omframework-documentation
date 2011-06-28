@@ -12,6 +12,9 @@ un trigger.
 
 Il est possible d'utiliser dblink pour créer une vue dans une base externe 
 
+Dans la version 4.1.0, les vues sont initiées a titre expérimental.
+
+
 ===========
 vue interne
 ===========
@@ -47,7 +50,9 @@ test sql ::
 Creation de vue externe
 =======================
 
-en utilisant dblink sur un même serveur ::
+en utilisant dblink ::
+
+    -- creation de vues sur un même serveur 
 
     CREATE VIEW openboisson_etablissement AS
        SELECT *
@@ -56,7 +61,7 @@ en utilisant dblink sur un même serveur ::
                                 raison_sociale varchar(30));
 
 
-    -- creation de vue sur serveur distant ( a voir)
+    -- creation de vues sur serveur distant ( a voir)
 
     CREATE VIEW chios_openboisson_etablissement AS
        SELECT *
@@ -67,36 +72,32 @@ en utilisant dblink sur un même serveur ::
 
 
 
-
 ========================
 Mise a jour dans une vue
 ========================
 
 Pour qu'une vue soit  modifiable,  indépendamment  des contraintes d'intégrité sur
-les tables, il faut respecter un certain nombre de règles ::
- 
+les tables, il faut respecter un certain nombre de règles :: 
 
-    * Pas de directives distinct
-    * Pas de fonctions d'agrégat (AVG, COUNT …)
-    * PAS de GROUP BY, ORDER BY, HAVING
-    * La vue ne doit pas être déclarée en lecture seule (WITH READ ONLY)
-
+    Pas de directives distinct
+    Pas de fonctions d'agrégat (AVG, COUNT …)
+    PAS de GROUP BY, ORDER BY, HAVING
+    La vue ne doit pas être déclarée en lecture seule (WITH READ ONLY)
 
 
 En  mis a jour une erreur apparait ::
 
-    -- en base interne ou base externe
-
+    -- en base interne ou base externe, la requete suivante :
     UPDATE public.om_administrateur SET om_administrateur = '1',
         nom = 'ADMINISTRATEUR',login = 'admin',om_profil = '5' WHERE om_administrateur = 1
+    -- produit l erreur :
     SGBD: nativecode=ERREUR: ne peut pas mettre a  jour une vue HINT:
     Vous avez besoin d'une regle non conditionnelle ON UPDATE DO INSTEAD
 
 
 Pour mettre à jour vous devez créer un trigger 
 
-
-en mise a jour interne ::
+en vue interne ::
 
     -- mise a jour
 
@@ -117,9 +118,9 @@ en mise a jour interne ::
         WHERE om_utilisateur.om_utilisateur = old.om_administrateur;
 
 
-en mise a jour externe ::
+en vue externe ::
 
-    Il ne semble pas y avoir la possibilité de mettre une regle 
+    -- Il ne semble pas y avoir la possibilité de mettre une regle 
 
     CREATE OR REPLACE RULE openboisson_etablissement_update AS
        ON UPDATE TO openboisson_etablissement
@@ -129,7 +130,7 @@ en mise a jour externe ::
     
     -- dblink_exec ne fonctionne pas ( a valider)
 
-    -- par contre ci dessous marche
+    -- par contre la requete ci dessous marche
     
     SELECT dblink_exec('dbname=openboisson',
           'update etablissement set raison_sociale = ''zzz'' where etablissement =3;');
@@ -143,10 +144,13 @@ en mise a jour externe ::
         $this->testverrou();
         if ($this->correct) {
              $this->triggermodifier($id, $db, $val, $DEBUG);
-            // MODIFS
-            $sql="SELECT dblink_exec('dbname=openboisson','update etablissement set raison_sociale = ''".$this->valF['raison_sociale']."'' where etablissement = ".$id."')";
+            // MODIFS ==========================================
+            $sql="SELECT dblink_exec('dbname=openboisson',
+                 'update etablissement set raison_sociale = ''".
+                 $this->valF['raison_sociale'].
+                 "'' where etablissement = ".$id."')";
             $res=$db->query($sql); 
-            // FIN MODIFS
+            // FIN MODIFS =======================================
             if (database::isError($res)) {
                 $this->erreur_db($res->getDebugInfo(), $res->getMessage(), '');
             } else {
@@ -178,13 +182,24 @@ Problème non réglés dans l'utilisation d une vue externe
 ========================================================
 
 - problème d encodage si les 2 bases ne sont pas encodés de la même manière
-l'encodage est celui de a base applicative.
+l'encodage est celui de a base en cours.
 
-- utilisation d une sequence externe ou interne en creation
-  en interne, on peut surcharger dbnest
 
-- verification de cle secondaire dans la base d origine non preis en compte dans
-le base cible
+- utilisation d une sequence externe ou interne en insert ::
+
+    -- en externe il apparait dangereux de faire un insert 
+  
+    -- en interne, on peut surcharger ::
+  
+    function setId(&$db) {
+      //numero automatique
+          $this->valF[$this->table] = $db->nextId(DB_PREFIXE."om_utilisateur");
+    }
+
+
+- verification de cle secondaire dans la base d origine n'est pas pris en compte par openMairie dans
+le base cible. La protection des clés se fait dans la base cible par postgresql
+mais le message d erreur n'est pas inteprété par openMairie.
 
 
 - attention : la creation de vue qui ne fonctionne pas fait dysfonctionner le
