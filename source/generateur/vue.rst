@@ -10,7 +10,7 @@ Il est possible d'utiliser les vues pour faire des formulaires, états, requetes
 de la même manière que les tables sauf au niveau de la mise a jour ou il faut mettre
 un trigger.
 
-Il est possible d'utiliser dblink pour créer une vue dans une base externe 
+Il est possible d'utiliser dblink pour créer une vue dans une base externe. 
 
 Dans la version 4.1.0, les vues sont initiées a titre expérimental.
 
@@ -27,6 +27,11 @@ creation d'une vue en sql ::
     INSERT INTO om_utilisateur (om_utilisateur=new.administrateur, nom=new.nom,
     login=new.login, om_profil=new.om_profil)
     
+
+exemple utilisation new et old utile dans le cadre de la mise a jour d un montant ::
+    old valeur d un montant =200
+    new valeur d'un montant =300
+    si operation +100 avec possibilité de refuser
 
 
 =========================
@@ -45,6 +50,8 @@ test sql ::
     SELECT dossier,nature FROM dblink('dbname=openfoncier','SELECT dossier,nature FROM
         dossier where nature = \'PC\'') as (dossier varchar(11), nature char(2))
 
+Attention, il vaut mieux ne pas mettre les chaines de connexion dans les fichiers de
+parametrage openMairie
 
 
 Creation de vue externe
@@ -65,12 +72,13 @@ en utilisant dblink ::
 
     CREATE VIEW chios_openboisson_etablissement AS
        SELECT *
-            FROM dblink('hostaddr=chios port=5432 dbname=openboisson user=postgresql password=postgresql',
+            FROM dblink('hostaddr=10.1.0.1 port=5432 dbname=openboisson user=postgresql password=postgresql',
             'SELECT etablissement, raison_sociale FROM
             etablissement') as (openboisson_etablissement integer , 
                                 raison_sociale varchar(30));
 
-
+    -- possibilité de créer des connect permanent et gerer des alias
+    
 
 ========================
 Mise a jour dans une vue
@@ -85,16 +93,6 @@ les tables, il faut respecter un certain nombre de règles ::
     La vue ne doit pas être déclarée en lecture seule (WITH READ ONLY)
 
 
-En  mis a jour une erreur apparait ::
-
-    -- en base interne ou base externe, la requete suivante :
-    UPDATE public.om_administrateur SET om_administrateur = '1',
-        nom = 'ADMINISTRATEUR',login = 'admin',om_profil = '5' WHERE om_administrateur = 1
-    -- produit l erreur :
-    SGBD: nativecode=ERREUR: ne peut pas mettre a  jour une vue HINT:
-    Vous avez besoin d'une regle non conditionnelle ON UPDATE DO INSTEAD
-
-
 Pour mettre à jour vous devez créer un trigger 
 
 en vue interne ::
@@ -106,9 +104,7 @@ en vue interne ::
        DO INSTEAD 
         UPDATE om_utilisateur SET nom = new.nom, login = new.login, om_profil = new.om_profil
         WHERE om_utilisateur.om_utilisateur = old.om_administrateur;
-    
-      old ou new ???
-     
+
     -- destruction
 
     CREATE OR REPLACE RULE om_administrateur_delete AS
@@ -120,7 +116,8 @@ en vue interne ::
 
 en vue externe ::
 
-    -- Il ne semble pas y avoir la possibilité de mettre une regle 
+    -- Il ne semble pas y avoir la possibilité de mettre une regle
+    -- ne serait il pas possible d executer d une procedure stockee a partir de instead (declencheur)
 
     CREATE OR REPLACE RULE openboisson_etablissement_update AS
        ON UPDATE TO openboisson_etablissement
@@ -128,7 +125,7 @@ en vue externe ::
        dblink_exec('dbname=openboisson','update etablissement set raison_sociale new.openboisson_raison_sociale
           WHERE etablissement.etablissement = old.openboisson_etablissement')
     
-    -- dblink_exec ne fonctionne pas ( a valider)
+    -- dblink_exec ne fonctionne pas (a valider)
 
     -- par contre la requete ci dessous marche
     
@@ -184,12 +181,11 @@ Problème non réglés dans l'utilisation d une vue externe
 - problème d encodage si les 2 bases ne sont pas encodés de la même manière
 l'encodage est celui de a base en cours.
 
-
 - utilisation d une sequence externe ou interne en insert ::
 
     -- en externe il apparait dangereux de faire un insert 
   
-    -- en interne, on peut surcharger ::
+    -- en interne, on peut surcharger openboisson_etablissement.class.php::
   
     function setId(&$db) {
       //numero automatique
@@ -201,7 +197,50 @@ l'encodage est celui de a base en cours.
 le base cible. La protection des clés se fait dans la base cible par postgresql
 mais le message d erreur n'est pas inteprété par openMairie.
 
+- utilisation dans qgis d une vue : Dans QGis: pour que ta vue apparaisse dans la liste
+il faut que "uniquement regarder la table 'geometry_columns'" ne soit pas cochée)
+(dans editer) selectionner la clé primaire (dans la liste des tables de connexion
+modifier la colone de la clé primaire) avant de cliquer sur le bouton ajouter ... 
 
 - attention : la creation de vue qui ne fonctionne pas fait dysfonctionner le
 generateur qui fait appel au catalogue de vue : select viewname from pg_views
 Mettre en place un code erreur qui n execute pa l UNION ?
+
+
+==================
+procedure stockées
+==================
+
+operation qui double un entier ::
+
+    CREATE FUNCTION om_double (integer) 
+      RETURNS integer 
+      AS 
+    '
+      BEGIN 
+        RETURN 2*$1;
+      END; 
+    '
+    LANGUAGE 'plpgsql';
+
+    -- lancement
+    select om_double(2);
+    
+recuperer un tarif d'une occupation::
+    
+    CREATE FUNCTION om_get_tarif (INTEGER)
+    RETURNS FLOAT
+    AS
+    '
+      DECLARE 
+        montant FLOAT;
+      BEGIN
+        SELECT INTO montant  tarif FROM occupation WHERE occupation= $1;
+        RETURN montant;
+      END ;
+    '
+    LANGUAGE 'plpgsql';
+     
+    -- lancement
+    select om_get_tarif(1);
+
