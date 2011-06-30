@@ -21,11 +21,13 @@ vue interne
 
 creation d'une vue en sql ::
 
+    CREATE OR REPLACE VIEW om_administrateur AS 
+    SELECT om_utilisateur.om_utilisateur AS om_administrateur, om_utilisateur.nom,
+    om_utilisateur.login, om_utilisateur.om_profil
+    FROM om_utilisateur
+    WHERE om_utilisateur.om_profil::text = '5'::text;
    
-    CREATE OR REPLACE RULE om_administrateur_insert AS ON INSERT TO om_administrateur
-    DO INSTEAD
-    INSERT INTO om_utilisateur (om_utilisateur=new.administrateur, nom=new.nom,
-    login=new.login, om_profil=new.om_profil)
+
     
 
 exemple utilisation new et old utile dans le cadre de la mise a jour d un montant ::
@@ -112,6 +114,11 @@ en vue interne ::
        DO INSTEAD 
         DELETE from om_utilisateur 
         WHERE om_utilisateur.om_utilisateur = old.om_administrateur;
+
+    CREATE OR REPLACE RULE om_administrateur_insert AS ON INSERT TO om_administrateur
+    DO INSTEAD
+    INSERT INTO om_utilisateur (om_utilisateur=new.administrateur, nom=new.nom,
+    login=new.login, om_profil=new.om_profil)
 
 
 en vue externe ::
@@ -243,4 +250,24 @@ recuperer un tarif d'une occupation::
      
     -- lancement
     select om_get_tarif(1);
+
+compter les etablissements ::
+
+    CREATE OR REPLACE FUNCTION om_compte_etablissement() RETURNS INTEGER AS 
+    '
+    DECLARE
+    count INTEGER;
+    myrec RECORD;
+    BEGIN
+    FOR myrec IN SELECT * FROM DBLINK('dbname=openboisson',
+                        'select etablissement from etablissement') as
+                        temp(etablissement integer)
+    LOOP
+        count := count + 1;
+    END LOOP;
+    RETURN count;
+    END; ' LANGUAGE 'plpgsql';
+
+    -- ne renvoie rien
+
 
