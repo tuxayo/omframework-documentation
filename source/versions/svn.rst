@@ -100,6 +100,8 @@ Appliquer les propriétés externals : ::
     svn up
     svn ci
 
+attention le repertoire ne doit pas etre existant (copie de travail verouillée)
+
 
 ********
 Keywords
