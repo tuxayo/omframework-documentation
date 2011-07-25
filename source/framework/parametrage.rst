@@ -199,7 +199,14 @@ Ce fichier contient :
 - le paramétrage du codage des caracteres (ISO-8859-1 ou UTF8)  ::
 
         define('CHARSET', 'ISO-8859-1');
+        ou
+        define('CHARSET', 'UTF8');
 
+    Verifier le paramétrage d'APACHE si il y a un mauvais affichage par défaut ISO-8859-1
+    dans etc/apache2/apache2.conf commenter ##AddDefaultCharset = ISO-8859-1
+    relancer ensuite apache : $ etc/apache2/init.d/apache2 reload
+    
+    A partir de la version 3.0.1, l'imcompatibilité utf8 de la bibliotheque fpdf est traitée
 
 - le dossier ou sont installées les variables du systeme ::
 
@@ -278,6 +285,9 @@ Ce mode permet de pre-remplir le formulaire de login avec l'identifiant 'demo' e
 Les thèmes openmairie_exemple sont : "om_overcast"; "om_sunny"; "om_ui-darkness";
 
 Vous pouvez mettre d'autres themes jquery.
+
+A partir de la version 3.1.0, les themes ne sont plus gérés dans config.inc.php.
+Il est initialisé dans l EXTERNALS.TXT du repertoire lib
 
 
   
