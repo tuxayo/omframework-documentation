@@ -39,11 +39,15 @@ de vous informer de manière complète sur le fonctionnement du framework
 Le chapître consacré au "générateur" décrit dans le détail le fonctionnement
 de cet outil et de ses assistants. Cet outil permet de fabriquer la maquette.
 
+La version 4.1.0 permet de construire des applications composites (ou mash up)
+en intégrant des contenus venant d'application externes. Cela permet de construire
+rapidemment une application à faible grâce à la fusion de multiple service internet
+
 Le chapître consacré a l' "information geographique" décrit dans le détail le
-fonctionnement SIG interne d'openMairie. (version 4.0.1)
+fonctionnement SIG interne d'openMairie combinant les API d'internet avec le framework.
 
 Le chapître sur les widgets décrit le tableau de bord paramétrable et individualisé
-par l'utilisateur (version 4.0.1) 
+par l'utilisateur  permettant l'accès à tout type de fonctions internes ou externes.
 
 Enfin ce document rassemble toutes les règles de codage du projet
 openMairie, ainsi que des outils pour aider et guider les développeurs de la
