@@ -27,104 +27,14 @@ Voici les paramètres pour la génération de formulaire ::
     $pgsql_taille_minimum    = 10;      taille minimum d affichage d un champ
     $pgsql_longueur_date=12;            taille d'affichage de la date ' 
 
-========
-Etat.inc 
-========
-Parametres ::
 
-    $variable='&'; (indice precedent la variable)	
-    // general
-    $orientation='P';
-    $format='A4';
-    // footer
-    $footerfont='helvetica';
-    $footerattribut='I';
-    $footertaille='8';
-    // logo
-    $logo='logopdf.png';
-    $logoleft='58';
-    $logotop='7';
-    // titre
-    $titreleft='41';
-    $titretop='36';
-    $titrelargeur='130';
-    $titrehauteur='10';
-    $titrefont='helvetica';
-    $titreattribut='B';
-    $titretaille='15';
-    $titrebordure='0';
-    $titrealign='C'; 
-    // corps
-    $corpsleft='7';
-    $corpstop='57';
-    $corpslargeur='195';
-    $corpshauteur='5';
-    $corpsfont='helvetica';
-    $corpsattribut='';
-    $corpstaille='10';
-    $corpsbordure='0';
-    $corpsalign='J';
-    // sous etat
-    $se_font='helvetica';
-    $se_margeleft='8';
-    $se_margetop='5';
-    $se_margeright='5';
-    $se_couleurtexte="array('0','0','0')";	
+EN cours de reflexion ::
 
-============
-Sousetat.inc 
-============
+    prendre en compte la valeur réélle de la longueur des
+    champs en postgresql
+    paramétrer un système d'exclusion de champ (exemple geom)
+    exclusion de cle secondaire (exemple parcelle ou pos dans dossier d openfoncier)
 
-Parametres ::
-
-    $longueurtableau= 195;
-    $variable='&'; (indice precedent la variable)
-    //titre
-    $titrehauteur=10;
-    $titrefont='helvetica';
-    $titreattribut='B';
-    $titretaille=10;
-    $titrebordure=0;
-    $titrealign='L';
-    $titrefond=0;
-    $titrefondcouleur="array(255,255,255)";
-    $titretextecouleur="array(0,0,0)";
-    // intervalle
-    $intervalle_debut=0;
-    $intervalle_fin=5;
-    // entete
-    $entete_flag=1;
-    $entete_fond=1;
-    $entete_orientation="array(0,0,0)";
-    $entete_hauteur=7;
-    $entete_fondcouleur="array(255,255,255)";
-    $entete_textecouleur="array(0,0,0)";
-    // tableau
-    $tableau_bordure=1;
-    $tableau_fontaille=10;
-    // bordure
-    $bordure_couleur="array(0,0,0)";
-    // sous etat fond
-    $se_fond1="array(243,246,246)";
-    $se_fond2="array(255,255,255)";
-    // cellule
-    $cellule_fond=1;
-    $cellule_hauteur=7;
-    // total
-    $cellule_fond_total=1;
-    $cellule_fontaille_total=10;
-    $cellule_hauteur_total=15;
-    $cellule_fondcouleur_total="array(255,255,255)";
-    // moyenne
-    $cellule_fond_moyenne=1;
-    $cellule_fontaille_moyenne=10;
-    $cellule_hauteur_moyenne=5;
-    $cellule_fondcouleur_moyenne="array(212,219,220)";
-    // nombre d enregistrement
-    $cellule_fond_nbr=1;
-    $cellule_fontaille_nbr=10;
-    $cellule_hauteur_nbr=7;
-    $cellule_fondcouleur_nbr="array(255,255,255)";
 
 =======
 Pdf.inc 

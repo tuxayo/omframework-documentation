@@ -221,6 +221,7 @@ Voila quelques exemples des possibilités de modification dans les fichiers sql
 (repertoire sql/ ....) et dans les methodes de l'objet (repertoire obj/ ...)
 
 
-En aucun cas, il ne faut modifier les fichiers dans gen/ qui est l'espace de travail du générateur,
+En aucun cas, il ne faut modifier les fichiers dans gen/ qui est l'espace de travail du générateur.
+
 **Nous allons dans le prochain chapître modifier la base et  regénérer les écrans sans mettre en danger
 votre personnalisation.**

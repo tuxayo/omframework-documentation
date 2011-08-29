@@ -18,8 +18,7 @@ de classes qui permettent de créer des formulaires et des états.
 Ces classes sont surchargées par les objets métier à créer.
 
 openMairie integre de nombreux composants : DBPEAR et FPDF dans toutes les applications,
-mais aussi ARTISHOW (pour les graphes), NSOAP pour les web services,
-JQUERY pour l'ergonomie, OPENLAYERS pour l interface SIG ...
+mais aussi ARTISHOW (pour les graphes), JQUERY pour l'ergonomie, OPENLAYERS pour l interface SIG ...
 
 DBPEAR est un abstracteur de base de données qui permet d'utiliser diverses bases de données notament MYSQL ou POSTGRESQL.
 
@@ -53,10 +52,10 @@ formulaire (longueur, max, nom).
     décrit dans ce chapître bien que non intégré dans le framework
        
     Deux modules du framework intégré dans la version 4.01 sont traités dans un
-    chapître à part
+    chapître à part :
     
         - l'information géographique
-        - les widgets et le tableau de bord paraùètrable
+        - les widgets et le tableau de bord paramètrable
 
     Les modules suivants utilisés dans des applications openMairie ne sont pas décrits
     dans ce chapître car ils n'ont pas encore intégrés dans le framework openExemple

@@ -186,7 +186,7 @@ Problème non réglés dans l'utilisation d une vue externe
 ========================================================
 
 - problème d encodage si les 2 bases ne sont pas encodés de la même manière
-l'encodage est celui de a base en cours.
+l'encodage est celui de a base en cours -> il faut utiliser les fonctions 
 
 - utilisation d une sequence externe ou interne en insert ::
 

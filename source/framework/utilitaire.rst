@@ -1,8 +1,8 @@
 .. _utilitaire:
 
-###############
-Les utilitaires
-###############
+########################################
+Les scripts specifiques de l'application
+########################################
 
 Les méthodes spécifiques à l'application sont dans obj/utils.class.php
 qui héritent de la class om_application.class.php d 'openmairie
@@ -15,13 +15,17 @@ en variable session dans openCourrier.
 Ces classes contiennent les méthodes utilisées par le framework mais
 qui peuvent vous aider à développer les scripts complémentaires de votre application.
 
-Les scripts complémentaires peuvent être créer pour :
+Les scripts complémentaires sont mis en répertoire app / et peuvent être créer pour :
 
-- faire un traitement en répertoire trt/ (remise à 0 d'un registre, archivage, export ....)
+- faire un traitement (remise à 0 d'un registre, archivage, export ....)
 
-- faire un sous programme spécifique en spg/ appellé par un formulaire (bible.php dans openCourrier)
+- faire un sous programme spécifique appellé par un formulaire (bible.php dans openCourrier)
 
-- faire une recherche avec un affichage particulier en scr/.
+- faire une recherche avec un affichage particulier
+
+Les scripts javascripts sont mis dans le fichier app/js/script.je
+
+Les images spécifiques sont stockées dans app/img
 
 
 ===========

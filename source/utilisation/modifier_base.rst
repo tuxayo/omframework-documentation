@@ -139,7 +139,7 @@ Le fieldset nom est affiché par défaut, pas celui de l'adresse.
 Vos formulaires sont maintenant au point.
 
 Le paragraphe suivant vous indique les surcharges d'openCourrier que vous
-pouvez intégrer dans votre exemple, maintenant que vous avez la a méthode.
+pouvez intégrer dans votre exemple, maintenant que vous avez la méthode.
 
 
 =============================

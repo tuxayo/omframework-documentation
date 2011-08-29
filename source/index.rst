@@ -15,7 +15,7 @@ Avec plus de 30 applications développées pour les collectivités locales acces
 sur le site http://openmairie.org, nous souhaitons au travers de ce guide , diffuser notre
 expérience auprès  des collectivités et des acteurs économiques du libre qui les accompagnent.
 
-C'est donc une méthode conçue au fur à mesure de notre expérience que nous vous
+C'est donc une méthode conçue au fur à mesure de nos développements que nous vous
 proposons de partager et toutes remarques sont les bienvenues, alors n'hésitez pas à nous
 en faire part à l'adresse mail suivante : contact@openmairie.org
 

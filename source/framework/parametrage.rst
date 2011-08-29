@@ -161,28 +161,12 @@ tableau link ::
 Le tableau de bord
 ==================
 
-Le tableau de bord se paramètre dans le fichier *dyn/tdb.inc*. 
-
-Le parametrage est libre et depend de l'application.
+Le tableau de bord se paramètre dans le fichier *dyn/dashboard.inc*. 
 
 Ce fichier est appellé par le script scr/dashboard.php.
 
-Nous proposons cet exemple de code ::
-
-    $description = _("Bienvenue ").$_SESSION["login"]."<br>";    
-    $f->displayDescription($description);
-
-Ce paramétrage va afficher "bienvenue demo" dans la page d'accueil ou
-tableau de bord pour l'utilisateur "demo"
-
-Dans lea version 4.01, tbc.inc pointe de base sur le tableau de bord
-paramétrable avec des widgets (repertoire /tdb) ::
-
-    $description = _("Bienvenue ").$_SESSION["login"]."&nbsp;";
-    $description.= _("dans votre tableau de bord ").
-    "<a href='../scr/dashboard.php?edition=1'>"._("parametrable en cliquant ici")."</a>";
-    $f->displayDescription($description);
-    include ("../tdb/tdb.php");  
+Pour avoir son propre tableau de bord, il suffit de decommenter la ligne 
+// die(); et on accède plus au widget
 
 Voir chapître : widget et tableau de bord paramétrable
 
@@ -272,22 +256,15 @@ Ce mode permet de pre-remplir le formulaire de login avec l'identifiant 'demo' e
     $config['upload_extension'] = ".gif;.jpg;.jpeg;.png;.txt;.pdf;.csv;"
 
 
-* Le thème de l'application - les différents choix possibles se trouvent dans le
+* Le thème de l'application
 
-  dossier : ../lib/jquery-ui/css/
- 
- 
-  Par defaut, le thème d'openExemple est "om_overcast" ::
-  
-    $config['theme'] = "om_overcast";
+A partir de la version 3.1.0, le theme n'est plus géré dans config.inc.php.
+Il est initialisé dans EXTERNALS.TXT du repertoire lib/om-theme ::
 
-
-Les thèmes openmairie_exemple sont : "om_overcast"; "om_sunny"; "om_ui-darkness";
-
-Vous pouvez mettre d'autres themes jquery.
-
-A partir de la version 3.1.0, les themes ne sont plus gérés dans config.inc.php.
-Il est initialisé dans l EXTERNALS.TXT du repertoire lib
+    exemple pour om_ui_darkness 
+    
+    jquery-ui-theme svn://scm.adullact.net/svnroot/openmairie/externals/jquery-ui-theme/
+                    om_ui-darkness/tags/1.8.14
 
 
   
@@ -338,6 +315,11 @@ d'openMairie (om_debug.inc.php)
 
 Valeur de la variable globale DEBUG ::
 
+  EXTRA_VERBOSE_MODE : mode très bavard qui reprend les messages spécifiques
+  dans la méthode addToLog
+  exemple :
+  $this->addToLog("requete sig_interne maj parcelle inexistante :".$sql, VERBOSE_MODE);
+
   VERBOSE_MODE : mode "bavard"
   dans ce mode , il est créé un fielset sous les formulaires qui indiquent
   toutes les étapes de réalisation des scripts
@@ -376,7 +358,7 @@ HISTORY.txt : information sur chaque version :
             les (+) et les (bugs) corrigés
 
 
-SPECIFIC.txt :
+app/SPECIFIC.txt :
 
     Ici, vous décrivez la specificite de l application courante par rapport au framework
 
