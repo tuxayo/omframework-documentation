@@ -142,12 +142,8 @@ en vue externe ::
     -- il serait donc possible de modifier la methode modifier en surchargeant obj/openboisson_etablissement.class.php
     
     function modifier($val = array(), &$db = NULL, $DEBUG = false) {
-        $id = $val[$this->clePrimaire];
-        $this->setValF($val);
-        $this->verifier($val, $db, $DEBUG);
-        $this->testverrou();
-        if ($this->correct) {
-             $this->triggermodifier($id, $db, $val, $DEBUG);
+    ...
+            $this->triggermodifier ...
             // MODIFS ==========================================
             $sql="SELECT dblink_exec('dbname=openboisson',
                  'update etablissement set raison_sociale = ''".
@@ -155,68 +151,35 @@ en vue externe ::
                  "'' where etablissement = ".$id."')";
             $res=$db->query($sql); 
             // FIN MODIFS =======================================
-            if (database::isError($res)) {
-                $this->erreur_db($res->getDebugInfo(), $res->getMessage(), '');
-            } else {
-                $this->addToLog(_("Requete executee"), VERBOSE_MODE);
-                $message = _("Enregistrement")."&nbsp;".$id."&nbsp;";
-                $message .= _("de la table")."&nbsp;\"".$this->table."\"&nbsp;";
-                // PROBLEME affectedRows ne fonctionne pas avec dblink
-                // $message .= "&nbsp;".$db->affectedRows()."&nbsp;";
-                $message .= _("enregistrement(s) mis a jour")."&nbsp;";
-                $this->addToLog($message, VERBOSE_MODE);
-                // PAS AFFECTE 
-                //if ($db->affectedRows() == 0) {
-                //    $this->addToMessage(_("Attention vous n'avez fait aucune modification.")."<br/>");
-                //} else {
-                //    $this->addToMessage(_("Vos modifications ont bien ete enregistrees.")."<br/>");
-                //}
-                $this->verrouille();
-            }
-            $this->triggermodifierapres($id, $db, $val, $DEBUG);
-        } else {
-            $this->addToMessage("<br/>"._("SAISIE NON ENREGISTREE")."<br/>");
-        }
+            if (database::isError ....
+ 
     }
 
 
  
 ========================================================
-Problème non réglés dans l'utilisation d une vue externe
+Problème à régler dans l'utilisation d une vue externe
 ========================================================
 
-- problème d encodage si les 2 bases ne sont pas encodés de la même manière
-l'encodage est celui de a base en cours -> il faut utiliser les fonctions 
+-  il faut utiliser les fonctions d'encodage de pgsql si les 2 bases n'ont pas le
+   même encodage
 
-- utilisation d une sequence externe ou interne en insert ::
+- utilisation d une sequence externe ou interne en insert 
 
-    -- en externe il apparait dangereux de faire un insert 
-  
-    -- en interne, on peut surcharger openboisson_etablissement.class.php::
-  
-    function setId(&$db) {
-      //numero automatique
-          $this->valF[$this->table] = $db->nextId(DB_PREFIXE."om_utilisateur");
-    }
+- verification de cle secondaire dans la base d origine
 
-
-- verification de cle secondaire dans la base d origine n'est pas pris en compte par openMairie dans
-le base cible. La protection des clés se fait dans la base cible par postgresql
-mais le message d erreur n'est pas inteprété par openMairie.
-
-- utilisation dans qgis d une vue : Dans QGis: pour que ta vue apparaisse dans la liste
-il faut que "uniquement regarder la table 'geometry_columns'" ne soit pas cochée)
-(dans editer) selectionner la clé primaire (dans la liste des tables de connexion
-modifier la colone de la clé primaire) avant de cliquer sur le bouton ajouter ... 
-
-- attention : la creation de vue qui ne fonctionne pas fait dysfonctionner le
+- utilisation dans qgis d une vue :
+    - regarder la table 'geometry_columns'" ne soit pas cochée (option editer)
+    - modifier la clé primaire dans la liste des tables de connexion 
+    
+- attention : la creation de vue non opérartionnelle  fait dysfonctionner le
 generateur qui fait appel au catalogue de vue : select viewname from pg_views
-Mettre en place un code erreur qui n execute pa l UNION ?
+Faut il mettre en place un code erreur qui n execute pas l UNION ?
 
 
-==================
-procedure stockées
-==================
+======================
+Les procedure stockées
+======================
 
 operation qui double un entier ::
 

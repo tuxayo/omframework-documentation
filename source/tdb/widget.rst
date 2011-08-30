@@ -50,9 +50,9 @@ Les widgets internes
 les liens sur les cartes (à mettre danbs le champ lien)::
 
     la carte de raphele avec tab_sig_point.php
-    ../sig/tab_sig_point_db.php?obj=raphele_1&zoom=6
+    ../scr/tab_sig_point_db.php?obj=raphele_1&zoom=6
     celle de mas thibert :
-    ../sig/tab_sig_point.php?obj=odp_6&zoom=7
+    ../scr/tab_sig_point.php?obj=odp_6&zoom=7
 
 
 les accès personnalisés "ajax"au travers de son code utilisateur (dans openCourrier) ::
@@ -60,7 +60,7 @@ les accès personnalisés "ajax"au travers de son code utilisateur (dans openCou
     <script type='text/javascript'>
         $.ajax({
             type: 'GET',
-           url:'../tdb//tab_wid.php',  
+           url:'../app/tab_wid.php',  
            cache: false,
            data: '&obj=tachenonsolde_service',
             success: function(html){
@@ -71,7 +71,7 @@ les accès personnalisés "ajax"au travers de son code utilisateur (dans openCou
     <div id='aff3'></div>
 
 
-Ce code lance dans le widget ../tbd/tab_wid.php?obj=tachenonsolde_service
+Ce code lance dans le widget ../app/tab_wid.php?obj=tachenonsolde_service
 
 tachenonsolde_service est initialisé dans sql/mysql/tachenonsolde_service.inc
 
@@ -84,24 +84,25 @@ pour chaque div (ici aff3)
 
 
 ====================
-les widgets externes
+Les widgets externes
 ====================
 
-les autres applications openMairie
+Les autres applications openMairie peuvent aussi être accessibles par widget de la même
+manière que le paragraphe ci dessus.
 
 
-Les divers widgets externes sont accessibles en mettant dans le champ texte les
-scripts suivants
+D'autres widgets externes sont accessibles en mettant dans le champ texte les
+scripts suivants :
 
 
-acces à une video externe avec un "iframe" ::
+Acces à une video externe avec un "iframe" ::
 
     <iframe width='200' height='150'
         src='http://www.youtube.com/embed/gS5B4LlqkfI'
         frameborder='0' allowfullscreen>
     </iframe>
 
-la meteo grace à un javascript du site tameteo.com ::
+La meteo grace à un javascript du site tameteo.com ::
 
     <div id='cont_f5089b722555454d1872b91f52beafd4'>
         <h2 id='h_f5089b722555454d1872b91f52beafd4'>
@@ -118,7 +119,7 @@ la meteo grace à un javascript du site tameteo.com ::
 
 
 
-l horoscope au travers d un iframe qui pointe sr astroo.com ::
+Horoscope au travers d un iframe qui pointe sr astroo.com ::
 
     <!--DEBUT CODE ASTROO-->
     <!--debut code perso-->
@@ -162,79 +163,6 @@ Affichage de photos avec flick 'r (appel javascript)::
             &user=27995901%40N03'></script>
     </div>
     </tr></table>
-
-
-
-mauvais exemples avec du flash
-------------------------------
-    
-lancer de chaussure sur président des USA ::
-    
-    <!--Debut du code Kidsclae.com -->
-    <div style='width:220px;font-size:x-small; text-align:center; border: 1px solid #6699cc;
-    padding-top: 2px; padding-right: 2px; padding-bottom: 2px;
-    padding-left: 2px; background-color:#cccccc;'>
-    <noscript>
-    <a href='http://www.kidsclae.com'>Kidsclae.com les jeux gratuits online</a>
-    </noscript><object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000'
-    codebase='http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0' width='100%' height='150'>
-    <param name='movie' value='http://www.kidsclae.com/downloads/chaussurebush.swf' />
-    <param name='quality' value='high' />
-    <embed src='http://www.kidsclae.com/downloads/chaussurebush.swf' quality='high'
-    pluginspage='http://www.macromedia.com/go/getflashplayer'
-    type='application/x-shockwave-flash' width='100%' height='150'>
-    </embed>
-    </object><br />
-    <a href='http://www.kidsclae.com'>Kc</a>
-    <a href='http://www.kidsclae.com/games/chaussurebush.html'>
-    Lancer de chaussures sur G.W. Bush d'après le lancer du journaliste</a>
-    </div>
-    <!--Fin du code Kidsclae.com-->"
-    
-    
-accompagner un homme ivre ::
-    
-    <div id='lecteurVideo'>
-    <object type='application/x-shockwave-flash'
-    data='http://www.kamaz.fr/fichiers/swf/122417099822.swf' width='220' height='150'>
-    <param name='movie' value='http://www.kamaz.fr/fichiers/swf/122417099822.swf' />
-    <param name='allowFullScreen' value='true' />
-    <param name='wmode' value='transparent' />
-    <p>Mec bourré : Faites marcher le mec bourré le plus longtemps possible... au début ça va, mais la fin est bien difficile!!!</p>
-    </object>
-    </div>"
-    
-    
-    
-    
-jouer de la guitare avec "guitar hero II"::
-    
-    
-    "<div style='clear:both;'>
-    <object style='float:left;clear:both;' width='220' height='18'>
-    <param name='movie'
-    value='http://www.multigames.com/e/?t=gh&cid=EKn57X5O&tfu=Guitar_Hero_II'>
-    </param>
-    <param name='wmode' value='transparent'></param>
-    <embed src='http://www.multigames.com/e/?t=gh&cid=EKn57X5O&tfu=Guitar_Hero_II'
-    type='application/x-shockwave-flash' wmode='transparent'
-    width='220' height='18'></embed>
-    </object>
-    <div style='float:left;clear:both;background-color:black;width:220px;height:150px;
-        border-bottom:1px solid #555555;border-left:1px
-        solid #555555;border-right:1px solid #555555;'>
-    <object width='220' height='150'>
-    <param name='movie' value='http://www.multigames.com/e/?t=g&cid=EKn57X5O&eid=1305727200-MXB81p0J'>
-    </param>
-    <embed src='http://www.multigames.com/e/?t=g&cid=EKn57X5O&eid=1305727200-MXB81p0J'
-    type='application/x-shockwave-flash' width='220' height='150'>
-    </embed>
-    </object>
-    </div>
-    </div>
-    <div style='clear:both;'><a href='http://www.multigames.com' target='_blank'
-    style='font-size:11px;'>Play more free flash games at Multigames.com</a>
-    </div>"
 
 
 

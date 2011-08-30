@@ -22,6 +22,7 @@ Nous vous proposons dans ce chapitre de décrire le générateur openMairie.
     ecran.rst
     analyse_base.rst
     fichier_genere.rst
-    parametrage_generateur.rst 
+    parametrage_generateur.rst
+    vue.rst
  
 

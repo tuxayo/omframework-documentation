@@ -11,11 +11,12 @@ les utilisateurs
 paramétrage
 ===========
 
-l'accès au tableau de bord paramètrable dyn/tdb.inc
+l'accès au tableau de bord paramètrable dyn/dashboard.inc.php
 
 (voir framework/paramétrage)
 
-Par défaut, le tableau de bord paramétrable est activé
+Par défaut, le tableau de bord paramétrable est activé, il peut être déconnecté en
+enlevant le commentaire // die().
 
 
 

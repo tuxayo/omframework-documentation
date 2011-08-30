@@ -5,10 +5,10 @@ geocodage
 #########
 
 
-Ce chapitre est consacré au problème de geocodage.
+Ce chapitre est consacré au problème de géocodage.
 
 
-Il est propose un geocodage interne (sgbd adresse en reseau interne) ou un geocodage externe
+Il est propose un géocodage interne (sgbd adresse en reseau interne) ou un geocodage externe
 
 Il convient de regarder les termes de licences concernant les API externes non libres
 (mapquest/osm) afin de s'assurer de bien respecter les obligations de l'autorisation
@@ -131,7 +131,8 @@ Exemple de openmairie_domainepublic : objet odp ::
             parent::setType ($form, $maj);
             $form->setType('adresse_postale', 'httpclick');
     
-    avec la methode setVal : valoriser par défaut l'accès au script adresse_postale lib/js/script.js  
+    avec la methode setVal : valoriser par défaut l'accès au script adresse_postale
+                             app/js/script.js  
         
        function setVal(&$form, $maj, $validation, &$db, $DEBUG=null){
            // bouton adresse postale

@@ -33,46 +33,75 @@ formulaire (longueur, max, nom).
 
 - formulairedyn.class.php : rassemble toutes les méthodes permettant de construire des formulaires ::
 
-
-
-
-    Ce chapître propose de vous décrire les outils de base du framework de la manière suivante :
     
-        - le paramétrage général du framework
-        - les méthodes pour construire des formulaires avec le framework
-        - les outils d'édition du framework
-        - l'outil de requête paramétrable du framework
-        - la gestion des accès du framework et la multi collectivite)
-        - l'ergonomie intégrant jquery
-        - la gestion de traitement et la construction de programme spécifiques avec les utilitaires
-        - l'import des données CSV du framework
+En introduction, il est proposé une explication de la hiérarchie des répertoires ::
     
+    - app : contient tout ce qui est spécifique de votre application avec les
+    javacripts (app/js/script.js) et les images (app/img)
     
-    L'utilisation de fpdf pour écrire dans un pdf dans openCourrier est
-    décrit dans ce chapître bien que non intégré dans le framework
-       
-    Deux modules du framework intégré dans la version 4.01 sont traités dans un
-    chapître à part :
+    - css : contient les feuilles de style de base du framework
     
-        - l'information géographique
-        - les widgets et le tableau de bord paramètrable
-
-    Les modules suivants utilisés dans des applications openMairie ne sont pas décrits
-    dans ce chapître car ils n'ont pas encore intégrés dans le framework openExemple
-    
-        - l'envoi de mail intégrant phpmail (openPersonnalite)
-        - le fonctionnement des graphiques avec artichow (openResultat)
-        - le fonctionnement de webservice avec nusoap (openFoncier 2.xx)
+    - data : contient les requêtes sql permettant de créer votre application
+            pgsql : pour postgresql
+            mysql pour mysql
+        dans les 2 cas, init.sql permet de créer les tables om_xx du framework
+                        init_metier.sql sont les tables spécifiques de votre application
+        d'autres scripts complètent la mise en oeuvre des données notament les
+        modifications de base de données.
         
-
-        
-    Il est fait mention des projets en cours  :
+    - dyn : contient les fichiers de paramètrage du framework décrit ci dessous
     
-        - la mise en oeuvre d'un éditeur wysiwyg pour l'édition des états
-        - un installateur paramétrable
-        - un bus de données (dans le cadre de la plateforme http://algebrics.fr)
-        pour un échange inter application
-            
+    - gen : contient les scripts (obj) et requetes (sql) générées par le générateur
+    
+    - img : contient les images du framework 
+    
+    - js : contient les javascripts de base du framework
+    
+    - lib : contient les librairies javascripts : openLayers et jquery
+    
+    - locales : contient les traductions de l'application
+    
+    - obj : contient les objets métiers surchargeant les objets générés (gen/obj)
+    
+    - pdf : contient les scripts d'édition du framework
+    
+    - php : contient les libraisries php du framework notament : openMairie, dbpear et fpdf
+    
+    - scr : contient les scripts d'affichage du framework
+    
+    - spg : contient les sous programmes génériques du framework
+    
+    - sql : contient les scripts sql surchargeant les scripts générés (gen/sql ...)
+    
+    - tmp : contient les fichiers temporaires créés par l'application
+    
+    - trs : contient les fichiers uploadés de l'application (par base /1 /2 ...)
+    
+    Les repertoires à modifier pour une application sont les suivants :
+    
+    - app : vos scripts spécifiques
+    - dyn : le paramètrage d'openMairie
+    - gen : les scripts php et sql générés
+    - obj : vos objets métiers en surcharge
+    - sql : les requetes sql surchargées
+    - tmp : les  fichiers temporaires
+    - trs : les fichiers transférés en upload.
+    
+
+
+
+Ce chapître propose de vous décrire les outils de base du framework de la manière suivante :
+
+    - le paramétrage général du framework en /dyn
+    - les méthodes pour construire des formulaires avec le framework
+    - les outils d'édition du framework
+    - l'outil de requête paramétrable du framework
+    - la gestion des accès du framework et la multi collectivite)
+    - l'ergonomie intégrant jquery
+    - la gestion de traitement et la construction de programme spécifiques avec les utilitaires
+    - l'import des données CSV du framework
+
+    
     
 
 

@@ -1,7 +1,7 @@
 .. _mapserver:
 
 #########
-mapserver
+Mapserver
 #########
 
 mapserver n est pas utilise dans om_sig_point mais dans tab_sig (openCimetiere version 2.02)
@@ -10,7 +10,7 @@ Ce chapitre propose quelques principes de map server et peu d'exemples
 car pour l'instant mapserver est peu utilisé.
 
 
-principes
+Principes
 =========
 
 
@@ -107,19 +107,19 @@ Analyse d'une requete WMS
 =========================
 
 Requete ::
-    http://vmap0.tiles.osgeo.org/wms/vmap0	?LAYERS=coastline_01
-                                            &FORMAT=image%2Fpng
-                                            &SERVICE=WMS
-                                            &VERSION=1.1.1
-                                            &REQUEST=GetMap
-                                            &STYLES=
-                                            &EXCEPTIONS=application%2Fvnd.ogc.se_inimage
-                                            &SRS=EPSG%3A900913&BBOX=20037508.3384,-10203463.614977,40075016.6776,9834044.724223
-                                            &WIDTH=256
-                                            &HEIGHT=256
+    http://vmap0.tiles.osgeo.org/wms/vmap0
+        ?LAYERS=coastline_01
+        &FORMAT=image%2Fpng
+        &SERVICE=WMS
+        &VERSION=1.1.1
+        &REQUEST=GetMap
+        &STYLES=
+        &EXCEPTIONS=application%2Fvnd.ogc.se_inimage
+        &SRS=EPSG%3A900913&BBOX=20037508.3384,-10203463.614977,40075016.6776,9834044.724223
+        &WIDTH=256
+        &HEIGHT=256
 
-
-    parametre 
+parametre ::
 
 	BBOX	-20037508.34,-10203463.614977,-0.0007999911904335,9834044.724223
 	EXCEPTIONS	application/vnd.ogc.se_inimage

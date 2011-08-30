@@ -1,11 +1,11 @@
 .. _opencimetiere:
 
 ###################
-objet opencimetiere
+Objet opencimetiere
 ###################
 
 
-ce chapitre propose de décrire le SIG implementé dans la version 2.02
+Ce paragraphe propose de décrire le SIG implementé dans la version 2.02
 d'openCimetiere. 
 
 Ce module est opérationnel avec la version 2.02 d'openCimetiere.
@@ -15,6 +15,9 @@ Il necessite :
 - le module lib/openLayers
 
 - map server doit être installé sur le serveur (voir mapserver)
+
+Ce paragraphe sera transferé dans la doc d openCimetiere en tant que spécifique à
+l'application. Il est noté ici à titre indicatif.
 
 
 ===============

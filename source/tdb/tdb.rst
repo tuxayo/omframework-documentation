@@ -14,9 +14,11 @@ Le paramétrage se fait en cliquant sur le lien "paramétrer son tableau de bord
 
 Il apparait alors ::
 
-    un plus pour chaque colone pour ajouter un widget par colone
-    une croix rouge pour supprimer un widget
-    4 flèches pour déplacer les widgets
+    un "plus"  pour ajouter un widget pour une colone
+    une croix pour supprimer un widget
+    
+Le déplacement du widget de haut en bas ou de gauche à droite se fait par copier/glisser avec la souris.
+
 
 
 .. image:: ../_static/tdb_1.png

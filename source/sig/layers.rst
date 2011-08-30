@@ -1,7 +1,7 @@
 .. _layers:
 
 ############
-objet layers
+Objet layers
 ############
 
 
@@ -16,7 +16,7 @@ Dans tab_sig_point.php, il y a 2 types de layers :
 - les données issus de postgresql (overlays)
 
 
-les fonds
+Les fonds
 =========
 
 Il est proposé les fonds suivants :
@@ -60,7 +60,7 @@ bing ::
     );
 
 
-les datas
+Les datas
 =========
 
 Information de la carte :
@@ -82,7 +82,7 @@ layer_info ::
 
 Cette couche fait appel à json_points.php
 
-Il est possible de faire appel a un autre script (voirvar.point.inc)
+Il est possible de faire appel a un autre script (voir var.point.inc)
 
 La requête pgsql est paramétrée dans la table om_sig_point et doit définir les champs
 geom, titre, description et texte.
@@ -102,7 +102,9 @@ point (même géom) sur un  seul popup
 En effet, il est constitué un popup lorsque l on clique sur l objet
 et donne la possibilité à un accès URL parametrée dans om_sig_point::
 
-exemple : dans open_domainepublic   ../scr/odp.php?idx=
+exemple :
+    dans opendomainepublic   ../app/odp.php?idx=
+    dans openfoncier   ../app/dossier.php?idx=
    
 
 Le point à modifier : couche vectors :

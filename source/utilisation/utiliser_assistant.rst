@@ -35,7 +35,7 @@ Un message apparait "service enregistré"
 Vous avez créé un enregistrement qui a pour identifiant "service" dans
 la table "om_etat".
 
-
+Vous devez rendre d'abord votre etat service "actif" pour pouvoir y accéder.
 
 
 Il faut maintenant permettre l'accès dans l'affichage du service.

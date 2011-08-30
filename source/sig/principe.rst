@@ -8,7 +8,7 @@ lib/openlayers
 
 
 #########
-principe
+Principe
 #########
 
 
@@ -37,7 +37,7 @@ clients libres où propriétaires qui respectent ce format
 (QGIS, GRASS, VEREMAP  ... pour les clients libres)
 
 ============================
-géo localisation automatique
+Géo localisation automatique
 ============================
 
 L'enjeu est de limiter au maximum la géo localisation manuelle dès
@@ -49,8 +49,10 @@ Elle se fait au travers de 2 programmes (voir paragraphe sur le geocodage):
 
 - adresse_postale_google.php : positionnement suivant le numero et rue avec google
 
-- centroid_parcelle.php : positionnement suivant calcul du centre de la parcelle
-  (prochaine version openMairie) 
+- adresse_postale_bing.php : positionnement suivant le numero et rue avec bing
+
+- adresse_postale_mapquest.php : positionnement suivant le numero et rue avec mapquest
+
 
 La géolocalisation automatique peut se faire sur une base externe
 postgresql (eventuellement via une vue)
@@ -60,7 +62,7 @@ le script tab_sig_point permet de saisir manuellement le point.
 
 
 ==================
-affichage de carte
+Affichage de carte
 ==================
 
 L'affichage se fait avec openLayers dont le composant est de base
@@ -110,7 +112,7 @@ openDomainePublic :
 
 
 =======================
-paramétrage de la carte
+Paramétrage de la carte
 =======================
 
 Le paramétrage général des cartes  se fait dans :
