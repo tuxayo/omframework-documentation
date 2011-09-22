@@ -44,7 +44,25 @@ deplacer un dossier sur le svn -> commande mv ::
     > svn mv svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/branches/trunk
         svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/trunk
     
+
     cela fait trunk/dossiers_source
+
+creer - deplacer (autre exemple) - detruire un repertoire sur svn ::
+
+    creer un dossier documentation sur svn depuis une copie loacle
+    svn import documentation svn+ssh://fraynaud@scm.adullact.net/svnroot/opencimetiere/documentation
+
+    renomer = renommer sur le svn trunk en temp
+    svn rename svn+ssh://fraynaud@scm.adullact.net/svnroot/opencimetiere/documentation/trunk
+               svn+ssh://fraynaud@scm.adullact.net/svnroot/opencimetiere/documentation/temp
+
+    move = deplacer le dossier temp/trunk vers trunk
+    svn mv svn+ssh://fraynaud@scm.adullact.net/svnroot/opencimetiere/documentation/temp/trunk
+           svn+ssh://fraynaud@scm.adullact.net/svnroot/opencimetiere/documentation/trunk
+
+    delete  detruire le repertoire temp
+    svn del svn+ssh://fraynaud@scm.adullact.net/svnroot/opencimetiere/documentation/temp
+
 
 Creation d une nouvelle version ::
 
@@ -53,7 +71,9 @@ Creation d une nouvelle version ::
     svn cp  svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/trunk
             svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/tags/1.0.0beta
 
-    export dans un repertoire local sans les .svn
+    export dans un repertoire local openmairie_debitboisson_1.0.0beta sans les repertoires .svn
 
     svn export  svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/tags/1.0.0beta
             openmairie_debitboisson_1.0.0beta
+
+

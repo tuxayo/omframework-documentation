@@ -15,7 +15,7 @@ Pour la france, les jeux de caractères sont les suivants (source wikipédia) ::
     * ISO 8859-15, après l'euro (latin-9 ou latin-1)
     * Unicode, voir aussi UTF-8 (reprend tous les caractères des jeux de code précédent et se présente comme le standard).
 
-La version 4.0.1 corrige les bugs en utf8 de la version 4.0.0.
+La version 4.1.0 corrige les bugs en utf8 de la version 4.0.0.
 
 
 
@@ -33,7 +33,7 @@ Attention, fpdf ne supporte pas utf8 et des modifications ont été faites dans
 la version 4.01 du framewrk pour qu'utf8 soit implémenté (commande utf8_decode et encode)
 
 De la même manière, des bugs ont été corrigés dans la recherche table et dans
-les sous formulaire (évolution openMairie 4.0.1)
+les sous formulaire (évolution openMairie 4.1.0)
 
 
 voir framework/paramètrage/locales.inc
