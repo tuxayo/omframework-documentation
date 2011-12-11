@@ -187,13 +187,23 @@ exemple ::
 
     shp2pgsql -s 2154 -I -D DEPARTEMENT.SHP | psql postgis
 
+Pour resoudre des problèmes d'encodage ::
+
+    shp2pgsql -s 2154 -I -D -W LATIN1 PARCELLE.SHP | psql ign
+
+
+
+
 
 fonctions postgis
 =================
 
 surface ::
-
+    
+    -- surface du cimetiere
     SELECT Area2d(geom) FROM cimetiere;
+    -- calculer la surface et mettre a jour dans parcelle (openFoncier)
+    update parcelle set surface = round(cast(area2d(geom) as numeric), 2)
 
 perimetre ::
 
@@ -203,8 +213,9 @@ distance ::
 
     exemple demande_licence d'opendebitboisson
 
-    selection des perimetre a moins de longueur_exclusion_metre (longueur du perimetre
-    d'exclusion), $res0 est la valeur du point de l etablissement
+    -- selection des perimetre a moins de longueur_exclusion_metre
+        (longueur du perimetre d'exclusion),
+        $res0 est la valeur du point de l etablissement
 
     select distance(geom,'".$res0."') as distance,
     perimetre,libelle from perimetre
@@ -220,8 +231,10 @@ ST_Touches : Les départements limitrophes du Tarn ::
     departement.code_dept = '81') as tarn 
     WHERE ST_Touches(d.the_geom, tarn.the_geom)
           
-ST_buffers et ST_contains : Les départements à moins de 200km de la limite du Tarn ::
+ST_buffers et ST_contains ::
 
+    -- Les départements à moins de 200km de la limite du Tarn
+    
     SELECT DISTINCT d.code_dept, d.nom_dept 
     FROM departement as d, 
     (SELECT the_geom FROM departement WHERE 
@@ -229,6 +242,20 @@ ST_buffers et ST_contains : Les départements à moins de 200km de la limite du 
     ST_buffer(tarn.the_geom, 200000) as le_buffer 
     WHERE ST_contains(le_buffer, d.the_geom) 
 
+    -- le pos du dossier  (openFoncier)
+    -- DB_PREFIXE = schema
+    -- $geom = geometry
+    -- $projection = projection
+    
+    select pos from ".DB_PREFIXE."pos
+    WHERE ST_contains(geom,  geometryfromtext('".$geom."', ".$projection."))
+    
+    -- les servitudes "ligne" du dossier
+    -- $perimetre = perimetre d application de la servitude
+    $sql="select * from ".DB_PREFIXE."servitude_ligne
+    WHERE ST_contains(ST_buffer(geom, perimetre),
+                    geometryfromtext('".$geom."', ".$projection."))";
+    
 ST_intersects : Les cours d'eau du Tarn ::
 
     SELECT DISTINCT ce.toponyme 
@@ -244,7 +271,6 @@ Sous requete ST_contains : Les points de mesure hydrologiques du Tarn ::
     WHERE ST_Contains(tarn.the_geom, mes.the_geom) 
 
 Double requête : Le nom des points de mesure a proximité de la Garonne :: 
-
 
     Création d’une table temporaire pour stocker un buffer de 100m autour de la Garonne : 
         create table bgaronne as 
@@ -270,7 +296,7 @@ recupérer le SRID d'une colone géométrique dan la table geometry_columns::
     select srid from geometry_columns where f_table_name='cimetiere';
 
 
-Transformer du lamber sud en lambert 93 dans la meme table sur un champ different (geom_rf93)::
+Transformer du lambert sud en lambert 93 dans la meme table sur un champ different (geom_rf93)::
     
     SELECT addGeometryColumn( 'cimetiere', 'geom_rgf93', 2154, 'POLYGON', 2);
 

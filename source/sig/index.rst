@@ -12,6 +12,7 @@
     geocodage
     mapserver
     outils
+    data_sig.rst
     opencimetiere
 
 

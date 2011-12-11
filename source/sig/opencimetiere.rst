@@ -4,6 +4,9 @@
 Objet opencimetiere
 ###################
 
+ATTENTION : ces secripts sont obsoletes et ne sont pas repris en version 3.0.0
+d'openCimetiere
+
 
 Ce paragraphe propose de décrire le SIG implementé dans la version 2.02
 d'openCimetiere. 
