@@ -105,7 +105,7 @@ les paramétres sig sont dans sql/pgsql/emplacement.sig.inc::
 Installation
 ============
 
-Il est necessaire d(installer sur le serveur apache, mapserver.
+Il est necessaire d'installer sur le serveur apache, mapserver.
 
 Il faut aussi installer la cartouche postgis avec postgres
 
@@ -122,22 +122,8 @@ Les installations sous UBUNTU sont les suivantes ::
     - cgi-mapserver 
     - mapserver-bin 
     - mapserver-doc 
-    (optionnel)
-    - php5-mapscript. 
+
     relancer apache  $  /etc/init.d/apache2 restart 
     
-    *** Installation de la base opencimetiere avec postgis
+    *** Installation de la base opencimetiere avec postgis (voir chapitre installation)
     
-    * creer la base opencimetiere (si elle n'est pas deja creee)
-    * create language "plpgsql" 
-    * executer (version postgis <1.5) la requete lwpostgis.sql -> fonction postgis
-      ou executer (version postgis >= 1.5) la requete /usr/share/postgresql/8.3/
-                                                    contrib/postgis-1.5/postgis.sql 
-    * executer spatial_ref_sys .sql qui remplit la table de donnees spatial_ref_sys 
-    * VERIFICATION : les tables suivantes sont presentes :
-        * table geometry_columns : index des geometries (vide) 
-        * table spation_ref_sys : liste des references spatiales (3162 lignes environ)
-    * executer les scripts d'initialisation de la base opencimetiere
-        * data/pgsql/init.sql
-        * data/pgsql/initsig.sql
-        * data/pgsql/initsig_data.sql (optionnel) jeu de donnees

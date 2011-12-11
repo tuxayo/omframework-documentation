@@ -61,7 +61,7 @@ Il est créer dans la base "ign" une table parcelle décrite ci dessous ::
 ainsi qu un enregistrement parcelle dans géometry_columns (postgis est obligatoire
 dans la base) et un index
 
-Selectionner les parcelles de la commune concernés et inserer les dans une nouvelle table ::
+Selectionner les parcelles de la commune concernée et inserer les dans une nouvelle table ::
 
     insert into parcelle_greasque 	(parcelle, section, commune, geom)
     select 	section||numero, section, code_dep||code_com, the_geom 	from parcelle
@@ -75,10 +75,10 @@ Pour mettre à jour le champ surface de parcelle dans openfoncier ::
 Recupération des données de la DGI
 ==================================
 
-Les fichiers textes de la DGI sont dans un format  récupérés dans le cadre
+Les fichiers textes de la DGI sont dans un format  récupéré dans le cadre
 de l application openCadastre qui reconstitue des tables postgresql.
 
-Les fichiers gémétriques au format EDIGEO ne sont pas récupérés compte tenu de son format "exotique"
+Les fichiers gémétriques au format EDIGEO ne sont pas récupérés compte tenu de son format non standard
 et il est préféré utiliser les formats shape de l IGN
 
 
