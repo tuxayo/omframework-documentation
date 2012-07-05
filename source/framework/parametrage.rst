@@ -406,3 +406,20 @@ Les variables dans les éditions sont paramétrées dans ::
     - varlettretypepdf.inc      pour les lettres type
     
 Voir *chapître framework/édition*
+
+
+
+=====================
+Les paramétres om_sig
+=====================
+
+var_sig.php
+
+
+
+Les post traitements de form_sig
+
+form_sig_update.inc.php
+
+form_sig_delete.inc.php
+

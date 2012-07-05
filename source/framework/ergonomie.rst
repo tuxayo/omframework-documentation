@@ -25,5 +25,5 @@ Les feuilles de style
 Les feuilles de style sont stockées dans le repertoire css/ et sont cascadables ::
 
     main.css : principale openMairie
-        lib/om-theme/om.css : suivant la feuille de style jquery choisi dans l application (1)
-   
+    om-theme/om.css : suivant la feuille de style jquery (voir EXTERNALS.txt)
+    app/css : surcharge spécifique a l application

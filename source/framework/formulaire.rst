@@ -60,6 +60,8 @@ Les méthodes sur les controles du formulaire ::
     localisation et localisation2 : fait appel à spg/localisation.php
     rvb et rvb2 : fait appel à spg/rvb.php pour affichage de la palette couleur
 
+    geom : ouvre une fenetre tab_sig.php pour visualiser ou saisir une geometrie (si maj)
+           la carte est définie en setSelect
     
     Les contrôle comboG, comboD, date, upload, voir et localisation sont à mettre dans
     les formulaires (retour de l'affichage dans le formulaire f1)
