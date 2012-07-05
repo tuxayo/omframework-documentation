@@ -4,10 +4,10 @@
 Mapserver
 #########
 
-mapserver n est pas utilise dans om_sig_point mais dans tab_sig (openCimetiere version 2.02)
+mapserver n est pas utilise et il a été préféré qgis_server dans les deploiements openMairie
 
-Ce chapitre propose quelques principes de map server et peu d'exemples
-car pour l'instant mapserver est peu utilisé.
+
+Ce chapitre propose quelques principes de map server 
 
 
 Principes
@@ -16,19 +16,6 @@ Principes
 
 MapServer permet de générer des cartes à partir de données diverses et de fichiers de configuration,
 qui contiennent les paramètres décrivant la façon dont les données doivent être présentées, les mapfiles. 
-
-Le plus souvent, MapServer est utilisé sur un serveur Internet pour générer des images dans des pages 
-web, et ainsi permettre l'affichage mais aussi la modification, d'images cartographiques sur un site 
-Internet. 
-
-On peut aussi utiliser MapServer sur son ordinateur pour générer des cartes, effectuer des 
-analyses thématiques, des croisements, etc. 
-
-MapServer existe sous deux formes principales : un exécutable, à utiliser à la ligne de commande 
-ou en programme CGI (c'est à dire accédé à distance en mode protégé au travers d'un serveur http 
-comme Apache), et une bibliothèque de fonctions PHP, Perl, Ruby, Python, C# ou Java : MapScript. 
-
-Organisation concrète d'un serveur SIG basé sur des composants OpenSource autour de MapServer 
 
 
 Installation UBUNTU

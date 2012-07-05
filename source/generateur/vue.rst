@@ -12,12 +12,12 @@ un trigger.
 
 Il est possible d'utiliser dblink pour créer une vue dans une base externe. 
 
-Dans la version 4.1.0, les vues sont initiées a titre expérimental.
+Les vues ont été initiées dans la version 4.1.0. Elles peuvent être interne (dans une même base) ou externe en utilisant dblink. 
 
 
 ===========
 vue interne
-===========
+==========
 
 creation d'une vue en sql ::
 
@@ -26,14 +26,6 @@ creation d'une vue en sql ::
     om_utilisateur.login, om_utilisateur.om_profil
     FROM om_utilisateur
     WHERE om_utilisateur.om_profil::text = '5'::text;
-   
-
-    
-
-exemple utilisation new et old utile dans le cadre de la mise a jour d un montant ::
-    old valeur d un montant =200
-    new valeur d'un montant =300
-    si operation +100 avec possibilité de refuser
 
 
 =========================
@@ -164,17 +156,16 @@ Problème à régler dans l'utilisation d une vue externe
 -  il faut utiliser les fonctions d'encodage de pgsql si les 2 bases n'ont pas le
    même encodage
 
-- utilisation d une sequence externe ou interne en insert 
+- il faut utiliser une sequence externe ou interne en insert 
 
-- verification de cle secondaire dans la base d origine
+- il faut vérifier la cle secondaire dans la base d origine
 
-- utilisation dans qgis d une vue :
+- dans qgis pour utiliser une vue :
     - regarder la table 'geometry_columns'" ne soit pas cochée (option editer)
     - modifier la clé primaire dans la liste des tables de connexion 
     
-- attention : la creation de vue non opérartionnelle  fait dysfonctionner le
+- attention : la creation de vue non opérationnelle  fait dysfonctionner le
 generateur qui fait appel au catalogue de vue : select viewname from pg_views
-Faut il mettre en place un code erreur qui n execute pas l UNION ?
 
 
 ======================
@@ -232,7 +223,3 @@ compter les etablissements ::
     END; ' LANGUAGE 'plpgsql';
 
     -- ne renvoie rien
-
-
-
-

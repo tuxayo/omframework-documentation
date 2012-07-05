@@ -86,6 +86,8 @@ Le type de champs est :
     . caché (hidden) en ajout pour la clé primaire automatique, 
  
     . modifiable en ajout si la clé primaire n'est pas automatique
+    
+    . l'unicité de la clé primaire est vérifiée si elle est modifiable (version 4.2.0)
  
     . la clé primaire est visible sans possibilité de modifier en modification
  
@@ -94,9 +96,11 @@ Le type de champs est :
     . la clé secondaire est un champ select qui reprend les informations de la table liée
  
     . la date est au format français
+    
+  
 
 
-La longueur d'affichage et le maximum autorisé à la saisie est celle contenu dans la base d'origine (retraitée pour les champs string de pgsql)
+La longueur d'affichage et le maximum autorisé à la saisie est celle contenu dans la base d'origine
 
 Le contrôle des clés secondaires des autres tables est généré : il n'est pas possible de supprimer un enregistrement si des enregistrements sont liés à la clé primaire
 

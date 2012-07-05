@@ -6,12 +6,13 @@ L'analyse de la base
 
 Les informations de la base sont analysées par la méthode « constructeur » de gen.class.php 
 
-La construction des formulaires se fait suivant 4 types de champs reconnus par le générateur: ::
+La construction des formulaires se fait suivant 5 types de champs reconnus par le générateur: ::
 
     - string : chaîne de caractère 
     - int : nombre (entier ou décimal)
     - date 
     - blob : texte
+    - geom : geometry (pour postgres)
 
 ==============
 Type de champs
@@ -49,6 +50,8 @@ Les paramètres de dyn/form.inc permettent d'établir la longueur et la largeur 
 	
     $max=6; // nombre de ligne blob
 	$taille=80; // taille du blob
+    
+Les champs de type geometry sont des champs geom (accès a la fenetre tab_sig.php)
 
 
 ========================================
@@ -100,7 +103,7 @@ type pgsql (longueur) type tableinfo si different -> type openMairie ::
     Text        (-1)                text        -> blob  (Utilisation des paramètres de form.inc)
     Date        (4)                 Date        -> Date (Utilisation des paramètres de form.inc -
                                                    $pgsql_longueur_date)
-
+    geometry    -5                              -> geom
 
 
 Gestion des longueurs négatives :
@@ -113,6 +116,18 @@ Dans le cas ou rien n'est saisi, il est proposé dans form.inc ::
 
     $pgsql_taille_defaut = 20; // taille du champ par défaut si retour pg_field_prtlen =0
     $pgsql_taille_minimum = 10; // taille minimum d affichage d un champ
+
+Dans la version 4.2.0 du générateur les valeurs des champs textes sont gérés. (méthode setTaille et méthode setMax)
+
+Attention, pour les champs geom, il faut gérer la carte à chercher pour l affichage de la carte en fenêtre ::
+
+    exemple de surcharge de la méthode setSelect pour afficher la carte dossier (de la table om_sig_map)
+
+    if($maj==1){ //modification
+        $contenu=array();
+        $contenu[0]=array("dossier",$this->getParameter("idx"));
+        $form->setSelect('geom',$contenu);
+    }
 
 
 ============================

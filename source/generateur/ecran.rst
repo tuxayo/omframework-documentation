@@ -38,7 +38,7 @@ Le programme propose une analyse de la base en cours :
 
 - les informations sur les champs : nom, type et longueur
 
-- les clés secondaires (exemple table om_colllectivite
+- les clés secondaires (exemple table om_colllectivite)
 
 - les sous formulaires à associer 
 

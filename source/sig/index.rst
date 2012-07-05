@@ -10,10 +10,10 @@
     install
     postgis
     geocodage
+    qgis_server
     mapserver
     outils
     data_sig.rst
-    opencimetiere
 
 
 

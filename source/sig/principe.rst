@@ -13,8 +13,7 @@ Principe
 
 
 Il est proposé dans ce chapitre de decrire le module
-tab_sig_point.php qui permet la geo localisation d'objet dans openMairie
-avec un  point
+tab_sig.php qui permet la geo localisation d'objet dans openMairie
 
 
 Ce module est accessible dans la version 4.01 du framework et il est utilisé
@@ -23,14 +22,17 @@ dans les applications openMairie suivantes ::
     openmairie domainepublic
     openmairie foncier
     openmairie debitboisson
-    openmairie erp
     openmairie cimetiere
+    openmairie circulation
+    openmairie taxepub
+    openmairie triSelectif
+    
 
-L'objectif d'tab_sig_point  est de fournir une géo localisation  automatique ou manuelle
-par un point stocké dans la base métier postgresql sur des fonds existants sur internet :
+L'objectif de tab_sig_map est de fournir une géo localisation  automatique ou manuelle
+par un point, ligne, multiligne, polygone, multipolygone stocké dans la base métier postgresql sur des fonds existants sur internet :
 google sat, openStretmap ou bing (pour l instant) en utilisant le composant javascript openLayers
 
-Il n'est donc pas nécessaire de disposer d'un SIG pour utiliser tab_sig_point.php.
+Il n'est donc pas nécessaire de disposer d'un SIG pour utiliser tab_sig.php.
 
 Le format de stockage des données pgsql est celui de l'OGC et il est accessible aux
 clients libres où propriétaires qui respectent ce format
@@ -57,7 +59,7 @@ Elle se fait au travers de 2 programmes (voir paragraphe sur le geocodage):
 La géolocalisation automatique peut se faire sur une base externe
 postgresql (eventuellement via une vue)
 
-le script tab_sig_point permet de saisir manuellement le point.
+le script tab_sig.php permet de saisir manuellement le point.
 
 
 
@@ -84,26 +86,25 @@ qui alimente un tableau json lu comme une couche openLayers.
 La data à modifier est fourni par requete postgresql au format wkt à openLayers.
 (voir paragraphe layers)
 
-tab_sig_point.php permet ::
+tab_sig.php permet ::
 
     - l affichage de/des  fond(s)
     - l'affichage de données (data)
-    - l affichage du point qui peut être créé ou déplacé (couche wkt)
+    - l affichage du geométries qui peut être créé ou déplacé (couche wkt)
 
 Les commandes sont dans les onglets du haut : dessiner, deplacer, enregistrer, data
-
 
 .. image:: ../_static/sig_1.png
 
 
-L'enregistrement du point se fait avec le script sig/form_point.php
+L'enregistrement du point se fait avec le script scr/form_sig.php
 
 
 .. image:: ../_static/sig_2.png
 
 
 
-Enfin, il est possible d'associer le point avec une fiche, ici scr/odp.php pour
+Enfin, il est possible d'associer le point avec une fiche, ici app/odp.php pour
 openDomainePublic :
 
 
@@ -117,7 +118,7 @@ Paramétrage de la carte
 
 Le paramétrage général des cartes  se fait dans :
 
-sig/var_point.inc ::
+dyn/var_point.inc ::
 
     // *** sig_point.php ***
     // generer une cle pour le site : http://code.google.com/intl/fr/apis/maps/signup.html
@@ -148,7 +149,7 @@ sig/var_point.inc ::
     $img_w=14;
     $img_h=32;
     $img_click="1.3";// multiplication hauteur et largeur image cliquee
-    // *** SIG POINT CLASS
+    // *** SIG MAP CLASS
     $contenu_etendue[0]= array('4.5868,43.6518,4.6738,43.7018',
                               '4.701,43.3966,4.7636,43.4298',
                               '4.71417,43.64,4.72994,43.65166',
@@ -166,7 +167,7 @@ sig/var_point.inc ::
         
 
 Le paramétrage particulier d'une carte se fait avec l'objet métier
-om_point_sig.class.php accessible dans le menu administration -> OM SIG
+om_sig_map.class.php accessible dans le menu administration -> OM SIG
 
 .. image:: ../_static/sig_4.png
 

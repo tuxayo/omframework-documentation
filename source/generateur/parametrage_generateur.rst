@@ -4,15 +4,7 @@
 Paramétrage générateur
 ######################
 
-Le paramétrage de base est dans le répertoire gen/dyn/standard.
-Il est possible de le modifier dans le répertoire custom ou dans un autre répertoire.
-Le choix du paramétrage se fait à chaque génération.
-
-=======================
-le paramétrage standard
-=======================
-
-Le paramétrage standard est dans le répertoire gen/dyn/standard
+Le paramétrage de base est dans la classe gen
 
 ========
 Form.inc 
@@ -23,17 +15,14 @@ Voici les paramètres pour la génération de formulaire ::
     $ico ="../img/ico_application.png"; icone DEPRECATED 
     $max=6;                             nb de ligne blob
     $taille=80;                         taille du blob
+    $pgsql_longueur_date=12;            taille d'affichage de la date '
+    
+    *** deprecated
     $pgsql_taille_defaut = 20;          taille du champ par defaut si retour pg_field_prtlen =0
     $pgsql_taille_minimum    = 10;      taille minimum d affichage d un champ
-    $pgsql_longueur_date=12;            taille d'affichage de la date ' 
+    ***/ 
 
 
-EN cours de reflexion ::
-
-    prendre en compte la valeur réélle de la longueur des
-    champs en postgresql
-    paramétrer un système d'exclusion de champ (exemple geom)
-    exclusion de cle secondaire (exemple parcelle ou pos dans dossier d openfoncier)
 
 
 =======
@@ -99,12 +88,6 @@ Parametres ::
 Customiser le paramétrage
 =========================
 
-Il est possible de personnaliser le paramétrage dans le répertoire custom ou en créant un autre répertoire avec des paramètres personnels.
+Il est possible de personnaliser le paramétrage dans le répertoire gen/dyn. (version 4.2.0)
 
-Il faut mettre dans le répertoire le où les fichiers à personnaliser.
-
-Ne personnaliser que les variables souhaitées dans le fichier. Par défaut, openMairie prendra les paramètres standards.
-
-Choisir le paramétrage personnalisé dans l'écran de génération qui affiche les répertoires de paramètres existants.
-
-Ne pas supprimer le répertoire  standard et les fichiers par défaut.
+Ne personnaliser que les variables souhaitées dans le fichier. Par défaut, openMairie prendra les paramètres inclus dans la classe gen.
