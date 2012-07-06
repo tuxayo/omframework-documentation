@@ -26,9 +26,14 @@ dans les applications openMairie suivantes ::
     openmairie circulation
     openmairie taxepub
     openmairie triSelectif
+    openmairie adresse postale
+    openmairie openelec (projet)
+    openmairie resultat (projet)
+    openmairie dia (projet)
+    openmairie erp (projet)
     
 
-L'objectif de tab_sig_map est de fournir une géo localisation  automatique ou manuelle
+L'objectif de tab_sig_map est de permettre une saisie le plus souvent automatique (ou eventuellement manuelle)
 par un point, ligne, multiligne, polygone, multipolygone stocké dans la base métier postgresql sur des fonds existants sur internet :
 google sat, openStretmap ou bing (pour l instant) en utilisant le composant javascript openLayers
 
@@ -92,12 +97,18 @@ tab_sig.php permet ::
     - l'affichage de données (data)
     - l affichage du geométries qui peut être créé ou déplacé (couche wkt)
 
-Les commandes sont dans les onglets du haut : dessiner, deplacer, enregistrer, data
+dans la version 4.2.0, tab_sig permet aussi ::
+
+    - l'affichage de flux wms et wfs (getmap) et de recuperer les données (getfeature)
+    - la collation de géométrie dans un pannier et son enregistrement en multi géométries
+
+
+Les commandes sont de base : dessiner, deplacer, enregistrer, data
 
 .. image:: ../_static/sig_1.png
 
 
-L'enregistrement du point se fait avec le script scr/form_sig.php
+L'enregistrement de la geometriese fait avec le script scr/form_sig.php
 
 
 .. image:: ../_static/sig_2.png

@@ -8,7 +8,7 @@ Objet layers
 ce chapitre propose de décrire l'utilisation de l'objet layers
 d'openLayers dans tab_sig.php.
 
-
+.. image:: ../_static/tab_sig.png 
 
 
 Dans tab_sig.php, il y a 3 types de layers :
@@ -42,29 +42,110 @@ Cette couche fait appel à sig_json.php
 
 Il est possible de faire appel a un autre script (voir dyn/var_sig.inc)
 
-La requête pgsql est paramétrée dans la table om_sig_point et doit définir les champs
+La requête pgsql est paramétrée dans la table om_sig_map et doit définir les champs
 geom, titre, description et texte.
+
+.. image:: ../_static/tab_sig_json.png 
+
 
 sig_json.php présente tous les enregistrements d'un même
 point (même géom) sur un  seul popup
 
 En effet, il est constitué un popup lorsque l on clique sur l objet
-et donne la possibilité à un accès URL parametrée dans om_sig_point::
+et donne la possibilité à un accès URL parametrée dans om_sig_map::
 
 
 Les flux wms
 ============
 
-Le paramètrage des flux dans om_sig_wms
+Le paramètrage des flux wms est saisi dans om_sig_wms
+
+.. image:: ../_static/om_sig_wms_form.png 
+
+il faut saisir ::
+
+    - libelle du champ
+    - la collectivité
+    - l'identifiant (il doit être unique pour chaque couche wms)
+    - le lien de la couche (http)
+    - les layers de la couches séparés par une virgule
+    
+Exemple de lien avec qgis serveur ::
+
+    http://localhost/cgi-bin/qgis_mapserv.fcgi
+        ?SERVICE=WMS&VERSION=1.3.0
+        &map=/var/www/openfoncier/trunk/app/qgis/openfoncier.qgs
 
 
-L'affectation des flux dans une carte dans om_sig_map_wms
+L'affectation des flux wms dans une carte est saisi dans om_sig_map_wms
+
+Il est saisi ::
+
+    le nom du flux wms
+    nom du layer sur la carte
+    l ordre d affichage
+    la visibilité par défaut (case à cocher)
+    
+
+.. image:: ../_static/om_sig_map_wms_form.png 
+
+
+Sur la carte ci dessous le flux wms est activé et affiche le lotissement (getMap)
+
+En cliquant sur le lotissement, il est possible d'accéder aux données (getFeature)
+
+.. image:: ../_static/tab_sig_wms.png 
+
 
 
 La notion de pannier
 ====================
 
-scr/sig_pannier.php
+Le pannier permet de pouvoir stocker des géométries au travers de flux wms mais attention, la géométrie est
+récupérée dans une tabel ou une vue postgis (limite de la version 4.2.0)
+
+exemple : openFoncier carte dossier :
+
+Il est proposé dans ce cas de stocker des polygones dans le pannier et de sauvegarder un multipolygone
+constitué de ces polygones récupérés dans le pannier
+
+Choisir dans le select "polygone"; L'etat est "dessinner
+
+Il apparait le pannier "parcelle". Sélectionner les parcelles en cliquant dessus (elles sont vertes
+
+.. image:: ../_static/tab_sig_pannier1.png 
+
+Valider une fois les parcelles choisies (elles deviennent rouge)
+
+.. image:: ../_static/tab_sig_pannier2.png 
+
+Appuyer sur "enregistrer", l'état devient enregistrer
+
+.. image:: ../_static/tab_sig_pannier3.png 
+
+Cliquer sur le jeu de parcelles de votre choix (ce jeu devient vert clair)
+
+
+Il peut y avoir un ou plusieurs panniers : exemple : parcelle, batiment. par contre la géométrie récupéré ne
+concerne qu une seule couche
+
+
+
+la gestion de pannier se fait dans om_sig_map_wms
+
+
+    panier :        option pannier activé (Oui/non)         Exemple dossier/openFoncier :
+    pa_nom :        nom du pannier                          parcelle
+    pa_layer :      nom du layer pannier                    parcelle
+    pa_attribut:    attribut de la couche à récupérer       parcelle
+    pa_encaps:      caractère d'encapsuation (la ')         '
+    pa_sql:         requête de récupération                 select astext(st_union(geom)) as geom
+                                                            from &DB_PREFIXEparcelle where parcelle in (&lst) 
+    pa_type_geometrie:  type de géométrie                   polygone
+
+
+
+le script de gestion de pannier est : scr/sig_pannier.php
 
 
 
@@ -98,7 +179,17 @@ Les géométries complémentaires
 
 Il peut y avoir plusieurs géométries pour un même objet.
 
-Elles sont saisies dans om_sig_map_comp.class.php
+Elles sont saisies dans om_sig_map_comp ::
+
+    titre               surface     nom de la nouvelle géométrie
+    ordre d affichage   1           ordre d'affichage dans le select
+    actif               coché       activé la nouvelle géométrie
+    Mise a jour         coché       autorisé la mise à jour
+    type de géométrie   polygone    polygone, point, ligne
+    table               dossier     table du champ géométrique
+    champ               geom1       champ géometrique concerné
+
+.. image:: ../_static/om_sig_map_comp_form.png 
 
 
 

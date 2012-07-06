@@ -20,6 +20,9 @@ Les fichiers de paramétrage sont les suivants ::
     dyn/include.inc.php            chemin d'accès aux librairies
     dyn/debug.inc.php              mode debug
     dyn/version.inc                paramétrage de la version
+    dyn/var_sig.inc                paramétrage sig 
+    dyn/form_sig_update.inc.php    parametrage sig 
+    dyn/form_sig_delete.inc.php    parametrage sig 
     
     README.txt                     fichiers textes
     HISTORY.txt
@@ -415,11 +418,47 @@ Les paramétres om_sig
 
 var_sig.php
 
+les paramètres sont les suivants ::
+
+    $contenu_etendue[0]= array('4.5868,43.6518,4.6738,43.7018'
+                              );
+    $contenu_etendue[1]= array('vitrolles'
+                              );
+    $contenu_epsg[0] = array("","EPSG:2154","EPSG:27563");
+    $contenu_epsg[1] = array("choisir la projection",'lambert93','lambertSud');
+    $type_geometrie[0] = array("","point","line","polygon");
+    $type_geometrie[1] = array("choisir le type de géométrie",'point','ligne','polygone');
+
+ces paramétres sont utilisés pour la saisie de carte : voir chapître sig
+
+Les post traitements de form_sig permettent de faire des traitement apres saisie de géométries avec om_sig
 
 
-Les post traitements de form_sig
+    form_sig_update.inc.php
 
-form_sig_update.inc.php
+    form_sig_delete.inc.php
 
-form_sig_delete.inc.php
+exemple recuperation du numéro de la parcelle dans openfoncier  dossier ::
 
+    if($table=="dossier" and $champ=="geom"){
+       echo "</center>";
+       if (file_exists ("../dyn/var.inc"))
+          include ("../dyn/var.inc");
+       // parcelle         
+       if($auto_parcelle==1){
+          $sql="select parcelle from ".DB_PREFIXE."parcelle  WHERE ST_contains(geom,  geometryfromtext('".$geom."', ".$projection."))";
+          $parcelle = $f->db -> getOne($sql);
+          if($parcelle!=''){
+             $sql ="update ".DB_PREFIXE."dossier set parcelle = '".$parcelle."' where dossier = '".$idx."'";
+             $res1 =  $f->db -> query($sql);
+             echo "<br>"._("parcelle")." ".$parcelle;
+             // Envoi des donnees dans le formulaire f1 si la fenetre est popup : A TESTER
+             if($popup==1){
+                echo "\n<script type=\"text/javascript\">\n";
+                echo "window.opener.fendata.document.f1.parcelle.value = '".$parcelle."';\n";
+                //echo "window.opener.fendata.reload";
+                echo "</script>\n";
+             }
+          }
+       }
+    ....
