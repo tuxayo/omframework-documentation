@@ -5,18 +5,18 @@ Les formulaires
 ###############
 
 Les formulaires se construisent sur la base de la classe
-formulairedyn.class.php d'openMairie
+om_formulairedyn.class.php d'openMairie
 
 Cette classe fait appel a des sous programmes generiques pour certains
-controles au travers de script js/formulairedyn.js
+controles au travers de script js/script.js
 
 
 
-*************************************** 
-Les methodes de formulairedyn.class.php
-***************************************
+****************************************** 
+Les methodes de om_formulairedyn.class.php
+******************************************
 
-La classe formulaire.class.php a les méthodes suivantes :
+La classe om_formulaire.class.php a les méthodes suivantes :
 
 Les méthodes sur les controles du formulaire ::
 
@@ -172,6 +172,12 @@ form.php affiche le formulaires et éventuellement les sous formulaires (soustab
 exemple ::
 
     form.php?obj=om_parametre&idx=2
+
+Les méthodes de core/om_formulaire.class.php peuvent être surchargées dans obj/om_formulaire.class.php
+
+Les scripts javascript de js/script.js peuvent être surchargés dans app/js/script.js
+
+Les méthodes de core/om_dbform.class.php peuvent être surchargées dans obj/om_dbform.class.php
 
 
 

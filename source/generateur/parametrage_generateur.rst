@@ -5,6 +5,11 @@ Paramétrage générateur
 ######################
 
 Le paramétrage de base est dans la classe gen
+Il est possible de personnaliser le paramétrage dans le répertoire gen/dyn. (version 4.2.0)
+
+Ne personnaliser que les variables souhaitées dans le fichier. Par défaut, openMairie prendra les paramètres inclus dans la classe gen.
+
+Il est donné ci dessous l ensemble des paramètres "customizable"
 
 ========
 Form.inc 
@@ -25,9 +30,9 @@ Voici les paramètres pour la génération de formulaire ::
 
 
 
-=======
-Pdf.inc 
-=======
+===========
+pdf.inc.php 
+===========
 
 Parametres ::
 
@@ -83,11 +88,141 @@ Parametres ::
     $C3border=167;// couleur texte  B";
     $bt=1;// border 1ere  et derniere ligne  du tableau par page->0 ou 1";
 
+============
+etat.inc.php
+============
 
-=========================
-Customiser le paramétrage
-=========================
+parametres ::
 
-Il est possible de personnaliser le paramétrage dans le répertoire gen/dyn. (version 4.2.0)
+    $variable='&'; // nouveau
+    // parametres
+    $etat['orientation']='P';
+    $etat['format']='A4';
+    // footer
+    $etat['footerfont']='helvetica';
+    $etat['footerattribut']='I';
+    $etat['footertaille']='8';
+    // logo
+    $etat['logo']='logopdf.png';
+    $etat['logoleft']='58';
+    $etat['logotop']='7';
+    // titre
+    $etat['titreleft']='41';
+    $etat['titretop']='36';
+    $etat['titrelargeur']='130';
+    $etat['titrehauteur']='10';
+    $etat['titrefont']='helvetica';
+    $etat['titreattribut']='B';
+    $etat['titretaille']='15';
+    $etat['titrebordure']='0';
+    $etat['titrealign']='C'; 
+    // corps
+    $etat['corpsleft']='7';
+    $etat['corpstop']='57';
+    $etat['corpslargeur']='195';
+    $etat['corpshauteur']='5';
+    $etat['corpsfont']='helvetica';
+    $etat['corpsattribut']='';
+    $etat['corpstaille']='10';
+    $etat['corpsbordure']='0';
+    $etat['corpsalign']='J';
+    // sous etat
+    $etat['se_font']='helvetica';
+    $etat['se_margeleft']='8';
+    $etat['se_margetop']='5';
+    $etat['se_margeright']='5';
+    $etat['se_couleurtexte']="0-0-0";
 
-Ne personnaliser que les variables souhaitées dans le fichier. Par défaut, openMairie prendra les paramètres inclus dans la classe gen.
+================
+sousetat.inc.php
+================
+
+parametres::
+
+    $longueurtableau= 195;
+    $variable='&'; // nouveau
+    // parametres
+    
+    //titre
+    $sousetat['titrehauteur']=10;
+    $sousetat['titrefont']='helvetica';
+    $sousetat['titreattribut']='B';
+    $sousetat['titretaille']=10;
+    $sousetat['titrebordure']=0;
+    $sousetat['titrealign']='L';
+    $sousetat['titrefond']=0;
+    $sousetat['titrefondcouleur']="255-255-255";
+    $sousetat['titretextecouleur']="0-0-0";
+    // intervalle
+    $sousetat['intervalle_debut']=0;
+    $sousetat['intervalle_fin']=5;
+    // entete
+    $sousetat['entete_flag']=1;
+    $sousetat['entete_fond']=1;
+    $sousetat['entete_hauteur']=7;
+    $sousetat['entete_fondcouleur']="255-255-255";
+    $sousetat['entete_textecouleur']="0-0-0";
+    // tableau
+    $sousetat['tableau_bordure']=1;
+    $sousetat['tableau_fontaille']=10;
+    // bordure
+    $sousetat['bordure_couleur']="0-0-0";
+    // sous etat fond
+    $sousetat['se_fond1']="243-246-246";
+    $sousetat['se_fond2']="255-255-255";
+    // cellule
+    $sousetat['cellule_fond']=1;
+    $sousetat['cellule_hauteur']=7;
+    // total
+    $sousetat['cellule_fond_total']=1;
+    $sousetat['cellule_fontaille_total']=10;
+    $sousetat['cellule_hauteur_total']=15;
+    $sousetat['cellule_fondcouleur_total']="255-255-255";
+    // moyenne
+    $sousetat['cellule_fond_moyenne']=1;
+    $sousetat['cellule_fontaille_moyenne']=10;
+    $sousetat['cellule_hauteur_moyenne']=5;
+    $sousetat['cellule_fondcouleur_moyenne']="212-219-220";
+    // nombre d enregistrement
+    $sousetat['cellule_fond_nbr']=1;
+    $sousetat['cellule_fontaille_nbr']=10;
+    $sousetat['cellule_hauteur_nbr']=7;
+    $sousetat['cellule_fondcouleur_nbr']="255-255-255";
+
+==================
+lettretype.inc.php
+==================
+
+parametres ::
+
+    // general
+    $variable='&'; // nouveau
+    // $variable=chr(163); // compatibilite openmairie <4
+    // parametres
+    $lettretype['orientation']='P';
+    $lettretype['format']='A4';
+    // logo
+    $lettretype['logo']='logopdf.png';
+    $lettretype['logoleft']='58';
+    $lettretype['logotop']='7';
+    // titre
+    $lettretype['titreleft']='41';
+    $lettretype['titretop']='36';
+    $lettretype['titrelargeur']='130';
+    $lettretype['titrehauteur']='10';
+    $lettretype['titrefont']='helvetica';
+    $lettretype['titreattribut']='B';
+    $lettretype['titretaille']='15';
+    $lettretype['titrebordure']='0';
+    $lettretype['titrealign']='C'; 
+    // corps
+    $lettretype['corpsleft']='7';
+    $lettretype['corpstop']='57';
+    $lettretype['corpslargeur']='195';
+    $lettretype['corpshauteur']='5';
+    $lettretype['corpsfont']='helvetica';
+    $lettretype['corpsattribut']='';
+    $lettretype['corpstaille']='10';
+    $lettretype['corpsbordure']='0';
+    $lettretype['corpsalign']='J';
+

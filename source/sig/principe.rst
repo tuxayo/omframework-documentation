@@ -34,7 +34,8 @@ dans les applications openMairie suivantes ::
     
 
 L'objectif de tab_sig_map est de permettre une saisie le plus souvent automatique (ou eventuellement manuelle)
-par un point, ligne, multiligne, polygone, multipolygone stocké dans la base métier postgresql sur des fonds existants sur internet :
+par un point, ligne, multiligne, polygone, multipolygone. Cette saisie est  stockée dans la base métier postgresql.
+Elle est affichée sur des fonds existants sur internet :
 google sat, openStretmap ou bing (pour l instant) en utilisant le composant javascript openLayers
 
 Il n'est donc pas nécessaire de disposer d'un SIG pour utiliser tab_sig.php.
@@ -103,24 +104,6 @@ dans la version 4.2.0, tab_sig permet aussi ::
     - la collation de géométrie dans un pannier et son enregistrement en multi géométries
 
 
-Les commandes sont de base : dessiner, deplacer, enregistrer, data
-
-.. image:: ../_static/sig_1.png
-
-
-L'enregistrement de la geometriese fait avec le script scr/form_sig.php
-
-
-.. image:: ../_static/sig_2.png
-
-
-
-Enfin, il est possible d'associer le point avec une fiche, ici app/odp.php pour
-openDomainePublic :
-
-
-.. image:: ../_static/sig_3.png
-
 
 
 =======================
@@ -177,34 +160,5 @@ dyn/var_point.inc ::
     $contenu_epsg[1] = array("choisir la projection",'lambert93','lambertSud');
         
 
-Le paramétrage particulier d'une carte se fait avec l'objet métier
-om_sig_map.class.php accessible dans le menu administration -> OM SIG
 
-.. image:: ../_static/sig_4.png
-
-Il est possible de copier une carte et de paramétrer  les champs suivants::
-
-    - id : identifiant unique (obligatoire)
-    - libelle
-    - fonds a afficher et data (osm, bing, sat(google))
-    - étendue et epsg (voir sig/var_sig_point.inc)
-    - url (qui pointe sur la fiche ou le formulaire de saisie)
-    - requete sql qui affiche les données json et qui doit désigné :
-        le titre
-        la description
-        l idx
-    - la mise a jour si oui, le champ géometrique et la table maj
-    - le retour de la carte
-
-Ces cartes sont possibles d'intégrer dans des menus, dans un formulaire tab
-(si mise a jour) ou dans le tableau de bord (voir widget)
-
-.. image:: ../_static/sig_5.png
-
-Dans le lien, il est possible de définir ::
-
-- la  carte a afficher suivant l'id : ?obj=   Obligatoire
-- le fond affichable par défaut : sat, bing, osm : &fond =
-- l'étendue : &etendue =
-- l enregistrement à modifier : &idx=
 

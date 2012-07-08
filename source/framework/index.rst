@@ -13,7 +13,12 @@ http://adullact.net/frs/?group_id=329
 
 Il est proposé ici de décrire le fonctionnement du framework.
 
-Dans un environnement LAMP/WAMP, le framework integre des composants au travers
+"En programmation orientée objet un framework est typiquement composé de classes mères qui seront dérivées et étendues par héritage en fonction des besoins spécifiques à
+chaque logiciel qui utilise le framework".
+
+http://fr.wikipedia.org/wiki/Framework
+
+Dans un environnement LAMP/WAMP, le framework openMairie integre des composants au travers
 de classes qui permettent de créer des formulaires et des états.
 Ces classes sont surchargées par les objets métier à créer.
 

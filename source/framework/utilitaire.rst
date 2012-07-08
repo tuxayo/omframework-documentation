@@ -28,9 +28,9 @@ Les scripts javascripts sont mis dans le fichier app/js/script.je
 Les images spécifiques sont stockées dans app/img
 
 
-===========
-Le tutorial
-===========
+=================================
+Réaliser un script complementaire
+=================================
 
 Il est proposé ici de vous montrer comment réaliser ce script complémentaire
 
@@ -62,7 +62,7 @@ Les parametres de l'objet sont les suivants :
 
 
 utils.class.php fait la Verification si l utilisateur est authentifié et si l utilisateur a le droit
-
+(util.class surcharge core/om_application.class.php qui contient les scripts de base du framework)
 
 
 Si le paramétre "right" est vide vous pouvez faire appel aux méthodes suivantes ::
@@ -272,3 +272,9 @@ a 0 dans openCourrier ::
     }//validation
 
 
+Notes
+
+_("Registre ") : _("texte") permet l'utilisation de poedit pour la traduction de texte
+
+
+class=\"cadre ui-corner-all ui-widget-content\" : suivant css de jquery

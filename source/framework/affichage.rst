@@ -73,4 +73,6 @@ Le composant openMairie
 
 tab.php utilise les méthodes d'om_table.class.php qui est une classe d'openMairie ::
 
-    php/openmairie/om_table.class.php
+    core/om_table.class.php
+
+Les méthodes de ce composant peut être surchargé dans obj/om_table.class.php

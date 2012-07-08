@@ -1,14 +1,42 @@
 .. _layers:
 
-############
-Objet layers
-############
+###################
+afficher les layers
+###################
 
 
 ce chapitre propose de décrire l'utilisation de l'objet layers
 d'openLayers dans tab_sig.php.
 
 .. image:: ../_static/tab_sig.png 
+
+
+Dans le lien, il est possible de définir ::
+
+- la  carte a afficher suivant l'id : ?obj=   Obligatoire
+- le fond affichable par défaut : sat, bing, osm : &fond =
+- l'étendue : &etendue =
+- l enregistrement à modifier : &idx=
+
+Les cartes sont paramétrées dans om_sig_map (menu administration)
+
+.. image:: ../_static/om_sig_map_form.png 
+
+Il est possible de copier une carte et de paramétrer  les champs suivants::
+
+    - id : identifiant unique (obligatoire)
+    - libelle
+    - fonds a afficher et data (osm, bing, sat(google))
+    - étendue et epsg (voir sig/var_sig_point.inc)
+    - url (qui pointe sur la fiche ou le formulaire de saisie)
+    - requete sql qui affiche les données json et qui doit désigné :
+        le titre
+        la description
+        l idx
+    - la mise a jour si oui, le champ géometrique et la table maj
+    - le retour de la carte
+
+Ces cartes sont possibles d'intégrer dans des menus, dans un
 
 
 Dans tab_sig.php, il y a 3 types de layers :
@@ -181,7 +209,7 @@ Il peut y avoir plusieurs géométries pour un même objet.
 
 Elles sont saisies dans om_sig_map_comp ::
 
-    titre               surface     nom de la nouvelle géométrie
+    titre               polygone    nom de la nouvelle géométrie
     ordre d affichage   1           ordre d'affichage dans le select
     actif               coché       activé la nouvelle géométrie
     Mise a jour         coché       autorisé la mise à jour
@@ -192,5 +220,7 @@ Elles sont saisies dans om_sig_map_comp ::
 .. image:: ../_static/om_sig_map_comp_form.png 
 
 
+Dans l exemple précédent, il apparait une fenêtre select ou l utilisateur a le choix entre une géométrie "point"
+et une géométrie "polygone" du fait de la mise en place d'une géométrie complémentaire.
 
    
