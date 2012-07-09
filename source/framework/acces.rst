@@ -54,14 +54,17 @@ Les règles
 
 exemple om_droit d'om_utilisateur::
 
-    om_utilisateur = 5      en form.php?obj=om_utilisateur : accès en maj permis au utilisateurs de niveau 5 et plus
-    om_utilisateur_tab = 4  en tab_php?obj=om_utilisateur : acces en lecture de table qu aux utilisateurs de niveau 4 et plus
+    om_utilisateur = 5      en form.php?obj=om_utilisateur :
+                    accès en maj permis au utilisateurs de niveau 5 et plus
+    om_utilisateur_tab = 4  en tab_php?obj=om_utilisateur :
+                    acces en lecture de table qu aux utilisateurs de niveau 4 et plus
 
 - accès à la rubrique se paramètre dans le menu et dans om_droit
 
 exemple ::
 
-    menu_administration = 3  cette rubrique n'apparait qu'aux utilisateurs d'om_profil  supérieur ou égal à 3
+    menu_administration = 3
+            cette rubrique n'apparait qu'aux utilisateurs d'om_profil  supérieur ou égal à 3
 
 
 - chaque profil a acces a tous les droits des profils d un niveau inférieur

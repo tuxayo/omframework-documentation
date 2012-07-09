@@ -23,6 +23,14 @@ Les versions beta sont indiqués en fin de numérotation et ne sont jamais maint
 
 Seule la dernière version opérationnelle est maintenu
 
+Exemple de versionning (complément de la réunion "dev-openMairie" du 13 juin 2012)::
+
+    4.2.0alpha1     première version non testée
+    4.2.0beta1      première version testée par le développeur
+    4.2.0rc1        première version testée en production dans une collectivité
+    4.2.0           première version stable
+
+
 
 ##########################
 Passage à la version 4.2.0

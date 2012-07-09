@@ -112,11 +112,11 @@ Paramétrage de la carte
 
 Le paramétrage général des cartes  se fait dans :
 
-dyn/var_point.inc ::
+dyn/var_sig.inc ::
 
-    // *** sig_point.php ***
+    // *** parametre de tab_sig.php ***
     // generer une cle pour le site : http://code.google.com/intl/fr/apis/maps/signup.html
-    $cle_google = "xxxxxxxxxxxxxxxxxxxx";
+    $cle_google = "";
     $fichier_jsons="json_points.php?obj=";
     $fichier_wkt="wkt_point.php";
     //zoom par couche : zoom standard permettant un passage de zoom a l autre
@@ -143,7 +143,8 @@ dyn/var_point.inc ::
     $img_w=14;
     $img_h=32;
     $img_click="1.3";// multiplication hauteur et largeur image cliquee
-    // *** SIG MAP CLASS
+    
+    // *** parametres d om_sig_map.class.php, om_sig_wms.class.php
     $contenu_etendue[0]= array('4.5868,43.6518,4.6738,43.7018',
                               '4.701,43.3966,4.7636,43.4298',
                               '4.71417,43.64,4.72994,43.65166',

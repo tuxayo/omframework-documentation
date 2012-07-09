@@ -36,13 +36,13 @@ deplacer un dossier sur le svn -> commande mv ::
     Exemple : on a créé trunk/trunk/dossiers_source
     
     D'abord on renomme le premier dossier trunk en dossier branches
-    > svn mv svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/trunk
-        svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/branches
+    > svn mv svn+ssh://fraynaud@scm.adullact.net/scmrepos/svn/openboisson/trunk
+        svn+ssh://fraynaud@scm.adullact.net/scmrepos/svn/openboisson/branches
     cela fait branches/trunk/dossiers_souce
     
     Ensuite on déplace le dossier trunk qui se trouve maintenant dans branches à la racine du dépôt
-    > svn mv svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/branches/trunk
-        svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/trunk
+    > svn mv svn+ssh://fraynaud@scm.adullact.net/scmrepos/svn/openboisson/branches/trunk
+        svn+ssh://fraynaud@scm.adullact.net/scmrepos/svn/openboisson/trunk
     
 
     cela fait trunk/dossiers_source
@@ -50,30 +50,30 @@ deplacer un dossier sur le svn -> commande mv ::
 creer - deplacer (autre exemple) - detruire un repertoire sur svn ::
 
     creer un dossier documentation sur svn depuis une copie loacle
-    svn import documentation svn+ssh://fraynaud@scm.adullact.net/svnroot/opencimetiere/documentation
+    svn import documentation svn+ssh://fraynaud@scm.adullact.net/scmrepos/svn/opencimetiere/documentation
 
     renomer = renommer sur le svn trunk en temp
-    svn rename svn+ssh://fraynaud@scm.adullact.net/svnroot/opencimetiere/documentation/trunk
-               svn+ssh://fraynaud@scm.adullact.net/svnroot/opencimetiere/documentation/temp
+    svn rename svn+ssh://fraynaud@scm.adullact.net/scmrepos/svn/opencimetiere/documentation/trunk
+               svn+ssh://fraynaud@scm.adullact.net/scmrepos/svn/opencimetiere/documentation/temp
 
     move = deplacer le dossier temp/trunk vers trunk
-    svn mv svn+ssh://fraynaud@scm.adullact.net/svnroot/opencimetiere/documentation/temp/trunk
-           svn+ssh://fraynaud@scm.adullact.net/svnroot/opencimetiere/documentation/trunk
+    svn mv svn+ssh://fraynaud@scm.adullact.net/scmrepos/svn/opencimetiere/documentation/temp/trunk
+           svn+ssh://fraynaud@scm.adullact.net/scmrepos/svn/opencimetiere/documentation/trunk
 
     delete  detruire le repertoire temp
-    svn del svn+ssh://fraynaud@scm.adullact.net/svnroot/opencimetiere/documentation/temp
+    svn del svn+ssh://fraynaud@scm.adullact.net/scmrepos/svn/opencimetiere/documentation/temp
 
 
 Creation d une nouvelle version ::
 
     Copie en tag de la version
 
-    svn cp  svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/trunk
-            svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/tags/1.0.0beta
+    svn cp  svn+ssh://fraynaud@scm.adullact.net/scmrepos/svn/openboisson/trunk
+            svn+ssh://fraynaud@scm.adullact.net/scmrepos/svn/openboisson/tags/1.0.0beta
 
     export dans un repertoire local openmairie_debitboisson_1.0.0beta sans les repertoires .svn
 
-    svn export  svn+ssh://fraynaud@scm.adullact.net/svnroot/openboisson/tags/1.0.0beta
+    svn export  svn+ssh://fraynaud@scm.adullact.net/scmrepos/svn/openboisson/tags/1.0.0beta
             openmairie_debitboisson_1.0.0beta
 
 

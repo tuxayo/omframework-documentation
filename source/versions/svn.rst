@@ -88,10 +88,17 @@ Le fichier EXTERNALS.txt : ::
     # created by: svn propset svn:externals -F ./EXTERNALS.txt .
     #
     
-    openmairie svn://scm.adullact.net/svnroot/openmairie/openmairie/tags/4.0.0/
-    fpdf svn://scm.adullact.net/svnroot/openmairie/externals/fpdf/tags/1.6-min/
-    pear http://svn.php.net/repository/pear/pear-core/tags/PEAR-1.9.1/
-    db http://svn.php.net/repository/pear/packages/DB/tags/RELEASE_1_7_13/
+    core  svn://scm.adullact.net/svnroot/openmairie/openmairie_exemple/tags/4.2.0/core/
+    spg   svn://scm.adullact.net/svnroot/openmairie/openmairie_exemple/tags/4.2.0/spg/
+    scr   svn://scm.adullact.net/svnroot/openmairie/openmairie_exemple/tags/4.2.0/scr/
+    lib   svn://scm.adullact.net/svnroot/openmairie/openmairie_exemple/tags/4.2.0/lib/
+    css   svn://scm.adullact.net/svnroot/openmairie/openmairie_exemple/tags/4.2.0/css/
+    js    svn://scm.adullact.net/svnroot/openmairie/openmairie_exemple/tags/4.2.0/js/
+    img   svn://scm.adullact.net/svnroot/openmairie/openmairie_exemple/tags/4.2.0/img/
+    pdf   svn://scm.adullact.net/svnroot/openmairie/openmairie_exemple/tags/4.2.0/pdf/
+    php   svn://scm.adullact.net/svnroot/openmairie/openmairie_exemple/tags/4.2.0/php/
+    
+    om-theme svn://scm.adullact.net/svnroot/openmairie/externals/om-theme/kinosura/tags/1.0.0
 
 
 Appliquer les propriétés externals : ::
@@ -146,9 +153,9 @@ d'openmairie_exemple ::
 
 On cré l'arborescence standard sur le dépôt ::
 
-    svn mkdir svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/svnroot/<NOUVEAU_PROJET>/trunk
-    svn mkdir svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/svnroot/<NOUVEAU_PROJET>/tags
-    svn mkdir svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/svnroot/<NOUVEAU_PROJET>/branches
+    svn mkdir svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/scmrepos/svn/<NOUVEAU_PROJET>/trunk
+    svn mkdir svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/scmrepos/svn/<NOUVEAU_PROJET>/tags
+    svn mkdir svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/scmrepos/svn/<NOUVEAU_PROJET>/branches
 
 On se positionne dans le dossier précédemment importé pour importer sur le
 dépôt son contenu ::
@@ -160,7 +167,7 @@ On se positionne dans son dossier de développement pour créer la copie
 locale du projet ::
     
     cd ~/public_html/
-    svn co svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/svnroot/<NOUVEAU_PROJET>/trunk
+    svn co svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/scmrepos/svn/<NOUVEAU_PROJET>/trunk
             <NOUVEAU_PROJET>
 
 On se positionne dans le dossier php de l'application pour appliquer
