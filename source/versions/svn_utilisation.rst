@@ -76,4 +76,3 @@ Creation d une nouvelle version ::
     svn export  svn+ssh://fraynaud@scm.adullact.net/scmrepos/svn/openboisson/tags/1.0.0beta
             openmairie_debitboisson_1.0.0beta
 
-
