@@ -204,7 +204,7 @@ Dans dyn/form_sig_delete.inc.php, il est possible de paramétrer des post traite
 
 Les géométries complémentaires
 ==============================
-
+cd so   
 Il peut y avoir plusieurs géométries pour un même objet.
 
 Elles sont saisies dans om_sig_map_comp ::
@@ -222,5 +222,5 @@ Elles sont saisies dans om_sig_map_comp ::
 
 Dans l exemple précédent, il apparait une fenêtre select ou l utilisateur a le choix entre une géométrie "point"
 et une géométrie "polygone" du fait de la mise en place d'une géométrie complémentaire.
-
+/
    
