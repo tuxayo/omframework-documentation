@@ -33,7 +33,9 @@ Il est possible de copier une carte et de paramétrer  les champs suivants::
         le titre
         la description
         l idx
-    - la mise a jour si oui, le champ géometrique et la table maj
+    - la mise a jour si oui,
+                le champ géometrique et la table maj,
+                le type de géometrie et le nom de la couche openLayers (version 4.2.0) 
     - le retour de la carte
 
 Ces cartes sont possibles d'intégrer dans des menus, dans un

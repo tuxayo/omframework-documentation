@@ -1,10 +1,10 @@
 .. _install:
 
-#######
-install
-#######
+#########################
+installation d'om_sig_map
+#########################
 
-Pour faire fonctionner tab_sig_point.php, il faut :
+Pour faire fonctionner tab_sig.php, il faut :
 
 - postgis
 
