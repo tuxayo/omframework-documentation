@@ -27,8 +27,8 @@ Exemple de versionning (complément de la réunion "dev-openMairie" du 13 juin 2
 
     4.2.0alpha1     première version non testée
     4.2.0beta1      première version testée par le développeur
-    4.2.0rc1        première version testée en production dans une collectivité
-    4.2.0           première version stable
+    4.2.0rc1        première version testée en production (1 site)
+    4.2.0           première version stable généralisable
 
 
 
@@ -50,7 +50,7 @@ La version 4.2.0 du framework prend en charge plus de fonctionnalités et donne 
 EXTERNALS.txt
 =============
 
-vider les 10 repertoires concernés avant de lancer externals
+vider les 9 repertoires concernés avant de lancer externals
 
 core est le repertoire contenant la librairie openMairie (4.2.0)
 
@@ -92,6 +92,17 @@ mettre les droits  d ecriture a www-data dans gen : $ sudo chmod-R 777
 sur les nouvelles tables gerer par www-data remettre les droits d ecriture
 $ sudo chmod -R 777
 
+modifier les paramètres dyn
+===========================
+
+locales.inc.php (charset)
+include.inc.php (core)
+
+dans obj
+========
+
+ajouter om_table.class.php, om_dbform.class.php, om_formulaire.class.php
+
 
 Evolution om_sig_point vers om_sig_map
 ======================================
@@ -102,3 +113,8 @@ om_sig_map est le nouvel outil sig d openMairie
 ne concerne que pgsql
 
 executer le script data/pgsql/ver4.2.0.sql
+
+regenerer les 4 nouvelles tables
+
+ajouter les scripts spécifiques dans /obj et /sql/pgsql
+
