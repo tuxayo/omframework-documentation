@@ -19,8 +19,7 @@ Les outils indispensables :
    firefox.rst
    komodo-edit.rst
    meld.rst
-   poedit.rst
-
+   poedit.rst 
 
 - TortoiseSVN
 - TortoiseCVS
@@ -28,8 +27,11 @@ Les outils indispensables :
 L'environnement de développement :
 
 - Apache
+
 - PHP
 
 - EasyPHP
+
 - Wamp
+
 - Lamp
