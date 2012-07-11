@@ -6,19 +6,7 @@ format
 
 
 ce chapitre se propose de decrire les divers formats de transfert avec openLayers
-tab_sig.php n'utilise que le format json et wkt. Les autres formats sont donnés
-à titre indicatif.
-
-===    
-txt
-===
-
-exemple : separateur par tab ::
-
-    point		n	title	description	icon			url
-    43.68485,4.63243	201	la gare d arles		arles/university.png	http://localhost/xx.html
-    43.68585,4.63343	202	college mistral		arles/university.png	
-    43.68385,4.63143	203	college jlb		    arles/university.png
+tab_sig.php n'utilise que le format json et wkt. 
 
 ===
 wkt
@@ -74,32 +62,5 @@ format 2 polygones ::
     }
 
 
-===
-kml
-===
 
-exemple ::
-
-	<kml xmlns="http://earth.google.com/kml/2.0">
-	    <Folder>
-		<name>OpenLayers export</name>
-		<description>Exported on Thu Jan 20 2011 09:11:21 GMT+0100 (CET)</description>
-		<Placemark>
-		    <name>OpenLayers.Feature.Vector_138</name>
-		    <description>No description available</description>
-		    <Polygon>
-		        <outerBoundaryIs>
-		            <LinearRing>
-		                <coordinates>
-		                    -11.109377145767,51.70313000679
-		                    19.124997854233, 19.35938000679
-		                    43.031247854233, 44.67188000679
-		                    -11.109377145767, 51.70313000679
-		                </coordinates>
-		            </LinearRing>
-		        </outerBoundaryIs>
-		    </Polygon>
-		</Placemark>
-	    </Folder>
-	</kml>
 

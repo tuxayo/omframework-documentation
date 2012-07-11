@@ -26,11 +26,11 @@ Les fichiers de paramétrage sont les suivants ::
     
     README.txt                     fichiers textes
     HISTORY.txt
-    SPECIFIC.txt
     LICENCE.txt
     TODO.txt
     INSTALL.txt
     
+    app/SPECIFIC.txt                explication sur la partie spécifique de l application
 
 
 
@@ -84,9 +84,10 @@ De base, les rubriques suivantes sont paramétrées dans le framework::
     traitement              vide par défaut, cet option contient les scripts de
                                 traitement
     parametrage             Cette option contient vos tables de paramétrage
+                                et le paramètreage des états / sous états / lettretype 
     administration          Les scripts de cet option contiennent tout les scripts
-                                du framework pour le paramètrage de la collectivité,
-                                des états / sous états  et la gestion des accès                                
+                                du framework pour paramètrage de la collectivité,
+                                om_sig  et la gestion des accès                                
 
 Le paramétrage du menu se fait dans $menu.
 
@@ -185,15 +186,27 @@ Ce fichier contient :
 
 - le paramétrage du codage des caracteres (ISO-8859-1 ou UTF8)  ::
 
+    "DEPRECATED"
+    
         define('CHARSET', 'ISO-8859-1');
         ou
         define('CHARSET', 'UTF8');
-
-    Verifier le paramétrage d'APACHE si il y a un mauvais affichage par défaut ISO-8859-1
-    dans etc/apache2/apache2.conf commenter ##AddDefaultCharset = ISO-8859-1
-    relancer ensuite apache : $ etc/apache2/init.d/apache2 reload
+        
+    Dans la version 4.2.0, il y a 2 paramètres :
     
-    A partir de la version 3.0.1, l'imcompatibilité utf8 de la bibliotheque fpdf est traitée
+        pour la base : DB_CHARSET
+        pour apache  : HTTP_CHARSET
+        
+        Ces 2 paramètres remplacent CHARSET
+    
+
+    Note ::
+    
+        Dans apache, il est possible de modifiet l'encodage 
+        dans etc/apache2/apache2.conf commenter ##AddDefaultCharset = ISO-8859-1
+        relancer ensuite apache : $ etc/apache2/init.d/apache2 reload
+    
+        A partir de la version 3.0.1, l'imcompatibilité utf8 de la bibliotheque fpdf est traitée
 
 - le dossier ou sont installées les variables du systeme ::
 
@@ -262,11 +275,11 @@ Ce mode permet de pre-remplir le formulaire de login avec l'identifiant 'demo' e
 * Le thème de l'application
 
 A partir de la version 3.1.0, le theme n'est plus géré dans config.inc.php.
-Il est initialisé dans EXTERNALS.TXT du repertoire lib/om-theme ::
+Il est initialisé dans EXTERNALS.TXT du repertoire om-theme (version 4.2.0) ::
 
     exemple pour om_ui_darkness 
     
-    jquery-ui-theme svn://scm.adullact.net/svnroot/openmairie/externals/jquery-ui-theme/
+    om_theme svn://scm.adullact.net/svnroot/openmairie/externals/jquery-ui-theme/
                     om_ui-darkness/tags/1.8.14
 
 
@@ -294,9 +307,9 @@ Le paramétrage de l'accès aux librairies se fait dans *dyn/include.inc.php*
   
         array_push($include, getcwd()."/../php/fpdf");
 
-  OPENMAIRIE ::
+  OPENMAIRIE (dans CORE depuis la version 4.2.0) ::
 
-        define("PATH_OPENMAIRIE", getcwd()."/../php/openmairie/");
+        define("PATH_OPENMAIRIE", getcwd()."../core/openmairie/"); 
 
 
 Par défaut, les librairies sont incluses dans openmairie_exemple :

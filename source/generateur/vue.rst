@@ -78,6 +78,5 @@ Problème à régler dans l'utilisation d une vue externe
     - regarder la table 'geometry_columns'" ne soit pas cochée (option editer)
     - modifier la clé primaire dans la liste des tables de connexion 
     
-- attention : la creation de vue non opérationnelle  fait dysfonctionner le
-generateur qui fait appel au catalogue de vue : select viewname from pg_views
+- attention : la creation de vue non opérationnelle  fait dysfonctionner le generateur qui fait appel au catalogue de vue : select viewname from pg_views
 

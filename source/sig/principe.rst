@@ -33,10 +33,9 @@ dans les applications openMairie suivantes ::
     openmairie erp (projet)
     
 
-L'objectif de tab_sig_map est de permettre une saisie le plus souvent automatique (ou eventuellement manuelle)
+L'objectif de tab_sig_map est de permettre une saisie le plus souvent automatique 
 par un point, ligne, multiligne, polygone, multipolygone. Cette saisie est  stockée dans la base métier postgresql.
-Elle est affichée sur des fonds existants sur internet :
-google sat, openStretmap ou bing (pour l instant) en utilisant le composant javascript openLayers
+Elle est affichée sur des fonds existants sur internet : google sat, openStretmap ou bing (pour l instant) en utilisant le composant javascript openLayers
 
 Il n'est donc pas nécessaire de disposer d'un SIG pour utiliser tab_sig.php.
 

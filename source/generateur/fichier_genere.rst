@@ -41,6 +41,7 @@ Par défaut :
 
 - affichage de l'édition de la table
 
+
 Dans le fichier paramètres : form.inc
 
 $serie = nombre d'enregistrement par page
@@ -97,14 +98,17 @@ Le type de champs est :
  
     . la date est au format français
     
-  
+    . geom si ce champ est géométrique (version 4.2.0)  
 
 
 La longueur d'affichage et le maximum autorisé à la saisie est celle contenu dans la base d'origine
 
 Le contrôle des clés secondaires des autres tables est généré : il n'est pas possible de supprimer un enregistrement si des enregistrements sont liés à la clé primaire
 
+Il est vérifier l'unicité de la clé si elle n'est pas automatique (version 4.2.0)
+
 Les libellés sont les noms des champs.
+
 
 
 Ce module sert pour le formulaire et le(s) sous formulaire(s).

@@ -7,7 +7,7 @@ La méthode
 Il est décrit ici la méthode pour la création d' objets métiers:
 
 Le développement consiste à créer des objets métier (/obj) qui surchargent
-la classe abstraite  dbformdyn.class.php et à modifier les valeurs par défaut
+la classe abstraite  om_dbformdyn.class.php et à modifier les valeurs par défaut
 des variables dans les fichiers sql (nom_objet.inc et nom_objet.form.inc)
 
 
@@ -22,19 +22,19 @@ Surcharger les classes openMairie
 
 Il vaut mieux utiliser le générateur pour initialiser les classes metiers.
 
-Le générateur surcharge la classe dbformdyn.class.php par rapport aux informations de la base ::
+Le générateur surcharge la classe om_dbformdyn.class.php par rapport aux informations de la base ::
 
     classe abstraite <- classe metier generee <- classe metier 1 <- classe metier 2 ...
     openMairie             depuis la base
     
 
-    dbformdyn.class.php <- gen/obj/nom_objet.class.php <- obj/nom_objet.class.php
+    om_dbformdyn.class.php <- gen/obj/nom_objet.class.php <- obj/nom_objet.class.php
 
 
 
 Exemple avec concession d'openCimetiere ::
 
-    dbformdyn.class.php
+    om_dbformdyn.class.php
             <- gen/obj/emplacement.class.php
                 <-/obj/emplacement.class.php <- /obj/concession.class.php
 
@@ -44,7 +44,7 @@ Exemple avec concession d'openCimetiere ::
 Modifier les valeurs par défaut
 ===============================
 
-Il est décrit ici les valeurs par défaut dans php/dbformdyn.class.php 
+Il est décrit ici les valeurs par défaut dans core/om_dbformdyn.class.php 
 qui est une classe d'openMairie.
 
 
@@ -89,11 +89,11 @@ Les scripts javascript sont appellés dans la méthode setOnchange()
 
 Voir framework/formulaire
 
-============================
-La class dbformdyn.class.php
-============================
+===============================
+La class om_dbformdyn.class.php
+===============================
 
-dbform.class.php  est une classe openMairie
+om_dbform.class.php  est une classe openMairie dans core/
 
 La classe abstraite dbform gère l’interface entre l'objet métier et la base de données connectée via DBPEAR.
 

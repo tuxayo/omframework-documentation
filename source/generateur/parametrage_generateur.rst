@@ -9,7 +9,7 @@ Il est possible de personnaliser le paramétrage dans le répertoire gen/dyn. (v
 
 Ne personnaliser que les variables souhaitées dans le fichier. Par défaut, openMairie prendra les paramètres inclus dans la classe gen.
 
-Il est donné ci dessous l ensemble des paramètres "customizable"
+Il est donné ci dessous l ensemble des paramètres "customizable". La avleur associé est celle du générateur.
 
 ========
 Form.inc 

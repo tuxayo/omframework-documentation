@@ -31,12 +31,12 @@ FPDF est le composant qui permet de gérer le PDF.
 
 
 Le développement consiste à créer des objets métier  qui surchargent la classe abstraite
-dbformdyn.class.php (composant openMairie). De base, les données de la base de données sont récupérés pour le
+om_dbformdyn.class.php (composant openMairie). De base, les données de la base de données sont récupérées pour le
 formulaire (longueur, max, nom).
 
-- dbformdyn.class.php ; assure la liaison entre le formulaire et la base de données
+- om_dbformdyn.class.php ; assure la liaison entre le formulaire et la base de données
 
-- formulairedyn.class.php : rassemble toutes les méthodes permettant de construire des formulaires ::
+- om_formulairedyn.class.php : rassemble toutes les méthodes permettant de construire des formulaires ::
 
     
 En introduction, il est proposé une explication de la hiérarchie des répertoires ::
@@ -45,6 +45,8 @@ En introduction, il est proposé une explication de la hiérarchie des répertoi
     javacripts (app/js/script.js) et les images (app/img)
     
     - css : contient les feuilles de style de base du framework
+
+    - core : classe openMairie (version 4.2.0)
     
     - data : contient les requêtes sql permettant de créer votre application
             pgsql : pour postgresql
@@ -70,7 +72,7 @@ En introduction, il est proposé une explication de la hiérarchie des répertoi
     
     - pdf : contient les scripts d'édition du framework
     
-    - php : contient les libraisries php du framework notament : openMairie, dbpear et fpdf
+    - php : contient les librairies php utilisées par le framework notament : dbpear, phpmailer et fpdf
     
     - scr : contient les scripts d'affichage du framework
     
@@ -85,7 +87,7 @@ En introduction, il est proposé une explication de la hiérarchie des répertoi
     Les repertoires à modifier pour une application sont les suivants :
     
     - app : vos scripts spécifiques
-    - dyn : le paramètrage d'openMairie
+    - dyn : le paramètrage du framework et de l application
     - gen : les scripts php et sql générés
     - obj : vos objets métiers en surcharge
     - sql : les requetes sql surchargées

@@ -27,7 +27,8 @@ En appuyant sur le bouton de courrier, vous avez les choix de génération
 .. image:: ../_static/utilisation_2.png
 
 
-Au préalable, le générateur fait une analyse de la base de données  ::
+Au préalable, le générateur fait une analyse de la base de données
+(le choix de paramétrage a été supprimé dans la version  4.2.0 - voir paramétrage framework) ::
 
     Tables de la base de donnees
                 [ emetteur ] [ service ] et les tables om..

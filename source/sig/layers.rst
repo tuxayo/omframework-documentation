@@ -184,16 +184,16 @@ La géométrie à modifier : couche vectors :
 ==========================================
 
 Le chargement de la couche vectors se fait si dans la table om_sig_map,
-la case maj est activé 
+la case maj est activée. 
 
-La géométrie est récupérée par le script sig_wkt.php (appel a un script parametrable dans var_sig.inc)
+La géométrie est récupérée par le script sig_wkt.php (appel a un script paramètrable dans var_sig.inc)
 et la carte est centrée sur la géométrue::
 
 Il est possible de :
     
     - positionner manellement la géométrie
     - déplacer la géométrie
-    - enregistrer la géometrue  : selectionner la géométrie, le programme
+    - enregistrer la géometrie  : selectionner la géométrie, le programme
         form_sig.php est chargé en fenetre et permet de supprimer
         la géométrie (champ geometrique = null)  ou modifier cette géométrie.
     

@@ -191,9 +191,8 @@ Il n est pas prévu d integration dans la prochaine version
 composants
 ==========
 
-Les composants php sont stockés en **php/**
 
-*/openmairie* 
+*/core* 
 
 Les scripts ci dessous sont les classes qui interfacent openmairie avec fpdf ::
 
@@ -201,29 +200,8 @@ Les scripts ci dessous sont les classes qui interfacent openmairie avec fpdf ::
     fpdf_etiquette.php
     db_fpdf.php
 
-*/fpdf*
+*php/fpdf*
 
     A ce niveau se situe le composant fpdf
 
-*/phpmailer*
-
-    la gestion de mail est EN TEST avec openPersonnalite et sera intégré à terme
-    dans  openMairie
-
-
-Les composants javascript sont stockés dans le repertoire **lib/**
-
-*/tinymce*
-
-    est l'editeur wisiwig
-    EN TEST sur openRecensement et qui sera intégré à terme dans openmairie
-    
-*/openlayers*
-
-    est la librairie pour le SIG
-    voir chapître sur l'information géographique
-    
-*/jquery-ui et jquery-misc*
-
-    librairies jquery
 

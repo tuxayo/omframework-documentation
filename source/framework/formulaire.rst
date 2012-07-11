@@ -72,7 +72,7 @@ Les méthodes sur les controles du formulaire ::
 Les  méthodes de construction et d affichage ::
 
 
-    afficher() affichage des champs (appelle par dbformdyn.class.php : methode formulaire
+    afficher() affichage des champs (appelle par om_dbformdyn.class.php : methode formulaire
             -> afficherChampRegroupe() affichage des champs par regroupement / groupement
             -> afficherChamp() affichage de champ sans regroupe
     recupererPostvarsousform() et recuperePostVar():
@@ -189,7 +189,7 @@ openMairie4 apporte de nouvelles fonctions qu'il est utile d'implémenter dans
 les objets métiers
 
 
-**récuperer le type de la base** depuis l'objet db : $db->phptype ::
+**récuperer le type de la base** depuis l'objet db : $db->phptype (mysql ou pgsql)::
 
 
         if(file_exists ("../sql/".$db->phptype."/".$this->table.".form.inc"))/
