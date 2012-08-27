@@ -109,8 +109,7 @@ dans la version 4.2.0, tab_sig permet aussi ::
 Paramétrage de la carte
 =======================
 
-Le paramétrage général des cartes  se fait dans :
-
+Le paramétrage général (contenu dans scr/tab_sig.php) des cartes  est modifiable dans 
 dyn/var_sig.inc ::
 
     // *** parametre de tab_sig.php ***

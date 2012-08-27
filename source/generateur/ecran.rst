@@ -19,8 +19,6 @@ on accède à l'écran de génération qui se décompose en :
 
 - les options de génération
 
-le choix du fichier de paramétrage par défaut
-
 
 .. image:: ../_static/ecran_2.png
 
@@ -43,6 +41,7 @@ Le programme propose une analyse de la base en cours :
 - les sous formulaires à associer 
 
 
+A partir de la version 4.2.0, il n y a plus de choix de paramétrage dans l'écran.
 
 **********************
 Les fichiers à generer

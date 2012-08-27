@@ -45,6 +45,7 @@ rapidemment une application à faible coût grâce à la fusion de multiple serv
 
 Le chapître consacré a l' "information geographique" décrit dans le détail le
 fonctionnement SIG interne d'openMairie combinant les API d'internet avec le framework.
+(La version 4.2.0 améliore l'interface avec l'intégration de web service)
 
 Le chapître sur les widgets décrit le tableau de bord paramétrable et individualisé
 par l'utilisateur  permettant l'accès à tout type de fonctions internes ou externes.

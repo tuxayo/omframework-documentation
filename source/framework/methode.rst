@@ -125,7 +125,7 @@ Les méthodes principales sont les suivantes :
     setMax : Envoi au formulaire la taille maximum autorisée du champ
     setSelect : Envoi au formulaire les champs select à afficher
     setOnchange : Envoi au formulaire les controles javascript à effectuer en cas de changement de données dans le champ
-    setGroupe : Envoi au formulaire le regroupement de champ par ligne
+    setGroupe : Envoi au formulaire le groupement de champ par ligne
     setRegroupe : Envoi au formulaire un fieldset
     setOnkeyup
     setOnclick

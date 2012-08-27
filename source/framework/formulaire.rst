@@ -147,7 +147,7 @@ Ce programme est appellé par le contrôle comboD, comboG, comboD2, comboG2
 **spg/upload.php**
 
 
-        Ce script utilise la classe php/openmairie/upload.class.php (composant openMairie)
+        Ce script utilise la classe core/upload.class.php (composant openMairie)
 
         Le paramétrage des extensions téléchargeables se fait dans le fichier autorise dans dyn/config.inc.php
 

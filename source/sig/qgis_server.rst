@@ -44,7 +44,7 @@ Ensuite,  il faut créer trois liens symboliques.
 Le premier pointant vers script qgis_mapserv.fcgi, le second vers votre projet QGIS et enfin le dernier vers le fichier wms_metadata.xml. 
 On peut personnaliser ce dernier fichier en y ajoutant les différentes informations concernant le producteur de la donnée (nom de l'organisme, nom du référent...).
 
-Ceci permet d'acceder en wms avec openlayers avec une IP externe :: 
+Ceci permet d'acceder en wms avec openlayers avec une IP externe (à vérifier) :: 
 
     /usr/lib/cgi-bin/formation$ sudo ln -s /var/www/projet/formation/qgis/formation.qgs .
 
@@ -62,3 +62,10 @@ tab_sig.php utilise dans les requêtes ::
     getMap
     getFeature
 
+
+paramétrage de vues
+===================
+
+    - regarder la table 'geometry_columns'" ne soit pas cochée (option editer)
+
+    - modifier la clé primaire dans la liste des tables de connexion 

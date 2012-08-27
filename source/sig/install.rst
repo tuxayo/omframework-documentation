@@ -8,17 +8,31 @@ Pour faire fonctionner tab_sig.php, il faut :
 
 - postgis
 
-- openlayers qui est de base dans le framework en version 
+- openlayers qui est de base dans le framework lib/openlayers
 
 
 
-postgis
-=======
+intsallation de postgis
+=======================
 
 sur UBUNTU installer les paquets postgis ::
 
     - postgis 
     - postgresql-8.3.postgis
+
+PostGIS ajoute à postgresql ::
+
+    - ses types de données
+    - ses fonctions,  
+    - deux tables utilitaires : geometry_colums et spatial_ref_sys.
+        geometry_colums sert à indiquer au logiciel quels sont les champs contenant des types
+        géographiques dans chacune des tables.
+        spatial_ref_sys contient les paramètres des systèmes de projection  supportés
+        et sert en interne au logiciel. 
+
+
+
+
 
 Verification de l install postgresql-postgis ::
 

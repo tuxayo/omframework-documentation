@@ -85,3 +85,5 @@ et il est préféré utiliser les formats shape de l IGN
 Recuperation de la base adresse de l'IGN
 ========================================
 
+Le projet de la ville de Vitrolles openAdresseIGN inclu dans le projet openAdresse se propose de construire un référentiel adresse pour une commune
+sur la base des fichiers fournis par l IGN.

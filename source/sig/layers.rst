@@ -132,16 +132,16 @@ La notion de pannier
 ====================
 
 Le pannier permet de pouvoir stocker des géométries au travers de flux wms mais attention, la géométrie est
-récupérée dans une tabel ou une vue postgis (limite de la version 4.2.0)
+récupérée dans une table ou une vue postgis (c'est pour l'instant une limite de la version 4.2.0)
 
 exemple : openFoncier carte dossier :
 
 Il est proposé dans ce cas de stocker des polygones dans le pannier et de sauvegarder un multipolygone
 constitué de ces polygones récupérés dans le pannier
 
-Choisir dans le select "polygone"; L'etat est "dessinner
+Choisir dans le select "polygone"; L'etat est "dessinner"
 
-Il apparait le pannier "parcelle". Sélectionner les parcelles en cliquant dessus (elles sont vertes
+Il apparait le pannier "parcelle". Sélectionner les parcelles en cliquant dessus (elles sont vertes)
 
 .. image:: ../_static/tab_sig_pannier1.png 
 
@@ -153,15 +153,16 @@ Appuyer sur "enregistrer", l'état devient enregistrer
 
 .. image:: ../_static/tab_sig_pannier3.png 
 
+
 Cliquer sur le jeu de parcelles de votre choix (ce jeu devient vert clair)
 
 
-Il peut y avoir un ou plusieurs panniers : exemple : parcelle, batiment. par contre la géométrie récupéré ne
+Il peut y avoir un ou plusieurs panniers : exemple : parcelle, batiment. par contre la géométrie récupérée ne
 concerne qu une seule couche
 
 
 
-la gestion de pannier se fait dans om_sig_map_wms
+la gestion de pannier se fait dans om_sig_map_wms ::
 
 
     panier :        option pannier activé (Oui/non)         Exemple dossier/openFoncier :
@@ -224,5 +225,4 @@ Elles sont saisies dans om_sig_map_comp ::
 
 Dans l exemple précédent, il apparait une fenêtre select ou l utilisateur a le choix entre une géométrie "point"
 et une géométrie "polygone" du fait de la mise en place d'une géométrie complémentaire.
-/
    

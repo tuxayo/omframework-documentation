@@ -137,10 +137,12 @@ Exemple ::
             et setType car la clé primaire est numérique et non automatique
     
     om_utilisateur.class.php :
-        champ pwd pour mot de passe  methode partiellement surchargées (parent::setvalF($val);) setvalF, setType, setValsousformulare, surcharge avec un javascript de mise en majuscule du nom
+        champ pwd pour mot de passe  methode partiellement surchargées (parent::setvalF($val);)
+        setvalF, setType, setValsousformulare,
+        surcharge avec un javascript de mise en majuscule du nom
 
 
-Enfin, il est possible de mettre en place d'autres type de champs disponible dans openMairie ::
+Enfin, il est possible de mettre en place d'autres type de champs disponible dans openMairie en surchargeant la méthode setType::
 
     - ComboG  combo gauche
     - comboD combo droit   

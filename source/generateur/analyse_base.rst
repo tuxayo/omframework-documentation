@@ -106,18 +106,15 @@ type pgsql (longueur) type tableinfo si different -> type openMairie ::
     geometry    -5                              -> geom
 
 
-Gestion des longueurs négatives :
 
 
-Il est remonté dans l'analyse des informations de la base une valeur négative car le stockage dans postgresql est variable. 
-OpenMairie utilise alors la longueur d'affichage qui est donnée par la plus longue saisie dans un champ. Donc pour avoir la longueur exacte, il est conseillé de saisie un enregistrement avec les champs « string » saisie avec le nombre de caractères souhaités à l'affichage.
 
-Dans le cas ou rien n'est saisi, il est proposé dans form.inc DEPRECATED ::
+Pour postgresql, il est proposé dans form.inc 2 variables qui sont avec la version 4.2.0 inutiles car les longueurs sont gérées
+par le générateur (valeurs négatives) ::
 
     $pgsql_taille_defaut = 20; // taille du champ par défaut si retour pg_field_prtlen =0
     $pgsql_taille_minimum = 10; // taille minimum d affichage d un champ
 
-Dans la version 4.2.0 du générateur les valeurs des champs textes sont gérés. (méthode setTaille et méthode setMax)
 
 Attention, pour les champs geom, il faut gérer la carte à chercher pour l affichage de la carte en fenêtre ::
 

@@ -14,6 +14,8 @@ Nous vous proposons dans ce chapitre de décrire le générateur openMairie.
 
 - le paramétrage du générateur
 
+- les vues (avec postgresql)
+
 
 
 .. toctree::

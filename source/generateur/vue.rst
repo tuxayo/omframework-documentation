@@ -4,14 +4,15 @@
 Les vues
 ########
 
-Les vues ne sont utilisables qu'avec postgresql.
+Les vues ne sont utilisables qu'avec postgresql et elles apparaissent dans la grille d'affichage des objets du générateur dans le
+fieldset "vues".
 
 Il est possible d'utiliser les vues pour faire des formulaires, états, requetes mémorisés ...
 de la même manière que les tables sauf au niveau de la mise a jour (il faut paramétrer la vue de manière particulière)
 
 Il est possible d'utiliser dblink pour créer une vue dans une base externe. 
 
-Les vues ont été initiées dans la version 4.1.0. Elles peuvent être interne (dans une même base) ou externe en utilisant dblink. 
+Les vues ont été initiées dans la version 4.1.0.
 
 
 ===========
@@ -72,11 +73,9 @@ Problème à régler dans l'utilisation d une vue externe
 
 - il faut utiliser une sequence externe ou interne en insert 
 
-- il faut vérifier la cle secondaire dans la base d origine
+- il faut vérifier la cle secondaire dans la base ou schéma d'origine
 
-- dans qgis pour utiliser une vue :
-    - regarder la table 'geometry_columns'" ne soit pas cochée (option editer)
-    - modifier la clé primaire dans la liste des tables de connexion 
+
     
-- attention : la creation de vue non opérationnelle  fait dysfonctionner le generateur qui fait appel au catalogue de vue : select viewname from pg_views
+- attention : la creation de vue non opérationnelle fait dysfonctionner le générateur qui fait appel au catalogue de vue : select viewname from pg_views
 

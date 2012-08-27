@@ -28,7 +28,7 @@ En appuyant sur le bouton de courrier, vous avez les choix de génération
 
 
 Au préalable, le générateur fait une analyse de la base de données
-(le choix de paramétrage a été supprimé dans la version  4.2.0 - voir paramétrage framework) ::
+(le choix de paramétrage a été supprimé dans la version  4.2.0 - voir paramétrage generateur) ::
 
     Tables de la base de donnees
                 [ emetteur ] [ service ] et les tables om..

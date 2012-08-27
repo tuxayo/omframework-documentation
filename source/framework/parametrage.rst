@@ -459,13 +459,15 @@ exemple recuperation du numéro de la parcelle dans openfoncier  dossier ::
           include ("../dyn/var.inc");
        // parcelle         
        if($auto_parcelle==1){
-          $sql="select parcelle from ".DB_PREFIXE."parcelle  WHERE ST_contains(geom,  geometryfromtext('".$geom."', ".$projection."))";
+          $sql="select parcelle from ".DB_PREFIXE."parcelle  WHERE
+            ST_contains(geom,  geometryfromtext('".$geom."', ".$projection."))";
           $parcelle = $f->db -> getOne($sql);
           if($parcelle!=''){
-             $sql ="update ".DB_PREFIXE."dossier set parcelle = '".$parcelle."' where dossier = '".$idx."'";
+             $sql ="update ".DB_PREFIXE."dossier set parcelle = '".$parcelle."'
+                where dossier = '".$idx."'";
              $res1 =  $f->db -> query($sql);
              echo "<br>"._("parcelle")." ".$parcelle;
-             // Envoi des donnees dans le formulaire f1 si la fenetre est popup : A TESTER
+             // Envoi des donnees dans le formulaire f1 si la fenetre est popup
              if($popup==1){
                 echo "\n<script type=\"text/javascript\">\n";
                 echo "window.opener.fendata.document.f1.parcelle.value = '".$parcelle."';\n";

@@ -23,7 +23,7 @@ Les scripts complémentaires sont mis en répertoire app / et peuvent être cré
 
 - faire une recherche avec un affichage particulier
 
-Les scripts javascripts sont mis dans le fichier app/js/script.je
+Les scripts javascripts sont mis dans le fichier app/js/script.js
 
 Les images spécifiques sont stockées dans app/img
 
