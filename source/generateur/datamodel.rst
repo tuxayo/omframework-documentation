@@ -1,6 +1,6 @@
-===============================
-Définition du modèle de données
-===============================
+=================================
+Définition des modèles de données
+=================================
 
 Précision sur le vocabulaire utilisé sur cette page.
 
