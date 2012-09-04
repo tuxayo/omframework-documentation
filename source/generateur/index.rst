@@ -21,10 +21,10 @@ Nous vous proposons dans ce chapitre de décrire le générateur openMairie.
 .. toctree::
 
     presentation_generateur.rst
+    generable.rst
+    datamodel.rst
     ecran.rst
     analyse_base.rst
     fichier_genere.rst
     parametrage_generateur.rst
     vue.rst
- 
-
