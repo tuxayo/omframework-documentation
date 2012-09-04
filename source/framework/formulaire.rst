@@ -4,107 +4,178 @@
 Les formulaires
 ###############
 
-Les formulaires se construisent sur la base de la classe
-om_formulairedyn.class.php d'openMairie
+La gestion des formulaires se base sur deux classe :
+    - om_formulaire.class.php
+    - om_dbform.class.php
 
-Cette classe fait appel a des sous programmes generiques pour certains
+om_formulaire.class.php permet la gestion de l'affichage, om_dbform.class.php permet la gestion de la logique interne.
+
+La classe om_formulaire.class.php fait appel à des sous programmes génériques pour certains
 controles au travers de script js/script.js
 
-
+Les classes métier étendent de db_form.class.php, c'est donc dans ces classes que les formulaires seront préparés.
 
 ****************************************** 
-Les methodes de om_formulairedyn.class.php
+Les methodes de om_formulaire.class.php
 ******************************************
 
 La classe om_formulaire.class.php a les méthodes suivantes :
 
-Les méthodes sur les controles du formulaire ::
+Les méthodes sur les controles du formulaire
+--------------------------------------------
 
-    text : Controle text (format standart)
-    hidden : Controle non visible avec valeur conservée
-    password : Controle password
-    textdisabled : Controle text non modifiable
-    textreadonly : contrôle text non modifiable
-    hiddenstatic : Champ non modifiable  Valeur récupéré par le formulaire
-    hiddenstaticnum : champ numerique non modifiable et valeur récupérer
-    statiq : Valeur affichée et non modifiable
-    affichepdf : récupére un nom d'objet (un scan pdf)
-    
-    checkbox : controle case à cocher : cochée = Oui, Non cochée = Non
-    checkboxnum : cochée = 1 , non cochée = 0
-    
-    http : lien http avec target = _blank (affichage dans une autre fenêtre)
-    httpclick : lien avec affichage dans la même fenêtre.
-    
-    date et date2 : date modifiable  avec affichage de calendrier jquery
-    Hiddenstaticdate  date non modifiable Valeur récupéré par le formulaire
+Liste des types de champs :
 
-    textarea : affichage d un textarea
-    textareamulti : textarea qui récupére plusieurs valeurs d'un select
-    textareahiddenstatic : affichage non modifiable d'un textarea et recupération de la valeur
-    pagehtml : affichage d'un textarea et tranforme les retour charriot en <br>
-   
-    select : Controle select
-    selectdisabled : Controle select non modifiable
+    - text : controle text (format standard)
+    - hidden : controle non visible avec valeur conservée
+    - password : controle password
+    - textdisabled : controle text non modifiable
+    - textreadonly : contrôle text non modifiable
+    - hiddenstatic : champ non modifiable  Valeur récupéré par le formulaire
+    - hiddenstaticnum : champ numerique non modifiable et valeur récupérer
+    - statiq : Valeur affichée et non modifiable
+    - affichepdf : récupére un nom d'objet (un scan pdf)
 
-    comboG  et comboG2-> Appel à un programme de correspondance à une table
-               Cas ou il y a une grosse table en correspondance
-               spg/combo.php             
-    ComboD et comboD2 -> Appel à un programme de correspondance à une table
-               Cas ou il y a une grosse table en correspondance
-               spg/combo.php
-    
-    Upload et upload2 fait appel à spg/upload.php pout télécharger un fichier
-    voir et voir2 : fait appel à spg/voir.php pour visualiser un fichier
-    
-    localisation et localisation2 : fait appel à spg/localisation.php
-    rvb et rvb2 : fait appel à spg/rvb.php pour affichage de la palette couleur
+    - checkbox : controle case à cocher : cochée = Oui, Non cochée = Non
+    - checkboxstatic : affiche Oui/Non, non modifiable (mode consultation)
+    - checkboxnum : cochée = 1 , non cochée = 0
 
-    geom : ouvre une fenetre tab_sig.php pour visualiser ou saisir une geometrie (si maj)
-           la carte est définie en setSelect
-    
+    - http : lien http avec target = _blank (affichage dans une autre fenêtre)
+    - httpclick : lien avec affichage dans la même fenêtre.
+
+    - date et date2 : date modifiable avec affichage de calendrier jquery
+    - hiddenstaticdate : date non modifiable Valeur récupéré par le formulaire
+    - datestatic : affiche la date formatée, non modifiable (mode consultation)
+
+    - textarea : affichage d un textarea
+    - textareamulti : textarea qui récupére plusieurs valeurs d'un select
+    - textareahiddenstatic : affichage non modifiable d'un textarea et recupération de la valeur
+    - pagehtml : affichage d'un textarea et tranforme les retour charriot en <br>
+
+    - select : controle select
+    - selectdisabled : controle select non modifiable
+    - selectstatic : affiche la valeur de la table liée, non modifiable (mode consultation)
+    - selecthiddenstatic : affiche la valeur de la table liée, non modifiable ainsi que la valeur dans un champ hidden
+
+    - comboG et comboG2 : permet d'effectuer une correlation entre un groupe de champ et un identifiant
+    - comboD et comboD2 : permet d'effectuer une correlation entre un groupe de champ et un identifiant
+
+    - Upload et upload2 : fait appel à spg/upload.php pout télécharger un fichier
+    - voir et voir2 : fait appel à spg/voir.php pour visualiser un fichier
+
+    - localisation et localisation2 : fait appel à spg/localisation.php
+    - rvb et rvb2 : fait appel à spg/rvb.php pour affichage de la palette couleur
+
+    - geom : ouvre une fenetre tab_sig.php pour visualiser ou saisir une geometrie (selon l'action) la carte est définie en setSelect
+
     Les contrôle comboG, comboD, date, upload, voir et localisation sont à mettre dans
     les formulaires (retour de l'affichage dans le formulaire f1)
     Les contrôle comboG2, comboD2, date2, upload2, voir2 et localisation sont à mettre dans
-    les sous formulaires (retour de l'affichage dans le formulaire f2)  
+    les sous formulaires (retour de l'affichage dans le formulaire f2)
 
 
-Les  méthodes de construction et d affichage ::
+Les  méthodes de construction et d'affichage
+--------------------------------------------
 
+Le formulaire est constitué de div, fieldset et de champs les méthodes suivante permettent une mise en page structuré.
+    - entete() / enpied() : ouverture du conteneur du formulaire.
+    - afficher() : affichage des champs, appelle les méthodes suivante :
+        - :ref:`debutFieldset() / finFieldset()<setLayout>` : ouverture / fermeture de fieldset.
+        - :ref:`debutBloc() / finBloc()<setLayout>` : ouvereture / fermeture de div.
+        - afficherChamp() : affichage de champ.
+    - recupererPostvarsousform() et recuperePostVar():
+      recupèrent des variables apres validation
 
-    afficher() affichage des champs (appelle par om_dbformdyn.class.php : methode formulaire
-            -> afficherChampRegroupe() affichage des champs par regroupement / groupement
-            -> afficherChamp() affichage de champ sans regroupe
-    recupererPostvarsousform() et recuperePostVar():
-                    recupèrent des variables apres validation
-    enpied() presentation
+    Depuis la version 4.3.0 :
+    - transformGroupAndRegroupeToLayout() permet de garder la compatibilité des méthodes setGroupe() et setRegroupe() avec setLayout() (obsolètes depuis la version 4.3.0).
 
-Les méthodes assesseurs changent les valeurs des proprietes de l'objet form (formulaire) ::
+.. _méthodes-assesseurs:
 
-    setType()
-    setVal()
-    setLib()
-    setSelect()
-    setTaille()
-    setMax()
-    setOnchange()
-    setKeyup()
-    setOnclick()
-    setSelect()
-    setGroupe()
-        D premier champ du groupe
-        G champ groupe
-        F dernier champ du groupe
-    setRegroupe()
-        D premier champ du fieldset
-        G champ dans le fieldset
-        F dernier champ du fieldset
+Les méthodes assesseurs changent les valeurs des proprietes de l'objet form (formulaire)
+----------------------------------------------------------------------------------------
 
- 
-et enfin les méthodes de date ::
+Ces méthode sont appelées depuis les classes métier.
 
-   dateAff($val)
+    - setType() : type de champ
+    - setVal() : valeur du champ
+    - setLib() : libellé du champ
+    - setSelect() : permet de remplir les champs select avec la table liée
+    - setTaille() : taille du champ
+    - setMax() : nombre de caractères maximum acceptés
+    - setOnchange() : permet de définir des actions sur l'événement
+    - setKeyup() : permet de définir des actions sur l'événement
+    - setOnclick() : permet de définir des actions sur l'événement
+    - setvalF() : permet de traiter les données avant insert/update dans la base de données
+    - setGroupe() (obsolète depuis 4.3.0)
+        - D premier champ du groupe
+        - G champ groupe
+        - F dernier champ du groupe
+    - setRegroupe() (obsolète depuis 4.3.0)
+        - D premier champ du fieldset
+        - G champ dans le fieldset
+        - F dernier champ du fieldset
 
+.. _setLayout:
+
+    - setLayout(), méthode de mise en page de la classe om_db_form.class.php, permet de gérer la hierarchie d'ouverture et fermeture des balises div et fieldset avec les méthodes :
+        - setBloc($champ, $contenu, $libelle = '', $style = '') \: permet d'ouvrir/fermer ($contenu=D/F) une balise div sur un champ ($champ), avec un libellé ($libelle) et un attribut class ($style).
+            - une liste de classes css pour fieldset est disponible :
+                - group : permet une mise en ligne des champs contenu dans le div
+                - col_1 à col_12 : permet une mise en page simplifiée, par exemple : "col_1" permet de définir une taille dynamique de 1/12ème de la page , col_6 correspond à 6/12 soit 50% de l'espace disponible.
+        - setFieldset($champ, $contenu, $libelle = '', $style = '') \: permet d'ouvrir/fermer ($contenu=D/F) un  fieldset sur un champ ($champ), avec une legende ($libelle) et un attribut class ($style).
+            - une liste de classes css pour fieldset est disponible :
+                - collapsible : ajoute un bouton sur la legende (jQuery) afin de refermer le fieldset.
+                - startClosed : idem à la difference que le fieldset est fermé au chargement de la page.
+        - exemple d'implémentation de la méthode setLayout() afin d'obtenir le même affichage sans utiliser les méthodes setGroupe() et setRegroupe() : ::
+
+            function setLayout(&$form, $maj) {
+                //Ouverture d'un fieldset
+                $form->setFieldset('om_collectivite','D',_('om_collectivite'), "collapsible");
+                    //Ouverture d'un div les champs compris entre "om_collectivite" et "actif"
+                    //la classe group peremet d'afficher les champs en ligne
+                    $form->setBloc('om_collectivite','D',"","group");
+                    //Fermeture du groupe
+                    $form->setBloc('actif','F');
+                //Fermeture du fieldset
+                $form->setFieldset('actif','F','');
+
+                $form->setFieldset('orientation', 'D', _("Parametres generaux du document"), "startClosed");
+                    $form->setBloc('orientation','D',"","group");
+                    $form->setBloc('format','F');
+
+                    $form->setBloc('footerfont','D',"","group");
+                    $form->setBloc('footertaille','F');
+
+                    $form->setBloc('logo','D',"","group");
+                    $form->setBloc('logotop','F');
+                $form->setFieldset('logotop','F','');
+
+                $form->setFieldset('titreleft','D',_("Parametres du titre du document"), "startClosed");
+                    $form->setBloc('titreleft','D',"","group");
+                    $form->setBloc('titrehauteur','F');
+
+                    $form->setBloc('titrefont','D',"","group");
+                    $form->setBloc('titrealign','F');
+                $form->setFieldset('titrealign','F','');
+
+                $form->setFieldset('corpsleft','D',_("Parametres du corps du document"), "startClosed");
+                    $form->setBloc('corpsleft','D',"","group");
+                    $form->setBloc('corpshauteur','F');
+
+                    $form->setBloc('corpsfont','D',"","group");
+                    $form->setBloc('corpsalign','F');
+                $form->setFieldset('corpsalign','F','');
+
+                $form->setFieldset('om_sousetat','D', _("Sous etat(s) : selection"), "startClosed");
+                    $form->setBloc('om_sousetat','D',"","group");
+                    $form->setBloc('sousetat','F');
+                $form->setFieldset('sousetat','F', '');
+
+                $form->setFieldset('se_font','D', _("Sous etat(s) : police / marges / couleur"), "startClosed");
+                    $form->setBloc('se_font','D',"","group");
+                    $form->setBloc('se_couleurtexte','F');
+                $form->setFieldset('se_couleurtexte','F','');
+            }
 
 
 ==============================
@@ -121,13 +192,11 @@ Les sous programmes génériques sont stockés dans le répertoire /spg.
 **spg/combo.php**
 
 
-Ce programme est appellé par le contrôle comboD, comboG, comboD2, comboG2
+Ce programme est appellé par le contrôle comboD, comboG, comboD2, comboG2, le paramétrage se fait dans les fichiers :
 
-  le paramétrage se fait dans les fichiers ::
-
-       dyn/comboparametre.inc.php
-       dyn/comboretour.inc.php
-       dyn/comboaffichage.inc.php
+    - dyn/comboparametre.inc.php
+    - dyn/comboretour.inc.php
+    - dyn/comboaffichage.inc.php
 
 
 **spg/localisation.php** et js/localisation.js
