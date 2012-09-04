@@ -47,9 +47,6 @@ Le chapître consacré a l' "information geographique" décrit dans le détail l
 fonctionnement SIG interne d'openMairie combinant les API d'internet avec le framework.
 (La version 4.2.0 améliore l'interface avec l'intégration de web service)
 
-Le chapître sur les widgets décrit le tableau de bord paramétrable et individualisé
-par l'utilisateur  permettant l'accès à tout type de fonctions internes ou externes.
-
 Enfin ce document rassemble toutes les règles de codage du projet
 openMairie, ainsi que des outils pour aider et guider les développeurs de la
 communauté.
@@ -69,63 +66,53 @@ California 94105, USA.
 
 
    
-Créer une application
-=====================
+Tutoriel - Créer une application
+================================
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 5
 
    utilisation/index.rst
-
 
 Le framework
 ============
 
 .. toctree::
+   :maxdepth: 5
 
-    framework/index.rst
-
-
+   framework/index.rst
 
 Le générateur
 =============
 
 .. toctree::
+   :maxdepth: 5
 
-    generateur/index.rst
+   generateur/index.rst
 
-
-L'information geographique
+L'information géographique
 ==========================
 
 .. toctree::
+   :maxdepth: 5
 
-    sig/index.rst
-    
-
-Le tableau de bord et les widgets
-=================================
-
-.. toctree::
-
-    tdb/index.rst
-
-
+   sig/index.rst
 
 Règles et outils
 ================
 
 .. toctree::
-
+   :maxdepth: 5
+   
    regles/index.rst
    versions/index.rst
    outils/index.rst
 
 
 
-
 Contributeurs
 =============
 
-* `Florent Michon [ATREAL] <fmichon@atreal.net>`_
+* `atReal <contact@atreal.fr>`_
+* `Florent Michon <fmichon@atreal.fr>`_
 * `Francois Raynaud <contact@openmairie.org>`_

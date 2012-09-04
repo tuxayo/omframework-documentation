@@ -1,8 +1,8 @@
 .. _presentation_generateur:
 
-############
-Présentation
-############
+########################
+Présentation & principes
+########################
 
 
 

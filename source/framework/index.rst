@@ -1,5 +1,8 @@
-.. _index:
+.. _framework:
 
+############
+Le framework
+############
 
 
 openMairie_exemple est le framework de base dans lequel vous pouvez
@@ -36,7 +39,7 @@ formulaire (longueur, max, nom).
 
 - om_dbformdyn.class.php ; assure la liaison entre le formulaire et la base de données
 
-- om_formulairedyn.class.php : rassemble toutes les méthodes permettant de construire des formulaires ::
+- om_formulairedyn.class.php : rassemble toutes les méthodes permettant de construire des formulaires
 
     
 En introduction, il est proposé une explication de la hiérarchie des répertoires ::
@@ -123,6 +126,7 @@ Ce chapître propose de vous décrire les outils de base du framework de la mani
     edition.rst
     reqmo.rst
     acces.rst
+    tdb.rst
     ergonomie.rst
     utilitaire.rst
     import.rst

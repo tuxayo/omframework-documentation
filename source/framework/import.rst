@@ -4,15 +4,14 @@
 Importer des données en csv
 ###########################
 
-Il est possible d'importer des données suivant des scripts pré paramétrées mais qui sont
-modifiables.
-
-Pour lancer le menu import, prenez l'option : administration -> import
+Il est possible d'importer des données suivant des scripts pré-paramétrés mais
+qui sont modifiables. Pour lancer le menu import, prenez l'option :
+*administration -> import*.
 
 import_script.php permet les imports dans la base de donnees de fichier au
-format csv telecharge ::
+format csv telecharge 
 
-Exemple de format de fichier à importer (utilisateur.txt)::
+Exemple de format de fichier à importer (utilisateur.txt): ::
 
     nom,login,pwd,profil
     "Georges DANDIN";"Georges";"21232f297a57a5a743894a0e4a801fc3";"3"
