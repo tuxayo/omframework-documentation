@@ -19,7 +19,7 @@ représentent.
 **Objet**
 
 Le mot objet fait référence aux instances des classes d'openMairie et, par
-extention, aux enregistrements en base de données qui les représentent.
+extension, aux enregistrements en base de données qui les représentent.
 
 L'identifiant
 =============
