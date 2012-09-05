@@ -1,4 +1,4 @@
-.. _presentation_generateur:
+.. _gen-introduction:
 
 ============
 Introduction
