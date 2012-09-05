@@ -1,8 +1,8 @@
 .. _ecran:
 
-########################
-Les écrans du générateur
-########################
+===========
+L'interface
+===========
 
 
 Le menu generateur est le suivant :
@@ -22,9 +22,8 @@ on accède à l'écran de génération qui se décompose en :
 
 .. image:: ../_static/ecran_2.png
 
-******************
 Analyse de la base
-******************
+==================
 
 Le programme propose une analyse de la base en cours :
 
@@ -43,9 +42,8 @@ Le programme propose une analyse de la base en cours :
 
 A partir de la version 4.2.0, il n y a plus de choix de paramétrage dans l'écran.
 
-**********************
-Les fichiers à generer
-**********************
+Les fichiers à générer
+======================
 
 Il est proposé une liste de case à cocher :
 

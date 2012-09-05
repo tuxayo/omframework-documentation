@@ -1,13 +1,10 @@
 .. _presentation_generateur:
 
-########################
-Présentation & principes
-########################
-
-
+============
+Introduction
+============
 
 **L'objectif est de construire une application sur la base de l'analyse des informations  du SGBD**
-
 
 Les informations récupérées dans le SGBD sont les suivantes ::
 
@@ -27,14 +24,9 @@ Le générateur construit sur cette base le modèle de données sur les principe
      avec la multicollectivité, la création d'un champ « om_collectivite »
      met en place les accès multicollectivités d'openMairie 4
 
-
-
 **Les assistants vont faciliter la mise en oeuvre des états**
 
-
 Il est fourni avec le générateur un assistant pour faire les états et les sous états.
-
-
 
 **openMairie est multi collectivité** : les états et les sous états sont générés dans la base de données et peuvent être associé a une collectivité.
 
