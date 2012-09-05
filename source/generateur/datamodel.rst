@@ -25,7 +25,7 @@ L'identifiant
 =============
 
 Chaque modèle de données doit avoir un champ destiné à contenir l'identifiant
-des objets. Sans ce champ, il n'est pas possible de créer le modèle.
+des objets. Sans ce champ, il n'est pas possible de créer un modèle.
 
 Définition de l'identifiant
 ---------------------------
@@ -107,8 +107,8 @@ Affichage dans les formulaires
 **Comment ces champs sont représentés dans les formulaires?**
 
 Depuis le formulaire de l'objet faisant référence, ces champs sont représentés
-par des balise HTML ``<select>``. L'ensemble des objets pouvant être référencés
-sont listés sous la forme d'option.
+par des balises HTML ``<select>``. L'ensemble des objets pouvant être référencés
+sont listés sous la forme d'options.
 
 Depuis le formulaire de l'objet référencé, un onglet apparaît pour chaque
 modèle différent faisant référence à cet objet. Chaque onglet liste l'ensemble
@@ -129,15 +129,15 @@ Définition des champs uniques
 -----------------------------
 
 Il suffit de définir une contrainte SQL ``UNIQUE`` sur une colonne ou un groupe
-de colonne pour créer respectivement un ou plusieurs champs uniques.
+de colonnes pour créer respectivement un ou plusieurs champs uniques.
 
 Fonctionnement interne du générateur
 ------------------------------------
 
 **Comment ces champs sont déterminés lors de la génération d'un modèle?**
 
-L'abstracteur de base de données d'openMairie peut, en analysant une table
-donnée, récupérer la liste de ses colonnes uniques.
+L'abstracteur de base de données d'openMairie peut, en analysant une table,
+récupérer la liste de ses colonnes uniques.
 
 Affichage dans les formulaires
 ------------------------------
@@ -171,6 +171,11 @@ une colonne pour créer un champ requis.
 
 Fonctionnement interne du générateur
 ------------------------------------
+
+**Comment ces champs sont déterminés lors de la génération d'un modèle?**
+
+L'abstracteur de base de données d'openMairie peut, en analysant une table,
+récupérer la liste de ses colonnes requises n'ayant pas de valeur par défaut.
 
 Affichage dans les formulaires
 ------------------------------
