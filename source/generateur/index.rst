@@ -7,7 +7,7 @@ Le générateur
 .. toctree::
    :numbered:
 
-   presentation_generateur.rst
+   introduction.rst
    ecran.rst
    generable.rst
    datamodel.rst
