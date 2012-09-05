@@ -31,8 +31,9 @@ Définition de l'identifiant
 ---------------------------
 
 Il suffit de définir une colonne de la table représentant le modèle comme clé
-primaire créer un champ identifiant. Il sera ensuite automatiquement géré par
-openMairie lors de l'ajout, la modification et la suppression d'enregistrements.
+primaire opur créer un champ identifiant. Il sera ensuite automatiquement géré
+par openMairie lors de l'ajout, la modification et la suppression
+d'enregistrements.
 
 Fonctionnement interne du générateur
 ------------------------------------
