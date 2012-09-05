@@ -121,9 +121,14 @@ Un modèle de données peut contenir un ou plusieurs champs uniques. Il n'est
 pas possible pour plusieurs objets d'un même modèle d'avoir la même valeur
 pour ce champ.
 
-Un modèle de données peut également contenir, au plus, un groupe de champs
-unique. Cette fois, c'est la combinaison des valeurs de ces champs qui ne
+Un modèle de données généré peut également contenir, au plus, un groupe de
+champs unique. Cette fois, c'est la combinaison des valeurs de ces champs qui ne
 pourra exister qu'une seule fois.
+
+.. important::
+   Actuellement **le générateur ne peut pas gérer plus d'un groupe de champs
+   uniques** à la fois. S'il existe plusieurs groupes, ils devront être gérés
+   manuellement par le développeur dans les fichiers de surcharge.
 
 Définition des champs uniques
 -----------------------------
