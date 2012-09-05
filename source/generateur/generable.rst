@@ -8,10 +8,10 @@ Contraintes de la base de données
 Pour qu'un modèle de données puisse être généré, il faut que la table de base
 de donneés qui le représente remplisse les conditions suivantes:
 
-- La table doit avoir une clé primaire composée d'une seule colonne, ou une
-  colonne portant le même nom que la table.
+- la table doit avoir une clé primaire composée d'une seule colonne, ou une
+  colonne portant le même nom que la table;
 
-- Les clés étrangères doivent référencer des tables remplissant la condition
+- les clés étrangères doivent référencer des tables remplissant la condition
   ci-dessus.
 
 Si l'une de ces conditions n'est pas satisfaite, l'interface génération affiche
