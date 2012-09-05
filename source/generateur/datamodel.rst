@@ -126,8 +126,8 @@ Un modèle de données peut également contenir, au plus, un groupe de champs
 unique. Cette fois, c'est la combinaison des valeurs de ces champs qui ne
 pourra exister qu'une seule fois.
 
-Définition de champ unique
---------------------------
+Définition des champs uniques
+-----------------------------
 
 Il suffit de définir une contrainte SQL ``UNIQUE`` sur une colonne ou un groupe
 de colonne pour créer respectivement un ou plusieurs champs uniques.
@@ -140,11 +140,25 @@ Fonctionnement interne du générateur
 L'abstracteur de base de données d'openMairie peut, en analysant une table
 donnée, récupérer la liste de ses colonnes uniques.
 
+Affichage dans les formulaires
+------------------------------
+
+**Comment ces champs sont représentés dans les formulaires?**
+
+Ces champs sont affichés indifféremment des champs sans contrainte.
+
+Lors de la validation d'un formulaire, une verification est faite pour chaque
+champ unique, ainsi que pour un éventuel groupe de champs uniques. Si une valeur
+(ou combinaison) est déjà présente dans la base de données, un message d'erreur
+est affiché, et la base de données n'est pas modifiée.
+
 Les champs requis
 =================
 
-Définition des références
--------------------------
+Un modèle de données peut contenir un ou plusieurs champs requis.
+
+Définition des champs requis
+----------------------------
 
 Fonctionnement interne du générateur
 ------------------------------------
