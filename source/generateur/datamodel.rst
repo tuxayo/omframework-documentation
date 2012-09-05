@@ -2,25 +2,6 @@
 Définition des modèles de données
 =================================
 
-Précision sur le vocabulaire utilisé sur cette page.
-
-**Modèle de données**
-
-    *« En informatique, un modèle de données est un modèle qui décrit de façon
-    abstraite comment sont représentées les données dans une organisation
-    métier, un système d'information ou une base de données. »*
-
-\- cf. Wikipédia, Article `Modèle de données <http://fr.wikipedia.org/wiki/Mod%C3%A8le_de_donn%C3%A9es>`_.
-
-Dans la documentation suivante, le terme modèle de données est utilisé pour
-désigner les classes métier d'openMairie ainsi que les formulaires qu'elles
-représentent.
-
-**Objet**
-
-Le mot objet fait référence aux instances des classes d'openMairie et, par
-extension, aux enregistrements en base de données qui les représentent.
-
 L'identifiant
 =============
 
