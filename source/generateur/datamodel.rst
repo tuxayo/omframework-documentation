@@ -30,10 +30,9 @@ des objets. Sans ce champ, il n'est pas possible de créer le modèle.
 Définition de l'identifiant
 ---------------------------
 
-Il suffit de définir une colonne de la table représentant le modèle comme clé
-primaire opur créer un champ identifiant. Il sera ensuite automatiquement géré
-par openMairie lors de l'ajout, la modification et la suppression
-d'enregistrements.
+Il suffit d'ajouter la contrainte ``PRIMARY KEY`` à une colonne d'une table pour
+créer un champ identifiant. Il sera ensuite automatiquement géré par openMairie
+lors de l'ajout, la modification et la suppression d'enregistrements.
 
 Fonctionnement interne du générateur
 ------------------------------------
@@ -159,6 +158,16 @@ Un modèle de données peut contenir un ou plusieurs champs requis.
 
 Définition des champs requis
 ----------------------------
+
+Il suffit de définir une contrainte SQL ``NOT NULL`` sans clause ``DEFAULT`` sur
+une colonne pour créer un champ requis.
+
+.. attention::
+   En ajoutant une clause ``DEFAULT`` a une contrainte ``NOT NULL`` nous
+   indiquons clairement au générateur que **le champ n'est pas requis!** La
+   valeur par défaut permet à l'utilisateur de laisser le champ vide lors d'une
+   validation de formulaire. Le SGBD se charge alors d'ajouter lui même cette
+   valeur.
 
 Fonctionnement interne du générateur
 ------------------------------------
