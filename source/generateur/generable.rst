@@ -34,7 +34,7 @@ de donneés qui le représente remplisse les conditions suivantes:
   ci-dessus.
 
 Si l'une de ces conditions n'est pas satisfaite, l'interface génération affiche
-une erreur. Cette interface sera vu en détail plus loin.
+une erreur.
 
 Contraintes du système de fichiers
 ==================================
