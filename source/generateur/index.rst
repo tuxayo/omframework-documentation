@@ -1,9 +1,5 @@
 .. _generateur:
 
-#############
-Le générateur
-#############
-
 .. toctree::
    :numbered:
 
