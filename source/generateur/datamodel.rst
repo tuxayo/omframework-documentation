@@ -99,13 +99,35 @@ des champs références. Pour créer cette liste, il suit la procédure suivante
 - dans un second temps, indifféremment du SGBD, il ajoute a la liste des
   clés étrangères le nom des colonnes portant le même nom que d'autres tables.
 
-La liste ainsi formée servira 
+La liste ainsi formée permettra au générateur de créer des champs de type
+référence dans les modèles de données.
+
+**Comment ces champs sont représentés dans les formulaires?**
+
+Depuis le formulaire de l'objet faisant référence, ces champs sont représentés
+par des balise HTML ``<select>``. L'ensemble des objets pouvant être référencés
+sont listés sous la forme d'option.
+
+Depuis le formulaire de l'objet référencé, un onglet apparaît pour chaque
+modèle différent faisant référence à cet objet. Chaque onglet liste l'ensemble
+des objets faisant référence à l'objet présenté en formulaire.
 
 Les champs uniques
 ==================
 
-Définition des références
--------------------------
+Un modèle de données peut contenir un ou plusieurs champs uniques. Il n'est
+pas possible pour plusieurs objets d'un même modèle d'avoir la même valeur
+pour ce champ.
+
+Un modèle de données peut également contenir, au plus, un groupe de champs
+unique. Cette fois, c'est la combinaison des valeurs de ces champs qui ne
+pourra exister qu'une seule fois.
+
+Définition de champ unique
+--------------------------
+
+Il suffit de définir une contrainte SQL ``UNIQUE`` sur une colonne ou un groupe
+de colonne pour créer respectivement un ou plusieurs champs uniques.
 
 Fonctionnement interne du générateur
 ------------------------------------
