@@ -5,12 +5,23 @@ Afficher les tables
 ###################
 
 Il est décrit dans ce paragraphe l'affichage de requete sous forme de table
-pour faire un choix d'ajout, de mise à jour ou de suppression.
-
+pour faire un choix d'actions.
 
 
 .. image:: ../_static/tab_1.png
+   :height: 400
+   :width: 800
 
+
+=====================
+Le script scr/tab.php
+=====================
+
+L'affichage se fait à partir du menu (voir *framework/parametrage*) sous la forme ::
+
+    tab.php?obj=om_parametre
+    
+    où obj = nom_d_objet
 
 ==========================
 La requete SQL d'affichage
@@ -54,16 +65,6 @@ Les paramétres sont les suivants pour om_parametre.inc ::
                         'om_utilisateur');
                     
                     
-
-=====================
-Le script scr/tab.php
-=====================
-
-L'affichage se fait à partir du menu (voir *framework/parametrage*) sous la forme ::
-
-    tab.php?obj=om_parametre
-    
-    où obj = nom_d_objet
 
 
 

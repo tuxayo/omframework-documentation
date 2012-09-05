@@ -4,116 +4,327 @@
 Les formulaires
 ###############
 
-La gestion des formulaires se base sur deux classe :
-    - om_formulaire.class.php
-    - om_dbform.class.php
+La gestion des formulaires se base sur deux classes :
+    - core/om_formulaire.class.php
+    - core/om_dbform.class.php
 
 om_formulaire.class.php permet la gestion de l'affichage, om_dbform.class.php permet la gestion de la logique interne.
 
 La classe om_formulaire.class.php fait appel à des sous programmes génériques pour certains
 controles au travers de script js/script.js
 
-Les classes métier étendent de db_form.class.php, c'est donc dans ces classes que les formulaires seront préparés.
+Les classes métier étendent de db_form.class.php, c'est donc dans ces classes que les formulaires seront préparés via l'appel aux méthodes présentes dans la classe om_formulaire.
 
-****************************************** 
+Pour chaque formulaire de classe créer, le script sql/DBTYPE/[classe].form.inc.php correspondant est appelé. Il permet de stocker le detail des requètes necessaires à l'affichage du contenu du formulaire.
+
+Les formulaires sont construits lors de l'appel aux scripts scr/form.php et scr/sousform.php. En fonction des paramètres passés à l'url, un formulaire de la classe métier correspondante sera créé.
+
+********************************
+Scripts form.php et sousform.php
+********************************
+
+L'appel à ce script peut se faire depuis un :ref:`tableau d'éléments<affichage>` ou depuis la :ref:`consultation d'un élément<action-consultation>`.
+
+Liste des paramètres passés à l'url :
+    - obj : nom de la classe pour laquelle on souhaite afficher le formulaire
+    - action : type d'action (ajout, modification, suppression, consultation)
+    - idx : identifiant (dans la base de données) de l'élément sur lequel on souhaite effectuer l'action (sauf en ajout)
+    - retour : deux valeurs possible tab ou form selon l'origine de l'action
+
+Les autres paramètres passés permettent de conserver la configuration du tableau d'origine.
+
+*************************************** 
 Les methodes de om_formulaire.class.php
-******************************************
+***************************************
 
-La classe om_formulaire.class.php a les méthodes suivantes :
+.. class:: formulaire($unused = NULL, $validation, $maj, $champs = array(), $val = array(), $max = array())
 
-Les méthodes sur les controles du formulaire
---------------------------------------------
+   La classe om_formulaire.class.php a les méthodes suivantes :
 
 Liste des types de champs :
 
-    - text : controle text (format standard)
-    - hidden : controle non visible avec valeur conservée
-    - password : controle password
-    - textdisabled : controle text non modifiable
-    - textreadonly : contrôle text non modifiable
-    - hiddenstatic : champ non modifiable  Valeur récupéré par le formulaire
-    - hiddenstaticnum : champ numerique non modifiable et valeur récupérer
-    - statiq : Valeur affichée et non modifiable
-    - affichepdf : récupére un nom d'objet (un scan pdf)
+    .. method:: formulaire.text()
 
-    - checkbox : controle case à cocher : cochée = Oui, Non cochée = Non
-    - checkboxstatic : affiche Oui/Non, non modifiable (mode consultation)
-    - checkboxnum : cochée = 1 , non cochée = 0
+       controle text (format standard)
 
-    - http : lien http avec target = _blank (affichage dans une autre fenêtre)
-    - httpclick : lien avec affichage dans la même fenêtre.
+    .. method:: formulaire.hidden()
 
-    - date et date2 : date modifiable avec affichage de calendrier jquery
-    - hiddenstaticdate : date non modifiable Valeur récupéré par le formulaire
-    - datestatic : affiche la date formatée, non modifiable (mode consultation)
+       controle non visible avec valeur conservée
 
-    - textarea : affichage d un textarea
-    - textareamulti : textarea qui récupére plusieurs valeurs d'un select
-    - textareahiddenstatic : affichage non modifiable d'un textarea et recupération de la valeur
-    - pagehtml : affichage d'un textarea et tranforme les retour charriot en <br>
+    .. method:: formulaire.password()
 
-    - select : controle select
-    - selectdisabled : controle select non modifiable
-    - selectstatic : affiche la valeur de la table liée, non modifiable (mode consultation)
-    - selecthiddenstatic : affiche la valeur de la table liée, non modifiable ainsi que la valeur dans un champ hidden
+       controle password
 
-    - comboG et comboG2 : permet d'effectuer une correlation entre un groupe de champ et un identifiant
-    - comboD et comboD2 : permet d'effectuer une correlation entre un groupe de champ et un identifiant
+    .. method:: formulaire.textdisabled()
 
-    - Upload et upload2 : fait appel à spg/upload.php pout télécharger un fichier
-    - voir et voir2 : fait appel à spg/voir.php pour visualiser un fichier
+       controle text non modifiable
 
-    - localisation et localisation2 : fait appel à spg/localisation.php
-    - rvb et rvb2 : fait appel à spg/rvb.php pour affichage de la palette couleur
+    .. method:: formulaire.textreadonly()
 
-    - geom : ouvre une fenetre tab_sig.php pour visualiser ou saisir une geometrie (selon l'action) la carte est définie en setSelect
+       contrôle text non modifiable
 
-    Les contrôle comboG, comboD, date, upload, voir et localisation sont à mettre dans
-    les formulaires (retour de l'affichage dans le formulaire f1)
-    Les contrôle comboG2, comboD2, date2, upload2, voir2 et localisation sont à mettre dans
-    les sous formulaires (retour de l'affichage dans le formulaire f2)
+    .. method:: formulaire.hiddenstatic()
+
+       champ non modifiable  Valeur récupéré par le formulaire
+
+    .. method:: formulaire.hiddenstaticnum()
+
+       champ numerique non modifiable et valeur récupérer
+
+    .. method:: formulaire.statiq()
+
+       Valeur affichée et non modifiable
+
+    .. method:: formulaire.affichepdf()
+
+       récupére un nom d'objet (un scan pdf)
+
+
+    .. method:: formulaire.checkbox()
+
+       controle case à cocher valeurs possibles : ``True`` ou ``False``
+
+    .. method:: formulaire.checkboxstatic()
+
+       affiche Oui/Non, non modifiable (mode consultation)
+
+    .. method:: formulaire.checkboxnum()
+
+       cochée = 1 , non cochée = 0
+
+
+    .. method:: formulaire.http()
+
+       lien http avec target = _blank (affichage dans une autre fenêtre)
+
+    .. method:: formulaire.httpclick()
+
+       lien avec affichage dans la même fenêtre.
+
+
+    .. method:: formulaire.date()
+
+       date modifiable avec affichage de calendrier jquery
+
+    .. method:: formulaire.date2()
+
+       date modifiable avec affichage de calendrier jquery pour les sous formulaire
+
+    .. method:: formulaire.hiddenstaticdate()
+
+       date non modifiable Valeur récupéré par le formulaire
+
+    .. method:: formulaire.datestatic()
+
+       affiche la date formatée, non modifiable (mode consultation)
+
+    .. method:: formulaire.textarea()
+
+       affichage d un textarea
+
+    .. method:: formulaire.textareamulti()
+
+       textarea qui récupére plusieurs valeurs d'un select
+
+    .. method:: formulaire.textareahiddenstatic()
+
+       affichage non modifiable d'un textarea et recupération de la valeur
+
+    .. method:: formulaire.pagehtml()
+
+       affichage d'un textarea et tranforme les retour charriot en <br>
+
+    .. method:: formulaire.select()
+
+       controle select
+
+    .. method:: formulaire.selectdisabled()
+
+       controle select non modifiable
+
+    .. method:: formulaire.selectstatic()
+
+       affiche la valeur de la table liée, non modifiable (mode consultation)
+
+    .. method:: formulaire.selecthiddenstatic()
+
+       affiche la valeur de la table liée, non modifiable ainsi que la valeur dans un champ hidden
+
+    .. method:: formulaire.comboG()
+
+       permet d'effectuer une correlation entre un groupe de champ et un identifiant dans les formulaires
+
+    .. method:: formulaire.comboG2()
+
+       permet d'effectuer une correlation entre un groupe de champ et un identifiant dans les sous formulaires
+
+    .. method:: formulaire.comboD()
+
+       permet d'effectuer une correlation entre un groupe de champ et un identifiant dans les formulaires
+
+    .. method:: formulaire.comboD2()
+
+       permet d'effectuer une correlation entre un groupe de champ et un identifiant dans les sous formulaires
+
+    .. method:: formulaire.upload()
+
+       fait appel à spg/upload.php pour télécharger un fichier
+
+    .. method:: formulaire.upload2()
+
+       fait appel à spg/upload.php pour télécharger un fichier dans un sous formulaire
+
+    .. method:: formulaire.voir()
+
+       fait appel à spg/voir.php pour visualiser un fichier
+
+    .. method:: formulaire.voir2()
+
+       fait appel à spg/voir.php pour visualiser un fichier depuis un sous formulaire
+
+    .. method:: formulaire.localisation()
+
+       fait appel à spg/localisation.php
+
+    .. method:: formulaire.localisation2()
+
+       fait appel à spg/localisation.php
+
+    .. method:: formulaire.rvb()
+
+       fait appel à spg/rvb.php pour affichage de la palette couleur
+
+    .. method:: formulaire.rvb2()
+
+       fait appel à spg/rvb.php pour affichage de la palette couleur
+
+    .. method:: formulaire.geom()
+
+       ouvre une fenetre tab_sig.php pour visualiser ou saisir une geometrie (selon l'action) la carte est définie en setSelect
+
+Les contrôle comboG, comboD, date, upload, voir et localisation sont à mettre dans
+les formulaires (retour de l'affichage dans le formulaire f1)
+Les contrôle comboG2, comboD2, date2, upload2, voir2 et localisation sont à mettre dans
+les sous formulaires (retour de l'affichage dans le formulaire f2)
+
 
 
 Les  méthodes de construction et d'affichage
 --------------------------------------------
 
 Le formulaire est constitué de div, fieldset et de champs les méthodes suivante permettent une mise en page structuré.
-    - entete() / enpied() : ouverture du conteneur du formulaire.
-    - afficher() : affichage des champs, appelle les méthodes suivante :
-        - :ref:`debutFieldset() / finFieldset()<setLayout>` : ouverture / fermeture de fieldset.
-        - :ref:`debutBloc() / finBloc()<setLayout>` : ouvereture / fermeture de div.
-        - afficherChamp() : affichage de champ.
-    - recupererPostvarsousform() et recuperePostVar():
-      recupèrent des variables apres validation
 
-    Depuis la version 4.3.0 :
-    - transformGroupAndRegroupeToLayout() permet de garder la compatibilité des méthodes setGroupe() et setRegroupe() avec setLayout() (obsolètes depuis la version 4.3.0).
+    .. method:: formulaire.entete() / enpied()
+
+       ouverture du conteneur du formulaire.
+
+    .. method:: formulaire.afficher()
+
+       affichage des champs, appelle les méthodes suivante :
+
+    .. method:: formulaire.debutFieldset()
+
+       ouverture de fieldset.
+
+    .. method:: formulaire.finFieldset()
+
+       fermeture de fieldset
+
+    .. method:: formulaire.debutBloc()
+
+      ouverture de div.
+
+    .. method:: formulaire.finBloc()
+
+      fermeture de div.
+
+    .. method:: formulaire.afficherChamp()
+
+       affichage de champ.
+
+    .. method:: formulaire.recuperePostVar()
+
+       recupèrent des variables apres validation d'un formulaire
+
+    .. method:: formulaire.recupererPostvarsousform()
+
+       recupèrent des variables apres validation d'un sous formulaire
+
+Depuis la version 4.3.0 :
+
+    .. method:: formulaire.transformGroupAndRegroupeToLayout()
+
+       permet de garder la compatibilité des méthodes setGroupe() et setRegroupe() avec setLayout() (obsolètes depuis la version 4.3.0).
 
 .. _méthodes-assesseurs:
 
-Les méthodes assesseurs changent les valeurs des proprietes de l'objet form (formulaire)
-----------------------------------------------------------------------------------------
+Les méthodes assesseurs changent les valeurs des attributs de l'objet formulaire
+--------------------------------------------------------------------------------
 
 Ces méthode sont appelées depuis les classes métier.
 
-    - setType() : type de champ
-    - setVal() : valeur du champ
-    - setLib() : libellé du champ
-    - setSelect() : permet de remplir les champs select avec la table liée
-    - setTaille() : taille du champ
-    - setMax() : nombre de caractères maximum acceptés
-    - setOnchange() : permet de définir des actions sur l'événement
-    - setKeyup() : permet de définir des actions sur l'événement
-    - setOnclick() : permet de définir des actions sur l'événement
-    - setvalF() : permet de traiter les données avant insert/update dans la base de données
-    - setGroupe() (obsolète depuis 4.3.0)
-        - D premier champ du groupe
-        - G champ groupe
-        - F dernier champ du groupe
-    - setRegroupe() (obsolète depuis 4.3.0)
-        - D premier champ du fieldset
-        - G champ dans le fieldset
-        - F dernier champ du fieldset
+    .. method:: formulaire.setType()
+
+       type de champ.
+
+    .. method:: formulaire.setVal()
+
+       valeur du champ
+
+    .. method:: formulaire.setLib()
+
+       libellé du champ
+
+    .. method:: formulaire.setSelect()
+
+       permet de remplir les champs select avec la table liée
+
+    .. method:: formulaire.setTaille()
+
+       taille du champ
+
+    .. method:: formulaire.setMax()
+
+       nombre de caractères maximum acceptés
+
+    .. method:: formulaire.setOnchange()
+
+       permet de définir des actions sur l'événement
+
+    .. method:: formulaire.setKeyup()
+
+       permet de définir des actions sur l'événement
+
+    .. method:: formulaire.setOnclick()
+
+       permet de définir des actions sur l'événement
+
+    .. method:: formulaire.setvalF()
+
+       permet de traiter les données avant insert/update dans la base de données
+
+    .. method:: formulaire.setGroupe()
+
+       (obsolète depuis 4.3.0)
+
+    .. method:: formulaire.setRegroupe()
+
+       (obsolète depuis 4.3.0)
+
+    .. method:: formulaire.setBloc($champ, $contenu, $libelle = '', $style = '')
+
+       permet d'ouvrir/fermer ($contenu=D/F) une balise div sur un champ ($champ), avec un libellé ($libelle) et un attribut class ($style).
+
+    .. method:: formulaire.setFieldset($champ, $contenu, $libelle = '', $style = '')
+
+       permet d'ouvrir/fermer ($contenu=D/F) un  fieldset sur un champ ($champ), avec une legende ($libelle) et un attribut class ($style).
+
+
+
+
+
+Mise en forme des formulaires
+-----------------------------
 
 .. _setLayout:
 
@@ -176,6 +387,9 @@ Ces méthode sont appelées depuis les classes métier.
                     $form->setBloc('se_couleurtexte','F');
                 $form->setFieldset('se_couleurtexte','F','');
             }
+
+            .. note ::
+               test
 
 
 ==============================
