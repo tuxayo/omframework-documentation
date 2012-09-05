@@ -102,6 +102,9 @@ des champs références. Pour créer cette liste, il suit la procédure suivante
 La liste ainsi formée permettra au générateur de créer des champs de type
 référence dans les modèles de données.
 
+Affichage dans les formulaires
+------------------------------
+
 **Comment ces champs sont représentés dans les formulaires?**
 
 Depuis le formulaire de l'objet faisant référence, ces champs sont représentés
@@ -132,6 +135,11 @@ de colonne pour créer respectivement un ou plusieurs champs uniques.
 Fonctionnement interne du générateur
 ------------------------------------
 
+**Comment ces champs sont déterminés lors de la génération d'un modèle?**
+
+L'abstracteur de base de données d'openMairie peut, en analysant une table
+donnée, récupérer la liste de ses colonnes uniques.
+
 Les champs requis
 =================
 
@@ -140,3 +148,16 @@ Définition des références
 
 Fonctionnement interne du générateur
 ------------------------------------
+
+Affichage dans les formulaires
+------------------------------
+
+**Comment ces champs sont représentés dans les formulaires?**
+
+Ces champs sont affichés avec un marqueur à côté de leur libellé, indiquant
+qu'ils sont requis. Par défaut openMairie utilise le caractère ``*`` pour
+indiquer les champs requis.
+
+Si ces champs ne sont pas remplis lors de la validation d'un formulaire, un
+message d'erreur est affiché pour chaque champ requis non complété, et la base
+de données n'est pas modifiée.
