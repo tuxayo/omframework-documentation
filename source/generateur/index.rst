@@ -8,7 +8,7 @@ Le générateur
    :numbered:
 
    introduction.rst
-   ecran.rst
+   interface.rst
    generable.rst
    datamodel.rst
    analyse_base.rst

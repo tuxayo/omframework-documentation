@@ -1,4 +1,4 @@
-.. _ecran:
+.. _interface:
 
 ===========
 L'interface
