@@ -175,3 +175,7 @@ indiquer les champs requis.
 Si ces champs ne sont pas remplis lors de la validation d'un formulaire, un
 message d'erreur est affiché pour chaque champ requis non complété, et la base
 de données n'est pas modifiée.
+
+Le champ libellé
+================
+
