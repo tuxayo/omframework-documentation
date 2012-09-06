@@ -497,87 +497,80 @@ Méthodes appelées lors de la validation
 
      Permet d'effectuer des actions après la modification des données dans la base
 
-
-
-
-Mise en forme des formulaires
------------------------------
-
 .. _setLayout:
 
-    - setLayout(), méthode de mise en page de la classe om_db_form.class.php, permet de gérer la hierarchie d'ouverture et fermeture des balises div et fieldset avec les méthodes :
-        - setBloc($champ, $contenu, $libelle = '', $style = '') \: permet d'ouvrir/fermer ($contenu=D/F) une balise div sur un champ ($champ), avec un libellé ($libelle) et un attribut class ($style).
-            - une liste de classes css pour fieldset est disponible :
-                - group : permet une mise en ligne des champs contenu dans le div
-                - col_1 à col_12 : permet une mise en page simplifiée, par exemple : "col_1" permet de définir une taille dynamique de 1/12ème de la page , col_6 correspond à 6/12 soit 50% de l'espace disponible.
-        - setFieldset($champ, $contenu, $libelle = '', $style = '') \: permet d'ouvrir/fermer ($contenu=D/F) un  fieldset sur un champ ($champ), avec une legende ($libelle) et un attribut class ($style).
-            - une liste de classes css pour fieldset est disponible :
-                - collapsible : ajoute un bouton sur la legende (jQuery) afin de refermer le fieldset.
-                - startClosed : idem à la difference que le fieldset est fermé au chargement de la page.
-        - exemple d'implémentation de la méthode setLayout() afin d'obtenir le même affichage sans utiliser les méthodes setGroupe() et setRegroupe() :
+Mise en forme des formulaires
+=============================
 
-          .. code-block:: php
+La mise en forme se fait via la methode setLayout() dans chaque surcharge de la classe om_dbform.class.php. Elle permet de gérer la hierarchie d'ouverture et fermeture des balises div et fieldset avec les méthodes :
+    - setBloc($champ, $contenu, $libelle = '', $style = '') \: permet d'ouvrir/fermer ($contenu=D/F) une balise div sur un champ ($champ), avec un libellé ($libelle) et un attribut class ($style).
+        - une liste de classes css pour fieldset est disponible :
+            - group : permet une mise en ligne des champs contenu dans le div
+            - col_1 à col_12 : permet une mise en page simplifiée, par exemple : "col_1" permet de définir une taille dynamique de 1/12ème de la page , col_6 correspond à 6/12 soit 50% de l'espace disponible.
+    - setFieldset($champ, $contenu, $libelle = '', $style = '') \: permet d'ouvrir/fermer ($contenu=D/F) un  fieldset sur un champ ($champ), avec une legende ($libelle) et un attribut class ($style).
+        - une liste de classes css pour fieldset est disponible :
+            - collapsible : ajoute un bouton sur la legende (jQuery) afin de refermer le fieldset.
+            - startClosed : idem à la difference que le fieldset est fermé au chargement de la page.
+    - exemple d'implémentation de la méthode setLayout() afin d'obtenir le même affichage sans utiliser les méthodes setGroupe() et setRegroupe() :
 
-            <?php
-              function setLayout(&$form, $maj) {
-                  //Ouverture d'un fieldset
-                  $form->setFieldset('om_collectivite','D',_('om_collectivite'), "collapsible");
-                      //Ouverture d'un div les champs compris entre "om_collectivite" et "actif"
-                      //la classe group peremet d'afficher les champs en ligne
-                      $form->setBloc('om_collectivite','D',"","group");
-                      //Fermeture du groupe
-                      $form->setBloc('actif','F');
-                  //Fermeture du fieldset
-                  $form->setFieldset('actif','F','');
+      .. code-block:: php
 
-                  $form->setFieldset('orientation', 'D', _("Parametres generaux du document"), "startClosed");
-                      $form->setBloc('orientation','D',"","group");
-                      $form->setBloc('format','F');
+        <?php
+          function setLayout(&$form, $maj) {
+              //Ouverture d'un fieldset
+              $form->setFieldset('om_collectivite','D',_('om_collectivite'), "collapsible");
+                  //Ouverture d'un div les champs compris entre "om_collectivite" et "actif"
+                  //la classe group peremet d'afficher les champs en ligne
+                  $form->setBloc('om_collectivite','D',"","group");
+                  //Fermeture du groupe
+                  $form->setBloc('actif','F');
+              //Fermeture du fieldset
+              $form->setFieldset('actif','F','');
 
-                      $form->setBloc('footerfont','D',"","group");
-                      $form->setBloc('footertaille','F');
+              $form->setFieldset('orientation', 'D', _("Parametres generaux du document"), "startClosed");
+                  $form->setBloc('orientation','D',"","group");
+                  $form->setBloc('format','F');
 
-                      $form->setBloc('logo','D',"","group");
-                      $form->setBloc('logotop','F');
-                  $form->setFieldset('logotop','F','');
+                  $form->setBloc('footerfont','D',"","group");
+                  $form->setBloc('footertaille','F');
 
-                  $form->setFieldset('titreleft','D',_("Parametres du titre du document"), "startClosed");
-                      $form->setBloc('titreleft','D',"","group");
-                      $form->setBloc('titrehauteur','F');
+                  $form->setBloc('logo','D',"","group");
+                  $form->setBloc('logotop','F');
+              $form->setFieldset('logotop','F','');
 
-                      $form->setBloc('titrefont','D',"","group");
-                      $form->setBloc('titrealign','F');
-                  $form->setFieldset('titrealign','F','');
+              $form->setFieldset('titreleft','D',_("Parametres du titre du document"), "startClosed");
+                  $form->setBloc('titreleft','D',"","group");
+                  $form->setBloc('titrehauteur','F');
 
-                  $form->setFieldset('corpsleft','D',_("Parametres du corps du document"), "startClosed");
-                      $form->setBloc('corpsleft','D',"","group");
-                      $form->setBloc('corpshauteur','F');
+                  $form->setBloc('titrefont','D',"","group");
+                  $form->setBloc('titrealign','F');
+              $form->setFieldset('titrealign','F','');
 
-                      $form->setBloc('corpsfont','D',"","group");
-                      $form->setBloc('corpsalign','F');
-                  $form->setFieldset('corpsalign','F','');
+              $form->setFieldset('corpsleft','D',_("Parametres du corps du document"), "startClosed");
+                  $form->setBloc('corpsleft','D',"","group");
+                  $form->setBloc('corpshauteur','F');
 
-                  $form->setFieldset('om_sousetat','D', _("Sous etat(s) : selection"), "startClosed");
-                      $form->setBloc('om_sousetat','D',"","group");
-                      $form->setBloc('sousetat','F');
-                  $form->setFieldset('sousetat','F', '');
+                  $form->setBloc('corpsfont','D',"","group");
+                  $form->setBloc('corpsalign','F');
+              $form->setFieldset('corpsalign','F','');
 
-                  $form->setFieldset('se_font','D', _("Sous etat(s) : police / marges / couleur"), "startClosed");
-                      $form->setBloc('se_font','D',"","group");
-                      $form->setBloc('se_couleurtexte','F');
-                  $form->setFieldset('se_couleurtexte','F','');
-              }
-              ?>
+              $form->setFieldset('om_sousetat','D', _("Sous etat(s) : selection"), "startClosed");
+                  $form->setBloc('om_sousetat','D',"","group");
+                  $form->setBloc('sousetat','F');
+              $form->setFieldset('sousetat','F', '');
 
-            .. note ::
-               test
+              $form->setFieldset('se_font','D', _("Sous etat(s) : police / marges / couleur"), "startClosed");
+                  $form->setBloc('se_font','D',"","group");
+                  $form->setBloc('se_couleurtexte','F');
+              $form->setFieldset('se_couleurtexte','F','');
+          }
+          ?>
 
 
-==============================
+
+******************************
 Les sous programmes génériques
-==============================
-
-
+******************************
 
 Les sous programmes génériques sont des sous programmes associés aux contrôles
 du formulaire et appellés par eux par un script js dans js/formulairedyn.js 
@@ -624,9 +617,9 @@ Ce programme est appellé par le contrôle comboD, comboG, comboD2, comboG2, le 
 
 
 
-======================
+**********************
 le script scr/form.php
-======================
+**********************
 
 form.php est le programme appellant d'un formulaire par rapport à un objet
 métier(om_parametre) et un identifiant (2)
@@ -645,9 +638,9 @@ Les méthodes de core/om_dbform.class.php peuvent être surchargées dans obj/om
 
 
 
-=================================================================
+*****************************************************************
 Les nouvelles utilisations dans les objets metiers (openMairie 4)
-=================================================================
+*****************************************************************
 
 openMairie4 apporte de nouvelles fonctions qu'il est utile d'implémenter dans
 les objets métiers
