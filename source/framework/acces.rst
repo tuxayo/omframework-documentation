@@ -4,15 +4,13 @@
 La gestion des accès
 ####################
 
-
-
-Le framework fournit un gestionnaire d'accés accessible dans le menu à ::
+Le framework fournit un gestionnaire d'accés configurable dans :
 
     - administration -> profil
     - administration -> droit
-    - administration ->utilisateur
+    - administration -> utilisateur
 
-Les accès sont conservés dans des tables.
+Les accès sont conservés dans les tables du même nom.
 
 ==========
 Les tables
@@ -20,17 +18,17 @@ Les tables
 
 La gestion des accès est gérée avec 3 tables :
 
-**om_profil** : gestion des profils ::
+**om_profil** : gestion par defaut de 5 profils :
 
-    administrateur
-    super utilisateur
-    utilisateur
-    utilisateur limite
-    consultation
+    - administrateur
+    - super utilisateur
+    - utilisateur
+    - utilisateur limite
+    - consultation
 
 **om_droit**: la gestion des droits affecte un profil suivant chaque :
 
-    objet métier : $obj om_collectivite, om_parametre ...
+    action sur un objet métier : $obj om_collectivite, om_parametre ...
 
     chaque rubrique du menu :
 
@@ -50,26 +48,37 @@ Diagramme de classe
 Les règles
 ==========
 
-- le droit sur un objet porte le nom de l'objet, avec l'extension _tab, il porte sur l'affichage en table de l'objet
+- le droit sur un objet porte le nom de l'objet, pour chaque objet il existe deux types de droits :
 
-exemple om_droit d'om_utilisateur::
+    - généraux : il n'est composé que du nom de l'objet et permet d'accéder à toutes les action sur celui-ci.
+    - limité : il se compose du nom de l'objet puis d'un sufixe.
 
-    om_utilisateur = 5      en form.php?obj=om_utilisateur :
-                    accès en maj permis au utilisateurs de niveau 5 et plus
-    om_utilisateur_tab = 4  en tab_php?obj=om_utilisateur :
-                    acces en lecture de table qu aux utilisateurs de niveau 4 et plus
+- Détails des sufixes de droits :
 
-- accès à la rubrique se paramètre dans le menu et dans om_droit
+    - _tab : permet d'accéder au tableau
+    - _ajouter : permet d'ajouter un objet
+    - _modifier : permet de modifier l'objet
+    - _supprimer : permet de supprimer l'objet
+    - _consulter : permet de consulter l'objet
 
-exemple ::
+- exemple om_droit d'om_utilisateur
 
-    menu_administration = 3
-            cette rubrique n'apparait qu'aux utilisateurs d'om_profil  supérieur ou égal à 3
+    - om_utilisateur = 5 en form.php?obj=om_utilisateur : accès integrale aux utilisateurs de niveau 5 et plus
+    - om_utilisateur_tab = 4 en tab_php?obj=om_utilisateur : accès en lecture de table qu aux utilisateurs de niveau 4 et plus
 
-
-- chaque profil a acces a tous les droits des profils d un niveau inférieur
+- chaque profil a acces a tous les droits des profils d' 'un niveau inférieur
 
 - l'administrateur a acces à tout.
+
+
+=====================
+La multi-collectivité
+=====================
+
+Les collectivités peuvent être de niveau 1 ou de niveau 2. Les utilisateurs de chaque collectivité heritent de ce niveau.
+Les utilisateurs de niveau 1 n'ont accès qu'a leur collectivité tandis que les utilisateurs de niveau 2 ont accès à toutes les collectivités disponibles.
+Lors de la conception de la base de données un champ om_collectivite peut être ajouté à chaque table ayant besoin d'un filtrage par collectivité.
+Les utilisateurs de niveau 1 ne veront aucune notion de collectivité et n'auront accès qu'aux éléments liés à la leur.
 
 
 
@@ -79,11 +88,16 @@ Les login et logout
 
 Le login se fait par le script *scr/login.php*
 
-login.php valorise les variables sessions  permettant la gestion des acces et securites::
+login.php valorise les variables sessions  permettant la gestion des acces et securites
 
+
+  .. code-block:: php
+
+    <?php
       $_SESSION['profil'] = $profil;
       $_SESSION['nom'] = $nom;
       $_SESSION['login'] = $login;
+    ?>
 
 La deconnexion se fait avec le script  *scr/logout*
 
@@ -103,4 +117,4 @@ La gestion des droits d'acces se fait dans les méthodes des utilitaires
 
     obj/utils.class.php
     
-(*voir framework/utilitaire*)
+(:ref:`voir framework/utilitaire<utilitaire>`)

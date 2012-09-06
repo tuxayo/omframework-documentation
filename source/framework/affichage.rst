@@ -29,7 +29,11 @@ La requete SQL d'affichage
 
 Elle se trouve dans sql/type_de_sgbd/nom_objet.inc
 
-Les paramétres sont les suivants pour om_parametre.inc.php ::
+Les paramétres sont les suivants pour om_parametre.inc.php
+
+  .. code-block:: php
+
+    <?php
 
     $serie=15;                                      Nombre d'enregistrement par page
     
@@ -63,6 +67,7 @@ Les paramétres sont les suivants pour om_parametre.inc.php ::
                         'om_parametre',
                         'om_sousetat',
                         'om_utilisateur');
+    ?>
                     
                     
 

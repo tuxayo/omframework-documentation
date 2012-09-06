@@ -9,9 +9,9 @@ openMairie_exemple est le framework de base dans lequel vous pouvez
 développer votre propre application.
     
 
-openMairie_exemple est **téléchargeable sur le site de l'adullact**
+openMairie_exemple est `téléchargeable sur le site de l'adullact`_.
 
-http://adullact.net/frs/?group_id=329
+.. _téléchargeable sur le site de l'adullact: http://adullact.net/frs/?group_id=329
 
 
 Il est proposé ici de décrire le fonctionnement du framework.
@@ -106,7 +106,7 @@ Ce chapître propose de vous décrire les outils de base du framework de la mani
     - les méthodes pour construire des formulaires avec le framework
     - les outils d'édition du framework
     - l'outil de requête paramétrable du framework
-    - la gestion des accès du framework et la multi collectivite)
+    - la gestion des accès du framework ainsi que la gestion multi collectivite
     - l'ergonomie intégrant jquery
     - la gestion de traitement et la construction de programme spécifiques avec les utilitaires
     - l'import des données CSV du framework
