@@ -108,7 +108,13 @@ Règles et outils
    versions/index.rst
    outils/index.rst
 
+Mises à niveau
+==============
 
+.. toctree::
+   :maxdepth: 5
+
+   upgrades/index.rst
 
 Contributeurs
 =============
