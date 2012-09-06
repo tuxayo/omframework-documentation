@@ -17,7 +17,7 @@ pour faire un choix d'actions.
 Le script scr/tab.php
 =====================
 
-L'affichage se fait à partir du menu (voir *framework/parametrage*) sous la forme ::
+L'affichage se fait à partir du menu (:ref:`framework/parametrage<parametrage>`) sous la forme ::
 
     tab.php?obj=om_parametre
     
@@ -29,7 +29,7 @@ La requete SQL d'affichage
 
 Elle se trouve dans sql/type_de_sgbd/nom_objet.inc
 
-Les paramétres sont les suivants pour om_parametre.inc ::
+Les paramétres sont les suivants pour om_parametre.inc.php ::
 
     $serie=15;                                      Nombre d'enregistrement par page
     
@@ -66,7 +66,35 @@ Les paramétres sont les suivants pour om_parametre.inc ::
                     
                     
 
+Ces script permettent aussi de configurer les actions disponibles sur le tableau (par defaut seules l'ajout et la consultation sont affichés).
 
+L'ajout d'actions se presente de cette façon :
+
+  .. code-block:: php
+
+    <?php
+    // Actions en coin : ajouter
+    $tab_actions['corner']['ajouter'] =
+        array('lien' => 'form.php?obj='.$obj.'&amp;action=0',
+              'id' => '&amp;advs_id='.$advs_id.'&amp;tricol='.$tricol.'&amp;valide='.$valide.'&amp;retour=tab',
+              'lib' => '<span class="om-icon om-icon-16 om-icon-fix add-16" title="'._('Ajouter').'">'._('Ajouter').'</span>',
+              'rights' => array('list' => array($obj, $obj.'_ajouter'), 'operator' => 'OR'),
+              'ordre' => 10,);
+
+    // Actions a gauche : consulter
+    $tab_actions['left']['consulter'] =
+        array('lien' => 'form.php?obj='.$obj.'&amp;action=3'.'&amp;idx=',
+              'id' => '&amp;premier='.$premier.'&amp;advs_id='.$advs_id.'&amp;recherche='.$recherche1.'&amp;tricol='.$tricol.'&amp;selectioncol='.$selectioncol.'&amp;valide='.$valide.'&amp;retour=tab',
+              'lib' => '<span class="om-icon om-icon-16 om-icon-fix consult-16" title="'._('Consulter').'">'._('Consulter').'</span>',
+              'rights' => array('list' => array($obj, $obj.'_consulter'), 'operator' => 'OR'),
+              'ordre' => 10,);
+    ?>
+
+Il est possible d'ajouter plusieurs cellules dans la première cellule du tableau.
+
+.. note::
+
+    Les surcharge de liens ajoutées depuis une version d'OpenMaire anterieur à la 4.3.0 sont pris en charge.
 
 =======================
 Le composant openMairie

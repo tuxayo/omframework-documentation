@@ -503,8 +503,26 @@ Méthodes appelées lors de la validation
 
 .. _setLayout:
 
-Mise en forme des formulaires
-=============================
+Mise en forme et configuration des formulaires
+==============================================
+
+La configuration des formulaires se fait via les scripts sql/type_de_sgbd/nom_objet.form.inc.php
+
+Dans ces scripts, peuvent être surchargé, la liste des champs (ordre ou champs affichés), requêtes sql permettant de remplir les widget de formulaires ainsi que les actions du menu contextuel.
+
+L'ajout d'une action se presente de cette façon :
+
+  .. code-block:: php
+
+    <?php
+      $portlet_actions['edition'] = array(
+          'lien' => '../pdf/pdflettretype.php?obj=om_utilisateur&amp;idx=',
+          'id' => '',
+          'lib' => '<span class="om-prev-icon om-icon-16 om-icon-fix pdf-16" title="'._('Edition').'">'._('Edition').'</span>',
+          'ajax' => false,
+          'ordre' => 21,
+      );
+    ?>
 
 Depuis la version 4.3.0 les formulaires sont composés de div et non plus d'une hierarchie de table. Il est donc possible d'organiser les blocs de champ plus facilement.
 
