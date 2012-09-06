@@ -35,6 +35,8 @@ Liste des paramètres passés à l'url :
 
 Les autres paramètres passés permettent de conserver la configuration du tableau d'origine.
 
+Les méthodes de core/om_formulaire.class.php peuvent être surchargées dans obj/om_formulaire.class.php
+
 ************************************************
 Description de la classe om_formulaire.class.php
 ************************************************
@@ -367,6 +369,8 @@ Accessible depuis la liste des actions contextuelles, une confirmation est deman
 Presentation des méthodes de la classe
 ======================================
 
+Les méthodes de core/om_dbform.class.php peuvent être surchargées dans obj/om_dbform.class.php
+
 Méthodes d'initialisation de l'affichage du formulaire
 ------------------------------------------------------
 
@@ -502,6 +506,8 @@ Méthodes appelées lors de la validation
 Mise en forme des formulaires
 =============================
 
+Depuis la version 4.3.0 les formulaires sont composés de div et non plus d'une hierarchie de table. Il est donc possible d'organiser les blocs de champ plus facilement.
+
 La mise en forme se fait via la methode setLayout() dans chaque surcharge de la classe om_dbform.class.php. Elle permet de gérer la hierarchie d'ouverture et fermeture des balises div et fieldset avec les méthodes :
     - setBloc($champ, $contenu, $libelle = '', $style = '') \: permet d'ouvrir/fermer ($contenu=D/F) une balise div sur un champ ($champ), avec un libellé ($libelle) et un attribut class ($style).
         - une liste de classes css pour fieldset est disponible :
@@ -573,7 +579,7 @@ Les sous programmes génériques
 ******************************
 
 Les sous programmes génériques sont des sous programmes associés aux contrôles
-du formulaire et appellés par eux par un script js dans js/formulairedyn.js 
+du formulaire et appellés par eux par un script js dans js/formulairedyn.js.
 
 Les sous programmes génériques sont stockés dans le répertoire /spg.
 
@@ -614,28 +620,6 @@ Ce programme est appellé par le contrôle comboD, comboG, comboD2, comboG2, le 
 
     Ce script est associé au contrôle "rvb" et permet l'accès à une palette de couleur
     pour récupérer un code couleur rvb
-
-
-
-**********************
-le script scr/form.php
-**********************
-
-form.php est le programme appellant d'un formulaire par rapport à un objet
-métier(om_parametre) et un identifiant (2)
-
-form.php affiche le formulaires et éventuellement les sous formulaires (soustab.php et sousform.php)
-
-exemple ::
-
-    form.php?obj=om_parametre&idx=2
-
-Les méthodes de core/om_formulaire.class.php peuvent être surchargées dans obj/om_formulaire.class.php
-
-Les scripts javascript de js/script.js peuvent être surchargés dans app/js/script.js
-
-Les méthodes de core/om_dbform.class.php peuvent être surchargées dans obj/om_dbform.class.php
-
 
 
 *****************************************************************
