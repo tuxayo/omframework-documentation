@@ -2,14 +2,14 @@
 Mettre à niveau depuis openMairie 4.2.0 vers 4.3.0
 ==================================================
 
-Mise à jour des surcharges
-==========================
+Mise à jour des surcharges du framework
+=======================================
 
 Classe ``application``
 ----------------------
 
 Les attributs
--------------
+.............
 
 L'attribut suivant n'existe plus:
 
@@ -19,7 +19,7 @@ L'attribut suivant n'existe plus:
        var $permission_if_right_does_not_exist = true;
    ?>
 
-Remplacé par:
+Remplacée par:
 
 .. code-block:: php
 
@@ -28,7 +28,7 @@ Remplacé par:
    ?>
 
 Les méthodes
-------------
+............
 
 Les méthode surchargés de la classe ``om_application`` doivent être mises à jour
 avec leur nouvelle implémentation.
@@ -52,3 +52,111 @@ Voici la liste des méthodes ayant évoluées depuis la vers 4.2.0:
 
 Classe ``dbForm``
 -----------------
+
+Les méthode surchargés de la classe ``dbForm`` doivent être mises à jour avec
+leur nouvelle implémentation.
+
+Voici la liste des méthodes ayant évoluées depuis la vers 4.2.0:
+
+- constructeur
+- verifier
+- formulaire
+- sousformulaire
+- retour
+- retoursousformulaire
+- getDataSubmit
+- addToMessage
+
+Classe ``formulaire``
+---------------------
+
+Les méthode surchargés de la classe ``formulaire`` doivent être mises à jour
+avec leur nouvelle implémentation.
+
+Voici la liste des méthodes ayant évoluées depuis la vers 4.2.0:
+
+- formulaire
+- entete
+- afficher
+- enpied
+- afficherChamp
+- debutFieldset
+- finFieldset
+- debutBloc
+- finBloc
+- hiddenstatic
+- hiddenstaticnum
+- textareahiddenstatic
+- hiddenstaticdate
+- datestatic
+- statiq
+- textarea
+- textareastatic
+- pagehtml
+- textareamulti
+- date
+- select
+- selectdisabled
+- text
+- hidden
+- password
+- textdisabled
+- textreadonly
+- checkbox
+- checkboxnum
+- comboG
+- comboG2
+- comboD
+- comboD2
+- comboC
+- upload
+- upload2
+- voir
+- voir2
+- localisation
+- localisation2
+- rvb
+- rvb2
+- setGroupe
+- setRegroupe
+
+Classe ``logger``
+-----------------
+
+Les méthode surchargés de la classe ``logger`` doivent être mises à jour avec
+leur nouvelle implémentation.
+
+Voici la liste des méthodes ayant évoluées depuis la vers 4.2.0:
+
+- displayLog
+
+Classe ``table``
+-----------------
+
+Les méthode surchargés de la classe ``table`` doivent être mises à jour avec
+leur nouvelle implémentation.
+
+Voici la liste des méthodes ayant évoluées depuis la vers 4.2.0:
+
+- __construct
+- display
+- displayHeader
+- composeSearchTab
+- displaySearch
+- composeQuery
+
+La méthode suivante n'existe plus:  
+
+.. code-block:: php
+
+   <?php
+       function countHrefColumns($href = array())
+   ?>
+
+Remplacée par:
+
+.. code-block:: php
+
+   <?php
+       function countActions($actions)
+   ?>
