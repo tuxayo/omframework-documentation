@@ -82,7 +82,7 @@ sig_json.php présente tous les enregistrements d'un même
 point (même géom) sur un  seul popup
 
 En effet, il est constitué un popup lorsque l on clique sur l objet
-et donne la possibilité à un accès URL parametrée dans om_sig_map::
+et donne la possibilité à un accès URL parametrée dans om_sig_map
 
 
 Les flux wms
@@ -188,7 +188,7 @@ Le chargement de la couche vectors se fait si dans la table om_sig_map,
 la case maj est activée. 
 
 La géométrie est récupérée par le script sig_wkt.php (appel a un script paramètrable dans var_sig.inc)
-et la carte est centrée sur la géométrue::
+et la carte est centrée sur la géométrue
 
 Il est possible de :
     

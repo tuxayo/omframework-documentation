@@ -15,10 +15,9 @@ Il convient de regarder les termes de licences concernant les API externes non l
 gratuite.
 
 Un document décrivant les contraintes juridiques et techniques de l'utilisation des API
-est accessible au lien suivant ::
+est accessible via `ce lien`_.
 
-http://www.openmairie.org/communautes/groupe-de-travail-sig-adullact/comparatif-api.pdf/view
-
+.. _ce lien: http://www.openmairie.org/communautes/groupe-de-travail-sig-adullact/comparatif-api.pdf/view
 
 Le parametrage se fait dans le fichier sig/var_adresse_postale.php
 
@@ -27,7 +26,6 @@ var_adresse_postale.inc
 =======================
 
 paramètrage général ::
-
 
     $longueurRecherche=1;
 
