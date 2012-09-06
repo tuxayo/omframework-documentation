@@ -1,10 +1,11 @@
 .. _analyse_base:
 
-####################
+====================
 L'analyse de la base
-####################
+====================
 
-Les informations de la base sont analysées par la méthode « constructeur » de gen.class.php 
+Les informations de la base sont analysées par la méthode « constructeur » de
+gen.class.php.
 
 La construction des formulaires se fait suivant 5 types de champs reconnus par le générateur: ::
 
@@ -14,7 +15,6 @@ La construction des formulaires se fait suivant 5 types de champs reconnus par l
     - blob : texte
     - geom : geometry (pour postgres)
 
-==============
 Type de champs
 ==============
 
@@ -47,14 +47,12 @@ La longueur et la largeur sont définis en fichier de paramétrage form.inc
 La taille n est pas pris en compte dans la longueur d'enregistrement
 
 Les paramètres de dyn/form.inc permettent d'établir la longueur et la largeur d'affichage d'un blob : ::
-	
+
     $max=6; // nombre de ligne blob
-	$taille=80; // taille du blob
-    
+    $taille=80; // taille du blob
+
 Les champs de type geometry sont des champs geom (accès a la fenetre tab_sig.php)
 
-
-========================================
 Equivalence type mysql / type openMairie
 ========================================
 
@@ -79,16 +77,13 @@ type mysql (longueur)          tableinfo   -> type openMairie ::
     Longblob    -1                  Blob        -> Blob
     Tinytext    255                 Blob -      -> blob
 
-
-
-========================================
 Equivalence type pgsql / type openMairie
 ========================================
 
-L'information fournie par postgresql est moins complète que celle de mysql surtout au niveau de la longueur des champs « string » où il est fourni :la longueur de stockage  qui est égal à -1 quand le stockage est variable
-
-
-type pgsql (longueur) type tableinfo si different -> type openMairie ::
+L'information fournie par postgresql est moins complète que celle de mysql
+surtout au niveau de la longueur des champs « string » où il est fourni :la
+longueur de stockage  qui est égal à -1 quand le stockage est variable type
+pgsql (longueur) type tableinfo si different -> type openMairie ::
 
     Bigint      (8)                 int8        -> int
     Smallint    (2)                 Int2        -> Int
@@ -105,16 +100,11 @@ type pgsql (longueur) type tableinfo si different -> type openMairie ::
                                                    $pgsql_longueur_date)
     geometry    -5                              -> geom
 
-
-
-
-
 Pour postgresql, il est proposé dans form.inc 2 variables qui sont avec la version 4.2.0 inutiles car les longueurs sont gérées
 par le générateur (valeurs négatives) ::
 
     $pgsql_taille_defaut = 20; // taille du champ par défaut si retour pg_field_prtlen =0
     $pgsql_taille_minimum = 10; // taille minimum d affichage d un champ
-
 
 Attention, pour les champs geom, il faut gérer la carte à chercher pour l affichage de la carte en fenêtre ::
 
@@ -126,16 +116,8 @@ Attention, pour les champs geom, il faut gérer la carte à chercher pour l affi
         $form->setSelect('geom',$contenu);
     }
 
-
-============================
 Nom de champ et nom de table
 ============================
 
-Attention au nom de tables ou de champs, évitez les termes SQL : match, table, index, type, len ... ou openMairie : objet pour les noms de champs ou table
-
-Les règles suivantes sont spécifiques au générateur pour reconnaître
-les clés primaires et les clés secondaires :
-
-la cle primaire de la table a le même nom que la table
-
-le cle secondaire a le même nom que la table fille
+Attention au nom de tables ou de champs, évitez les termes SQL : match, table,
+index, type, len ... ou openMairie : objet pour les noms de champs ou table.
