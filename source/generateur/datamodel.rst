@@ -26,7 +26,7 @@ Le générateur suit la procédure suivante:
 
 - sinon, il utilise la colonne ayant le même nom que la table.
 
-Si il n'existe ni de clé primaire, ni de colonne ayant le même nom que la table,
+S'il n'existe ni de clé primaire, ni de colonne ayant le même nom que la table,
 le modèle ne peut pas être créé.
 
 .. note::
