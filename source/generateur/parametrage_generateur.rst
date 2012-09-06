@@ -1,19 +1,21 @@
 .. _parametrage_generateur:
 
-######################
+======================
 Paramétrage générateur
-######################
+======================
 
-Le paramétrage de base est dans la classe gen
-Il est possible de personnaliser le paramétrage dans le répertoire gen/dyn. (version 4.2.0)
+Le paramétrage de base est dans la classe gen. Il est possible de personnaliser
+le paramétrage dans le répertoire gen/dyn. (version 4.2.0)
 
-Ne personnaliser que les variables souhaitées dans le fichier. Par défaut, openMairie prendra les paramètres inclus dans la classe gen.
+Ne personnaliser que les variables souhaitées dans le fichier. Par défaut,
+openMairie prendra les paramètres inclus dans la classe gen.
 
-Il est donné ci dessous l ensemble des paramètres "customizable". La valeur associée est celle du générateur.
+Il est donné ci dessous l ensemble des paramètres personnalisables. La valeur
+associée est celle du générateur.
 
+Form.inc
 ========
-Form.inc 
-========
+
 Voici les paramètres pour la génération de formulaire ::
 
     $serie = 15;                        nombre d'enregistrement par page'
@@ -27,10 +29,6 @@ Voici les paramètres pour la génération de formulaire ::
     $pgsql_taille_minimum    = 10;      taille minimum d affichage d un champ
     ***/ 
 
-
-
-
-===========
 pdf.inc.php 
 ===========
 
@@ -88,7 +86,6 @@ Parametres ::
     $C3border=167;// couleur texte  B";
     $bt=1;// border 1ere  et derniere ligne  du tableau par page->0 ou 1";
 
-============
 etat.inc.php
 ============
 
@@ -133,7 +130,6 @@ parametres ::
     $etat['se_margeright']='5';
     $etat['se_couleurtexte']="0-0-0";
 
-================
 sousetat.inc.php
 ================
 
@@ -189,7 +185,6 @@ parametres::
     $sousetat['cellule_hauteur_nbr']=7;
     $sousetat['cellule_fondcouleur_nbr']="255-255-255";
 
-==================
 lettretype.inc.php
 ==================
 
@@ -225,4 +220,3 @@ parametres ::
     $lettretype['corpstaille']='10';
     $lettretype['corpsbordure']='0';
     $lettretype['corpsalign']='J';
-
