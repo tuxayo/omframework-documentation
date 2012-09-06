@@ -508,6 +508,24 @@ Mise en forme des formulaires
 
 Depuis la version 4.3.0 les formulaires sont composés de div et non plus d'une hierarchie de table. Il est donc possible d'organiser les blocs de champ plus facilement.
 
+Exemple de formation d'un widget de formulaire :
+
+    .. code-block:: php
+
+        <?php
+            <div class="field field-type-text">
+                <div class="form-libelle">
+                    <label class="libelle-nom" for="nom">
+                        nom <span class="not-null-tag">*</span>
+                    </label>
+                </div>
+                <div class="form-content">
+                    <input type="text" class="champFormulaire" maxlength="30" size="30" value="Administrateur" id="nom" name="nom">
+                </div>
+            </div>
+        ?>
+
+
 La mise en forme se fait via la methode setLayout() dans chaque surcharge de la classe om_dbform.class.php. Elle permet de gérer la hierarchie d'ouverture et fermeture des balises div et fieldset avec les méthodes :
     - setBloc($champ, $contenu, $libelle = '', $style = '') \: permet d'ouvrir/fermer ($contenu=D/F) une balise div sur un champ ($champ), avec un libellé ($libelle) et un attribut class ($style).
         - une liste de classes css pour fieldset est disponible :
