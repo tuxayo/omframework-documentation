@@ -4,18 +4,18 @@
 Les formulaires
 ###############
 
-La gestion des formulaires se base sur deux classes :
-    - core/om_formulaire.class.php
-    - core/om_dbform.class.php
+La gestion des formulaires se base sur deux fichiers :
+    - core/om_formulaire.class.php (classe formulaire)
+    - core/om_dbform.class.php (classe dbform)
 
 om_formulaire.class.php permet la gestion de l'affichage, om_dbform.class.php permet la gestion de la logique interne.
 
-La classe om_formulaire.class.php fait appel à des sous programmes génériques pour certains
+La classe formulaire fait appel à des sous programmes génériques pour certains
 controles au travers de script js/script.js
 
-Les classes métier étendent de db_form.class.php, c'est donc dans ces classes que les formulaires seront préparés via l'appel aux méthodes présentes dans la classe om_formulaire.
+Les classes métier étendent de dbform, c'est donc dans ces classes que les formulaires seront préparés via l'appel aux méthodes présentes dans la classe formulaire.
 
-Pour chaque formulaire de classe créer, le script sql/DBTYPE/[classe].form.inc.php correspondant est appelé. Il permet de stocker le detail des requètes necessaires à l'affichage du contenu du formulaire.
+Pour chaque formulaire de classe créer, le script sql/DBTYPE/[table].form.inc.php correspondant est appelé. Il permet de stocker le detail des requètes necessaires à l'affichage du contenu du formulaire.
 
 Les formulaires sont construits lors de l'appel aux scripts scr/form.php et scr/sousform.php. En fonction des paramètres passés à l'url, un formulaire de la classe métier correspondante sera créé.
 
@@ -28,18 +28,18 @@ Scripts form.php et sousform.php
 L'appel à ce script peut se faire depuis un :ref:`tableau d'éléments<affichage>` ou depuis la :ref:`consultation d'un élément<action-consultation>`.
 
 Liste des paramètres passés à l'url :
-    - obj : nom de la classe pour laquelle on souhaite afficher le formulaire
-    - action : type d'action (ajout, modification, suppression, consultation)
-    - idx : identifiant (dans la base de données) de l'élément sur lequel on souhaite effectuer l'action (sauf en ajout)
-    - retour : deux valeurs possible tab ou form selon l'origine de l'action
+- obj : nom de la classe pour laquelle on souhaite afficher le formulaire
+- action : type d'action (ajout, modification, suppression, consultation)
+- idx : identifiant (dans la base de données) de l'élément sur lequel on souhaite effectuer l'action (sauf en ajout)
+- retour : deux valeurs possible tab ou form selon l'origine de l'action
 
 Les autres paramètres passés permettent de conserver la configuration du tableau d'origine.
 
 Les méthodes de core/om_formulaire.class.php peuvent être surchargées dans obj/om_formulaire.class.php
 
-************************************************
-Description de la classe om_formulaire.class.php
-************************************************
+***********************************
+Description de la classe formulaire
+***********************************
 
 .. class :: formulaire($unused = NULL, $validation, $maj, $champs = array(), $val = array(), $max = array())
 
@@ -220,9 +220,13 @@ Les  méthodes de construction et d'affichage
 
 Le formulaire est constitué de div, fieldset et de champs les méthodes suivante permettent une mise en page structuré.
 
-    .. method:: formulaire.entete() / enpied()
+    .. method:: formulaire.entete()
 
        ouverture du conteneur du formulaire.
+
+    .. method:: formulaire.enpied()
+
+       fermeture du conteneur du formulaire.
 
     .. method:: formulaire.afficher()
 
@@ -327,39 +331,39 @@ Ces méthode sont appelées depuis les classes métier, elles permettent la conf
 
 .. _class-dbform:
 
-********************************************
-Description de la classe om_dbform.class.php
-********************************************
+*******************************
+Description de la classe dbform
+*******************************
 
-.. class:: obj($id, &$db, $DEBUG = false)
+.. class:: dbform($id, &$db, $DEBUG = false)
 
    Cette classe est centrale dans l'application. Elle est la classe parente de chaque objet métier.
    Elle comprend des méthodes de gestion (initialisation, traitement, verification, trigger) des valeurs du formulaire.
    Elle fait le lien entre la base de données et le formulaire.
    Elle contient les actions possibles sur les objets (ajout, modification,suppression, consultation).
 
-Modification d'enregistrement
-=============================
-
-L'ouverture d'un élément en modification (action=1) permet l'éditions de données déjà existantes, lors de la validation du formulaire les données sont traitées, vérifiées puis envoyées dans la base.
-
-Ajout d'enregistrement
-======================
-
-L'ajout (action=0) se comporte de la même façon que la modification. Lors de la validation, un traitement (:ref:`setValFAjout<setValFAjout>`) et une verification (:ref:`verifierAjout<verifierAjout>`). Si la clé primaire de la table est automatique alors elle est générée.
-
 .. _action-consultation:
 
-Consultation d'élément
-======================
+Consultation
+============
 
-La consultation (action=3) d'un élément est construite de la même façon qu'un formulaire. Elle ne contient une liste d'actions contextuelles configurable. Les données ne sont pas éditable.
+La consultation (action=3) d'un élément est construite de la même façon qu'un formulaire. Elle contient une liste d'actions contextuelles configurable. Les données ne sont pas éditable.
 
 .. image:: ../_static/mode_consultation.png
    :height: 380
    :width: 800
 
 Par defaut, depuis les tableau, les éléments sont accessible en consultation, il est possible de les éditer à partir du menu des actions contextuelles.
+
+Ajout
+=====
+
+L'ajout (action=0)  permet l'éditions de données. Lors de la validation, un traitement (:ref:`setValFAjout<setValFAjout>`) et une verification (:ref:`verifierAjout<verifierAjout>`) sont effectués en plus des méthodes de validation standard (:ref:`setValF<setValF>`, :ref:`verifier<verifier>`). Si la clé primaire de la table est automatique alors elle est générée.
+
+Modification
+============
+
+L'ouverture d'un élément en modification (action=1) permet l'éditions de données déjà existantes, lors de la validation du formulaire les données sont traitées, vérifiées puis envoyées dans la base.
 
 Suppression
 ===========
@@ -369,66 +373,66 @@ Accessible depuis la liste des actions contextuelles, une confirmation est deman
 Presentation des méthodes de la classe
 ======================================
 
-Les méthodes de core/om_dbform.class.php peuvent être surchargées dans obj/om_dbform.class.php
+Les méthodes de dbform peuvent être surchargées dans obj/om_dbform.class.php
 
 Méthodes d'initialisation de l'affichage du formulaire
 ------------------------------------------------------
 
-  .. method:: obj.formulaire($enteteTab, $validation, $maj, &$db, $postVar, $aff, $DEBUG = false, $idx, $premier = 0, $recherche = "", $tricol = "", $idz = "", $selectioncol = "", $advs_id = "", $valide = "", $retour = "", $actions = array(), $extra_parameters = array())
+  .. method:: dbform.formulaire($enteteTab, $validation, $maj, &$db, $postVar, $aff, $DEBUG = false, $idx, $premier = 0, $recherche = "", $tricol = "", $idz = "", $selectioncol = "", $advs_id = "", $valide = "", $retour = "", $actions = array(), $extra_parameters = array())
 
      Méthode d'initialisation de l'affichage de formulaire.
 
-  .. method:: obj.sousformulaire($enteteTab, $validation, $maj, &$db, $postVar, $premiersf, $DEBUG, $idx, $idxformulaire, $retourformulaire, $typeformulaire, $objsf, $tricolsf, $retour= "", $actions = array())
+  .. method:: dbform.sousformulaire($enteteTab, $validation, $maj, &$db, $postVar, $premiersf, $DEBUG, $idx, $idxformulaire, $retourformulaire, $typeformulaire, $objsf, $tricolsf, $retour= "", $actions = array())
 
      Méthode d'initialisation de l'affichage de sous formulaire.
 
 Cette méthode créer un objet om_formulaire et initialise certains de ces attributs via les méthodes suivantes :
 
-  .. method:: obj.setVal(&$form, $maj, $validation, &$db, $DEBUG = false)
+  .. method:: dbform.setVal(&$form, $maj, $validation, &$db, $DEBUG = false)
 
      Permet de définir les valeurs des champs
 
-  .. method:: obj.setType(&$form, $maj)
+  .. method:: dbform.setType(&$form, $maj)
 
      Permet de définir le type des champs
 
-  .. method:: obj.setLib(&$form, $maj)
+  .. method:: dbform.setLib(&$form, $maj)
 
      Permet de définir le libellé des champs
 
-  .. method:: obj.setTaille(&$form, $maj)
+  .. method:: dbform.setTaille(&$form, $maj)
 
      Permet de définir la taille des champs
 
-  .. method:: obj.setMax(&$form, $maj)
+  .. method:: dbform.setMax(&$form, $maj)
 
      Permet de définir le nombre de caractère maximum des champs
 
-  .. method:: obj.setSelect(&$form, $maj, $db, $DEBUG = false)
+  .. method:: dbform.setSelect(&$form, $maj, $db, $DEBUG = false)
 
      Méthode qui effectue les requêtes de configuration des champs select
 
-  .. method:: obj.setOnchange(&$form, $maj)
+  .. method:: dbform.setOnchange(&$form, $maj)
 
      Permet de définir l'attribut "onchange" sur chaque champ
 
-  .. method:: obj.setOnkeyup(&$form, $maj)
+  .. method:: dbform.setOnkeyup(&$form, $maj)
 
      Permet de définir l'attribut "onkeyup" sur chaque champ
 
-  .. method:: obj.setOnclick(&$form, $maj)
+  .. method:: dbform.setOnclick(&$form, $maj)
 
      Permet de définir l'attribut "onclick" sur chaque champ
 
-  .. method:: obj.setGroupe(&$form, $maj)
+  .. method:: dbform.setGroupe(&$form, $maj)
 
      Permet d'alligner plusieurs champs (obsolète depuis la version 4.3.0)
 
-  .. method:: obj.setRegroupe(&$form, $maj)
+  .. method:: dbform.setRegroupe(&$form, $maj)
 
      Permet de regrouper les champs dans des fieldset (obsolète depuis la version 4.3.0)
 
-  .. method:: obj.setLayout(&$form, $maj)
+  .. method:: dbform.setLayout(&$form, $maj)
 
      Méthode de mise en page, elle permet de gérer la hierarchie d'ouverture et fermeture des balises div et fieldset.
 
@@ -438,15 +442,15 @@ Méthodes d'actions
 
 Ces méthodes sont appelées lors de la validation du formulaire.
 
-  .. method:: obj.ajouter($val, &$db = NULL, $DEBUG = false)
+  .. method:: dbform.ajouter($val, &$db = NULL, $DEBUG = false)
 
      Cette méthode permet l'insertion de données dans la base, elle appelle toutes les méthodes de traitement, vérification et action  des données retournées par le formulaire
 
-  .. method:: obj.modifier($val = array(), &$db = NULL, $DEBUG = false)
+  .. method:: dbform.modifier($val = array(), &$db = NULL, $DEBUG = false)
 
      Cette méthode permet la modification de données dans la base, elle appelle toutes les méthodes de traitement et vérification des données retournées par le formulaire
 
-  .. method:: obj.supprimer($val = array(), &$db = NULL, $DEBUG = false)
+  .. method:: dbform.supprimer($val = array(), &$db = NULL, $DEBUG = false)
 
      Cette méthode permet la suppression de données dans la base, elle appelle toutes les méthodes de traitement et vérification des données retournées par le formulaire
 
@@ -455,49 +459,53 @@ Méthodes appelées lors de la validation
 
 .. _setValFAjout:
 
-  .. method:: obj.setValFAjout($val = array())
+  .. method:: dbform.setValFAjout($val = array())
 
      Méthode de traitement des données retournées par le formulaire (utilisé lors de l'ajout)
 
-  .. method:: obj.setvalF($val = array())
+.. _setValF:
+
+  .. method:: dbform.setvalF($val = array())
 
      Méthode de traitement des données retournées par le formulaire
 
-  .. method:: obj.verifier($val = array(), &$db = NULL, $DEBUG = false)
+.. _verifier:
+
+  .. method:: dbform.verifier($val = array(), &$db = NULL, $DEBUG = false)
 
      Méthode de verification des données et de retour d'erreurs
 
 .. _verifierAjout:
 
-  .. method:: obj.verifierAjout($val = array(), &$db = NULL)
+  .. method:: dbform.verifierAjout($val = array(), &$db = NULL)
 
      Méthode de verification des données et de retour d'erreurs (utilisé lors de l'ajout)
 
-  .. method:: obj.setId(&$db = NULL)
+  .. method:: dbform.setId(&$db = NULL)
 
      Initialisation de la cle primaire (si cle automatique lors de l'ajout)
 
-  .. method:: obj.triggerajouter($id, &$db = NULL, $val = array(), $DEBUG = false)
+  .. method:: dbform.triggerajouter($id, &$db = NULL, $val = array(), $DEBUG = false)
 
      Permet d'effectuer des actions avant l'insertion des données dans la base
 
-  .. method:: obj.triggerajouterapres($id, &$db = NULL, $val = array(), $DEBUG = false)
+  .. method:: dbform.triggerajouterapres($id, &$db = NULL, $val = array(), $DEBUG = false)
 
      Permet d'effectuer des actions après l'insertion des données dans la base
 
-  .. method:: obj.triggermodifier($id, &$db = NULL, $val = array(), $DEBUG = false)
+  .. method:: dbform.triggermodifier($id, &$db = NULL, $val = array(), $DEBUG = false)
 
      Permet d'effectuer des actions avant la modification des données dans la base
 
-  .. method:: obj.triggermodifierapres($id, &$db = NULL, $val = array(), $DEBUG = false)
+  .. method:: dbform.triggermodifierapres($id, &$db = NULL, $val = array(), $DEBUG = false)
 
      Permet d'effectuer des actions après la modification des données dans la base
 
-  .. method:: obj.triggersupprimer($id, &$db = NULL, $val = array(), $DEBUG = false)
+  .. method:: dbform.triggersupprimer($id, &$db = NULL, $val = array(), $DEBUG = false)
 
      Permet d'effectuer des actions avant la modification des données dans la base
 
-  .. method:: obj.triggersupprimerapres($id, &$db = NULL, $val = array(), $DEBUG = false)
+  .. method:: dbform.triggersupprimerapres($id, &$db = NULL, $val = array(), $DEBUG = false)
 
      Permet d'effectuer des actions après la modification des données dans la base
 
@@ -512,101 +520,100 @@ Dans ces scripts, peuvent être surchargé, la liste des champs (ordre ou champs
 
 L'ajout d'une action se presente de cette façon :
 
-  .. code-block:: php
+.. code-block:: php
 
-    <?php
-      $portlet_actions['edition'] = array(
-          'lien' => '../pdf/pdflettretype.php?obj=om_utilisateur&amp;idx=',
-          'id' => '',
-          'lib' => '<span class="om-prev-icon om-icon-16 om-icon-fix pdf-16" title="'._('Edition').'">'._('Edition').'</span>',
-          'ajax' => false,
-          'ordre' => 21,
-      );
-    ?>
+   <?php
+   $portlet_actions['edition'] = array(
+       'lien' => '../pdf/pdflettretype.php?obj=om_utilisateur&amp;idx=',
+       'id' => '',
+       'lib' => '<span class="om-prev-icon om-icon-16 om-icon-fix pdf-16" title="'._('Edition').'">'._('Edition').'</span>',
+       'ajax' => false,
+       'ordre' => 21,
+   );
+   ?>
 
 Depuis la version 4.3.0 les formulaires sont composés de div et non plus d'une hierarchie de table. Il est donc possible d'organiser les blocs de champ plus facilement.
 
 Exemple de formation d'un widget de formulaire :
 
-    .. code-block:: php
+.. code-block:: html
 
-        <?php
-            <div class="field field-type-text">
-                <div class="form-libelle">
-                    <label class="libelle-nom" for="nom">
-                        nom <span class="not-null-tag">*</span>
-                    </label>
-                </div>
-                <div class="form-content">
-                    <input type="text" class="champFormulaire" maxlength="30" size="30" value="Administrateur" id="nom" name="nom">
-                </div>
-            </div>
-        ?>
+   <div class="field field-type-text">
+       <div class="form-libelle">
+           <label class="libelle-nom" for="nom">
+               nom <span class="not-null-tag">*</span>
+           </label>
+       </div>
+       <div class="form-content">
+           <input type="text" class="champFormulaire" maxlength="30" size="30" value="Administrateur" id="nom" name="nom">
+       </div>
+   </div>
 
 
-La mise en forme se fait via la methode setLayout() dans chaque surcharge de la classe om_dbform.class.php. Elle permet de gérer la hierarchie d'ouverture et fermeture des balises div et fieldset avec les méthodes :
-    - setBloc($champ, $contenu, $libelle = '', $style = '') \: permet d'ouvrir/fermer ($contenu=D/F) une balise div sur un champ ($champ), avec un libellé ($libelle) et un attribut class ($style).
-        - une liste de classes css pour fieldset est disponible :
-            - group : permet une mise en ligne des champs contenu dans le div
-            - col_1 à col_12 : permet une mise en page simplifiée, par exemple : "col_1" permet de définir une taille dynamique de 1/12ème de la page , col_6 correspond à 6/12 soit 50% de l'espace disponible.
-    - setFieldset($champ, $contenu, $libelle = '', $style = '') \: permet d'ouvrir/fermer ($contenu=D/F) un  fieldset sur un champ ($champ), avec une legende ($libelle) et un attribut class ($style).
-        - une liste de classes css pour fieldset est disponible :
-            - collapsible : ajoute un bouton sur la legende (jQuery) afin de refermer le fieldset.
-            - startClosed : idem à la difference que le fieldset est fermé au chargement de la page.
-    - exemple d'implémentation de la méthode setLayout() afin d'obtenir le même affichage sans utiliser les méthodes setGroupe() et setRegroupe() :
+La mise en forme se fait via la methode setLayout() dans chaque surcharge de la classe dbform. Elle permet de gérer la hierarchie d'ouverture et fermeture des balises div et fieldset avec les méthodes :
+- setBloc($champ, $contenu, $libelle = '', $style = '') \: permet d'ouvrir/fermer ($contenu=D/F) une balise div sur un champ ($champ), avec un libellé ($libelle) et un attribut class ($style).
+    - une liste de classes css pour fieldset est disponible :
+        - group : permet une mise en ligne des champs contenu dans le div
+        - col_1 à col_12 : permet une mise en page simplifiée, par exemple : "col_1" permet de définir une taille dynamique de 1/12ème de la page , col_6 correspond à 6/12 soit 50% de l'espace disponible.
+    - il est possible de créer et ajouter des classes css aux différents div afin d'obtenir une mise en page personalisé.
+- setFieldset($champ, $contenu, $libelle = '', $style = '') \: permet d'ouvrir/fermer ($contenu=D/F) un  fieldset sur un champ ($champ), avec une legende ($libelle) et un attribut class ($style).
+    - une liste de classes css pour fieldset est disponible :
+        - collapsible : ajoute un bouton sur la legende (jQuery) afin de refermer le fieldset.
+        - startClosed : idem à la difference que le fieldset est fermé au chargement de la page.
+- exemple d'implémentation de la méthode setLayout() afin d'obtenir le même affichage sans utiliser les méthodes setGroupe() et setRegroupe() :
 
-      .. code-block:: php
+  .. code-block:: php
 
-        <?php
-          function setLayout(&$form, $maj) {
-              //Ouverture d'un fieldset
-              $form->setFieldset('om_collectivite','D',_('om_collectivite'), "collapsible");
-                  //Ouverture d'un div les champs compris entre "om_collectivite" et "actif"
-                  //la classe group peremet d'afficher les champs en ligne
-                  $form->setBloc('om_collectivite','D',"","group");
-                  //Fermeture du groupe
-                  $form->setBloc('actif','F');
-              //Fermeture du fieldset
-              $form->setFieldset('actif','F','');
+    <?php
+      function setLayout(&$form, $maj) {
+          //Ouverture d'un fieldset
+          $form->setFieldset('om_collectivite','D',_('om_collectivite'), "collapsible");
+              //Ouverture d'un div les champs compris entre "om_collectivite" et "actif"
+              //la classe group peremet d'afficher les champs en ligne
+              $form->setBloc('om_collectivite','D',"","group");
+              //Fermeture du groupe
+              $form->setBloc('actif','F');
+          //Fermeture du fieldset
+          $form->setFieldset('actif','F','');
 
-              $form->setFieldset('orientation', 'D', _("Parametres generaux du document"), "startClosed");
-                  $form->setBloc('orientation','D',"","group");
-                  $form->setBloc('format','F');
+          $form->setFieldset('orientation', 'D', _("Parametres generaux du document"), "startClosed");
+              $form->setBloc('orientation','D',"","group");
+              $form->setBloc('format','F');
 
-                  $form->setBloc('footerfont','D',"","group");
-                  $form->setBloc('footertaille','F');
+              $form->setBloc('footerfont','D',"","group");
+              $form->setBloc('footertaille','F');
 
-                  $form->setBloc('logo','D',"","group");
-                  $form->setBloc('logotop','F');
-              $form->setFieldset('logotop','F','');
+              $form->setBloc('logo','D',"","group");
+              $form->setBloc('logotop','F');
+          $form->setFieldset('logotop','F','');
 
-              $form->setFieldset('titreleft','D',_("Parametres du titre du document"), "startClosed");
-                  $form->setBloc('titreleft','D',"","group");
-                  $form->setBloc('titrehauteur','F');
+          $form->setFieldset('titreleft','D',_("Parametres du titre du document"), "startClosed");
+              $form->setBloc('titreleft','D',"","group");
+              $form->setBloc('titrehauteur','F');
 
-                  $form->setBloc('titrefont','D',"","group");
-                  $form->setBloc('titrealign','F');
-              $form->setFieldset('titrealign','F','');
+              $form->setBloc('titrefont','D',"","group");
+              $form->setBloc('titrealign','F');
+          $form->setFieldset('titrealign','F','');
 
-              $form->setFieldset('corpsleft','D',_("Parametres du corps du document"), "startClosed");
-                  $form->setBloc('corpsleft','D',"","group");
-                  $form->setBloc('corpshauteur','F');
+          $form->setFieldset('corpsleft','D',_("Parametres du corps du document"), "startClosed");
+              $form->setBloc('corpsleft','D',"","group");
+              $form->setBloc('corpshauteur','F');
 
-                  $form->setBloc('corpsfont','D',"","group");
-                  $form->setBloc('corpsalign','F');
-              $form->setFieldset('corpsalign','F','');
+              $form->setBloc('corpsfont','D',"","group");
+              $form->setBloc('corpsalign','F');
+          $form->setFieldset('corpsalign','F','');
 
-              $form->setFieldset('om_sousetat','D', _("Sous etat(s) : selection"), "startClosed");
-                  $form->setBloc('om_sousetat','D',"","group");
-                  $form->setBloc('sousetat','F');
-              $form->setFieldset('sousetat','F', '');
+          $form->setFieldset('om_sousetat','D', _("Sous etat(s) : selection"), "startClosed");
+              $form->setBloc('om_sousetat','D',"","group");
+              $form->setBloc('sousetat','F');
+          $form->setFieldset('sousetat','F', '');
 
-              $form->setFieldset('se_font','D', _("Sous etat(s) : police / marges / couleur"), "startClosed");
-                  $form->setBloc('se_font','D',"","group");
-                  $form->setBloc('se_couleurtexte','F');
-              $form->setFieldset('se_couleurtexte','F','');
-          }
-          ?>
+          $form->setFieldset('se_font','D', _("Sous etat(s) : police / marges / couleur"), "startClosed");
+              $form->setBloc('se_font','D',"","group");
+              $form->setBloc('se_couleurtexte','F');
+          $form->setFieldset('se_couleurtexte','F','');
+      }
+      ?>
 
 
 
@@ -624,38 +631,37 @@ Les sous programmes génériques sont stockés dans le répertoire /spg.
 
 Ce programme est appellé par le contrôle comboD, comboG, comboD2, comboG2, le paramétrage se fait dans les fichiers :
 
-    - dyn/comboparametre.inc.php
-    - dyn/comboretour.inc.php
-    - dyn/comboaffichage.inc.php
+- dyn/comboparametre.inc.php
+- dyn/comboretour.inc.php
+- dyn/comboaffichage.inc.php
 
 
 **spg/localisation.php** et js/localisation.js
 
     
-    ce programme est liée au contrôle formulaire "localisation"
+ce programme est liée au contrôle formulaire "localisation"
 
 
 **spg/voir.php** 
 
-    Ce script est associé au contrôle "upload"
+Ce script est associé au contrôle "upload"
     
-    Ce sous programme permet de visualiser un fichier téléchargé
-    sur le serveur (pdf ou image)
+Ce sous programme permet de visualiser un fichier téléchargé sur le serveur (pdf ou image)
     
 
 **spg/upload.php**
 
 
-        Ce script utilise la classe core/upload.class.php (composant openMairie)
+Ce script utilise la classe core/upload.class.php (composant openMairie)
 
-        Le paramétrage des extensions téléchargeables se fait dans le fichier autorise dans dyn/config.inc.php
+Le paramétrage des extensions téléchargeables se fait dans le fichier autorise dans dyn/config.inc.php
 
 
 **spg/rvb.php** et js/rvb.js
 
 
-    Ce script est associé au contrôle "rvb" et permet l'accès à une palette de couleur
-    pour récupérer un code couleur rvb
+Ce script est associé au contrôle "rvb" et permet l'accès à une palette de couleur
+pour récupérer un code couleur rvb
 
 
 *****************************************************************
@@ -669,8 +675,8 @@ les objets métiers
 **récuperer le type de la base** depuis l'objet db : $db->phptype (mysql ou pgsql)::
 
 
-        if(file_exists ("../sql/".$db->phptype."/".$this->table.".form.inc"))/
-			/include ("../sql/".$db->phptype."/".$this->table.".form.inc");/
+    if(file_exists ("../sql/".$db->phptype."/".$this->table.".form.inc"))/
+		/include ("../sql/".$db->phptype."/".$this->table.".form.inc");/
 
 
 **récuperer une erreur dans la base**
@@ -688,4 +694,3 @@ ce code remplace le code om3 (deprecated) ::
             //    {
             //    if ($DEBUG == 1)
             //            echo "La requ&ecirc;te de mise &agrave; jour est effectu&eacute;e.<br>";
-   
