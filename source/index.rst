@@ -112,7 +112,7 @@ Mises à niveau
 ==============
 
 .. toctree::
-   :maxdepth: 5
+   :maxdepth: 3
 
    upgrades/index.rst
 
