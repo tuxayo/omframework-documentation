@@ -11,9 +11,9 @@ des objets. Sans ce champ, il n'est pas possible de créer un modèle.
 Définition de l'identifiant
 ---------------------------
 
-Il suffit d'ajouter la contrainte ``PRIMARY KEY`` à une colonne d'une table pour
-créer un champ identifiant. Il sera ensuite automatiquement géré par openMairie
-lors de l'ajout, la modification et la suppression d'enregistrements.
+Il suffit d'ajouter la contrainte SQL C à une colonne d'une table
+pour créer un champ identifiant. Il sera ensuite automatiquement géré par
+openMairie lors de l'ajout, la modification et la suppression d'enregistrements.
 
 Fonctionnement interne du générateur
 ------------------------------------
@@ -22,18 +22,18 @@ Fonctionnement interne du générateur
 
 Le générateur suit la procédure suivante:
 
-- il utilise la clé primaire de la table si elle existe;
+- il utilise la colonne ayant la contrainte ``PRIMARY KEY`` si elle existe;
 
 - sinon, il utilise la colonne ayant le même nom que la table.
 
-S'il n'existe ni de clé primaire, ni de colonne ayant le même nom que la table,
-le modèle ne peut pas être créé.
+S'il n'existe ni contrainte, ni colonne ayant le même nom que la table, le
+modèle ne peut pas être créé.
 
 .. note::
    Le fait d'utiliser une colonne ayant le même nom que la table pour
    déterminer le champ identifiant est là pour une raison de
    rétro-compatibilité. Les versions d'openMairie antérieures à 4.3.0
-   n'utilisaient pas encore les clés primaires.
+   n'utilisaient pas encore la contrainte ``PRIMARY KEY``.
 
 **Est-il possible d'utiliser une clé primaire composée de plusieurs colonnes?**
 
@@ -48,21 +48,18 @@ Un modèle de données peut contenir, un ou plusieurs champs, faisant référenc
 Définition des références
 -------------------------
 
-.. attention::
-   La définition des références ne se fait pas de la même manière en fonction
-   du SGBD.
+La méthode pour créer des références diffère en fonction du SGBD.
 
 Avec PostgresSQL
 ................
 
-Dans une table donnnée, les références sont représentées par des clés
-étrangères et des colonnes portant le même nom que d'autres tables.
+Il suffit d'ajouter la contrainte SQL ``FOREIGN KEY`` à des colonnes pour créer
+des champs de type référence.
 
 Avec MySQL
 ..........
 
-Dans une table donnnée, les références sont représentées par des colonnes
-portant le même nom que d'autres tables.
+Il suffit de donner à une colonne le même nom que la table qu'elle référence.
 
 Fonctionnement interne du générateur
 ------------------------------------
@@ -132,7 +129,7 @@ Affichage dans les formulaires
 
 Ces champs sont affichés indifféremment des champs sans contrainte.
 
-Lors de la validation d'un formulaire, une verification est faite pour chaque
+Lors de la validation d'un formulaire, une vérification est faite pour chaque
 champ unique, ainsi que pour un éventuel groupe de champs uniques. Si une valeur
 (ou combinaison) est déjà présente dans la base de données, un message d'erreur
 est affiché, et la base de données n'est pas modifiée.
@@ -179,9 +176,8 @@ de données n'est pas modifiée.
 Le champ libellé
 ================
 
-Chaque modèle peut être représenté par un nom qui permet distinguer les objets
-les uns des autres. Ce nom est également utilisé pour représenter les objets
-dans les champs de type ``select``.
+Pour représenter des objets dans des champs de type ``<select>``, le générateur
+utilise un champ textuel particulier appelé libellé.
 
 Définition du libellé
 ---------------------

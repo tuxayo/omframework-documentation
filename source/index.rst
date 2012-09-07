@@ -120,5 +120,7 @@ Contributeurs
 =============
 
 * `atReal <contact@atreal.fr>`_
+* `Romain Beylerian <beylerian.romain@gmail.com>`_
+* `Nicolas Haye <nhaye@atreal.fr>`_
 * `Florent Michon <fmichon@atreal.fr>`_
 * `Francois Raynaud <contact@openmairie.org>`_

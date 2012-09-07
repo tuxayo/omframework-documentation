@@ -4,6 +4,9 @@
 Paramétrage générateur
 ======================
 
+.. todo::
+   Faire une partie sur la configuration des champs à afficher avec tab.inc.php.
+
 Le paramétrage de base est dans la classe gen. Il est possible de personnaliser
 le paramétrage dans le répertoire gen/dyn. (version 4.2.0)
 
