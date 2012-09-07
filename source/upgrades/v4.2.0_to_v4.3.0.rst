@@ -2,8 +2,8 @@
 Mettre à niveau depuis openMairie 4.2.0 vers 4.3.0
 ==================================================
 
-Mise à jour des surcharges du framework
-=======================================
+Les surcharges du framework
+===========================
 
 Classe ``application``
 ----------------------
@@ -160,3 +160,72 @@ Remplacée par:
    <?php
        function countActions($actions)
    ?>
+
+La base de données
+==================
+
+La structure
+------------
+
+La structure de la base de données d'openMairie a changée sensiblement depuis la
+version 4.2.0. Pour mettre à jour la base de données depuis cette version il
+faudra exécuter le script SQL ``ver_4.3.0.sql``.
+
+Pour MySQL: ::
+
+/data/mysql/ver_4.3.0.sql
+
+Pour PostgresSQL: ::
+
+/data/pgsql/ver_4.3.0.sql
+
+Les tables métier
+-----------------
+
+Le générateur gère maintenant plusieurs contraintes:
+
+- ``PRIMARY KEY``
+- ``FOREIGN KEY``
+- ``UNIQUE``
+- ``NOT NULL``
+
+En fonction de ces contraintes les fichiers de l'application sont générés
+différemment par rapport à openMairie version 4.2.0.
+
+PRIMARY KEY
+...........
+
+Le générateur peut maintenant utiliser les clés primaires. Pour créer le champ
+identifiant, il faudra utiliser la contrainte ``PRIMARY KEY`` à la place des
+noms de table en tant que nom de colonne.
+
+FOREIGN KEY (PostgresSQL)
+.........................
+
+Le générateur gère également les clés étrangères des bases PostgresSQL. Pour
+créer des références, il faudra utiliser la contrainte ``FOREIGN KEY`` à la
+place des noms de table étrangères en tant que nom de colonne.
+
+UNIQUE
+......
+
+La contrainte ``UNIQUE`` permet maintenant de gérer automatiquement les champs
+uniques. Il n'est plus nécessaire de surcharger la méthode ``verifier`` des
+modèles pour gérer ce type de champ. Il faudra nettoyer les surcharges de
+``verifier`` en supprimant la vérification manuelle des champs requis et les
+remplacer par des contraintes ``UNIQUE`` dans la base de données.
+
+NOT NULL
+........
+
+Toutes les colonnes ``NOT NULL`` généreront des champs requis. Des champs
+qui n'étaient pas requis dans la version 4.2.0 peuvent donc l'être dans la
+version 4.3.0 après une génération. Il faut donc supprimer la contrainte
+``NOT NULL`` des colonnes qui ne sont pas réellement requises par l'application
+ou ajouter une valeur par defaut avec la clause ``DEFAULT``.
+
+Concernant les champs requis par l'application. Il n'est plus nécessaire de
+surcharger la méthode ``verifier`` des modèles pour gérer ce type de champ. Il
+faudra nettoyer les surcharges de ``verifier`` en supprimant la vérification
+manuelle des champs requis et les remplacer par des contraintes ``NOT NULL``
+dans la base de données.
