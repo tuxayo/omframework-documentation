@@ -25,7 +25,9 @@ Supprimer l'utilisation de l'attribut:
 .. code-block:: php
 
    <?php
-       var $permission_if_right_does_not_exist = true;
+
+   var $permission_if_right_does_not_exist = true;
+
    ?>
 
 S'il est utilisé dans une surchage, il doit être remplacée par:
@@ -33,7 +35,9 @@ S'il est utilisé dans une surchage, il doit être remplacée par:
 .. code-block:: php
 
    <?php
-       $this->config['permission_if_right_does_not_exist'];
+
+   $this->config['permission_if_right_does_not_exist'];
+
    ?>
 
 Les méthodes surchargés de la classe ``om_application`` doivent être mises à
@@ -63,7 +67,9 @@ Supprimer l'utilisation de la méthode:
 .. code-block:: php
 
    <?php
-       function countHrefColumns($href = array())
+
+   function countHrefColumns($href = array())
+
    ?>
 
 Si elle est utilisée dans une surchage, elle doit être remplacée par:
@@ -71,7 +77,9 @@ Si elle est utilisée dans une surchage, elle doit être remplacée par:
 .. code-block:: php
 
    <?php
-       function countActions($actions)
+
+   function countActions($actions)
+
    ?>
 
 Étape 2: mettre à jour la base de données
