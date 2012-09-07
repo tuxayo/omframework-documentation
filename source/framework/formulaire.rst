@@ -677,20 +677,3 @@ les objets métiers
 
     if(file_exists ("../sql/".$db->phptype."/".$this->table.".form.inc"))/
 		/include ("../sql/".$db->phptype."/".$this->table.".form.inc");/
-
-
-**récuperer une erreur dans la base**
-
-om4 ::
-
-    database::isError($res); // ($res,true) = sans die
-
-
-ce code remplace le code om3 (deprecated) ::
-
-            //   if (DB :: isError($res))
-            //            $this->erreur_db($res->getDebugInfo(),$res->getMessage(),'');
-            //    else
-            //    {
-            //    if ($DEBUG == 1)
-            //            echo "La requ&ecirc;te de mise &agrave; jour est effectu&eacute;e.<br>";
