@@ -192,22 +192,22 @@ Le générateur gère maintenant plusieurs contraintes:
 En fonction de ces contraintes les fichiers de l'application sont générés
 différemment par rapport à openMairie version 4.2.0.
 
-PRIMARY KEY
-...........
+``PRIMARY KEY``
+...............
 
 Le générateur peut maintenant utiliser les clés primaires. Pour créer le champ
 identifiant, il faudra utiliser la contrainte ``PRIMARY KEY`` à la place des
 noms de table en tant que nom de colonne.
 
-FOREIGN KEY (PostgresSQL)
-.........................
+``FOREIGN KEY (PostgresSQL)``
+.............................
 
 Le générateur gère également les clés étrangères des bases PostgresSQL. Pour
 créer des références, il faudra utiliser la contrainte ``FOREIGN KEY`` à la
 place des noms de table étrangères en tant que nom de colonne.
 
-UNIQUE
-......
+``UNIQUE``
+..........
 
 La contrainte ``UNIQUE`` permet maintenant de gérer automatiquement les champs
 uniques. Il n'est plus nécessaire de surcharger la méthode ``verifier`` des
@@ -215,8 +215,8 @@ modèles pour gérer ce type de champ. Il faudra nettoyer les surcharges de
 ``verifier`` en supprimant la vérification manuelle des champs requis et les
 remplacer par des contraintes ``UNIQUE`` dans la base de données.
 
-NOT NULL
-........
+``NOT NULL``
+............
 
 Toutes les colonnes ``NOT NULL`` généreront des champs requis. Des champs
 qui n'étaient pas requis dans la version 4.2.0 peuvent donc l'être dans la
@@ -228,4 +228,4 @@ Concernant les champs requis par l'application. Il n'est plus nécessaire de
 surcharger la méthode ``verifier`` des modèles pour gérer ce type de champ. Il
 faudra nettoyer les surcharges de ``verifier`` en supprimant la vérification
 manuelle des champs requis et les remplacer par des contraintes ``NOT NULL``
-dans la base de données.
+sans clause ``DEFAULT`` dans la base de données.
