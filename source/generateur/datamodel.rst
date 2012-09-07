@@ -179,3 +179,19 @@ de données n'est pas modifiée.
 Le champ libellé
 ================
 
+Chaque modèle peut être représenté par un nom qui permet distinguer les objets
+les uns des autres. Ce nom est également utilisé pour représenter les objets
+dans les champs de type ``select``.
+
+Définition du libellé
+---------------------
+
+Pour définir explicitement une colonne comme libellé d'un modèle, il faut
+la nommer ``libelle``.
+
+Si cette colonne n'existe pas, le générateur considère la deuxième colonne
+de la table comme étant un libellé (ce système était celui utilisé dans les
+versions d'openMairie 4.2.0 et inférieures).
+
+Enfin s'il n'existe pas de seconde colonne, la clé primaire de la table est
+utilisé.
