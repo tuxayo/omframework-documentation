@@ -11,14 +11,14 @@ il est vivement conseillé de:
 - suivre les étapes de cette procédure dans l'ordre;
 - ne pas utiliser le générateur lorsque ce n'est pas indiqué.
 
+**Consultez la section sur les erreurs connues si des erreurs persistent après
+la mise à niveau.**
+
 Étape 1: mettre à jour les surcharges du framework
 ==================================================
 
 Classe ``application``
 ----------------------
-
-Les attributs
-.............
 
 Supprimer l'utilisation de l'attribut:
 
@@ -35,9 +35,6 @@ S'il est utilisé dans une surchage, il doit être remplacée par:
    <?php
        $this->config['permission_if_right_does_not_exist'];
    ?>
-
-Les méthodes
-............
 
 Les méthodes surchargés de la classe ``om_application`` doivent être mises à
 jour avec leur nouvelle implémentation.
@@ -157,3 +154,9 @@ surcharger la méthode ``verifier`` des modèles pour gérer ce type de champ. I
 faudra nettoyer les surcharges de ``verifier`` en supprimant la vérification
 manuelle des champs requis et les remplacer par des contraintes ``NOT NULL``
 sans clause ``DEFAULT`` dans la base de données.
+
+Étape 3: mettre à jour les fichiers de surcharge du répertoire sql/
+===================================================================
+
+Les erreurs connues
+===================
