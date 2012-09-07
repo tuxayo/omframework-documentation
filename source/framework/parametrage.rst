@@ -68,13 +68,29 @@ Il faut voir la documentation de DB PEAR qui est le module d'abstraction utilis�
 dans openMairie dans sa version actuelle
 
 
-=================
-Le menu principal
-=================
+=======================
+Les zones de navigation
+=======================
 
-Le paramétrage du menu se fait dans le fichier *dyn/menu.inc.php*.
+Quatre zones de navigation différentes sont disponibles dans le framework :
 
-De base, les rubriques suivantes sont paramétrées dans le framework::
+.. image:: ../_static/framework-navigation.png 
+    :align: center
+    :width: 800px
+
+
+*******
+Le menu
+*******
+
+Le but de cette zone de navigation est de ... Elle se situe à gauche du contenu
+et est visible uniquement lorsque l'utilisateur est authentifié. 
+
+.. image:: ../_static/framework-navigation-menu.png 
+    :align: center
+
+Par défaut **le menu** est composé de la manière suivante ::
+
 
     application             vide par défaut, contient l'accès à votre application
     export                  contient le script "edition" qui reprend
@@ -89,11 +105,13 @@ De base, les rubriques suivantes sont paramétrées dans le framework::
                                 du framework pour paramètrage de la collectivité,
                                 om_sig  et la gestion des accès                                
 
-Le paramétrage du menu se fait dans $menu.
 
-$menu est le tableau associatif qui contient tout le menu de l'application,
-il contient lui meme un tableau par rubrique, puis chaque
-rubrique contient un tableau par lien :
+La configuration des liens se fait dans le fichier :file:`dyn/menu.inc.php`.
+Ce fichier de paramétrage n'est pas obligatoire. Si il n'existe pas, aucun lien
+n'est affiché. Ce fichier de paramétrage doit contenir la déclaration d'un
+tableau de tableaux associatifs dans la variable ``$menu``. Chaque tableau
+associatif représente une rubrique. Chaque rubrique contient un tableau de
+tableaux associatifs, chacun représentant un lien.
 
 Les caracteristiques de ce tableau sont les suivantes :
 
@@ -116,49 +134,189 @@ Les caracteristiques de ce tableau sont les suivantes :
      target (pour ouvrir le lien dans une nouvelle fenetre)
 
 
-============
-Le menu haut
-============
 
-Le paramétrage du menu haut se fait dans le fichier *dyn/action.inc.php*
+************************
+Les actions personnelles
+************************
 
-Par défaut, il est paramétré le changement de mot de poste et la déconnexion
+Le but de cette zone de navigation est de ... Elle se situe dans le coin en
+haut à droite de l'écran et est visible uniquement lorsque l'utilisateur est
+authentifié. 
+
+.. image:: ../_static/framework-navigation-actions.png 
+    :align: center
+
+Par défaut **les actions personnelles** sont composées de quatre éléments :
+
+* le login de l'utilisateur,
+* le libellé de la collectivité,
+* un lien vers la page de modification du mot de passe,
+* un lien vers la page de déconnexion du logiciel.
+
+Le login de l'utilisateur est récupéré ...
+
+Le libellé de la collectivité est récupéré ...
+
+La configuration des liens se fait dans le fichier :file:`dyn/actions.inc.php`.
+Ce fichier de paramétrage n'est pas obligatoire. Si il n'existe pas, aucun lien
+n'est affiché. Ce fichier de paramétrage doit contenir la déclaration d'un
+tableau de tableaux associatifs dans la variable ``$actions``. Chaque tableau
+associatif représente un lien.
+
+.. code-block:: php
+
+   <?php
+   //
+   $actions = array();
+   //
+   $actions[] = array(
+       "title" => _("Link"),
+       "description" => _("Description"),
+       "href" => "../scr/link.php",
+       "target" => "_blank",
+       "class" => "action-link",
+       "right" => "link",
+   );
+   ?>
+
+Description de chaque paramètre du tableau associatif :
+
+**title**
+   [obligatoire] Texte
+
+**description**
+   Texte qui s'affiche au survol de l'élément
+
+**href**
+   Contenu du lien href
+
+**target**
+   Attribut pour ouvrir le lien dans une nouvelle fenêtre
+
+**class**
+   Classe CSS qui s'affiche sur l'élément
+
+**right**
+   Permission nécessaire à l'utilisateur pour visualiser l'élément
 
 
-$actions est le tableau associatif qui contient tous les liens présents dans
-les actions à côté du login et du nom de la collectivite
+**************
+Les raccourcis
+**************
 
-les caractéristiques du tableau link sont les suivantes :
+Le but de cette zone de navigation est de ... Elle se situe en haut à droite de
+l'écran juste au dessous des actions personnelles et est visible uniquement
+lorsque l'utilisateur est authentifié. 
 
+.. image:: ../_static/framework-navigation-shortlinks.png 
+    :align: center
 
-tableau link ::
+Par défaut **les raccourcis** contiennent uniquement un lien vers le tableau de
+bord.
 
+La configuration des liens se fait dans le fichier :file:`dyn/shortlinks.inc.php`.
+Ce fichier de paramétrage n'est pas obligatoire. Si il n'existe pas, aucun lien
+n'est affiché. Ce fichier de paramétrage doit contenir la déclaration d'un
+tableau de tableaux associatifs dans la variable ``$shortlinks``. Chaque tableau
+associatif représente un lien.
 
-    title (obligatoire)
-    description (texte qui s'affiche au survol de l'element)
-    href (obligatoire) (contenu du lien href)
-    class (classe css qui s'affiche sur l'element)
-    right (droit que l'utilisateur doit avoir pour visionner cet element)
-    target (pour ouvrir le lien dans une nouvelle fenetre)
-
-Les liens sous le menu des actions se paramétrent dans le fichier : *dyn/shortlinks.inc.php*
-
-$shortlinks est le tableau associatif qui contient tous les liens présents
-dans les raccourcis qui se situent en dessous des actions du menu haut
+.. code-block:: php
  
-Par défaut, il est paramétré l'accès au tableau de bord.
+   <?php
+   // On initialise le tableau conteneur
+   $shortlinks = array();
+   // On ajoute au tableau conteneur un tableau associatif représentant un lien
+   // (à répéter autant de fois que nécessaire)
+   $shortlinks[] = array(
+       "title" => _("Link"),
+       "description" => _("Description"),
+       "href" => "../scr/link.php",
+       "target" => "_blank",
+       "class" => "action-link",
+       "right" => "link",
+   );
+   ?>
 
-Les caracteristiques du tableau $link sont les suivantes :
+**title**
+   [obligatoire] Texte
+
+**description**
+   Texte qui s'affiche au survol de l'élément
+
+**href**
+   Contenu du lien href
+
+**target**
+   Attribut pour ouvrir le lien dans une nouvelle fenêtre
+
+**class**
+   Classe CSS qui s'affiche sur l'élément
+
+**right**
+   Permission nécessaire à l'utilisateur pour visualiser l'élément
 
 
-tableau link ::
+********************
+Les actions globales
+********************
 
-    title [obligatoire]
-    description (texte qui s'affiche au survol de l'element)
-    href [obligatoire] (contenu du lien href)
-    class (classe css qui s'affiche sur l'element)
-    right (droit que l'utilisateur doit avoir pour visionner cet element)
-    target (pour ouvrir le lien dans une nouvelle fenetre)
+Le but de cette zone de navigation est de représenter la section "À propos" du
+logiciel. Elle se situe en bas de l'écran juste au dessous du contenu de la
+page et est visible lorsque l'utilisateur est authentifié ou non. 
+
+.. image:: ../_static/framework-navigation-footer.png 
+    :align: center
+
+Par défaut **les actions globales** sont composées de trois éléments :
+
+* le nom du logiciel ainsi que son numéro de version,
+* un lien vers la documentation du site openMairie,
+* un lien vers le site openMairie.
+
+Le nom du logiciel est récupéré de la variable ``$config['application']``
+présente dans le fichier :file:`dyn/config.inc.php`. La version est récupérée de la
+variable ``$version`` présente dans le fichier :file:`dyn/version.inc.php`.
+
+La configuration des liens se fait dans le fichier :file:`dyn/footer.inc.php`.
+Ce fichier de paramétrage n'est pas obligatoire. Si il n'existe pas, aucun lien
+n'est affiché. Ce fichier de paramétrage doit contenir la déclaration d'un
+tableau de tableaux associatifs dans la variable ``$footer``. Chaque tableau
+associatif représente un lien.
+
+.. code-block:: php
+ 
+   <?php
+   // On initialise le tableau conteneur
+   $footer = array();
+   // On ajoute au tableau conteneur un tableau associatif représentant un lien
+   // (à répéter autant de fois que nécessaire)
+   $footer[] = array(
+       "title" => _("Link"),
+       "description" => _("Description"),
+       "href" => "../scr/link.php",
+       "target" => "_blank",
+       "class" => "action-link",
+       "right" => "link",
+   );
+   ?>
+
+**title**
+   [obligatoire] Texte
+
+**description**
+   Texte qui s'affiche au survol de l'élément
+
+**href**
+   Contenu du lien href
+
+**target**
+   Attribut pour ouvrir le lien dans une nouvelle fenêtre
+
+**class**
+   Classe CSS qui s'affiche sur l'élément
+
+**right**
+   Permission nécessaire à l'utilisateur pour visualiser l'élément
 
 
 ==================

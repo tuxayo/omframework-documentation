@@ -118,15 +118,16 @@ Ce chapître propose de vous décrire les outils de base du framework de la mani
 
 
 .. toctree::
-
-    parametrage.rst
-    affichage.rst
-    formulaire.rst
-    methode.rst
-    edition.rst
-    reqmo.rst
-    acces.rst
-    tdb.rst
-    ergonomie.rst
-    utilitaire.rst
-    import.rst
+   :numbered:
+   
+   parametrage.rst
+   affichage.rst
+   formulaire.rst
+   methode.rst
+   edition.rst
+   reqmo.rst
+   acces.rst
+   tdb.rst
+   ergonomie.rst
+   utilitaire.rst
+   import.rst
