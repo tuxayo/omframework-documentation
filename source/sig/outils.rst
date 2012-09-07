@@ -1,4 +1,4 @@
-.. _outils:
+.. _sig-outils:
 
 ######
 outils
