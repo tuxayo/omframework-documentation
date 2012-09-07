@@ -2,8 +2,17 @@
 Mettre à niveau depuis openMairie 4.2.0 vers 4.3.0
 ==================================================
 
-Les surcharges du framework
-===========================
+Cette procédure permet de mettre à niveau une application utilisant openMairie
+version 4.2.0 vers openMairie 4.3.0.
+
+Pour conserver une application fonctionnelle tout au long de la mise à niveau,
+il est vivement conseillé de:
+
+- suivre les étapes de cette procédure dans l'ordre;
+- ne pas utiliser le générateur lorsque ce n'est pas indiqué.
+
+Étape 1: mettre à jour les surcharges du framework
+==================================================
 
 Classe ``application``
 ----------------------
@@ -11,7 +20,7 @@ Classe ``application``
 Les attributs
 .............
 
-L'attribut suivant n'existe plus:
+Supprimer l'utilisation de l'attribut:
 
 .. code-block:: php
 
@@ -19,7 +28,7 @@ L'attribut suivant n'existe plus:
        var $permission_if_right_does_not_exist = true;
    ?>
 
-Remplacée par:
+S'il est utilisé dans une surchage, il doit être remplacée par:
 
 .. code-block:: php
 
@@ -30,122 +39,29 @@ Remplacée par:
 Les méthodes
 ............
 
-Les méthode surchargés de la classe ``om_application`` doivent être mises à jour
-avec leur nouvelle implémentation.
+Les méthodes surchargés de la classe ``om_application`` doivent être mises à
+jour avec leur nouvelle implémentation.
 
-Voici la liste des méthodes ayant évoluées depuis la vers 4.2.0:
-
-- __construct
-- checkParams
-- isAuthorized
-- isAccredited
-- isAuthenticated
-- displayActions
-- displayActionLogin
-- displayShortlink
-- displayMenu
-- displayStartContent
-- displayFooter
-- initSynchronization
-- synchronizeUser
-- getValFUserToAdd
 
 Classe ``dbForm``
 -----------------
 
-Les méthode surchargés de la classe ``dbForm`` doivent être mises à jour avec
+Les méthodes surchargés de la classe ``dbForm`` doivent être mises à jour avec
 leur nouvelle implémentation.
-
-Voici la liste des méthodes ayant évoluées depuis la vers 4.2.0:
-
-- constructeur
-- verifier
-- formulaire
-- sousformulaire
-- retour
-- retoursousformulaire
-- getDataSubmit
-- addToMessage
 
 Classe ``formulaire``
 ---------------------
 
-Les méthode surchargés de la classe ``formulaire`` doivent être mises à jour
+Les méthodes surchargés de la classe ``formulaire`` doivent être mises à jour
 avec leur nouvelle implémentation.
-
-Voici la liste des méthodes ayant évoluées depuis la vers 4.2.0:
-
-- formulaire
-- entete
-- afficher
-- enpied
-- afficherChamp
-- debutFieldset
-- finFieldset
-- debutBloc
-- finBloc
-- hiddenstatic
-- hiddenstaticnum
-- textareahiddenstatic
-- hiddenstaticdate
-- datestatic
-- statiq
-- textarea
-- textareastatic
-- pagehtml
-- textareamulti
-- date
-- select
-- selectdisabled
-- text
-- hidden
-- password
-- textdisabled
-- textreadonly
-- checkbox
-- checkboxnum
-- comboG
-- comboG2
-- comboD
-- comboD2
-- comboC
-- upload
-- upload2
-- voir
-- voir2
-- localisation
-- localisation2
-- rvb
-- rvb2
-- setGroupe
-- setRegroupe
-
-Classe ``logger``
------------------
-
-Les méthode surchargés de la classe ``logger`` doivent être mises à jour avec
-leur nouvelle implémentation.
-
-Voici la liste des méthodes ayant évoluées depuis la vers 4.2.0:
-
-- displayLog
 
 Classe ``table``
 -----------------
 
-Les méthode surchargés de la classe ``table`` doivent être mises à jour avec
+Les méthodes surchargés de la classe ``table`` doivent être mises à jour avec
 leur nouvelle implémentation.
 
-Voici la liste des méthodes ayant évoluées depuis la vers 4.2.0:
-
-- __construct
-- display
-- displayHeader
-- composeSearchTab
-- displaySearch
-- composeQuery
-
-La méthode suivante n'existe plus:  
+Supprimer l'utilisation de la méthode:
 
 .. code-block:: php
 
@@ -153,7 +69,7 @@ La méthode suivante n'existe plus:
        function countHrefColumns($href = array())
    ?>
 
-Remplacée par:
+Si elle est utilisée dans une surchage, elle doit être remplacée par:
 
 .. code-block:: php
 
@@ -161,8 +77,8 @@ Remplacée par:
        function countActions($actions)
    ?>
 
-La base de données
-==================
+Étape 2: mettre à jour la base de données
+=========================================
 
 La structure
 ------------
@@ -195,6 +111,8 @@ différemment par rapport à openMairie version 4.2.0.
 ``PRIMARY KEY``
 ...............
 
+**Ajouter la contrainte SQL PRIMARY KEY.**
+
 Le générateur peut maintenant utiliser les clés primaires. Pour créer le champ
 identifiant, il faudra utiliser la contrainte ``PRIMARY KEY`` à la place des
 noms de table en tant que nom de colonne.
@@ -202,12 +120,17 @@ noms de table en tant que nom de colonne.
 ``FOREIGN KEY (PostgresSQL)``
 .............................
 
+**Ajouter la contrainte SQL FOREING KEY.**
+
 Le générateur gère également les clés étrangères des bases PostgresSQL. Pour
 créer des références, il faudra utiliser la contrainte ``FOREIGN KEY`` à la
 place des noms de table étrangères en tant que nom de colonne.
 
 ``UNIQUE``
 ..........
+
+- **Ajouter la contrainte SQL UNIQUE.**
+- **Mettre a jour les fichiers de surcharge du répertoire obj/.**
 
 La contrainte ``UNIQUE`` permet maintenant de gérer automatiquement les champs
 uniques. Il n'est plus nécessaire de surcharger la méthode ``verifier`` des
@@ -217,6 +140,11 @@ remplacer par des contraintes ``UNIQUE`` dans la base de données.
 
 ``NOT NULL``
 ............
+
+- **Ajouter la contrainte NOT NULL aux champs requis.**
+- **Supprimer la clause DEFAULT des champs requis.**
+- **Supprimer la contrainte NOT NULL des champs non-requis ou ajouter la clause DEFAULT en fonction du besoin.**
+- **Mettre a jour les fichiers de surcharge du répertoire obj/.**
 
 Toutes les colonnes ``NOT NULL`` généreront des champs requis. Des champs
 qui n'étaient pas requis dans la version 4.2.0 peuvent donc l'être dans la
