@@ -83,8 +83,10 @@ Quatre zones de navigation différentes sont disponibles dans le framework :
 Le menu
 *******
 
-Le but de cette zone de navigation est de ... Elle se situe à gauche du contenu
-et est visible uniquement lorsque l'utilisateur est authentifié. 
+Le but de cette zone de navigation est de rassembler les liens vers toutes les
+fonctions du logiciel regrouper par rubrique et catégorie. Elle se situe à
+gauche du contenu et est visible uniquement lorsque l'utilisateur est
+authentifié. 
 
 .. image:: ../_static/framework-navigation-menu.png 
     :align: center
@@ -139,9 +141,10 @@ Les caracteristiques de ce tableau sont les suivantes :
 Les actions personnelles
 ************************
 
-Le but de cette zone de navigation est de ... Elle se situe dans le coin en
-haut à droite de l'écran et est visible uniquement lorsque l'utilisateur est
-authentifié. 
+Le but de cette zone de navigation est de regrouper des liens vers des fonctions
+qui concernent les informations de connexion de l'utilisateur. Elle se situe
+dans le coin en haut à droite de l'écran et est visible uniquement lorsque
+l'utilisateur est authentifié. 
 
 .. image:: ../_static/framework-navigation-actions.png 
     :align: center
@@ -153,9 +156,13 @@ Par défaut **les actions personnelles** sont composées de quatre éléments :
 * un lien vers la page de modification du mot de passe,
 * un lien vers la page de déconnexion du logiciel.
 
-Le login de l'utilisateur est récupéré ...
+Le login de l'utilisateur est récupéré par la méthode ``displayActionLogin()``
+de la classe ``om_application``. Cette méthode peut être surchargée dans la
+classe ``utils``.
 
-Le libellé de la collectivité est récupéré ...
+Le libellé de la collectivité est récupéré par la méthode
+``displayActionColletivite()`` de la classe ``om_application``. Cette méthode
+peut être surchargée dans la classe ``utils``.
 
 La configuration des liens se fait dans le fichier :file:`dyn/actions.inc.php`.
 Ce fichier de paramétrage n'est pas obligatoire. Si il n'existe pas, aucun lien
@@ -181,32 +188,33 @@ associatif représente un lien.
 
 Description de chaque paramètre du tableau associatif :
 
-**title**
-   [obligatoire] Texte
-
-**description**
-   Texte qui s'affiche au survol de l'élément
-
-**href**
-   Contenu du lien href
-
-**target**
-   Attribut pour ouvrir le lien dans une nouvelle fenêtre
-
-**class**
-   Classe CSS qui s'affiche sur l'élément
-
-**right**
-   Permission nécessaire à l'utilisateur pour visualiser l'élément
++-------------+------------+---------------------------------------------------+
+| Paramètre   | Requis ?   | Description                                       |
++=============+============+===================================================+
+| title       | O          | Texte                                             |
++-------------+------------+---------------------------------------------------+
+| description | N          | Texte qui s'affiche au survol de l'élément        |
++-------------+------------+---------------------------------------------------+
+| href        | N          | Contenu du lien href                              |
++-------------+------------+---------------------------------------------------+
+| target      | N          | Attribut pour ouvrir le lien dans une nouvelle    |
+|             |            | fenêtre                                           |
++-------------+------------+---------------------------------------------------+
+| class       | N          | Classe CSS qui s'affiche sur l'élément            |
++-------------+------------+---------------------------------------------------+
+| right       | N          | Permission nécessaire à l'utilisateur pour        |
+|             |            | visualiser l'élément                              |
++-------------+------------+---------------------------------------------------+
 
 
 **************
 Les raccourcis
 **************
 
-Le but de cette zone de navigation est de ... Elle se situe en haut à droite de
-l'écran juste au dessous des actions personnelles et est visible uniquement
-lorsque l'utilisateur est authentifié. 
+Le but de cette zone de navigation est de regrouper des liens vers des fonctions
+précises utilisées très souvent. Elle se situe en haut à droite de l'écran
+juste au dessous des actions personnelles et est visible uniquement lorsque
+l'utilisateur est authentifié. 
 
 .. image:: ../_static/framework-navigation-shortlinks.png 
     :align: center
@@ -237,23 +245,23 @@ associatif représente un lien.
    );
    ?>
 
-**title**
-   [obligatoire] Texte
-
-**description**
-   Texte qui s'affiche au survol de l'élément
-
-**href**
-   Contenu du lien href
-
-**target**
-   Attribut pour ouvrir le lien dans une nouvelle fenêtre
-
-**class**
-   Classe CSS qui s'affiche sur l'élément
-
-**right**
-   Permission nécessaire à l'utilisateur pour visualiser l'élément
++-------------+------------+---------------------------------------------------+
+| Paramètre   | Requis ?   | Description                                       |
++=============+============+===================================================+
+| title       | O          | Texte                                             |
++-------------+------------+---------------------------------------------------+
+| description | N          | Texte qui s'affiche au survol de l'élément        |
++-------------+------------+---------------------------------------------------+
+| href        | N          | Contenu du lien href                              |
++-------------+------------+---------------------------------------------------+
+| target      | N          | Attribut pour ouvrir le lien dans une nouvelle    |
+|             |            | fenêtre                                           |
++-------------+------------+---------------------------------------------------+
+| class       | N          | Classe CSS qui s'affiche sur l'élément            |
++-------------+------------+---------------------------------------------------+
+| right       | N          | Permission nécessaire à l'utilisateur pour        |
+|             |            | visualiser l'élément                              |
++-------------+------------+---------------------------------------------------+
 
 
 ********************
@@ -300,23 +308,23 @@ associatif représente un lien.
    );
    ?>
 
-**title**
-   [obligatoire] Texte
-
-**description**
-   Texte qui s'affiche au survol de l'élément
-
-**href**
-   Contenu du lien href
-
-**target**
-   Attribut pour ouvrir le lien dans une nouvelle fenêtre
-
-**class**
-   Classe CSS qui s'affiche sur l'élément
-
-**right**
-   Permission nécessaire à l'utilisateur pour visualiser l'élément
++-------------+------------+---------------------------------------------------+
+| Paramètre   | Requis ?   | Description                                       |
++=============+============+===================================================+
+| title       | O          | Texte                                             |
++-------------+------------+---------------------------------------------------+
+| description | N          | Texte qui s'affiche au survol de l'élément        |
++-------------+------------+---------------------------------------------------+
+| href        | N          | Contenu du lien href                              |
++-------------+------------+---------------------------------------------------+
+| target      | N          | Attribut pour ouvrir le lien dans une nouvelle    |
+|             |            | fenêtre                                           |
++-------------+------------+---------------------------------------------------+
+| class       | N          | Classe CSS qui s'affiche sur l'élément            |
++-------------+------------+---------------------------------------------------+
+| right       | N          | Permission nécessaire à l'utilisateur pour        |
+|             |            | visualiser l'élément                              |
++-------------+------------+---------------------------------------------------+
 
 
 ==================
