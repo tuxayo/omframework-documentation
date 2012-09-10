@@ -275,6 +275,9 @@ Exemple:
 
    ?>
 
+Définition de l'action
+,,,,,,,,,,,,,,,,,,,,,,
+
 La première clé de ``$tab_actions`` permet choisir la position d'affichage:
 
 - ``left`` pour les actions en coin;
@@ -286,17 +289,55 @@ clé doit être différente de: ``ajouter``, ``consulter``, ``modifier`` et
 
 Les clés ``lien``, ``id`` et ``lib`` s'utilise de la même manière qu'avant.
 
+Définition du mode d'affichage en sous-tableau
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
 La clé ``ajax`` permet d'indiquer si l'action doit être affichée en ajax ou non
 dans les sous-tableaux:
 
 - ``true``, l'action utilisera la fonction ``ajaxIt()``;
 - ``false``, l'action n'utilisera pas la fonction ``ajaxIt()``.
 
+Définition de l'ordre d'affichage
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
 La clé ``ordre`` permet de déterminer l'odre d'affichage par rapport aux autres
-actions. Si la position ``left`` est sélectionnée:
+actions.
+
+Chaque action dispose d'une valeur numérique permettant de définir sa place au
+sein d'une position. L'action numéro 1 s'affichera en premier, l'action numéro
+10 s'affichera après les actions de numéro inférieur, etc.
+
+Ordre des actions par défaut d'openMairie:
+
+- ajouter à pour ordre 10 dans la position ``corner``;
+- consulter à pour ordre 10 dans la position ``left``.
+
+Si la position ``corner`` est sélectionnée:
+
+- 9, l'action s'affichera avant l'action ``ajouter``;
+- 11, l'action s'affichera après l'action ``ajouter``.
+
+Si la position ``left`` est sélectionnée:
 
 - 9, l'action s'affichera avant l'action ``consulter``;
 - 11, l'action s'affichera après l'action ``consulter``.
+
+Définition des droits d'affichage
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+La clé ``rights`` permet de définir le ou les droits nécessaire à l'utilisateur
+pour visualiser cette action. Cette clé est optionnelle. Si ``rights`` n'existe
+pas, tous les utilisateurs pourront visualiser cette action s'ils peuvent
+visualiser le tableau correspondant.
+
+La clé ``list`` permet de définir le tableau des droits nécessaire.
+
+La clé ``operator`` permet de définir l'opérateur utilisé pour pour vérifier les
+droits de la liste ``list``:
+
+- ``OR``, l'utilisateur doit avoir au moins un droit;
+- ``AND``, l'utilisateur doit avoir tous les droits.
 
 Les erreurs connues
 ===================

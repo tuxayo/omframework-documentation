@@ -99,7 +99,7 @@ suivante:
    ?>
 
 Définition de l'action
-.......................
+......................
 
 La première clé de ``$tab_actions`` permet choisir la position d'affichage:
 
