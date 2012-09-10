@@ -167,7 +167,10 @@ sans clause ``DEFAULT`` dans la base de données.
 Étape 3: mettre à jour les fichiers de surcharge du répertoire sql/
 ===================================================================
 
-- **Prefixer le nom des colonnes étrangères par l'alias généré dans gen/sql/.**
+Alias des tables étrangères
+---------------------------
+
+**Prefixer le nom des colonnes étrangères par l'alias généré dans gen/sql/.**
 
 Le générateur donne à chaque table étrangère un alias unique, ce qui permet
 d'effectuer plusieurs jointures sur une même table sans avoir d'erreur
@@ -176,6 +179,76 @@ répertoire ``sql/``, les noms des colonnes provenant de tables étrangères
 devront être préfixés par l'alias de leur table. Cet alias apparaît dans la
 définition de la variable ``$table`` dans les fichiers générés du répertoire
 ``gen/sql/``.
+
+Surcharge des actions du tableau
+--------------------------------
+
+- **Remplacer $href[0] par $tab_actions['corner']['ajouter'].**
+- **Remplacer $href[1] par $tab_actions['left']['modifier'].**
+- **Remplacer $href[2] par $tab_actions['left']['supprimer'].**
+
+Pour surcharger l'action ajouter, il faut maintenant surcharger
+``$tab_actions['corner']['ajouter']`` et non plus ``$href[0]``:
+
+.. code-block:: php
+
+   <?php
+
+   $tab_actions['corner']['ajouter'] =
+       array('lien' => 'form.php?obj='.$obj.'&amp;action=0',
+             'id' => '&amp;advs_id='.$advs_id.'&amp;tricol='.$tricol.'&amp;valide='.$valide.'&amp;retour=tab',
+             'lib' => '<span class="om-icon om-icon-16 om-icon-fix add-16" title="'._('Ajouter').'">'._('Ajouter').'</span>',
+             'rights' => array('list' => array($obj, $obj.'_ajouter'), 'operator' => 'OR'),
+             'ordre' => 10,);
+
+   ?>
+
+Pour surcharger l'action modifier, il faut maintenant surcharger
+``$tab_actions['left']['modifier']`` et non plus ``$href[1]``:
+
+.. code-block:: php
+
+   <?php
+
+   $tab_actions['left']['modifier'] =
+       array('lien' => 'form.php?obj='.$obj.'&amp;action=1'.'&amp;idx=',
+             'id' => '&amp;premier='.$premier.'&amp;advs_id='.$advs_id.'&amp;recherche='.$recherche1.'&amp;tricol='.$tricol.'&amp;selectioncol='.$selectioncol.'&amp;valide='.$valide.'&amp;retour=tab',
+             'lib' => '<span class="om-icon om-icon-16 om-icon-fix edit-16" title="'._('Modifier').'">'._('Modifier').'</span>',
+             'rights' => array('list' => array($obj, $obj.'_modifier'), 'operator' => 'OR'),
+             'ordre' => 20,);
+
+   ?>
+
+Pour surcharger l'action de contenu, il faut maintenant surcharger
+``$tab_actions['content']`` et non plus ``$href[1]``:
+
+.. code-block:: php
+
+   <?php
+
+    $tab_actions['content'] = $tab_actions['left']['modifier'];
+
+   ?>
+
+Pour surcharger l'action supprimer, il faut maintenant surcharger
+``$tab_actions['left']['supprimer']`` et non plus ``$href[2]``:
+
+.. code-block:: php
+
+   <?php
+
+   $tab_actions['left']['supprimer'] =
+       array('lien' => 'form.php?obj='.$obj.'&amp;action=2&amp;idx=',
+             'id' => '&amp;premier='.$premier.'&amp;advs_id='.$advs_id.'&amp;recherche='.$recherche1.'&amp;tricol='.$tricol.'&amp;selectioncol='.$selectioncol.'&amp;valide='.$valide.'&amp;retour=tab',
+             'lib' => '<span class="om-icon om-icon-16 om-icon-fix delete-16" title="'._('Supprimer').'">'._('Supprimer').'</span>',
+             'rights' => array('list' => array($obj, $obj.'_supprimer'), 'operator' => 'OR'),
+             'ordre' => 30,);
+
+   ?>
+
+Les clés ``rights`` et ``ordre`` sont des nouvelles fonctionnalités qui sont
+décrites dans la section `Les actions` de la partie `Framework` de la
+documentation.
 
 Les erreurs connues
 ===================
