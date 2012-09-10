@@ -11,7 +11,7 @@ Actions des tableaux
 ====================
 
 La surcharge des actions de tableaux se fait via les scripts
-sql/type_de_sgbd/nom_objet.inc.php.
+``sql/sgbd/objet.inc.php``.
 
 L'ajout d'actions se présente de cette façon :
 
@@ -82,7 +82,7 @@ Créer de nouvelles actions
 La création d'actions pour un tableau particulier se fait depuis le répertoire
 ``sql/sgbd/``.
 
-Les actions doivent se définir dans les fichier ``modele.inc.php`` de la manière
+Les actions doivent se définir dans les fichier ``objet.inc.php`` de la manière
 suivante:
 
 .. code-block:: php
@@ -103,8 +103,8 @@ Définition de l'action
 
 La première clé de ``$tab_actions`` permet choisir la position d'affichage:
 
-- ``left`` pour les actions en coin;
-- ``corner`` pour les actions de gauche.
+- ``corner`` pour les actions en coin;
+- ``left`` pour les actions de gauche.
 
 .. note::
    Depuis la version 4.3.0 d'openMairie, il est désormais possible d'afficher
@@ -154,7 +154,7 @@ Si la position ``left`` est sélectionnée:
 Définition des droits d'affichage
 .................................
 
-La clé ``rights`` permet de définir le ou les droits nécessaire à l'utilisateur
+La clé ``rights`` permet de définir le ou les droits nécessaires à l'utilisateur
 pour visualiser cette action. Cette clé est optionnelle. Si ``rights`` n'existe
 pas, tous les utilisateurs pourront visualiser cette action s'ils peuvent
 visualiser le tableau correspondant.
@@ -171,11 +171,11 @@ Actions du menu contextuel de la consultation
 =============================================
 
 La configuration des actions du menu contextuel des formulaires en consultation
-se fait via les scripts sql/type_de_sgbd/nom_objet.form.inc.php
+se fait via les scripts ``sql/sgbd/objet.form.inc.php``
 
-Dans ces scripts, peuvent être surchargé, la liste des champs (ordre ou champs
+Dans ces scripts, peuvent être surchargés, la liste des champs (ordre ou champs
 affichés), requêtes sql permettant de remplir les widget de formulaires ainsi
-.que les actions du menu contextuel.
+que les actions du menu contextuel.
 
 L'ajout d'une action se presente de cette façon :
 
