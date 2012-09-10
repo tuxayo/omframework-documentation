@@ -161,7 +161,7 @@ de la classe ``om_application``. Cette méthode peut être surchargée dans la
 classe ``utils``.
 
 Le libellé de la collectivité est récupéré par la méthode
-``displayActionColletivite()`` de la classe ``om_application``. Cette méthode
+``displayActionCollectivite()`` de la classe ``om_application``. Cette méthode
 peut être surchargée dans la classe ``utils``.
 
 La configuration des liens se fait dans le fichier :file:`dyn/actions.inc.php`.
