@@ -323,6 +323,12 @@ Méthodes appelées lors de la validation
 
      Initialisation de la cle primaire (si cle automatique lors de l'ajout)
 
+  .. method:: dbform.cleSecondaire($id, &$db = NULL, $val = array(), $DEBUG = false)
+
+     Cette methode est appelee lors de la suppression d'un objet, elle permet
+     d'effectuer des tests pour verifier si l'objet supprime n'est pas cle
+     secondaire dans une autre table pour en empecher la suppression.
+
   .. method:: dbform.triggerajouter($id, &$db = NULL, $val = array(), $DEBUG = false)
 
      Permet d'effectuer des actions avant l'insertion des données dans la base
