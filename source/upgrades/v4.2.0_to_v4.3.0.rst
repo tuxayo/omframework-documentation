@@ -293,10 +293,10 @@ dans les sous-tableaux:
 - ``false``, l'action n'utilisera pas la fonction ``ajaxIt()``.
 
 La clé ``ordre`` permet de déterminer l'odre d'affichage par rapport aux autres
-actions:
+actions. Si la position ``left`` est sélectionnée:
 
-- 9, l'action s'affichera avant l'action consulter;
-- 11, l'action s'affichera après l'action consulter.
+- 9, l'action s'affichera avant l'action ``consulter``;
+- 11, l'action s'affichera après l'action ``consulter``.
 
 Les erreurs connues
 ===================
