@@ -122,6 +122,7 @@ Ce chapître propose de vous décrire les outils de base du framework de la mani
    
    parametrage.rst
    affichage.rst
+   advancedsearch.rst
    formulaire.rst
    actions-form.rst
    methode.rst
