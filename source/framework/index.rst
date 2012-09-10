@@ -4,15 +4,12 @@
 Le framework
 ############
 
-
 openMairie_exemple est le framework de base dans lequel vous pouvez
 développer votre propre application.
-    
 
 openMairie_exemple est `téléchargeable sur le site de l'adullact`_.
 
 .. _téléchargeable sur le site de l'adullact: http://adullact.net/frs/?group_id=329
-
 
 Il est proposé ici de décrire le fonctionnement du framework.
 
@@ -38,10 +35,8 @@ om_dbformdyn.class.php (composant openMairie). De base, les données de la base 
 formulaire (longueur, max, nom).
 
 - om_dbformdyn.class.php ; assure la liaison entre le formulaire et la base de données
-
 - om_formulaire.class.php : rassemble toutes les méthodes permettant de construire des formulaires
 
-    
 En introduction, il est proposé une explication de la hiérarchie des répertoires ::
     
     - app : contient tout ce qui est spécifique de votre application avec les
@@ -96,9 +91,6 @@ En introduction, il est proposé une explication de la hiérarchie des répertoi
     - sql : les requetes sql surchargées
     - tmp : les  fichiers temporaires
     - trs : les fichiers transférés en upload.
-    
-
-
 
 Ce chapître propose de vous décrire les outils de base du framework de la manière suivante :
 
@@ -110,12 +102,6 @@ Ce chapître propose de vous décrire les outils de base du framework de la mani
     - l'ergonomie intégrant jquery
     - la gestion de traitement et la construction de programme spécifiques avec les utilitaires
     - l'import des données CSV du framework
-
-    
-    
-
-
-
 
 .. toctree::
    :numbered:
