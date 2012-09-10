@@ -180,8 +180,11 @@ devront être préfixés par l'alias de leur table. Cet alias apparaît dans la
 définition de la variable ``$table`` dans les fichiers générés du répertoire
 ``gen/sql/``.
 
-Surcharge des actions du tableau
---------------------------------
+Les actions du tableau
+----------------------
+
+Les actions d'openMairie
+........................
 
 - **Remplacer $href[0] par $tab_actions['corner']['ajouter'].**
 - **Remplacer $href[1] par $tab_actions['left']['modifier'].**
@@ -246,9 +249,48 @@ Pour surcharger l'action supprimer, il faut maintenant surcharger
 
    ?>
 
-Les clés ``rights`` et ``ordre`` sont des nouvelles fonctionnalités qui sont
-décrites dans la section `Les actions vers formulaires` de la partie `Framework` de la
-documentation.
+Les actions personnalisées
+..........................
+
+Les actions personnalisées doivent être défini selon la nouvelle manière.
+Exemple:
+
+.. code-block:: php
+
+   <?php
+
+   $tab_actions['left']['edition'] = array(
+       'lien' => '../pdf/pdfetat.php?obj=om_collectivite&amp;idx=',
+       'id' => '',
+       'lib' => '<span class="om-icon om-icon-16 om-icon-fix pdf-16" title="'._('Edition').'">'._('Edition').'</span>',
+       'ajax' => false,
+       'ordre' => 21,
+   );
+
+   ?>
+
+La première clé de ``$tab_actions`` permet choisir la position d'affichage:
+
+- ``left`` pour les actions en coin;
+- ``corner`` pour les actions de gauche.
+
+La seconde clé de ``$tab_actions`` permet de définir la nouvelle action. Cette
+clé doit être différente de: ``ajouter``, ``consulter``, ``modifier`` et
+``supprimer``.
+
+Les clés ``lien``, ``id`` et ``lib`` s'utilise de la même manière qu'avant.
+
+La clé ``ajax`` permet d'indiquer si l'action doit être affichée en ajax ou non dans
+les sous-tableaux:
+
+- ``true``, l'action utilisera la fonction ``ajaxIt()``;
+- ``false``, l'action n'utilisera pas la fonction ``ajaxIt()``.
+
+La clé ``ordre`` permet de déterminer l'odre d'affichage par rapport aux autres
+actions:
+
+- 9, l'action s'affichera avant l'action consulter;
+- 11, l'action s'affichera après l'action consulter.
 
 Les erreurs connues
 ===================
