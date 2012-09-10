@@ -168,8 +168,8 @@ sans clause ``DEFAULT`` dans la base de données.
 .. important::
    Vous pouvez générer à nouveau l'application à partir d'ici.
 
-Étape 3: mettre à jour les fichiers de surcharge du répertoire sql/
-===================================================================
+Étape 3: mettre à jour les fichiers de surcharge du répertoire ``sql/``
+=======================================================================
 
 Alias des tables étrangères
 ---------------------------
