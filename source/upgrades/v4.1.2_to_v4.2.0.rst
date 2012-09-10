@@ -11,8 +11,8 @@ toutes possibilité de surcharge aux applications:
   dans app/css app/img;
 - surcharge du javascript de base app/js/script.js.
 
-EXTERNALS.txt
-=============
+``EXTERNALS.txt``
+=================
 
 Vider les 9 repertoires concernés avant de lancer externals.
 
@@ -51,8 +51,8 @@ Les dossiers suivant sont spécifiques à l'application elle même:
 - ``trs``, fichiers uploadés par l'application (ajouter les droits d'écriture
   pour le serveur web.
 
-Regenerer les tables avec genfull.php
-=====================================
+Regenerer les tables avec ``genfull.php``
+=========================================
 
 Ajouter les droits d'écriture à www-data dans gen: ::
 
@@ -64,20 +64,20 @@ Modifier les paramètres dyn
 locales.inc.php (charset)
 include.inc.php (core)
 
-Dans obj
-========
+Dans ``obj/``
+=============
 
-ajouter om_table.class.php, om_dbform.class.php, om_formulaire.class.php
+Ajouter ``om_table.class.php``, ``om_dbform.class.php``,  et
+``om_formulaire.class.php``.
 
 Evolution om_sig_point vers om_sig_map
 ======================================
 
-om_sig_map est le nouvel outil sig d openMairie
+om_sig_map est le nouvel outil SIG d'openMairie.
 
-ne concerne que pgsql
+Ne concerne que PostgresSQL.
 
-executer le script data/pgsql/ver4.2.0.sql
+Executer le script ``data/pgsql/ver4.2.0.sql``.
 
-regenerer les 4 nouvelles tables
-
-ajouter les scripts spécifiques dans /obj et /sql/pgsql
+Regénérer les 4 nouvelles tables. Ajouter les scripts spécifiques dans
+``/obj et /sql/pgsql``.
