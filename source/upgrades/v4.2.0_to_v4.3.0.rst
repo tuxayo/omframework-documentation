@@ -148,7 +148,8 @@ remplacer par des contraintes ``UNIQUE`` dans la base de données.
 
 - **Ajouter la contrainte NOT NULL aux champs requis.**
 - **Supprimer la clause DEFAULT des champs requis.**
-- **Supprimer la contrainte NOT NULL des champs non-requis ou ajouter la clause DEFAULT en fonction du besoin.**
+- **Supprimer la contrainte NOT NULL des champs non-requis ou ajouter la clause
+  DEFAULT en fonction du besoin.**
 - **Mettre a jour les fichiers de surcharge du répertoire obj/.**
 
 Toutes les colonnes ``NOT NULL`` généreront des champs requis. Des champs
@@ -165,6 +166,16 @@ sans clause ``DEFAULT`` dans la base de données.
 
 Étape 3: mettre à jour les fichiers de surcharge du répertoire sql/
 ===================================================================
+
+- **Prefixer le nom des colonnes étrangères par l'alias généré dans gen/sql/.**
+
+Le générateur donne à chaque table étrangère un alias unique, ce qui permet
+d'effectuer plusieurs jointures sur une même table sans avoir d'erreur
+d'ambiguïté avec les nom des colonnes. Pour cela, dans les fichiers du
+répertoire ``sql/``, les noms des colonnes provenant de tables étrangères
+devront être préfixés par l'alias de leur table. Cet alias apparaît dans la
+définition de la variable ``$table`` dans les fichiers générés du répertoire
+``gen/sql/``.
 
 Les erreurs connues
 ===================
