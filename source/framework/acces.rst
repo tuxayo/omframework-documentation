@@ -4,7 +4,7 @@
 La gestion des accès
 ####################
 
-Le framework fournit un gestionnaire d'accès configurable dans :
+Le framework fournit un gestionnaire d'accès configurable dans les menus :
 
 - administration -> profil
 - administration -> droit
@@ -29,13 +29,7 @@ La gestion des accès est gérée avec 3 tables :
 Les profils sont hiérarchiques, le profil 5 étant le plus élevé, il a accès à
 toutes les actions des profils inférieurs.
 
-**om_droit**: la gestion des droits affecte un profil suivant chaque :
-
-- action sur un objet métier : om_collectivite, om_parametre ...
-- chaque action (du menu, d'un tableau, de consultation, ...)
-
-Voir paramétrage menu : tableau Rubrik  right = "om_parametre"
-            
+**om_droit** : à chaque profil est affecté un ou plusieurs droits.            
 
 **om_utilisateur** : cette table permet de donner un login, un mot de passe
 et un profil à chaque utilisateur.
@@ -74,7 +68,7 @@ utilisateurs de niveau 2 ont accès à toutes les collectivités disponibles.
 Lors de la conception de la base de données un champ om_collectivite peut être
 ajouté à chaque table ayant besoin d'un filtrage par collectivité.
 Les utilisateurs de niveau 1 ne veront aucune notion de collectivité
-et n'auront accès qu'aux éléments liés à la leur.
+et n'auront accès qu'aux éléments liés à leur propre collectivité.
 
 
 ===================
@@ -95,7 +89,7 @@ et securites
       $_SESSION['login'] = $login;
     ?>
 
-La déconnexion se fait avec le script  ``scr/logout``
+La déconnexion se fait avec le script  ``scr/logout.php``
 
 Le changement de mot de passe se fait avec le script  ``scr/password.php``
 
