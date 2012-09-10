@@ -14,13 +14,9 @@ toutes possibilité de surcharge aux applications:
 EXTERNALS.txt
 =============
 
-vider les 9 repertoires concernés avant de lancer externals
+Vider les 9 repertoires concernés avant de lancer externals.
 
-core est le repertoire contenant la librairie openMairie (4.2.0)
-
-om_theme est le theme de l application
-
-appliquer extermnals openmairie /EXTERNALS.txt ::
+Appliquer le fichier ``EXTERNALS.txt`` d'openmairie: ::
 
     core  svn://scm.adullact.net/svnroot/openmairie/openmairie_exemple/tags/4.2.0/core/
     spg   svn://scm.adullact.net/svnroot/openmairie/openmairie_exemple/tags/4.2.0/spg/
@@ -34,33 +30,41 @@ appliquer extermnals openmairie /EXTERNALS.txt ::
     
     om-theme svn://scm.adullact.net/svnroot/openmairie/externals/om-theme/kinosura/tags/1.0.0
 
-Ce qui est spécifique à l'application ::
+Deux répertoires sont remarquables:
 
-    app     scripts spécifiques de l'application sont à mettre en app
-            noter dans specific.txt les spécificités
-    data    scripts sql d'initialisation de la base de données
-    dyn     paramétrage de l application
-    gen     générateur des objets de l application
-    obj     surcharge des objets de l application générés
-            surcharge du core "openmairie" om_dbformdyn , om_formulaire (4.2.0), om_application (util) 
-    sql     requête sql en surcharge de gen/sql
-    tmp     fichiers temporaires de l application (mettre les droits d'écriture pour apache)
-    trs     fichiers uploadés par l application (mettre les droits d'écriture pour apache
+- ``core`` contient maintenant la librairie openMairie (4.2.0);
+- ``om_theme`` est le theme de l'application.
 
-regenerer les tables avec genfull.php
+Les dossiers suivant sont spécifiques à l'application elle même:
+
+- ``app``, scripts spécifiques de l'application, noter dans specific.txt les
+  spécificités;
+- ``data``, scripts SQL d'initialisation de la base de données;
+- ``dyn``, paramétrage de l application;
+- ``gen``, fichiers générés de l'application;
+- ``obj``, surcharge des objets générés dans ``gen/obj/``,
+  surcharge du core d'openMairie ``om_dbformdyn``, ``om_formulaire`` (4.2.0),
+  ``om_application`` (util);
+- ``sql``, requêtes SQL surchargeant les fichiers de ``gen/sql``;
+- ``tmp``, fichiers temporaires de l'application (ajouter les droits d'écriture
+  pour le serveur web);
+- ``trs``, fichiers uploadés par l'application (ajouter les droits d'écriture
+  pour le serveur web.
+
+Regenerer les tables avec genfull.php
 =====================================
 
-mettre les droits  d ecriture a www-data dans gen : $ sudo chmod-R 777
-sur les nouvelles tables gerer par www-data remettre les droits d ecriture
+Ajouter les droits d'écriture à www-data dans gen: ::
+
 $ sudo chmod -R 777
 
-modifier les paramètres dyn
+Modifier les paramètres dyn
 ===========================
 
 locales.inc.php (charset)
 include.inc.php (core)
 
-dans obj
+Dans obj
 ========
 
 ajouter om_table.class.php, om_dbform.class.php, om_formulaire.class.php
