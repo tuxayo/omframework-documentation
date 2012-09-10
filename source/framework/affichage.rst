@@ -12,12 +12,12 @@ d'enregistrements issuent de la base de données.
    :height: 400
    :width: 800
 
-La gestion des tableaux se base sur le fichier :
-- core/om_table.class.php (classe table)
+La gestion des tableaux se base sur le fichier core/om_table.class.php
+(classe table)
 
-Pour chaque affichage de tableau, le script sql/DBTYPE/[table].inc.php
-correspondant est appelé. Il permet de stocker le detail des requètes
-necessaires à l'affichage du contenu du tableau.
+Pour chaque affichage de tableau, le script sql/DBTYPE/[objet].inc.php
+correspondant est appelé. Il permet de stocker le détail des requêtes
+nécessaires à l'affichage du contenu.
 
 Les tableaux sont construits lors de l'appel aux scripts scr/tab.php et
 scr/soustab.php.
@@ -31,21 +31,21 @@ l'objet passé en paramètre.
 
 Liste des paramètres passés à l'url :
 
-- obj : nom de la classe pour laquelle on souhaite afficher le tableau
+- obj : nom de l'objet pour lequel on souhaite afficher le tableau
 - premier : numéro de la première ligne affichée dans le tableau
-- recherche : chaine de caractères recherchée depuis le modules de recherche
+- recherche : chaîne de caractères recherchée depuis le modules de recherche
 - selectioncol : numéro de la colonne séléctionnée dans le module de recherche
 - tricol : numéro de colonne et orientation (+/-) du tri du tableau
 - valide : (true/false) affiche ou non les enregistrements non valide
 
-L'appel à scr/soustab.php se fait en javascript depuis un formulaire afin
+L'appel à scr/soustab.php est fait en javascript depuis un formulaire afin
 d'afficher les informations liées à l'enregistrement en cours d'édition.
 
 ==========================
-La requete SQL d'affichage
+La requête SQL d'affichage
 ==========================
 
-Elle se trouve dans sql/type_de_sgbd/nom_objet.inc.php
+Elle se trouve dans sql/DBTYPE/[objet].inc.php
 
 Les paramétres sont les suivants pour om_parametre.inc.php
 
@@ -69,7 +69,7 @@ Les paramétres sont les suivants pour om_parametre.inc.php
    $champRecherche=array('libelle','valeur');
    //Critere de tri par défaut
    $tri="";
-   //edition pdf
+   //édition pdf
    $edition="om_parametre";
    //sous formulaire(s) associé(s)
    $sousformulaire= array()
