@@ -11,8 +11,7 @@ Actions des tableaux
 ====================
 
 La surcharge des actions de tableaux se fait via les scripts
-sql/type_de_sgbd/nom_objet.inc.php (par defaut seules les actions d'ajout et
-de consultation sont disponible).
+sql/type_de_sgbd/nom_objet.inc.php.
 
 L'ajout d'actions se présente de cette façon :
 
@@ -70,6 +69,103 @@ Plusieurs emplacements d'actions existent :
 .. image:: ../_static/actions-form.png
    :height: 380
    :width: 800
+
+Les actions par défaut
+----------------------
+
+Par défaut seules les actions ``ajouter`` et ``consulter`` sont disponibles
+depuis les tableaux.
+
+Créer de nouvelles actions
+--------------------------
+
+La création d'actions pour un tableau particulier se fait depuis le répertoire
+``sql/sgbd/``.
+
+Les actions doivent se définir dans les fichier ``modele.inc.php`` de la manière
+suivante:
+
+.. code-block:: php
+
+   <?php
+
+   $tab_actions['left']['modifier'] =
+       array('lien' => 'form.php?obj='.$obj.'&amp;action=1'.'&amp;idx=',
+             'id' => '&amp;premier='.$premier.'&amp;advs_id='.$advs_id.'&amp;recherche='.$recherche1.'&amp;tricol='.$tricol.'&amp;selectioncol='.$selectioncol.'&amp;valide='.$valide.'&amp;retour=tab',
+             'lib' => '<span class="om-icon om-icon-16 om-icon-fix edit-16" title="'._('Modifier').'">'._('Modifier').'</span>',
+             'rights' => array('list' => array($obj, $obj.'_modifier'), 'operator' => 'OR'),
+             'ordre' => 20,);
+
+   ?>
+
+Définition de l'action
+.......................
+
+La première clé de ``$tab_actions`` permet choisir la position d'affichage:
+
+- ``left`` pour les actions en coin;
+- ``corner`` pour les actions de gauche.
+
+.. note::
+   Depuis la version 4.3.0 d'openMairie, il est désormais possible d'afficher
+   plusieurs actions dans le coin du tableau (au niveau de l'action
+   ``ajouter``).
+
+La seconde clé de ``$tab_actions`` permet de définir la nouvelle action. Cette
+clé doit être différente de: ``ajouter``, ``consulter``, ``modifier`` et
+``supprimer``.
+
+Les clés ``lien``, ``id`` et ``lib`` s'utilise de la même manière qu'avant.
+
+Définition du mode d'affichage en sous-tableau
+..............................................
+
+La clé ``ajax`` permet d'indiquer si l'action doit être affichée en ajax ou non
+dans les sous-tableaux:
+
+- ``true``, l'action utilisera la fonction ``ajaxIt()``;
+- ``false``, l'action n'utilisera pas la fonction ``ajaxIt()``.
+
+Définition de l'ordre d'affichage
+.................................
+
+La clé ``ordre`` permet de déterminer l'odre d'affichage par rapport aux autres
+actions.
+
+Chaque action dispose d'une valeur numérique permettant de définir sa place au
+sein d'une position. L'action numéro 1 s'affichera en premier, l'action numéro
+10 s'affichera après les actions de numéro inférieur, etc.
+
+Ordre des actions par défaut d'openMairie:
+
+- ajouter à pour ordre 10 dans la position ``corner``;
+- consulter à pour ordre 10 dans la position ``left``.
+
+Si la position ``corner`` est sélectionnée:
+
+- 9, l'action s'affichera avant l'action ``ajouter``;
+- 11, l'action s'affichera après l'action ``ajouter``.
+
+Si la position ``left`` est sélectionnée:
+
+- 9, l'action s'affichera avant l'action ``consulter``;
+- 11, l'action s'affichera après l'action ``consulter``.
+
+Définition des droits d'affichage
+.................................
+
+La clé ``rights`` permet de définir le ou les droits nécessaire à l'utilisateur
+pour visualiser cette action. Cette clé est optionnelle. Si ``rights`` n'existe
+pas, tous les utilisateurs pourront visualiser cette action s'ils peuvent
+visualiser le tableau correspondant.
+
+La clé ``list`` permet de définir le tableau des droits nécessaire.
+
+La clé ``operator`` permet de définir l'opérateur utilisé pour pour vérifier les
+droits de la liste ``list``:
+
+- ``OR``, l'utilisateur doit avoir au moins un droit;
+- ``AND``, l'utilisateur doit avoir tous les droits.
 
 Actions du menu contextuel de la consultation
 =============================================
