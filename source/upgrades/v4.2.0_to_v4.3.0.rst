@@ -286,8 +286,8 @@ clé doit être différente de: ``ajouter``, ``consulter``, ``modifier`` et
 
 Les clés ``lien``, ``id`` et ``lib`` s'utilise de la même manière qu'avant.
 
-La clé ``ajax`` permet d'indiquer si l'action doit être affichée en ajax ou non dans
-les sous-tableaux:
+La clé ``ajax`` permet d'indiquer si l'action doit être affichée en ajax ou non
+dans les sous-tableaux:
 
 - ``true``, l'action utilisera la fonction ``ajaxIt()``;
 - ``false``, l'action n'utilisera pas la fonction ``ajaxIt()``.
