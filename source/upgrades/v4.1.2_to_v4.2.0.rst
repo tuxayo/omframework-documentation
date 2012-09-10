@@ -56,7 +56,7 @@ Regenerer les tables avec genfull.php
 
 Ajouter les droits d'écriture à www-data dans gen: ::
 
-$ sudo chmod -R 777
+$ sudo chmod -R 777 gen
 
 Modifier les paramètres dyn
 ===========================
