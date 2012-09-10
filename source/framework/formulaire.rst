@@ -66,7 +66,7 @@ La gestion des formulaires se base sur deux classes :
     - formulaire : core/om_formulaire.class.php
     - dbform : core/om_dbform.class.php
 
-La classe formulaire permet la gestion de l'affichage et dbform
+La classe "formulaire" permet la gestion de l'affichage et "dbform"
 gère le traitement des données et la liaison à la base de données.
 
 scr/form.php et scr/sousform.php
@@ -80,12 +80,12 @@ Ces scripts prennent plusieurs paramètres :
 - obj : nom de la classe pour laquelle on souhaite afficher le formulaire
 - action : type d'action (ajout, modification, suppression, consultation)
 - idx : identifiant (dans la base de données) de l'élément sur lequel on
-  souhaite effectuer l'action (sauf en ajout)
+  souhaite effectuer l'action
 - retour : deux valeurs possible tab ou form selon l'origine de l'action
 
 Le paramètre "action" peut prendre 4 valeurs :
 
-- 0 : affiche un formulaire d'ajout, le paramètre idx n'est donc pas necessaire.
+- 0 : affiche un formulaire d'ajout, le paramètre idx n'est donc pas nécessaire.
 - 1 : affiche le formulaire de modification.
 - 2 : affiche le formulaire de suppression.
 - 3 : affiche le formulaire de consultation.
@@ -126,7 +126,7 @@ Méthodes d'initialisation de l'affichage du formulaire
 
      Méthode d'initialisation de l'affichage de sous formulaire.
 
-Cette méthode créer un objet om_formulaire et initialise certains de ces
+Ces méthodes instancient un objet "formulaire" et initialisent certains de ses
 attributs via les méthodes suivantes :
 
   .. method:: dbform.setVal(&$form, $maj, $validation, &$db, $DEBUG = false)
@@ -147,7 +147,7 @@ attributs via les méthodes suivantes :
 
   .. method:: dbform.setMax(&$form, $maj)
 
-     Permet de définir le nombre de caractère maximum des champs
+     Permet de définir le nombre de caractères maximum des champs
 
   .. method:: dbform.setSelect(&$form, $maj, $db, $DEBUG = false)
 
@@ -176,12 +176,13 @@ attributs via les méthodes suivantes :
 
   .. method:: dbform.setLayout(&$form, $maj)
 
-     Méthode de mise en page, elle permet de gérer la hierarchie d'ouverture et
+     Méthode de mise en page, elle permet de gérer la hiérarchie d'ouverture et
      fermeture des balises div et fieldset avec les méthodes :
 
-      - setBloc($champ, $contenu, $libelle = '', $style = '') \:
-        permet d'ouvrir/fermer ($contenu=D/F) une balise div sur un champ
-        ($champ), avec un libellé ($libelle) et un attribut class ($style).
+      .. method:: formulaire.setBloc($champ, $contenu, $libelle = '', $style = '')
+
+         permet d'ouvrir/fermer ($contenu=D/F) une balise div sur un champ
+         ($champ), avec un libellé ($libelle) et un attribut class ($style).
 
           - une liste de classes css pour fieldset est disponible :
 
@@ -190,36 +191,48 @@ attributs via les méthodes suivantes :
                 exemple : "col_1" permet de définir une taille dynamique de
                 1/12ème de la page , col_6 correspond à 6/12 soit 50% de l'espace
                 disponible.
+
           - il est possible de créer et ajouter des classes css aux différents
             div afin d'obtenir une mise en page personalisé.
-      - setFieldset($champ, $contenu, $libelle = '', $style = '') \: permet
-        d'ouvrir/fermer ($contenu=D/F) un  fieldset sur un champ ($champ), avec
-        une legende ($libelle) et un attribut class ($style).
+
+      .. method:: formulaire.setFieldset($champ, $contenu, $libelle = '', $style = '')
+
+         permet d'ouvrir/fermer ($contenu=D/F) un  fieldset sur un champ
+         ($champ), avec une légende ($libelle) et un attribut class ($style).
 
           - une liste de classes css pour fieldset est disponible :
               - collapsible : ajoute un bouton sur la legende (jQuery) afin de
                 refermer le fieldset.
-              - startClosed : idem à la difference que le fieldset est fermé au
+              - startClosed : idem à la différence que le fieldset est fermé au
                 chargement de la page.
-      - exemple d'implémentation de la méthode setLayout() afin d'obtenir le
-        même affichage sans utiliser les méthodes setGroupe() et setRegroupe() :
+
+      - exemple d'implémentation de la méthode setLayout() sans utiliser les
+        méthodes setGroupe() et setRegroupe() :
 
         .. code-block:: php
 
           <?php
           function setLayout(&$form, $maj) {
+            //Ouverture d'un div sur une colonne de 1/2 (6/12) de la largeur du
+            //conteneur parent
+            $form->setBloc('om_collectivite','D',"","col_6");
               //Ouverture d'un fieldset
               $form->setFieldset('om_collectivite','D',_('om_collectivite'),
                                 "collapsible");
                 //Ouverture d'un div les champs compris entre
-                  "om_collectivite" et "actif"
-                //la classe group peremet d'afficher les champs en ligne
+                //"om_collectivite" et "actif"
+                //la classe group permet d'afficher les champs en ligne
                 $form->setBloc('om_collectivite','D',"","group");
                 //Fermeture du groupe
                 $form->setBloc('actif','F');
               //Fermeture du fieldset
               $form->setFieldset('actif','F','');
+            //Fermeture du div de 50%
+            $form->setBloc('actif','F');
 
+            //Ouverture d'un div sur une colonne de 1/2 de la largeur du
+            //conteneur parent
+            $form->setBloc('orientation','D',"","col_6");
               $form->setFieldset('orientation', 'D',
                                   _("Parametres generaux du document"),
                                   "startClosed");
@@ -232,7 +245,13 @@ attributs via les méthodes suivantes :
                 $form->setBloc('logo','D',"","group");
                 $form->setBloc('logotop','F');
               $form->setFieldset('logotop','F','');
+            $form->setBloc('logotop','F');
 
+            //Ouverture d'un div de largeur maximum sur un seul champ
+            $form->setBloc('titre','DF',"","col_12");
+
+            //Ouverture d'un div de largeur maximum
+            $form->setBloc('titreleft','D',"","col_12");
               $form->setFieldset('titreleft','D',
                                   _("Parametres du titre du document"),
                                   "startClosed");
@@ -242,7 +261,13 @@ attributs via les méthodes suivantes :
                 $form->setBloc('titrefont','D',"","group");
                 $form->setBloc('titrealign','F');
               $form->setFieldset('titrealign','F','');
+            $form->setBloc('titrealign','F');
 
+            //Ouverture d'un div de largeur maximum sur un seul champ
+            $form->setBloc('corps','DF',"","col_12");
+
+            //Ouverture d'un div de largeur maximum
+            $form->setBloc('corpsleft','D',"","col_12");
               $form->setFieldset('corpsleft','D',
                                   _("Parametres du corps du document"),
                                   "startClosed");
@@ -252,22 +277,32 @@ attributs via les méthodes suivantes :
                 $form->setBloc('corpsfont','D',"","group");
                 $form->setBloc('corpsalign','F');
               $form->setFieldset('corpsalign','F','');
+            $form->setBloc('corpsalign','F');
 
+            //Ouverture d'un div de largeur maximum sur un seul champ
+            $form->setBloc('om_sql','DF',"","col_12");
+
+            //Ouverture d'un div de 1/2 de la largeur du conteneur parent
+            $form->setBloc('om_sousetat','D',"","col_6");
               $form->setFieldset('om_sousetat','D',
                                   _("Sous etat(s) : selection"),
                                   "startClosed");
                 $form->setBloc('om_sousetat','D',"","group");
                 $form->setBloc('sousetat','F');
               $form->setFieldset('sousetat','F', '');
+            $form->setBloc('sousetat','F');
 
+            //Ouverture d'un div de 1/2 de la largeur du conteneur parent
+            $form->setBloc('se_font','D',"","col_6");
               $form->setFieldset('se_font','D',
                                   _("Sous etat(s) : police / marges / couleur"),
                                   "startClosed");
                 $form->setBloc('se_font','D',"","group");
                 $form->setBloc('se_couleurtexte','F');
               $form->setFieldset('se_couleurtexte','F','');
-            }
-            ?>
+            $form->setBloc('se_couleurtexte','F');
+          }
+          ?>
 
 Méthodes d'actions
 ------------------
@@ -277,20 +312,20 @@ Ces méthodes sont appelées lors de la validation du formulaire.
   .. method:: dbform.ajouter($val, &$db = NULL, $DEBUG = false)
 
      Cette méthode permet l'insertion de données dans la base, elle appelle
-     toutes les méthodes de traitement, vérification et action  des données
-     retournées par le formulaire
+     toutes les méthodes de traitement, vérification et méthodes
+     spécifiques à l'ajout.
 
   .. method:: dbform.modifier($val = array(), &$db = NULL, $DEBUG = false)
 
      Cette méthode permet la modification de données dans la base, elle appelle
      toutes les méthodes de traitement et vérification des données retournées
-     par le formulaire
+     par le formulaire.
 
   .. method:: dbform.supprimer($val = array(), &$db = NULL, $DEBUG = false)
 
      Cette méthode permet la suppression de données dans la base, elle appelle
      toutes les méthodes de traitement et vérification des données retournées
-     par le formulaire
+     par le formulaire.
 
 Méthodes appelées lors de la validation
 ---------------------------------------
@@ -299,7 +334,8 @@ Méthodes appelées lors de la validation
 
   .. method:: dbform.setValFAjout($val = array())
 
-     Méthode de traitement des données retournées par le formulaire (utilisé lors de l'ajout)
+     Méthode de traitement des données retournées par le formulaire
+     (utilisé lors de l'ajout)
 
 .. _setValF:
 
@@ -317,17 +353,18 @@ Méthodes appelées lors de la validation
 
   .. method:: dbform.verifierAjout($val = array(), &$db = NULL)
 
-     Méthode de verification des données et de retour d'erreurs (utilisé lors de l'ajout)
+     Méthode de verification des données et de retour d'erreurs
+     (utilisé lors de l'ajout)
 
   .. method:: dbform.setId(&$db = NULL)
 
-     Initialisation de la cle primaire (si cle automatique lors de l'ajout)
+     Initialisation de la clé primaire (si cle automatique lors de l'ajout)
 
   .. method:: dbform.cleSecondaire($id, &$db = NULL, $val = array(), $DEBUG = false)
 
      Cette methode est appelee lors de la suppression d'un objet, elle permet
-     d'effectuer des tests pour verifier si l'objet supprimé n'est pas clé
-     secondaire dans une autre table pour en empecher la suppression.
+     de verifier si l'objet supprimé n'est pas lié à une autre table pour
+     en empecher la suppression.
 
   .. method:: dbform.triggerajouter($id, &$db = NULL, $val = array(), $DEBUG = false)
 
@@ -375,27 +412,27 @@ champs. Chaque méthode permet d'afficher un seul widget.
 
     .. method:: formulaire.text()
 
-       controle text (format standard)
+       champ texte (format standard)
 
     .. method:: formulaire.hidden()
 
-       controle non visible avec valeur conservée
+       champ non visible avec valeur conservée
 
     .. method:: formulaire.password()
 
-       controle password
+       champ password
 
     .. method:: formulaire.textdisabled()
 
-       controle text non modifiable
+       champ texte non modifiable (grisé)
 
     .. method:: formulaire.textreadonly()
 
-       contrôle text non modifiable
+       champ texte non modifiable
 
     .. method:: formulaire.hiddenstatic()
 
-       champ non modifiable  Valeur récupéré par le formulaire
+       champ non modifiable, la valeur est récupéré par le formulaire.
 
     .. method:: formulaire.hiddenstaticnum()
 
@@ -411,7 +448,7 @@ champs. Chaque méthode permet d'afficher un seul widget.
 
     .. method:: formulaire.checkbox()
 
-       controle case à cocher valeurs possibles : ``True`` ou ``False``
+       case à cocher valeurs possibles : ``True`` ou ``False``
 
     .. method:: formulaire.checkboxstatic()
 
@@ -460,15 +497,15 @@ champs. Chaque méthode permet d'afficher un seul widget.
 
     .. method:: formulaire.pagehtml()
 
-       affichage d'un textarea et tranforme les retour charriot en <br>
+       affichage d'un textarea et tranforme les retours charriot en <br>
 
     .. method:: formulaire.select()
 
-       controle select
+       champ select
 
     .. method:: formulaire.selectdisabled()
 
-       controle select non modifiable
+       champ select non modifiable
 
     .. method:: formulaire.selectstatic()
 
@@ -481,22 +518,22 @@ champs. Chaque méthode permet d'afficher un seul widget.
 
     .. method:: formulaire.comboG()
 
-       permet d'effectuer une correlation entre un groupe de champ et un
+       permet d'effectuer une corrélation entre un groupe de champ et un
        identifiant dans les formulaires
 
     .. method:: formulaire.comboG2()
 
-       permet d'effectuer une correlation entre un groupe de champ et un
+       permet d'effectuer une corrélation entre un groupe de champ et un
        identifiant dans les sous formulaires
 
     .. method:: formulaire.comboD()
 
-       permet d'effectuer une correlation entre un groupe de champ et un
+       permet d'effectuer une corrélation entre un groupe de champ et un
        identifiant dans les formulaires
 
     .. method:: formulaire.comboD2()
 
-       permet d'effectuer une correlation entre un groupe de champ et un
+       permet d'effectuer une corrélation entre un groupe de champ et un
        identifiant dans les sous formulaires
 
     .. method:: formulaire.upload()
@@ -535,21 +572,21 @@ champs. Chaque méthode permet d'afficher un seul widget.
 
     .. method:: formulaire.geom()
 
-       ouvre une fenetre tab_sig.php pour visualiser ou saisir une geometrie
+       ouvre une fenetre tab_sig.php pour visualiser ou saisir une géométrie
        (selon l'action) la carte est définie en setSelect
 
 Les contrôle comboG, comboD, date, upload, voir et localisation sont à mettre
-dans les formulaires (retour de l'affichage dans le formulaire f1)
+dans les formulaires.
 Les contrôle comboG2, comboD2, date2, upload2, voir2 et localisation sont à
-mettre dans les sous formulaires (retour de l'affichage dans le formulaire f2)
+mettre dans les sous formulaires.
 
 Les widgets font appel des scripts d'aide à la saisie stockés dans le répertoire
-/spg,ils sont appelés par js/script.js. Ce script peut être surchargé dans
+/spg, ils sont appelés par js/script.js. Ce script peut être surchargé dans
 app/js/script.js.
 
 **spg/combo.php**
 
-Ce programme est appellé par le contrôle comboD, comboG, comboD2, comboG2,
+Ce programme est appellé par le champ comboD, comboG, comboD2, comboG2,
 le paramétrage se fait dans les fichiers :
 
 - dyn/comboparametre.inc.php
@@ -558,11 +595,11 @@ le paramétrage se fait dans les fichiers :
 
 **spg/localisation.php** et js/localisation.js
 
-ce programme est liée au contrôle formulaire "localisation".
+ce programme est liée au champ formulaire "localisation".
 
 **spg/voir.php** 
 
-Ce script est associé au contrôle "upload".
+Ce script est associé au champ "upload".
     
 Ce sous programme permet de visualiser un fichier téléchargé sur le serveur
 (pdf ou image).
@@ -575,7 +612,7 @@ Le paramétrage des extensions téléchargeables se fait dans dyn/config.inc.php
 
 **spg/rvb.php** et js/rvb.js
 
-Ce script est associé au contrôle "rvb" et affiche une palette de couleur pour
+Ce script est associé au champ "rvb" et affiche une palette de couleur pour
 récupérer un code rvb.
 
 .. _méthodes-construction-formulaire:
@@ -583,8 +620,8 @@ récupérer un code rvb.
 Les  méthodes de construction et d'affichage
 ============================================
 
-Le formulaire est constitué de div, fieldset et de champs les méthodes suivante
-permettent une mise en page structuré.
+Le formulaire est constitué de div, fieldset et de champs les méthodes suivantes
+permettent une mise en page structurée.
 
     .. method:: formulaire.entete()
 
@@ -618,27 +655,12 @@ permettent une mise en page structuré.
 
        affichage de champ.
 
-    .. method:: formulaire.recuperePostVar()
-
-       recupèrent des variables apres validation d'un formulaire
-
-    .. method:: formulaire.recupererPostvarsousform()
-
-       recupèrent des variables apres validation d'un sous formulaire
-
-Depuis la version 4.3.0 :
-
-    .. method:: formulaire.transformGroupAndRegroupeToLayout()
-
-       permet de garder la compatibilité des méthodes setGroupe() et
-       setRegroupe() avec setLayout() (obsolètes depuis la version 4.3.0).
-
 .. _méthodes-assesseurs:
 
 Les méthodes assesseurs changent les valeurs des attributs de l'objet formulaire
 ================================================================================
 
-Ces méthode sont appelées depuis les classes métier, elles permettent la
+Ces méthodes sont appelées depuis les classes métier, elles permettent la
 configuration du formulaire.
 
     .. method:: formulaire.setType()
@@ -667,15 +689,15 @@ configuration du formulaire.
 
     .. method:: formulaire.setOnchange()
 
-       permet de définir des actions sur l'événement
+       permet de définir des actions sur l'événement "onchange"
 
     .. method:: formulaire.setKeyup()
 
-       permet de définir des actions sur l'événement
+       permet de définir des actions sur l'événement "onkeyup"
 
     .. method:: formulaire.setOnclick()
 
-       permet de définir des actions sur l'événement
+       permet de définir des actions sur l'événement "onclick"
 
     .. method:: formulaire.setvalF()
 
@@ -691,10 +713,10 @@ configuration du formulaire.
 
     .. method:: formulaire.setBloc($champ, $contenu, $libelle = '', $style = '')
 
-       permet d'ouvrir/fermer ($contenu=D/F) une balise div sur un champ
+       permet d'ouvrir/fermer ($contenu=D/F/DF) une balise div sur un champ
        ($champ), avec un libellé ($libelle) et un attribut class ($style).
 
     .. method:: formulaire.setFieldset($champ, $contenu, $libelle = '', $style = '')
 
-       permet d'ouvrir/fermer ($contenu=D/F) un  fieldset sur un champ ($champ),
+       permet d'ouvrir/fermer ($contenu=D/F/DF) un  fieldset sur un champ ($champ),
        avec une legende ($libelle) et un attribut class ($style).
