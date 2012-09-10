@@ -280,8 +280,8 @@ Définition de l'action
 
 La première clé de ``$tab_actions`` permet choisir la position d'affichage:
 
-- ``left`` pour les actions en coin;
-- ``corner`` pour les actions de gauche.
+- ``corner`` pour les actions en coin;
+- ``left`` pour les actions de gauche.
 
 La seconde clé de ``$tab_actions`` permet de définir la nouvelle action. Cette
 clé doit être différente de: ``ajouter``, ``consulter``, ``modifier`` et
