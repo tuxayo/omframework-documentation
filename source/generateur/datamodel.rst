@@ -11,7 +11,7 @@ des objets. Sans ce champ, il n'est pas possible de créer un modèle.
 Définition de l'identifiant
 ---------------------------
 
-Il suffit d'ajouter la contrainte SQL C à une colonne d'une table
+Il suffit d'ajouter la contrainte SQL ``PRIMARY KEY`` à une colonne d'une table
 pour créer un champ identifiant. Il sera ensuite automatiquement géré par
 openMairie lors de l'ajout, la modification et la suppression d'enregistrements.
 
