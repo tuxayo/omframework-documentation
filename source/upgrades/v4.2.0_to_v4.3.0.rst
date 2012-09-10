@@ -247,7 +247,7 @@ Pour surcharger l'action supprimer, il faut maintenant surcharger
    ?>
 
 Les clés ``rights`` et ``ordre`` sont des nouvelles fonctionnalités qui sont
-décrites dans la section `Les actions` de la partie `Framework` de la
+décrites dans la section `Les actions vers formulaires` de la partie `Framework` de la
 documentation.
 
 Les erreurs connues
