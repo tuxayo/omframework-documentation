@@ -207,53 +207,65 @@ attributs via les méthodes suivantes :
         .. code-block:: php
 
           <?php
-            function setLayout(&$form, $maj) {
-                //Ouverture d'un fieldset
-                $form->setFieldset('om_collectivite','D',_('om_collectivite'), "collapsible");
-                    //Ouverture d'un div les champs compris entre "om_collectivite" et "actif"
-                    //la classe group peremet d'afficher les champs en ligne
-                    $form->setBloc('om_collectivite','D',"","group");
-                    //Fermeture du groupe
-                    $form->setBloc('actif','F');
-                //Fermeture du fieldset
-                $form->setFieldset('actif','F','');
+          function setLayout(&$form, $maj) {
+              //Ouverture d'un fieldset
+              $form->setFieldset('om_collectivite','D',_('om_collectivite'),
+                                "collapsible");
+                //Ouverture d'un div les champs compris entre
+                  "om_collectivite" et "actif"
+                //la classe group peremet d'afficher les champs en ligne
+                $form->setBloc('om_collectivite','D',"","group");
+                //Fermeture du groupe
+                $form->setBloc('actif','F');
+              //Fermeture du fieldset
+              $form->setFieldset('actif','F','');
 
-                $form->setFieldset('orientation', 'D', _("Parametres generaux du document"), "startClosed");
-                    $form->setBloc('orientation','D',"","group");
-                    $form->setBloc('format','F');
+              $form->setFieldset('orientation', 'D',
+                                  _("Parametres generaux du document"),
+                                  "startClosed");
+                $form->setBloc('orientation','D',"","group");
+                $form->setBloc('format','F');
 
-                    $form->setBloc('footerfont','D',"","group");
-                    $form->setBloc('footertaille','F');
+                $form->setBloc('footerfont','D',"","group");
+                $form->setBloc('footertaille','F');
 
-                    $form->setBloc('logo','D',"","group");
-                    $form->setBloc('logotop','F');
-                $form->setFieldset('logotop','F','');
+                $form->setBloc('logo','D',"","group");
+                $form->setBloc('logotop','F');
+              $form->setFieldset('logotop','F','');
 
-                $form->setFieldset('titreleft','D',_("Parametres du titre du document"), "startClosed");
-                    $form->setBloc('titreleft','D',"","group");
-                    $form->setBloc('titrehauteur','F');
+              $form->setFieldset('titreleft','D',
+                                  _("Parametres du titre du document"),
+                                  "startClosed");
+                $form->setBloc('titreleft','D',"","group");
+                $form->setBloc('titrehauteur','F');
 
-                    $form->setBloc('titrefont','D',"","group");
-                    $form->setBloc('titrealign','F');
-                $form->setFieldset('titrealign','F','');
+                $form->setBloc('titrefont','D',"","group");
+                $form->setBloc('titrealign','F');
+              $form->setFieldset('titrealign','F','');
 
-                $form->setFieldset('corpsleft','D',_("Parametres du corps du document"), "startClosed");
-                    $form->setBloc('corpsleft','D',"","group");
-                    $form->setBloc('corpshauteur','F');
+              $form->setFieldset('corpsleft','D',
+                                  _("Parametres du corps du document"),
+                                  "startClosed");
+                $form->setBloc('corpsleft','D',"","group");
+                $form->setBloc('corpshauteur','F');
 
-                    $form->setBloc('corpsfont','D',"","group");
-                    $form->setBloc('corpsalign','F');
-                $form->setFieldset('corpsalign','F','');
+                $form->setBloc('corpsfont','D',"","group");
+                $form->setBloc('corpsalign','F');
+              $form->setFieldset('corpsalign','F','');
 
-                $form->setFieldset('om_sousetat','D', _("Sous etat(s) : selection"), "startClosed");
-                    $form->setBloc('om_sousetat','D',"","group");
-                    $form->setBloc('sousetat','F');
-                $form->setFieldset('sousetat','F', '');
+              $form->setFieldset('om_sousetat','D',
+                                  _("Sous etat(s) : selection"),
+                                  "startClosed");
+                $form->setBloc('om_sousetat','D',"","group");
+                $form->setBloc('sousetat','F');
+              $form->setFieldset('sousetat','F', '');
 
-                $form->setFieldset('se_font','D', _("Sous etat(s) : police / marges / couleur"), "startClosed");
-                    $form->setBloc('se_font','D',"","group");
-                    $form->setBloc('se_couleurtexte','F');
-                $form->setFieldset('se_couleurtexte','F','');
+              $form->setFieldset('se_font','D',
+                                  _("Sous etat(s) : police / marges / couleur"),
+                                  "startClosed");
+                $form->setBloc('se_font','D',"","group");
+                $form->setBloc('se_couleurtexte','F');
+              $form->setFieldset('se_couleurtexte','F','');
             }
             ?>
 
@@ -264,15 +276,21 @@ Ces méthodes sont appelées lors de la validation du formulaire.
 
   .. method:: dbform.ajouter($val, &$db = NULL, $DEBUG = false)
 
-     Cette méthode permet l'insertion de données dans la base, elle appelle toutes les méthodes de traitement, vérification et action  des données retournées par le formulaire
+     Cette méthode permet l'insertion de données dans la base, elle appelle
+     toutes les méthodes de traitement, vérification et action  des données
+     retournées par le formulaire
 
   .. method:: dbform.modifier($val = array(), &$db = NULL, $DEBUG = false)
 
-     Cette méthode permet la modification de données dans la base, elle appelle toutes les méthodes de traitement et vérification des données retournées par le formulaire
+     Cette méthode permet la modification de données dans la base, elle appelle
+     toutes les méthodes de traitement et vérification des données retournées
+     par le formulaire
 
   .. method:: dbform.supprimer($val = array(), &$db = NULL, $DEBUG = false)
 
-     Cette méthode permet la suppression de données dans la base, elle appelle toutes les méthodes de traitement et vérification des données retournées par le formulaire
+     Cette méthode permet la suppression de données dans la base, elle appelle
+     toutes les méthodes de traitement et vérification des données retournées
+     par le formulaire
 
 Méthodes appelées lors de la validation
 ---------------------------------------
@@ -411,7 +429,8 @@ champs. Chaque méthode permet d'afficher un seul widget.
 
     .. method:: formulaire.date2()
 
-       date modifiable avec affichage de calendrier jquery pour les sous formulaire
+       date modifiable avec affichage de calendrier jquery pour les sous
+       formulaire
 
     .. method:: formulaire.hiddenstaticdate()
 
@@ -451,23 +470,28 @@ champs. Chaque méthode permet d'afficher un seul widget.
 
     .. method:: formulaire.selecthiddenstatic()
 
-       affiche la valeur de la table liée, non modifiable ainsi que la valeur dans un champ hidden
+       affiche la valeur de la table liée, non modifiable ainsi que la valeur
+       dans un champ hidden
 
     .. method:: formulaire.comboG()
 
-       permet d'effectuer une correlation entre un groupe de champ et un identifiant dans les formulaires
+       permet d'effectuer une correlation entre un groupe de champ et un
+       identifiant dans les formulaires
 
     .. method:: formulaire.comboG2()
 
-       permet d'effectuer une correlation entre un groupe de champ et un identifiant dans les sous formulaires
+       permet d'effectuer une correlation entre un groupe de champ et un
+       identifiant dans les sous formulaires
 
     .. method:: formulaire.comboD()
 
-       permet d'effectuer une correlation entre un groupe de champ et un identifiant dans les formulaires
+       permet d'effectuer une correlation entre un groupe de champ et un
+       identifiant dans les formulaires
 
     .. method:: formulaire.comboD2()
 
-       permet d'effectuer une correlation entre un groupe de champ et un identifiant dans les sous formulaires
+       permet d'effectuer une correlation entre un groupe de champ et un
+       identifiant dans les sous formulaires
 
     .. method:: formulaire.upload()
 
@@ -475,7 +499,8 @@ champs. Chaque méthode permet d'afficher un seul widget.
 
     .. method:: formulaire.upload2()
 
-       fait appel à spg/upload.php pour télécharger un fichier dans un sous formulaire
+       fait appel à spg/upload.php pour télécharger un fichier dans un sous
+       formulaire
 
     .. method:: formulaire.voir()
 
@@ -483,7 +508,8 @@ champs. Chaque méthode permet d'afficher un seul widget.
 
     .. method:: formulaire.voir2()
 
-       fait appel à spg/voir.php pour visualiser un fichier depuis un sous formulaire
+       fait appel à spg/voir.php pour visualiser un fichier depuis un sous
+       formulaire
 
     .. method:: formulaire.localisation()
 
@@ -503,59 +529,56 @@ champs. Chaque méthode permet d'afficher un seul widget.
 
     .. method:: formulaire.geom()
 
-       ouvre une fenetre tab_sig.php pour visualiser ou saisir une geometrie (selon l'action) la carte est définie en setSelect
+       ouvre une fenetre tab_sig.php pour visualiser ou saisir une geometrie
+       (selon l'action) la carte est définie en setSelect
 
-Les contrôle comboG, comboD, date, upload, voir et localisation sont à mettre dans
-les formulaires (retour de l'affichage dans le formulaire f1)
-Les contrôle comboG2, comboD2, date2, upload2, voir2 et localisation sont à mettre dans
-les sous formulaires (retour de l'affichage dans le formulaire f2)
+Les contrôle comboG, comboD, date, upload, voir et localisation sont à mettre
+dans les formulaires (retour de l'affichage dans le formulaire f1)
+Les contrôle comboG2, comboD2, date2, upload2, voir2 et localisation sont à
+mettre dans les sous formulaires (retour de l'affichage dans le formulaire f2)
 
-Les widgets font appel à d'autre scripts stockés dans le répertoire /spg,
-ils sont appelés par js/script.js.
+Les widgets font appel des scripts d'aide à la saisie stockés dans le répertoire
+/spg,ils sont appelés par js/script.js. Ce script peut être surchargé dans
+app/js/script.js.
 
 **spg/combo.php**
 
-
-Ce programme est appellé par le contrôle comboD, comboG, comboD2, comboG2, le paramétrage se fait dans les fichiers :
+Ce programme est appellé par le contrôle comboD, comboG, comboD2, comboG2,
+le paramétrage se fait dans les fichiers :
 
 - dyn/comboparametre.inc.php
 - dyn/comboretour.inc.php
 - dyn/comboaffichage.inc.php
 
-
 **spg/localisation.php** et js/localisation.js
 
-    
-ce programme est liée au contrôle formulaire "localisation"
-
+ce programme est liée au contrôle formulaire "localisation".
 
 **spg/voir.php** 
 
-Ce script est associé au contrôle "upload"
+Ce script est associé au contrôle "upload".
     
-Ce sous programme permet de visualiser un fichier téléchargé sur le serveur (pdf ou image)
-    
+Ce sous programme permet de visualiser un fichier téléchargé sur le serveur
+(pdf ou image).
 
 **spg/upload.php**
 
+Ce script utilise la classe core/upload.class.php (composant openMairie).
 
-Ce script utilise la classe core/upload.class.php (composant openMairie)
-
-Le paramétrage des extensions téléchargeables se fait dans le fichier autorise dans dyn/config.inc.php
-
+Le paramétrage des extensions téléchargeables se fait dans dyn/config.inc.php.
 
 **spg/rvb.php** et js/rvb.js
 
-
-Ce script est associé au contrôle "rvb" et permet l'accès à une palette de couleur
-pour récupérer un code couleur rvb
+Ce script est associé au contrôle "rvb" et affiche une palette de couleur pour
+récupérer un code rvb.
 
 .. _méthodes-construction-formulaire:
 
 Les  méthodes de construction et d'affichage
 ============================================
 
-Le formulaire est constitué de div, fieldset et de champs les méthodes suivante permettent une mise en page structuré.
+Le formulaire est constitué de div, fieldset et de champs les méthodes suivante
+permettent une mise en page structuré.
 
     .. method:: formulaire.entete()
 
@@ -601,14 +624,16 @@ Depuis la version 4.3.0 :
 
     .. method:: formulaire.transformGroupAndRegroupeToLayout()
 
-       permet de garder la compatibilité des méthodes setGroupe() et setRegroupe() avec setLayout() (obsolètes depuis la version 4.3.0).
+       permet de garder la compatibilité des méthodes setGroupe() et
+       setRegroupe() avec setLayout() (obsolètes depuis la version 4.3.0).
 
 .. _méthodes-assesseurs:
 
 Les méthodes assesseurs changent les valeurs des attributs de l'objet formulaire
 ================================================================================
 
-Ces méthode sont appelées depuis les classes métier, elles permettent la configuration du formulaire.
+Ces méthode sont appelées depuis les classes métier, elles permettent la
+configuration du formulaire.
 
     .. method:: formulaire.setType()
 
@@ -660,8 +685,10 @@ Ces méthode sont appelées depuis les classes métier, elles permettent la conf
 
     .. method:: formulaire.setBloc($champ, $contenu, $libelle = '', $style = '')
 
-       permet d'ouvrir/fermer ($contenu=D/F) une balise div sur un champ ($champ), avec un libellé ($libelle) et un attribut class ($style).
+       permet d'ouvrir/fermer ($contenu=D/F) une balise div sur un champ
+       ($champ), avec un libellé ($libelle) et un attribut class ($style).
 
     .. method:: formulaire.setFieldset($champ, $contenu, $libelle = '', $style = '')
 
-       permet d'ouvrir/fermer ($contenu=D/F) un  fieldset sur un champ ($champ), avec une legende ($libelle) et un attribut class ($style).
+       permet d'ouvrir/fermer ($contenu=D/F) un  fieldset sur un champ ($champ),
+       avec une legende ($libelle) et un attribut class ($style).
