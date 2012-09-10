@@ -252,6 +252,8 @@ Pour surcharger l'action supprimer, il faut maintenant surcharger
 Les actions personnalisées
 ..........................
 
+**Redéfinir les actions avec la nouvelle manière.**
+
 Les actions personnalisées doivent être défini selon la nouvelle manière.
 Exemple:
 
