@@ -48,7 +48,8 @@ avancée est activée.
 Ce formulaire se comporte de la même manière que celui de recherche simple, avec
 quelques différences:
 
-- il permet de rechercher des valeurs strictes ou approximatives;
+- il permet de rechercher des valeurs strictes ou approximatives (par défaut
+  approximatives);
 - il conserve les valeurs recherchées après la réalisation d'une action (ajout,
   modification, etc...);
 - il dispose d'un bouton ``Vider le formulaire`` permettant de vider les champs;
@@ -69,7 +70,7 @@ Description du formulaire:
   choix;
 - il permet, pour chaque tableau, de configurer la liste des champs affichés;
 - il permet, pour chaque champ, de rechercher des valeurs strictes ou
-  approximatives;
+  approximatives (par défaut approximatives);
 - il permet, pour chaque champ, de rechercher des valeurs dans des tables et
   des colonnes qui ne sont pas affichées;
 - il conserve les valeurs recherchées après la réalisation d'une action (ajout,
@@ -78,8 +79,11 @@ Description du formulaire:
 - il dispose d'un bouton ``+`` permettant de basculer sur le formulaire
   mono-critère.
 
-Activer et configurer la recherche avancée
-==========================================
+Configuration de la recherche avancée
+=====================================
+
+Activation
+----------
 
 Exemple avec le modèle ``om_utilisateur``.
 
@@ -126,6 +130,61 @@ configuré, affichent le formulaire mono-critère.
 La clé ``absolute_object`` est obligatoire. Elle permet de specifier à
 openMairie le nom du modèle l'objet recherché. Ce nom est celui du fichier dans
 ``obj/``, ici ``om_utilisateur.class.php`` (sans son extension).
+
+Autres paramètres
+-----------------
+
+**Wildcard**
+
+Le wildcard permet de rendre la recherche stricte ou approximative.
+
+Cette option peut se configurer pour un ou plusieurs modèles particuliers dans
+les fichiers correspondants du répertoire ``sql/`` de l'application. Elle peut
+également être configurée de manière globale pour l'ensemble dans modèle
+à partir du fichier ``dyn/tab.inc.php``.
+
+Par défaut, il est paramétré de la manière suivante:
+
+.. code-block:: php
+
+   <?php
+
+   $options[] = array('type' => 'wildcard', 'left' => '%', 'right' => '%');
+
+   ?>
+
+- ``left`` détermine, dans la requête SQL de recherche, le caractère ajouté au
+  début (à gauche) de la valeur recherchée;
+- ``right`` détermine, dans la requête SQL de recherche, le caractère ajouté en
+  fin (à droite) de la valeur recherchée.
+
+Avec cette configuration lorsque le mot « admin » est recherché dans une
+colonne, toutes les valeurs contenant « admin » sont retournées.
+
+En modifiant la configuration de cette manière:
+
+.. code-block:: php
+
+   <?php
+
+   $options[] = array('type' => 'wildcard', 'left' => '', 'right' => '%');
+
+   ?>
+
+Seules les valeurs **commençant** par « admin » seront retournées.
+
+
+Enfin avec:
+
+.. code-block:: php
+
+   <?php
+
+   $options[] = array('type' => 'wildcard', 'left' => '', 'right' => '');
+
+   ?>
+
+Seules les valeurs égales **exactement** à « admin » seront retournées.
 
 Configuration des critères de recherche
 =======================================
