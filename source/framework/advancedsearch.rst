@@ -280,4 +280,82 @@ Exemple de formulaire pour le tableau du modèle ``om_utilisateur``:
 Configuration avancée
 ---------------------
 
+Créer un intervalle de date
+...........................
 
+Exemple: recherche des utilisateurs crées entre telle et telle date.
+
+.. code-block:: php
+
+   <?php
+
+   $champs['date_de_creation'] =
+       array('colonne' => 'creation_date',
+             'table' => 'user',
+             'libelle' => _('Date de creation'),
+             'type' => 'date',
+             'where' => 'intervaldate');
+
+   ?>
+
+Cette configuration permet de créer deux champs HTML ``datepicker``:
+
+- ``date_de_creation_min`` : permettra de saisir une date minimale
+- ``date_de_creation_max`` : permettra de saisir une date maximale
+
+Ces champs permettent de rechercher les uilisateurs dont la date de de creations
+est incluse dans l'intervalle saisi, bornes comprises. Il est possible de ne
+saisir qu'une seule date afin de rechercher les utilisateurs ayant été crées
+avant ou après une date particuliere.
+
+Créer un champ de recherche avec menu deroulant personnalisé
+............................................................
+
+Exemple: recherche des utilisateurs administrateurs.
+
+**L'information se trouve directement dans la table interrogée.**
+
+.. code-block:: php
+
+   <?php
+
+   // soit 'user' une table contenant la colonne 'is_admin'
+
+   $args = array();
+   $args[0] = array('', 'true', 'false');
+   $args[1] = array(_('Tous'), _('Oui'), _('Non'));
+
+   $champs['administrator'] =
+       array('colonne' => 'is_admin',
+             'table' => 'user',
+             'libelle' => _('Administrateur'),
+             'type' => 'select',
+             'subtype' => 'manualselect',
+             'args' => $args);
+
+   ?>
+
+Cette configuration permet de créer un champ HTML de type ``select`` avec trois
+choix:
+
+- Tous (valeur '');
+- Oui (valeur ``true``);
+- Non (valeur ``false``).
+
+Le tableau ``$args[0]`` contient les valeurs associées aux choix. Elles seront
+recherchées telles quelles dans la base de données.
+
+En selectionnant « Oui », la requête SQL de recherche sera construite comme
+suit:
+
+.. code-block:: sql
+
+   -- PostgresSQL
+   WHERE user.is_admin::varchar like 'true'
+
+Il est possible de saisir n'importe quelle chaîne de caractères dans
+``$args[0]`` et pas seulement des valeurs booléennes.
+
+Attention cette recherche n'est pas sensible a la casse. Plusieurs
+fonctions de formatage sont appelées sur ``user.is_admin`` avant de
+tester l'egalité.
