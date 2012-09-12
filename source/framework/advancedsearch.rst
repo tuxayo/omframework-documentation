@@ -134,8 +134,8 @@ La recherche avancée ne fonctionnera pas tant que la liste des champs du
 formulaire multi-critères n'aura pas été créée. Ces champs sont appelés ici des
 critères de recherche.
 
-Définition d'un critère
------------------------
+Configuration simple
+--------------------
 
 Un critère de recherche est représenté par un tableau PHP contenant sa
 configuration.
@@ -184,21 +184,31 @@ Une fois tous les critères de recherche configurés, il faudra simplement
 vérifier que le tableau des critères est bien utilisé par l'option de type
 ``search``.
 
+Exemple de formulaire pour le tableau du modèle ``om_utilisateur``:
+
 .. code-block:: php
 
    <?php
 
    $champs = array();
 
-   $champs['identifiant_utilisateur'] =
-       array('colonne' => 'om_utilisateur',
-             'table' => 'om_utilisateur',
-             'type' => 'text',
-             'libelle' => _('Identifiant'),
-             'taille' => 10,
-             'max' => 8));
-
-    // autres champs...
+   $champs['login'] = array(
+       'table' => 'om_utilisateur',
+       'colonne' => 'login',
+       'type' => 'text',
+       'libelle' => _('Login'));
+   
+   $champs['email'] = array(
+       'table' => 'om_utilisateur',
+       'colonne' => 'email',
+       'type' => 'text',
+       'libelle' => _('E-mail'));
+   
+   $champs['om_profil'] = array(
+       'table' => 'om_utilisateur',
+       'colonne' => 'om_profil',
+       'type' => 'select',
+       'libelle' => _('Profil'));
 
     $options[] =  array('type' => 'search',
                         'display' => true,
@@ -207,3 +217,8 @@ vérifier que le tableau des critères est bien utilisé par l'option de type
                         'absolute_object' => 'om_utilisateur');
 
    ?>
+
+Configuration avancée
+---------------------
+
+
