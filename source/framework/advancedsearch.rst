@@ -313,7 +313,7 @@ Créer un champ de recherche avec menu deroulant personnalisé
 
 Exemple: recherche des utilisateurs administrateurs.
 
-**L'information se trouve directement dans la table interrogée.**
+Dans cet exemple, l'information se trouve directement dans la table interrogée.
 
 .. code-block:: php
 
@@ -359,3 +359,62 @@ Il est possible de saisir n'importe quelle chaîne de caractères dans
 Attention cette recherche n'est pas sensible a la casse. Plusieurs
 fonctions de formatage sont appelées sur ``user.is_admin`` avant de
 tester l'egalité.
+
+Tester si une donnée est présente ou non dans un groupe de donnée
+.................................................................
+
+Exemple: recherche des utilisateurs administrateurs.
+
+Dans cet exemple, l'information se trouve non pas dans la table utilisateur mais
+dans la table administrateur disposant d'une colonne ``user_id`` (clé
+etrangère). Il nous faut utiliser une sous-requête pour recupérer l'ensemble des
+identifiants de le table administrateur afin de tester si un identifiant
+utilisateur est effectivement présent dans cette liste.
+
+.. code-block:: php
+
+   <?php
+
+   // soit 'user' une table contenant la colonne 'is_admin'
+
+   $args = array();
+   $args[0] = array('', 'true', 'false');
+   $args[1] = array(_('Tous'),
+                    _('Administrateurs'),
+                    _('Utilisateurs simples'));
+
+   $subquery = 'SELECT user_id FROM admin';
+
+   $champs['administrator'] =
+       array('colonne' => 'id',
+             'table' => 'user',
+             'libelle' => _('Administrateur'),
+             'type' => 'select',
+             'subtype' => 'manualselect',
+             'where' => 'insubquery',
+             'args' => $args,
+             'subquery' => $subquery);
+
+   ?>
+
+Cette configuration permet de créer un champ HTML de type ``select`` avec
+trois choix:
+
+- Tous (valeur '');
+- Administrateurs (valeur ``true``);
+- Utilisateurs simples (valeur ``false``).
+
+Le tableau ``$args[0]`` contient les valeurs associées aux choix. La valeur
+``true`` indique que les identifiants des utilisateurs doivent se
+trouver dans la sous-requête. La valeur ``false`` indique qu'ils ne
+doivent pas se trouver dans la sous-requête. Contrairement a l'exemple
+« Créer un champ de recherche avec menu deroulant personnalisé », elles ne
+seront pas recherchées telles quelles dans la base de données et ne doivent
+surtout pas être modifiées.
+
+En selectionnant « Administrateurs », la requête SQL de recherche sera
+construite comme suit:
+
+.. code-block:: sql
+
+   WHERE user.id IN (SELECT user_id FROM admin)
