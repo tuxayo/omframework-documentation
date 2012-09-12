@@ -2,6 +2,9 @@
 La recherche avancée
 ====================
 
+Les différents types de recherche
+=================================
+
 Recherche simple
 ----------------
 
@@ -33,12 +36,13 @@ Elle permet de:
   des recherches strictes ou approximatives;
 - rechercher des valeurs dans des tables et colonnes qui ne sont pas affichées.
 
-Recherche mono-critère
-......................
+Recherche avancée mono-critère
+..............................
 
-Le formulaire de recherche mono-critère est un formulaire ne s'affichant que
-si la recherche avancée est activée. Il permet aux utilisateurs de basculer sur
-le formulaire de recherche simple lorsque la recherche avancée est activée.
+Le formulaire de recherche avancée mono-critère est un formulaire ne s'affichant
+que si la recherche avancée est activée. Il permet aux utilisateurs de basculer
+sur le formulaire similaire à celui de recherche simple lorsque la recherche
+avancée est activée.
 
 Il se comporte de la même manière que le formulaire de recherche simple, avec
 quelques différences:
@@ -48,15 +52,15 @@ quelques différences:
 - il dispose d'un bouton ``+`` permettant de basculer sur le formulaire
   multi-critères.
 
-Recherche multi-critères
-........................
+Recherche avancée multi-critères
+................................
 
 Principes de la recherche avancée
 =================================
 
 La recherche avancée est une fonctionnalité qui permet de remplacer la
 recherche simple des tableaux d'openMairie par un formulaire de recherche
-multi-critères, entièrement personnalisable.
+mono ou multi-critères, entièrement personnalisable.
 
 Activer et configurer la recherche avancée
 ==========================================
