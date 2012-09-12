@@ -81,5 +81,51 @@ Description du formulaire:
 Activer et configurer la recherche avancée
 ==========================================
 
+Exemple avec le modèle ``om_utilisateur``.
+
+Pour activer la recherche avancée, rendez-vous dans le fichier
+``sql/sgbd/om_utilisateur.inc.php`` et ajoutez la configuration suivante au
+tableau d'options:
+
+.. code-block:: php
+
+   <?php
+
+    $options[] =  array('type' => 'search',
+                        'display' => true,
+                        'advanced' => $champs,
+                        'default_form' => 'advanced',
+                        'absolute_object' => 'om_utilisateur');
+
+   ?>
+
+.. note::
+   A partir de la version 4.3.0 d'openMairie, le tableau ``$options`` est
+   disponible dans les fichiers ``sql/`` de l'application. Il n'est plus
+   nécessaire de le déclarer manuellement.
+
+La clé ``type`` est obligatoire. Elle permet de definir le type de l'option.
+Pour une recherche il faut saisir ``search``.
+
+La clé ``display`` est obligatoire. Elle permet d'afficher ou non la recherche,
+tout en conservant sa configuration.
+
+- ``true`` permet d'afficher la recherche;
+- ``false`` permet de masquer la recherche.
+
+La clé ``advanced`` est obligatoire (pour la recherche avancée). Elle permet de p
+reciser que le formulaire de recherche est un formulaire de recherche avancée et
+non simple. Cette clé doit contenir le tableau des champs configurés pour la
+recherche (voir plus bas pour la configuration des champs).
+
+La clé ``default_form`` est optionelle. Elle permet de choisir quel formulaire
+de recherche est ouvert par defaut. La valeur ``advanced'`` permet d'afficher le
+formulaire multi-critères. Les autres valeurs, ou si ``default_form`` n'est pas
+configuré, affichent le formulaire mono-critère.
+
+La clé ``absolute_object`` est obligatoire. Elle permet de specifier à
+openMairie le nom du modèle l'objet recherché. Ce nom est celui du fichier dans
+``obj/``, ici ``om_utilisateur.class.php`` (sans son extension).
+
 Configuration des critères de recherche
 =======================================
