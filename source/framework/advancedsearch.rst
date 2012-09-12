@@ -113,7 +113,7 @@ tout en conservant sa configuration.
 - ``true`` permet d'afficher la recherche;
 - ``false`` permet de masquer la recherche.
 
-La clé ``advanced`` est obligatoire (pour la recherche avancée). Elle permet de p
+La clé ``advanced`` esrt obligatoire (pour la recherche avancée). Elle permet de p
 reciser que le formulaire de recherche est un formulaire de recherche avancée et
 non simple. Cette clé doit contenir le tableau des champs configurés pour la
 recherche (voir plus bas pour la configuration des champs).
@@ -129,3 +129,81 @@ openMairie le nom du modèle l'objet recherché. Ce nom est celui du fichier dan
 
 Configuration des critères de recherche
 =======================================
+
+La recherche avancée ne fonctionnera pas tant que la liste des champs du
+formulaire multi-critères n'aura pas été créée. Ces champs sont appelés ici des
+critères de recherche.
+
+Définition d'un critère
+-----------------------
+
+Un critère de recherche est représenté par un tableau PHP contenant sa
+configuration.
+
+.. code-block:: php
+
+   <?php
+
+   $champs['identifiant_utilisateur'] =
+       array('colonne' => 'om_utilisateur',
+             'table' => 'om_utilisateur',
+             'type' => 'text',
+             'libelle' => _('Identifiant'),
+             'taille' => 10,
+             'max' => 8));
+
+   ?>
+
+
+La clé ``identifiant_utilisateur`` est le nom du champ HTML qui sera affiché
+sur le formulaire.
+
+La clé ``colonne`` est obligatoire. Elle contient le nom de la colonne de la
+base de données qui sera interrogee si la variable ``$_POST`` contient la clé
+``identifiant_utilisateur``.
+
+La clé ``table``  est obligatoire. Elle contient le nom de la table de la base
+de données qui sera interrogée si la variable ``$_POST`` contient la clé
+``identifiant_utilisateur``.
+
+La clé ``'type`` est obligatoire. Elle contient le type du champ HTML à
+afficher. Cela peut être ``date``, ``text``, ``select``, ou tout autre méthode
+de la classe ``formulaire``. Pour les champs de type ``select``, le nom du champ
+HTML doit etre le meme que le nom de la colonne.
+
+La clé ``libelle`` est obligatoire. Elle contient le libellé qui sera affiché à
+côté du champ dans le formulaire de recherche.
+
+La clé ``taille`` est optionnelle. Elle contient la taille du champ HTML
+(attribut HTML ``size``).
+
+La clé ``max`` est optionnelle. Elle contient la longueur maximale de la valeur
+du champ HTML (attribut HTML ``maxlength``).
+
+Une fois tous les critères de recherche configurés, il faudra simplement
+vérifier que le tableau des critères est bien utilisé par l'option de type
+``search``.
+
+.. code-block:: php
+
+   <?php
+
+   $champs = array();
+
+   $champs['identifiant_utilisateur'] =
+       array('colonne' => 'om_utilisateur',
+             'table' => 'om_utilisateur',
+             'type' => 'text',
+             'libelle' => _('Identifiant'),
+             'taille' => 10,
+             'max' => 8));
+
+    // autres champs...
+
+    $options[] =  array('type' => 'search',
+                        'display' => true,
+                        'advanced' => $champs,
+                        'default_form' => 'advanced',
+                        'absolute_object' => 'om_utilisateur');
+
+   ?>
