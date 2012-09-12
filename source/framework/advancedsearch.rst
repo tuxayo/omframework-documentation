@@ -37,7 +37,8 @@ Recherche mono-critère
 ......................
 
 Le formulaire de recherche mono-critère est un formulaire ne s'affichant que
-si la recherche avancée est activée.
+si la recherche avancée est activée. Il permet aux utilisateurs de basculer sur
+le formulaire de recherche simple lorsque la recherche avancée est activée.
 
 Il se comporte de la même manière que le formulaire de recherche simple, avec
 quelques différences:
@@ -46,9 +47,6 @@ quelques différences:
 - il dispose d'un bouton ``Vider le formulaire`` permettant de vider les champs;
 - il dispose d'un bouton ``+`` permettant de basculer sur le formulaire
   multi-critères.
-
-Ce formulaire permet aux utilisateurs de basculer sur le formulaire de recherche
-simple lorsque la recherche avancée est activée.
 
 Recherche multi-critères
 ........................
