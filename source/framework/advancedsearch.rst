@@ -34,20 +34,23 @@ Elle permet de:
   recherches strictes ou approximatives;
 - afficher un formulaire de recherche multi-critères permettant d'effectuer
   des recherches strictes ou approximatives;
-- rechercher des valeurs dans des tables et colonnes qui ne sont pas affichées.
+- rechercher des valeurs dans des tables et des colonnes qui ne sont pas
+  affichées.
 
 Recherche avancée mono-critère
 ..............................
 
 Le formulaire de recherche avancée mono-critère est un formulaire ne s'affichant
 que si la recherche avancée est activée. Il permet aux utilisateurs de basculer
-sur le formulaire similaire à celui de recherche simple lorsque la recherche
+sur un formulaire similaire à celui de recherche simple lorsque la recherche
 avancée est activée.
 
-Il se comporte de la même manière que le formulaire de recherche simple, avec
+Ce formulaire se comporte de la même manière que celui de recherche simple, avec
 quelques différences:
 
 - il permet de rechercher des valeurs strictes ou approximatives;
+- il conserve les valeurs recherchées après la réalisation d'une action (ajout,
+  modification, etc...);
 - il dispose d'un bouton ``Vider le formulaire`` permettant de vider les champs;
 - il dispose d'un bouton ``+`` permettant de basculer sur le formulaire
   multi-critères.
@@ -55,12 +58,25 @@ quelques différences:
 Recherche avancée multi-critères
 ................................
 
-Principes de la recherche avancée
-=================================
+Le formulaire de recherche avancée multi-critères est un formulaire ne
+s'affichant que si la recherche avancée est activée. Il permet aux utilisateurs
+de bénéficier de plusieurs champs, et ainsi effectuer des recherches plus
+précise qu'avec le formulaire de recherche simple.
 
-La recherche avancée est une fonctionnalité qui permet de remplacer la
-recherche simple des tableaux d'openMairie par un formulaire de recherche
-mono ou multi-critères, entièrement personnalisable.
+Description du formulaire:
+
+- il peut afficher plusieurs champs, de type texte, nombre, date ou liste à
+  choix;
+- il permet, pour chaque tableau, de configurer la liste des champs affichés;
+- il permet, pour chaque champ, de rechercher des valeurs strictes ou
+  approximatives;
+- il permet, pour chaque champ, de rechercher des valeurs dans des tables et
+  des colonnes qui ne sont pas affichées;
+- il conserve les valeurs recherchées après la réalisation d'une action (ajout,
+  modification, etc...);
+- il dispose d'un bouton ``Vider le formulaire`` permettant de vider les champs;
+- il dispose d'un bouton ``+`` permettant de basculer sur le formulaire
+  mono-critère.
 
 Activer et configurer la recherche avancée
 ==========================================
