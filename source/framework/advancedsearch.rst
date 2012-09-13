@@ -117,9 +117,9 @@ tout en conservant sa configuration.
 - ``true`` permet d'afficher la recherche;
 - ``false`` permet de masquer la recherche.
 
-La clé ``advanced`` esrt obligatoire (pour la recherche avancée). Elle permet de p
-reciser que le formulaire de recherche est un formulaire de recherche avancée et
-non simple. Cette clé doit contenir le tableau des champs configurés pour la
+La clé ``advanced`` esrt obligatoire (pour la recherche avancée). Elle permet de
+préciser que le formulaire de recherche est un formulaire de recherche avancée
+et non simple. Cette clé doit contenir le tableau des champs configurés pour la
 recherche (voir plus bas pour la configuration des champs).
 
 La clé ``default_form`` est optionelle. Elle permet de choisir quel formulaire
