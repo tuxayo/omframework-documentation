@@ -184,6 +184,22 @@ les noms des colonnes provenant de ces tables étrangères devront être préfix
 par l'alias adéquat. Cet alias apparaît dans la définition de la variable
 ``$table`` dans les fichiers générés du répertoire ``gen/sql/``.
 
+La clause ``ORDER BY``
+----------------------
+
+**Supprimer les surcharges de la variable $tri = 'ORDER BY libelle', ce tri est
+généré par défaut.**
+
+Le générateur crée maintenant une clause SQL ``ORDER BY`` pour chaque modèle.
+Le tri par défaut se fait sur une éventuelle colonne ``libelle``. Si elle
+n'existe pas la deuxième colonne de la table est utilisée, sinon la clé
+primaire.
+
+.. note::
+   Dans le cas où la deuxième colonne d'une table est utilisée comme libellé,
+   si cette colonne est une clé étrangère, alors le tri se fera sur le libellé
+   de la table étrangère.
+
 Les actions du tableau
 ----------------------
 
