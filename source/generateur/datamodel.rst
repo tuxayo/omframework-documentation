@@ -179,6 +179,9 @@ Le champ libellé
 Pour représenter des objets dans des champs de type ``<select>``, le générateur
 utilise un champ textuel particulier appelé libellé.
 
+Ce champ est également utilisé pour ordonner les éléments d'un tableau de
+manière croissante.
+
 Définition du libellé
 ---------------------
 
