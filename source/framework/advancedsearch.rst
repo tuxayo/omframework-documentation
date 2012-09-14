@@ -18,9 +18,9 @@ Elle permet de:
 
 .. note::
    Il est possible de modifier la liste des colonnes dans laquelle est effectuée
-   la recherche. Cette liste n'est donc pas forcément celle affichéee. Elle
-   l'est seulement par défaut, c'est à dire lorsqu'aucune surcharge ne modifie
-   les fichiers générés dans ``gen/sql/``.
+   la recherche. Cette liste ne correspond pas forcément aux colonnes
+   affichéees. Elle correspond seulement par défaut, c'est à dire lorsqu'aucune
+   surcharge ne modifie les fichiers générés dans ``gen/sql/``.
 
 Recherche avancée
 -----------------
@@ -40,10 +40,10 @@ Elle permet de:
 Recherche avancée mono-critère
 ..............................
 
-Le formulaire de recherche avancée mono-critère est un formulaire ne s'affichant
-que si la recherche avancée est activée. Il permet aux utilisateurs de basculer
-sur un formulaire similaire à celui de recherche simple lorsque la recherche
-avancée est activée.
+Le formulaire de recherche mono-critère est un formulaire ne s'affichant que si
+la recherche avancée est activée. Il permet aux utilisateurs de basculer sur un
+formulaire similaire à celui de recherche simple lorsque la recherche avancée
+est activée.
 
 Ce formulaire se comporte de la même manière que celui de recherche simple, avec
 quelques différences:
@@ -59,10 +59,10 @@ quelques différences:
 Recherche avancée multi-critères
 ................................
 
-Le formulaire de recherche avancée multi-critères est un formulaire ne
-s'affichant que si la recherche avancée est activée. Il permet aux utilisateurs
-de bénéficier de plusieurs champs, et ainsi effectuer des recherches plus
-précise qu'avec le formulaire de recherche simple.
+Le formulaire de recherche multi-critères est un formulaire ne s'affichant que
+si la recherche avancée est activée. Il permet aux utilisateurs de bénéficier de
+plusieurs champs, et ainsi effectuer des recherches plus précise qu'avec le
+formulaire de recherche simple.
 
 Description du formulaire:
 
@@ -319,7 +319,7 @@ Dans cet exemple, l'information se trouve directement dans la table interrogée.
 
    <?php
 
-   // soit 'user' une table contenant la colonne 'is_admin'
+   // soit 'user' une table contenant une colonne 'is_admin'
 
    $args = array();
    $args[0] = array('', 'true', 'false');
@@ -356,9 +356,9 @@ suit:
 Il est possible de saisir n'importe quelle chaîne de caractères dans
 ``$args[0]`` et pas seulement des valeurs booléennes.
 
-Attention cette recherche n'est pas sensible a la casse. Plusieurs
-fonctions de formatage sont appelées sur ``user.is_admin`` avant de
-tester l'egalité.
+.. attention::
+   Cette recherche n'est pas sensible a la casse. Plusieurs fonctions de
+   formatage sont appelées sur ``user.is_admin`` avant detester l'egalité.
 
 Tester si une donnée est présente ou non dans un groupe de donnée
 .................................................................
@@ -368,14 +368,15 @@ Exemple: recherche des utilisateurs administrateurs.
 Dans cet exemple, l'information se trouve non pas dans la table utilisateur mais
 dans la table administrateur disposant d'une colonne ``user_id`` (clé
 etrangère). Il nous faut utiliser une sous-requête pour recupérer l'ensemble des
-identifiants de le table administrateur afin de tester si un identifiant
+identifiants de la table administrateur afin de tester si un identifiant
 utilisateur est effectivement présent dans cette liste.
 
 .. code-block:: php
 
    <?php
 
-   // soit 'user' une table contenant la colonne 'is_admin'
+   // soit 'user' une table contenant pas la colonne 'is_admin'
+   // soit 'admin' une table contenant une colonne 'user_id'
 
    $args = array();
    $args[0] = array('', 'true', 'false');
@@ -408,7 +409,7 @@ Le tableau ``$args[0]`` contient les valeurs associées aux choix. La valeur
 ``true`` indique que les identifiants des utilisateurs doivent se
 trouver dans la sous-requête. La valeur ``false`` indique qu'ils ne
 doivent pas se trouver dans la sous-requête. Contrairement a l'exemple
-« Créer un champ de recherche avec menu deroulant personnalisé », elles ne
+« Créer un champ de recherche avec menu deroulant personnalisé », les valeurs ne
 seront pas recherchées telles quelles dans la base de données et ne doivent
 surtout pas être modifiées.
 
