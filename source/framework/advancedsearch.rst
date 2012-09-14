@@ -50,6 +50,7 @@ quelques différences:
 
 - il permet de rechercher des valeurs strictes ou approximatives (par défaut
   approximatives);
+- il recherche dans toutes les colonnes proposées par la recherche simple;
 - il conserve les valeurs recherchées après la réalisation d'une action (ajout,
   modification, etc...);
 - il dispose d'un bouton ``Vider le formulaire`` permettant de vider les champs;
@@ -117,7 +118,7 @@ tout en conservant sa configuration.
 - ``true`` permet d'afficher la recherche;
 - ``false`` permet de masquer la recherche.
 
-La clé ``advanced`` esrt obligatoire (pour la recherche avancée). Elle permet de
+La clé ``advanced`` est obligatoire (pour la recherche avancée). Elle permet de
 préciser que le formulaire de recherche est un formulaire de recherche avancée
 et non simple. Cette clé doit contenir le tableau des champs configurés pour la
 recherche (voir plus bas pour la configuration des champs).
@@ -218,7 +219,7 @@ La clé ``identifiant_utilisateur`` est le nom du champ HTML qui sera affiché
 sur le formulaire.
 
 La clé ``colonne`` est obligatoire. Elle contient le nom de la colonne de la
-base de données qui sera interrogee si la variable ``$_POST`` contient la clé
+base de données qui sera interrogée si la variable ``$_POST`` contient la clé
 ``identifiant_utilisateur``.
 
 La clé ``table``  est obligatoire. Elle contient le nom de la table de la base
@@ -303,12 +304,12 @@ Cette configuration permet de créer deux champs HTML ``datepicker``:
 - ``date_de_creation_min`` : permettra de saisir une date minimale
 - ``date_de_creation_max`` : permettra de saisir une date maximale
 
-Ces champs permettent de rechercher les uilisateurs dont la date de de creations
+Ces champs permettent de rechercher les utilisateurs dont la date de créations
 est incluse dans l'intervalle saisi, bornes comprises. Il est possible de ne
-saisir qu'une seule date afin de rechercher les utilisateurs ayant été crées
-avant ou après une date particuliere.
+saisir qu'une seule date afin de rechercher les utilisateurs ayant été créés
+avant ou après une date particulière.
 
-Créer un champ de recherche avec menu deroulant personnalisé
+Créer un champ de recherche avec menu déroulant personnalisé
 ............................................................
 
 Exemple: recherche des utilisateurs administrateurs.
@@ -345,7 +346,7 @@ choix:
 Le tableau ``$args[0]`` contient les valeurs associées aux choix. Elles seront
 recherchées telles quelles dans la base de données.
 
-En selectionnant « Oui », la requête SQL de recherche sera construite comme
+En sélectionnant « Oui », la requête SQL de recherche sera construite comme
 suit:
 
 .. code-block:: sql
@@ -357,17 +358,17 @@ Il est possible de saisir n'importe quelle chaîne de caractères dans
 ``$args[0]`` et pas seulement des valeurs booléennes.
 
 .. attention::
-   Cette recherche n'est pas sensible a la casse. Plusieurs fonctions de
-   formatage sont appelées sur ``user.is_admin`` avant detester l'egalité.
+   Cette recherche n'est pas sensible à la casse. Plusieurs fonctions de
+   formatage sont appelées sur ``user.is_admin`` avant de tester l'égalité.
 
-Tester si une donnée est présente ou non dans un groupe de donnée
-.................................................................
+Tester si une donnée est présente ou non dans un groupe de données
+..................................................................
 
 Exemple: recherche des utilisateurs administrateurs.
 
 Dans cet exemple, l'information se trouve non pas dans la table utilisateur mais
 dans la table administrateur disposant d'une colonne ``user_id`` (clé
-etrangère). Il nous faut utiliser une sous-requête pour recupérer l'ensemble des
+étrangère). Il nous faut utiliser une sous-requête pour récupérer l'ensemble des
 identifiants de la table administrateur afin de tester si un identifiant
 utilisateur est effectivement présent dans cette liste.
 
@@ -408,7 +409,7 @@ trois choix:
 Le tableau ``$args[0]`` contient les valeurs associées aux choix. La valeur
 ``true`` indique que les identifiants des utilisateurs doivent se
 trouver dans la sous-requête. La valeur ``false`` indique qu'ils ne
-doivent pas se trouver dans la sous-requête. Contrairement a l'exemple
+doivent pas se trouver dans la sous-requête. Contrairement à l'exemple
 « Créer un champ de recherche avec menu deroulant personnalisé », les valeurs ne
 seront pas recherchées telles quelles dans la base de données et ne doivent
 surtout pas être modifiées.

@@ -9,7 +9,7 @@ Description
 -----------
 
 Le générateur permet de créer des objets qui seront considérés comme valides
-seulement pendant une pèriode donnée.
+seulement pendant une période donnée.
 
 **Qu'est ce qu'un objet à date de validité?**
 
