@@ -176,13 +176,13 @@ Alias des tables étrangères
 
 **Prefixer le nom des colonnes étrangères par l'alias généré dans gen/sql/.**
 
-Le générateur donne à chaque table étrangère un alias unique, ce qui permet
+Le générateur peut donner à une table étrangère un alias unique. Cela permet
 d'effectuer plusieurs jointures sur une même table sans avoir d'erreur
 d'ambiguïté avec les nom des colonnes. Pour cela, dans les fichiers du
-répertoire ``sql/``, les noms des colonnes provenant de tables étrangères
-devront être préfixés par l'alias de leur table. Cet alias apparaît dans la
-définition de la variable ``$table`` dans les fichiers générés du répertoire
-``gen/sql/``.
+répertoire ``sql/`` contenant plusieurs référence vers une même table étrangère,
+les noms des colonnes provenant de ces tables étrangères devront être préfixés
+par l'alias adéquat. Cet alias apparaît dans la définition de la variable
+``$table`` dans les fichiers générés du répertoire ``gen/sql/``.
 
 Les actions du tableau
 ----------------------
