@@ -4,14 +4,13 @@
 Paramétrage générateur
 ======================
 
-Le paramétrage de base est dans la classe gen. Il est possible de personnaliser
-le paramétrage dans le répertoire gen/dyn. (version 4.2.0)
+Le générateur fonctionne de manière autonome sans fichier de paramétrage. Il
+est tout de même possible de paramétrer certains éléments grâce à des fichiers
+de paramétrage déposés dans le dossier ``gen/dyn/``.
 
-Ne personnaliser que les variables souhaitées dans le fichier. Par défaut,
-openMairie prendra les paramètres inclus dans la classe gen.
-
-Il est donné ci dessous l ensemble des paramètres personnalisables. La valeur
-associée est celle du générateur.
+Il n'est pas nécessaire de personnaliser toutes les variables du fichier. Il est
+recommandé de déclarer uniquement les paramètres souhaitées. Par défaut, le
+générateur prend les paramètres inclus dans la classe gen.
 
 
 ``gen/dyn/gen.inc.php``
