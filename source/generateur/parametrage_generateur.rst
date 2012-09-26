@@ -4,9 +4,6 @@
 Paramétrage générateur
 ======================
 
-.. todo::
-   Faire une partie sur la configuration des champs à afficher avec tab.inc.php.
-
 Le paramétrage de base est dans la classe gen. Il est possible de personnaliser
 le paramétrage dans le répertoire gen/dyn. (version 4.2.0)
 
@@ -16,8 +13,80 @@ openMairie prendra les paramètres inclus dans la classe gen.
 Il est donné ci dessous l ensemble des paramètres personnalisables. La valeur
 associée est celle du générateur.
 
-Form.inc
-========
+
+``gen/dyn/gen.inc.php``
+=======================
+
+Il permet de définir des paramètres généraux pouvant être utilisés partout dans
+le générateur.
+
+.. code-block:: php
+ 
+   <?php
+   /***
+    * Mode de génération pour la gestion des identifiants et des références
+    *
+    * Permet de choisir par quel moyen sont récupérées les clés primaires et les
+    * clés étrangères :
+    *  - "constraints" => en interrogeant les contraintes de la base de données
+    *                     (fonctionne uniquement avec PostGreSQL)
+    *  - "postulate" => par les postulats :
+    *    _ "le nom d'un champ 'clé primaire' a pour nom le nom de la table."
+    *    _ "le nom d'un champ 'clé étrangère' a pour nom le nom de la table vers
+    *      laquelle elle fait référence, et fait référence au champ clé primaire
+    *      de cette table."
+    * 
+    * Default : $key_constraints_mode = "constraints";
+    ***/
+   if (OM_DB_PHPTYPE == "mysql") {
+       $key_constraints_mode = "postulate";
+   }
+   ?>
+
+.. code-block:: php
+ 
+   <?php
+   /***
+    * Liste des tables à ne pas générer
+    *
+    * Permet de lister les tables dont la génération n'est pas souhaitable. Ces
+    * tables n'apparaissent donc plus dans le menu de génération ni dans la
+    * génération complète.
+    * 
+    * Default : $tables_to_avoid = array();
+    ***/
+   $tables_to_avoid = array(
+       "om_version",
+       "spatial_ref_sys",
+   );
+   ?>
+
+
+``gen/dyn/tab.inc.php``
+=======================
+
+Ce fichier de paramétrage permet de lister pour chaque table la liste des
+colonnes à positionner dans la variable ``$champAffiche`` lors de la génération
+des fichiers ``gen/sql/<OM_DB_PHPTYPE>/<TAB>.inc.php``.
+
+.. code-block:: php
+ 
+   <?php
+   // Table om_utilisateur
+   $om_utilisateur = array("nom", "email", "login", "om_profil", );
+   ?>
+
+
+Il est inutile de faire apparaitre ici la colonne portant la contrainte
+``PRIMARY KEY``. Cette colonne est obligatoire pour le bon fonctionnement du
+framework.
+
+Il est inutile de faire apparaitre ici la colonne ``om_collectivite``. Cette
+colonne apparaîtra d'office si la colonne est dans la table.
+
+
+``gen/dyn/form.inc.php``
+========================
 
 Voici les paramètres pour la génération de formulaire ::
 
@@ -32,8 +101,9 @@ Voici les paramètres pour la génération de formulaire ::
     $pgsql_taille_minimum    = 10;      taille minimum d affichage d un champ
     ***/ 
 
-pdf.inc.php 
-===========
+
+``gen/dyn/pdf.inc.php``
+=======================
 
 Parametres ::
 
@@ -89,8 +159,9 @@ Parametres ::
     $C3border=167;// couleur texte  B";
     $bt=1;// border 1ere  et derniere ligne  du tableau par page->0 ou 1";
 
-etat.inc.php
-============
+
+``gen/dyn/etat.inc.php``
+========================
 
 parametres ::
 
@@ -133,8 +204,9 @@ parametres ::
     $etat['se_margeright']='5';
     $etat['se_couleurtexte']="0-0-0";
 
-sousetat.inc.php
-================
+
+``gen/dyn/sousetat.inc.php``
+============================
 
 parametres::
 
@@ -188,8 +260,9 @@ parametres::
     $sousetat['cellule_hauteur_nbr']=7;
     $sousetat['cellule_fondcouleur_nbr']="255-255-255";
 
-lettretype.inc.php
-==================
+
+``gen/dyn/lettretype.inc.php``
+==============================
 
 parametres ::
 
