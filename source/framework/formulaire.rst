@@ -55,7 +55,7 @@ Accès
 L'accès aux formulaires se fait depuis un :ref:`tableau d'éléments<affichage>`
 ou depuis la consultation d'un élément via le menu contextuel.
 
-Par defaut, depuis les tableaux, les actions d'ajout et consultation sont
+Par défaut, depuis les tableaux, les actions d'ajout et consultation sont
 disponible.
 
 *********************
@@ -73,7 +73,7 @@ scr/form.php et scr/sousform.php
 ================================
 
 Ces scripts sont appelés pour afficher un formulaire.
-Ils instancient l'objet et appelent la méthode formulaire de celui-ci.
+Ils instancient l'objet et appellent la méthode formulaire de celui-ci.
 
 Ces scripts prennent plusieurs paramètres :
 
@@ -104,19 +104,19 @@ Description de la classe dbform
    Cette classe est centrale dans l'application. Elle est la classe parente de
    chaque objet métier.
    Elle comprend des méthodes de gestion (initialisation, traitement,
-   verification, trigger) des valeurs du formulaire.
+   vérification, trigger) des valeurs du formulaire.
    Elle fait le lien entre la base de données et le formulaire.
    Elle contient les actions possibles sur les objets (ajout, modification,
    suppression, consultation).
 
-Presentation des méthodes de la classe
+Présentation des méthodes de la classe
 ======================================
 
 Les méthodes de dbform peuvent être surchargées dans obj/om_dbform.class.php
 ainsi que dans toutes les classes métier.
 
 Méthodes d'initialisation de l'affichage du formulaire
-------------------------------------------------------
+======================================================
 
   .. method:: dbform.formulaire($enteteTab, $validation, $maj, &$db, $postVar, $aff, $DEBUG = false, $idx, $premier = 0, $recherche = "", $tricol = "", $idz = "", $selectioncol = "", $advs_id = "", $valide = "", $retour = "", $actions = array(), $extra_parameters = array())
 
@@ -167,7 +167,7 @@ attributs via les méthodes suivantes :
 
   .. method:: dbform.setGroupe(&$form, $maj)
 
-     Permet d'alligner plusieurs champs (obsolète depuis la version 4.3.0)
+     Permet d’aligner plusieurs champs (obsolète depuis la version 4.3.0)
 
   .. method:: dbform.setRegroupe(&$form, $maj)
 
@@ -193,7 +193,7 @@ attributs via les méthodes suivantes :
                 disponible.
 
           - il est possible de créer et ajouter des classes css aux différents
-            div afin d'obtenir une mise en page personalisé.
+            div afin d'obtenir une mise en page personnalisé.
 
       .. method:: formulaire.setFieldset($champ, $contenu, $libelle = '', $style = '')
 
@@ -201,7 +201,7 @@ attributs via les méthodes suivantes :
          ($champ), avec une légende ($libelle) et un attribut class ($style).
 
           - une liste de classes css pour fieldset est disponible :
-              - collapsible : ajoute un bouton sur la legende (jQuery) afin de
+              - collapsible : ajoute un bouton sur la légende (jQuery) afin de
                 refermer le fieldset.
               - startClosed : idem à la différence que le fieldset est fermé au
                 chargement de la page.
@@ -305,7 +305,7 @@ attributs via les méthodes suivantes :
           ?>
 
 Méthodes d'actions
-------------------
+==================
 
 Ces méthodes sont appelées lors de la validation du formulaire.
 
@@ -328,7 +328,7 @@ Ces méthodes sont appelées lors de la validation du formulaire.
      par le formulaire.
 
 Méthodes appelées lors de la validation
----------------------------------------
+=======================================
 
 .. _setValFAjout:
 
@@ -347,24 +347,24 @@ Méthodes appelées lors de la validation
 
   .. method:: dbform.verifier($val = array(), &$db = NULL, $DEBUG = false)
 
-     Méthode de verification des données et de retour d'erreurs
+     Méthode de vérification des données et de retour d'erreurs
 
 .. _verifierAjout:
 
   .. method:: dbform.verifierAjout($val = array(), &$db = NULL)
 
-     Méthode de verification des données et de retour d'erreurs
+     Méthode de vérification des données et de retour d'erreurs
      (utilisé lors de l'ajout)
 
   .. method:: dbform.setId(&$db = NULL)
 
-     Initialisation de la clé primaire (si cle automatique lors de l'ajout)
+     Initialisation de la clé primaire (si clé automatique lors de l'ajout)
 
   .. method:: dbform.cleSecondaire($id, &$db = NULL, $val = array(), $DEBUG = false)
 
-     Cette methode est appelee lors de la suppression d'un objet, elle permet
-     de verifier si l'objet supprimé n'est pas lié à une autre table pour
-     en empecher la suppression.
+     Cette méthode est appelée lors de la suppression d'un objet, elle permet
+     de vérifier si l'objet supprimé n'est pas lié à une autre table pour
+     en empêcher la suppression.
 
   .. method:: dbform.triggerajouter($id, &$db = NULL, $val = array(), $DEBUG = false)
 
@@ -436,7 +436,7 @@ champs. Chaque méthode permet d'afficher un seul widget.
 
     .. method:: formulaire.hiddenstaticnum()
 
-       champ numerique non modifiable et valeur récupérer
+       champ numérique non modifiable et valeur récupérer
 
     .. method:: formulaire.statiq()
 
@@ -444,7 +444,7 @@ champs. Chaque méthode permet d'afficher un seul widget.
 
     .. method:: formulaire.affichepdf()
 
-       récupére un nom d'objet (un scan pdf)
+       récupère un nom d'objet (un scan pdf)
 
     .. method:: formulaire.checkbox()
 
@@ -472,8 +472,7 @@ champs. Chaque méthode permet d'afficher un seul widget.
 
     .. method:: formulaire.date2()
 
-       date modifiable avec affichage de calendrier jquery pour les sous
-       formulaire
+       date modifiable avec affichage de calendrier jquery pour les sous-formulaires
 
     .. method:: formulaire.hiddenstaticdate()
 
@@ -489,15 +488,15 @@ champs. Chaque méthode permet d'afficher un seul widget.
 
     .. method:: formulaire.textareamulti()
 
-       textarea qui récupére plusieurs valeurs d'un select
+       textarea qui récupère plusieurs valeurs d'un select
 
     .. method:: formulaire.textareahiddenstatic()
 
-       affichage non modifiable d'un textarea et recupération de la valeur
+       affichage non modifiable d'un textarea et récupération de la valeur
 
     .. method:: formulaire.pagehtml()
 
-       affichage d'un textarea et tranforme les retours charriot en <br>
+       affichage d'un textarea et transforme les retours charriot en </ br>
 
     .. method:: formulaire.select()
 
@@ -572,7 +571,7 @@ champs. Chaque méthode permet d'afficher un seul widget.
 
     .. method:: formulaire.geom()
 
-       ouvre une fenetre tab_sig.php pour visualiser ou saisir une géométrie
+       ouvre une fenêtre tab_sig.php pour visualiser ou saisir une géométrie
        (selon l'action) la carte est définie en setSelect
 
 Les contrôle comboG, comboD, date, upload, voir et localisation sont à mettre
@@ -586,7 +585,7 @@ app/js/script.js.
 
 **spg/combo.php**
 
-Ce programme est appellé par le champ comboD, comboG, comboD2, comboG2,
+Ce programme est appelé par le champ comboD, comboG, comboD2, comboG2,
 le paramétrage se fait dans les fichiers :
 
 - dyn/comboparametre.inc.php
@@ -719,4 +718,4 @@ configuration du formulaire.
     .. method:: formulaire.setFieldset($champ, $contenu, $libelle = '', $style = '')
 
        permet d'ouvrir/fermer ($contenu=D/F/DF) un  fieldset sur un champ ($champ),
-       avec une legende ($libelle) et un attribut class ($style).
+       avec une légende ($libelle) et un attribut class ($style).

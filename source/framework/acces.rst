@@ -47,9 +47,9 @@ types de droits :
 
 - généraux : il n'est composé que du nom de l'objet et permet d'accéder à toutes
   les actions sur celui-ci.
-- specifique : il se compose du nom de l'objet puis d'un sufixe.
+- spécifique : il se compose du nom de l'objet puis d'un suffixe.
 
-Détails des sufixes de droits :
+Détails des suffixes de droits :
 
 - _tab : permet d'accéder au tableau
 - _ajouter : permet d'ajouter un objet
@@ -62,12 +62,12 @@ La multi-collectivité
 =====================
 
 Les collectivités peuvent être de niveau 1 ou de niveau 2. Les utilisateurs de
-chaque collectivité heritent de ce niveau.
+chaque collectivité héritent de ce niveau.
 Les utilisateurs de niveau 1 n'ont accès qu'à leur collectivité tandis que les
 utilisateurs de niveau 2 ont accès à toutes les collectivités disponibles.
 Lors de la conception de la base de données un champ om_collectivite peut être
 ajouté à chaque table ayant besoin d'un filtrage par collectivité.
-Les utilisateurs de niveau 1 ne veront aucune notion de collectivité
+Les utilisateurs de niveau 1 ne verront aucune notion de collectivité
 et n'auront accès qu'aux éléments liés à leur propre collectivité.
 
 
@@ -78,7 +78,7 @@ Les login et logout
 Le login se fait par le script ``scr/login.php``
 
 ``login.php`` valorise les variables sessions permettant la gestion des accès
-et securites
+et sécurités
 
 
   .. code-block:: php

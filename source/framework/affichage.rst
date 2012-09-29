@@ -5,7 +5,7 @@ Afficher les tables
 ###################
 
 Il est décrit dans ce paragraphe, l'utilisation et la configuration des tableaux
-d'enregistrements issuent de la base de données.
+d'enregistrements issus de la base de données.
 
 
 .. image:: ../_static/tab_1.png
@@ -34,7 +34,7 @@ Liste des paramètres passés à l'url :
 - obj : nom de l'objet pour lequel on souhaite afficher le tableau
 - premier : numéro de la première ligne affichée dans le tableau
 - recherche : chaîne de caractères recherchée depuis le modules de recherche
-- selectioncol : numéro de la colonne séléctionnée dans le module de recherche
+- selectioncol : numéro de la colonne sélectionnée dans le module de recherche
 - tricol : numéro de colonne et orientation (+/-) du tri du tableau
 - valide : (true/false) affiche ou non les enregistrements non valide
 
@@ -47,14 +47,14 @@ La requête SQL d'affichage
 
 Elle se trouve dans sql/DBTYPE/[objet].inc.php
 
-Les paramétres sont les suivants pour om_parametre.inc.php
+Les paramètres sont les suivants pour om_parametre.inc.php
 
 .. code-block:: php
 
    <?php
-   //Nombre d'enregistrement par page
+   //Nombre d'enregistrements par page
    $serie=15;
-   //Icone affiché (a voir deprecated)
+   //Icone affiché (XXX à voir deprecated)
    $ico="../img/ico_application.png";
    //Titre du tableau
    $ent = _("option")." -> "._("om_parametre");                              
@@ -67,14 +67,14 @@ Les paramétres sont les suivants pour om_parametre.inc.php
                        'om_collectivite');
    //Champs pour la recherche
    $champRecherche=array('libelle','valeur');
-   //Critere de tri par défaut
+   //Critère de tri par défaut
    $tri="";
-   //édition pdf
+   //édition PDF
    $edition="om_parametre";
    //sous formulaire(s) associé(s)
    $sousformulaire= array()
 
-   //autre exemple de sous formulaire avec om_collectivite.inc.php
+   //autre exemple de sous-formulaire avec om_collectivite.inc.php
    $sousformulaire=array('om_etat',
                    'om_lettretype',
                    'om_parametre',

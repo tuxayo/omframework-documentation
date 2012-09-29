@@ -19,7 +19,7 @@ Elle permet de:
 .. note::
    Il est possible de modifier la liste des colonnes dans laquelle est effectuée
    la recherche. Cette liste ne correspond pas forcément aux colonnes
-   affichéees. Elle correspond seulement par défaut, c'est à dire lorsqu'aucune
+   affichées. Elle correspond seulement par défaut, c'est à dire lorsqu'aucune
    surcharge ne modifie les fichiers générés dans ``gen/sql/``.
 
 Recherche avancée
@@ -109,7 +109,7 @@ tableau d'options:
    disponible dans les fichiers ``sql/`` de l'application. Il n'est plus
    nécessaire de le déclarer manuellement.
 
-La clé ``type`` est obligatoire. Elle permet de definir le type de l'option.
+La clé ``type`` est obligatoire. Elle permet de définir le type de l'option.
 Pour une recherche il faut saisir ``search``.
 
 La clé ``display`` est obligatoire. Elle permet d'afficher ou non la recherche,
@@ -123,12 +123,12 @@ préciser que le formulaire de recherche est un formulaire de recherche avancée
 et non simple. Cette clé doit contenir le tableau des champs configurés pour la
 recherche (voir plus bas pour la configuration des champs).
 
-La clé ``default_form`` est optionelle. Elle permet de choisir quel formulaire
-de recherche est ouvert par defaut. La valeur ``advanced'`` permet d'afficher le
+La clé ``default_form`` est optionnelle. Elle permet de choisir quel formulaire
+de recherche est ouvert par défaut. La valeur ``advanced'`` permet d'afficher le
 formulaire multi-critères. Les autres valeurs, ou si ``default_form`` n'est pas
 configuré, affichent le formulaire mono-critère.
 
-La clé ``absolute_object`` est obligatoire. Elle permet de specifier à
+La clé ``absolute_object`` est obligatoire. Elle permet de spécifier à
 openMairie le nom du modèle l'objet recherché. Ce nom est celui du fichier dans
 ``obj/``, ici ``om_utilisateur.class.php`` (sans son extension).
 
@@ -229,7 +229,7 @@ de données qui sera interrogée si la variable ``$_POST`` contient la clé
 La clé ``'type`` est obligatoire. Elle contient le type du champ HTML à
 afficher. Cela peut être ``date``, ``text``, ``select``, ou tout autre méthode
 de la classe ``formulaire``. Pour les champs de type ``select``, le nom du champ
-HTML doit etre le meme que le nom de la colonne.
+HTML doit être le même que le nom de la colonne.
 
 La clé ``libelle`` est obligatoire. Elle contient le libellé qui sera affiché à
 côté du champ dans le formulaire de recherche.
@@ -410,11 +410,11 @@ Le tableau ``$args[0]`` contient les valeurs associées aux choix. La valeur
 ``true`` indique que les identifiants des utilisateurs doivent se
 trouver dans la sous-requête. La valeur ``false`` indique qu'ils ne
 doivent pas se trouver dans la sous-requête. Contrairement à l'exemple
-« Créer un champ de recherche avec menu deroulant personnalisé », les valeurs ne
+« Créer un champ de recherche avec menu déroulant personnalisé », les valeurs ne
 seront pas recherchées telles quelles dans la base de données et ne doivent
 surtout pas être modifiées.
 
-En selectionnant « Administrateurs », la requête SQL de recherche sera
+En sélectionnant « Administrateurs », la requête SQL de recherche sera
 construite comme suit:
 
 .. code-block:: sql

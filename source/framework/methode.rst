@@ -20,11 +20,11 @@ Surcharger les classes openMairie
 =================================
 
 
-Il vaut mieux utiliser le générateur pour initialiser les classes metiers.
+Il vaut mieux utiliser le générateur pour initialiser les classes métiers.
 
 Le générateur surcharge la classe om_dbformdyn.class.php par rapport aux informations de la base ::
 
-    classe abstraite <- classe metier generee <- classe metier 1 <- classe metier 2 ...
+    classe abstraite <- classe métier générée <- classe métier 1 <- classe métier 2 ...
     openMairie             depuis la base
     
 
@@ -48,12 +48,12 @@ Il est décrit ici les valeurs par défaut dans core/om_dbformdyn.class.php
 qui est une classe d'openMairie.
 
 
-Les valeurs suivantes sont mises par defaut afin de pouvoir construire rapidemment un formulaire ::
+Les valeurs suivantes sont mises par défaut afin de pouvoir construire rapidement un formulaire ::
 
-    valeur par defaut  
+    valeur par défaut  
        en ajout = initialisation vide
    
-    type par defaut
+    type par défaut
        type text pour ajout et modification
        type hiddenstatic pour suppression
    
@@ -69,7 +69,7 @@ Les valeurs suivantes sont mises par defaut afin de pouvoir construire rapidemme
 
  
 ===========================================================
-Modifier les valeurs par defaut par les méthodes assesseurs
+Modifier les valeurs par défaut par les méthodes assesseurs
 ===========================================================
 
 Elles se font dans la classe obj/nom_objet.class.php
@@ -84,7 +84,7 @@ Les maximums autorisés par défaut sont modifiés par la méthode setMax(nomduc
 
 Les libelles de champ par défaut sont modifiés par la méthode setLib(nomduchamp, nouvelle valeur)
 
-Les scripts javascript sont appellés dans la méthode setOnchange()
+Les scripts javascript sont appelés dans la méthode setOnchange()
 
 
 Voir framework/formulaire
@@ -106,25 +106,25 @@ Les méthodes principales sont les suivantes :
     Modifier : Modifie un objet
     Supprimer : Supprime un objet
     Verifier : Contrôle un objet
-    Clesecondaire : Contrôle les cles secondaires
-    triggers avant/apres ajout/modification/suppression
+    Clesecondaire : Contrôle les clés secondaires
+    triggers avant/après ajout/modification/suppression
 
-* orientees Formulaire ::
+* orientées Formulaire ::
 
     Formulaire : Constitue le formulaire et fait appel à formulaire.dyn.class.php
-    sousFormulaire : Constitue le sousformulaire -> appel à formulaire.dyn.class.php
+    sousFormulaire : Constitue le sous-formulaire -> appel à formulaire.dyn.class.php
     Message : Retourne le message d erreur (contrôle php)
     bouton : Affiche le bouton
-    Retour : gére le retour à une interface php en fin de saisie
-    sousformulaireRetour : gére le retour à une interface php en fin de saisie de sous formulaire
+    Retour : gère le retour à une interface php en fin de saisie
+    sousformulaireRetour : gère le retour à une interface php en fin de saisie de sous formulaire
     setType : Envoi au formulaire les type de champ
     setVal : Envoi au formulaire les valeurs par défaut
-    setValSousformulaire : Envoi au sousformulaire les valeurs par défaut
+    setValSousformulaire : Envoi au sous-formulaire les valeurs par défaut
     setlib : Envoi au formulaire les libellés de champs
     setTaille : Envoi au formulaire la taille du champ
     setMax : Envoi au formulaire la taille maximum autorisée du champ
     setSelect : Envoi au formulaire les champs select à afficher
-    setOnchange : Envoi au formulaire les controles javascript à effectuer en cas de changement de données dans le champ
+    setOnchange : Envoi au formulaire les contrôles javascript à effectuer en cas de changement de données dans le champ
     setGroupe : Envoi au formulaire le groupement de champ par ligne
     setRegroupe : Envoi au formulaire un fieldset
     setOnkeyup
@@ -136,15 +136,15 @@ Les méthodes principales sont les suivantes :
 * des fonctions de traitement de champ heure et date::
 
     DateDB : transforme les dates affichées en date pour base de données
-    HeureDB : controle du champs heure saisi 00 ou 00:00 ou 00:00:00
-    DateSystemeDB : mise au format base de donnees de la date systeme
-    DatePHP : controle et transforme la date saisie (jj/mm/aaaa) en date format PHP
+    HeureDB : contrôle du champs heure saisi 00 ou 00:00 ou 00:00:00
+    DateSystemeDB : mise au format base de données de la date système
+    DatePHP : contrôle et transforme la date saisie (jj/mm/aaaa) en date format PHP
 
 *  des fonctions pour faire des calculs ::
 
-    AnneePHP : controle et recupere l’année de la date saisie (jj/mm/aaaa)
-    MoisPHP : controle et recupere le mois de la date saisie (jj/mm/aaaa)
-    JourPHP : controle et recupere le jour de la date saisie (jj/mm/aaaa)
+    AnneePHP : contrôle et récupère l'année de la date saisie (jj/mm/aaaa)
+    MoisPHP  : contrôle et récupère le mois de la date saisie (jj/mm/aaaa)
+    JourPHP  : contrôle et récupère le jour de la date saisie (jj/mm/aaaa)
 
 La classe dbformdyn.class.php fait appel à la classe formulaire.dyn.class.php pour afficher le formulaire.
 
@@ -159,7 +159,7 @@ Il est créé 2 objets :
 L'objet db
 ==========
 
-db est l'objet de connexion a la base dont les proprietes sont les suivantes ::
+db est l'objet de connexion a la base dont les propriétés sont les suivantes ::
 
     DB_pgsql Object
     
@@ -227,7 +227,7 @@ db est l'objet de connexion a la base dont les proprietes sont les suivantes ::
 L'objet form
 ============
 
-form est l'objet formulaire dont les proprietes sont les suivantes ::
+form est l'objet formulaire dont les propriétés sont les suivantes ::
   
     formulaire Object (
         [enteteTab] =>

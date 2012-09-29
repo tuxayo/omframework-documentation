@@ -129,7 +129,7 @@ dans les sous-tableaux:
 Définition de l'ordre d'affichage
 .................................
 
-La clé ``ordre`` permet de déterminer l'odre d'affichage par rapport aux autres
+La clé ``ordre`` permet de déterminer l'ordre d'affichage par rapport aux autres
 actions.
 
 Chaque action dispose d'une valeur numérique permettant de définir sa place au
@@ -177,7 +177,7 @@ Dans ces scripts, peuvent être surchargés, la liste des champs (ordre ou champ
 affichés), requêtes sql permettant de remplir les widget de formulaires ainsi
 que les actions du menu contextuel.
 
-L'ajout d'une action se presente de cette façon :
+L'ajout d'une action se présente de cette façon :
 
 .. code-block:: php
 
@@ -186,7 +186,7 @@ L'ajout d'une action se presente de cette façon :
        'lien' => '../pdf/pdflettretype.php?obj=om_utilisateur&amp;idx=',
        'id' => '',
        'lib' => '<span class="om-prev-icon om-icon-16 om-icon-fix pdf-16"
-       					title="'._('Edition').'">'._('Edition').'</span>',
+                        title="'._('Edition').'">'._('Edition').'</span>',
        'ajax' => false,
        'ordre' => 21,
    );

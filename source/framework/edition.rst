@@ -4,101 +4,101 @@
 Les éditions
 ############
 
+openMairie permet d'effectuer des éditions au format PDF. Ces éditions
+sont paramétrées depuis l'interface du logiciel. Pour chaque édition PDF des
+champs de fusion permettent de récupérer dynamiquement les données à imprimer.
+
 Les éditions sont accessibles dans le menu par ::
 
-    - administration -> etat 
-    - administration -> sousetat
-    - administration -> lettretype
+    - parametrage -> etat 
+    - parametrage -> sousetat
+    - parametrage -> lettretype
 
-
-
-Depuis la version 4 d'openMairie, les editions sont conservées dans 3 tables ::
+Depuis la version 4 d'openMairie, les éditions sont conservées dans 3 tables ::
 
     - om_etat : pour les états  
-    - om_sousetat : pour les sous etats
+    - om_sousetat : pour les sous-états
     - om_lettretype : pour les lettres types
 
-
-
-Cette modification a été faite pour pouvoir gérer la multi collectivité.
-
-Par contre, les tableaux pdf sont stockés dans un fichier : nom_objet.pdf.inc 
+Contrairement aux états et aux lettres-types, les tableaux de bord PDF sont
+stockés dans un fichier : nom_objet.pdf.inc .
 
 ================
 Actif, non actif
 ================
 
-Les sous etats sont liés a un ou plusieurs état
+Les sous-etats sont liés a un ou plusieurs état.
 
-Les états, sous etats, et lettre type peuvent être actif ou non actif
+Les états, sous-états, et lettre type peuvent être "actif" ou "non-actif".
 
 Par défaut sont pris en compte :
 
-1 - l'édition  "actif" de la collectivite
+1 - l'édition  "actif" de la collectivité
 
-2 - l'édition "actif" de la multicollectivite
+2 - l'édition "actif" de la multicollectivité
 
-3 - l'édition "non actif" de la multicollectivite
+3 - l'édition "non-actif" de la multicollectivité
 
 
-Les editions non actifs d'une collectivite ne sont pas pris en compte
+Les éditions d'une collectivité ayant le statut "non-actif" ne sont pas prises
+en compte.
 
 
 ====================
-Paramétrer des etats
+Paramétrer des états
 ====================
 
-Il est conseillé d utiliser l'assistant état du generateur
+Il est conseillé d'utiliser l'assistant état du générateur.
 
 Les paramètres sont les suivants ::
 
     orientation portrait ou paysage
     format="A4", A3
     position et nom  du logo 
-    titre de l etat
+    titre de l état
     position et caractéristiques du titre
-    corps de l etat
+    corps de l état
     position et caractéristiques du corps
-    la requete SQL
-    les sous etats associés et les caractéristiques
+    la requête SQL
+    les sous-états associés et les caractéristiques
 
 
-Pour le corps et le titre, les zones entre crochets (exemple [nom]) sont les champs selectionnés par la requete.
+Pour le corps et le titre, les zones entre crochets (exemple [nom]) sont les
+champs de fusion, sélectionnés par la requête SQL.
 
-Les variables commençant par "&" sont définies dans dyn/varpdf.inc (exemple &aujourdhui)
-et dans la table om_parametre. 
+Les variables commençant par "&" sont celles définies dans dyn/varpdf.inc
+(exemple &aujourdhui) et dans la table om_parametre.
 
 =========================
-Paramétrer des sous etats
+Paramétrer des sous-états
 =========================
 
-Il est conseillé d utiliser l'assistant sousetat du générateur
+Il est conseillé d'utiliser l'assistant sous-etat du générateur.
 
-Les paramétres  sont les suivants ::
+Les paramètres  sont les suivants ::
 
     texte et caractéristique du Titre
-    Intervalle avant et apres le tableau
-    Entete de tableau (nom de colone)
-    caracteristique du tableau
-    caracteristique des cellules
-    tatal, moyenne, nombre
-    requete sql
+    Intervalle avant et après le tableau
+    Entête de tableau (nom de colonne)
+    caractéristique du tableau
+    caractéristique des cellules
+    total, moyenne, nombre
+    requête SQL
 
 
-Pour le titre, les zones entre crochets sont les champs selectionnés par la requete.
+Pour le titre, les zones entre crochets sont les champs de fusion,
+sélectionnés par la requête.
 
-Les variables commençant par "&" sont définies dans dyn/varpdf.inc (exemple &aujourdhui)
-et dans la table om_parametre 
-
-
+Les variables commençant par "&" sont celles définies dans dyn/varpdf.inc
+(exemple &aujourdhui) et dans la table om_parametre.
 
 ===========================
-Paramétrer des lettres type
+Paramétrer des lettres-type
 ===========================
 
-Il est conseillé d utiliser l assistant lettretype du generateur
+Il est conseillé d'utiliser l'assistant lettre-type du générateur.
 
-Les paramétres sont les suivants ::
+Les paramètres sont les suivants ::
 
     orientation portrait ou paysage
     format="A4", A3
@@ -107,69 +107,70 @@ Les paramétres sont les suivants ::
     position et caractéristiques du titre
     corps de la lettre
     position et caractéristiques du corps
-    la requete SQL
+    la requête SQL
 
 
-Pour le corps et le titre, les zones entre crochets  sont les champs selectionnés par la requete.
+Pour le corps et le titre, les zones entre crochets  sont les champs de fusion,
+sélectionnés par la requête.
 
-Les variables commençant par "&" sont définies dans dyn/varlettretypepdf.inc (exemple &aujourdhui)
-et dans la table om_parametre 
+Les variables commençant par "&" sont celles définies dans
+dyn/varlettretypepdf.inc (exemple &aujourdhui) et dans la table om_parametre.
 
 ==========================
-Parametrer des edition pdf
+Paramétrer des édition PDF
 ==========================
 
-Un etat pdf peut être généré par le generateur (option)
+Un état PDF peut être généré par le générateur (option).
 
-L'edition est paramétrée dans un fichier sql/sgbd/nom_objet.pdf.inc et dans la
+L’édition est paramétrée dans un fichier sql/sgbd/nom_objet.pdf.inc et dans la
 
-Les paramétres sont les suivants ::
+Les paramètres sont les suivants ::
 
     texte et caractéristique du Titre
-    Entete de tableau (nom de colone)
-    caracteristique du tableau
-    caracteristique des cellules
-    tatal, moyenne, nombre
-    requete sql
+    Entête de tableau (nom de colonne)
+    caractéristique du tableau
+    caractéristique des cellules
+    total, moyenne, nombre
+    requête SQL
 
-Pour le titre, les zones entre crochets sont les champs selectionnés par la requete.
+Pour le titre, les zones entre crochets sont les champs de fusion, sélectionnés
+par la requête.
 
-Les variables commençant par "&" sont définies dans dyn/varpdf.inc (exemple &aujourdhui)
-et dans la table om_parametre 
+Les variables commençant par "&" sont celles définies dans dyn/varpdf.inc
+(exemple &aujourdhui) et dans la table om_parametre.
 
 =========================
-Parametrer les etiquettes
+Paramétrer les étiquettes
 =========================
 
-Les zones entre crochets  sont les champs selectionnés par la requete.
-La variable  &aujourdhui sont définies dans dyn/varetiquettepdf.inc et dans la
-table om_parametre
+Les zones entre crochets  sont les champs de fusion sélectionnés par la requête.
+Les variables (exemple &aujourdhui) sont celles définies dans
+dyn/varetiquettepdf.inc et dans la table om_parametre.
 
-Il y aura une integration depuis l utilisation d'openPersonnalite dans une prochaine version openMairie.
-
+Il y aura une integration depuis l'utilisation d'openPersonnalite dans une
+prochaine version openMairie.
 
 =================
 L'éditeur WYSIWYG
 =================
 
-Un editeur est prevu dans une prochaine version openMairie.
-
+Un éditeur avancé est prevu dans une prochaine version openMairie afin de
+permettre à l'utilisateur de définir des mises en forme complexes.
 
 ===============
 Les scripts PDF
 ===============
 
-
-
-Les scripts sont dans le répertoire  **pdf/** et sont  appellés par le framework sous la forme ::
+Les scripts sont dans le répertoire  **pdf/** et sont  appelés par le framework
+sous la forme ::
 
     pdfetat.php?obj=nom_etat&idx=enregistrement_a_editer
 
 les scripts sont les suivants ::
 
-    pdfetat.php : etat et sous etat
-    pdf.php : edition pdf
-    pdfetiquette.php : etiquette
+    pdfetat.php : état et sous-état
+    pdf.php : édition PDF
+    pdfetiquette.php : étiquette
     pdflettretype.php
 
 pdfEtiquette sera repris dans une prochaine version d'openMairie
@@ -185,12 +186,11 @@ pdfEtiquette sera repris dans une prochaine version d'openMairie
     pdf_parser.php
     testfpdi.php
 
-Il n est pas prévu d integration dans la prochaine version
+Il n'est pas prévu d'intégration dans la prochaine version.
 
 ==========
-composants
+Composants
 ==========
-
 
 */core* 
 
@@ -203,5 +203,3 @@ Les scripts ci dessous sont les classes qui interfacent openmairie avec fpdf ::
 *php/fpdf*
 
     A ce niveau se situe le composant fpdf
-
-

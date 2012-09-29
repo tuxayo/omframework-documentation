@@ -18,14 +18,14 @@ chaque logiciel qui utilise le framework".
 
 http://fr.wikipedia.org/wiki/Framework
 
-Dans un environnement LAMP/WAMP, le framework openMairie integre des composants au travers
+Dans un environnement LAMP/WAMP, le framework openMairie intègre des composants au travers
 de classes qui permettent de créer des formulaires et des états.
 Ces classes sont surchargées par les objets métier à créer.
 
-openMairie integre de nombreux composants : DBPEAR et FPDF dans toutes les applications,
+openMairie intègre de nombreux composants : DBPEAR et FPDF dans toutes les applications,
 mais aussi ARTISHOW (pour les graphes), JQUERY pour l'ergonomie, OPENLAYERS pour l interface SIG ...
 
-DBPEAR est un abstracteur de base de données qui permet d'utiliser diverses bases de données notament MYSQL ou POSTGRESQL.
+DBPEAR est un abstracteur de base de données qui permet d'utiliser diverses bases de données notamment MYSQL ou POSTGRESQL.
 
 FPDF est le composant qui permet de gérer le PDF.
 
@@ -51,12 +51,12 @@ En introduction, il est proposé une explication de la hiérarchie des répertoi
             mysql pour mysql
         dans les 2 cas, init.sql permet de créer les tables om_xx du framework
                         init_metier.sql sont les tables spécifiques de votre application
-        d'autres scripts complètent la mise en oeuvre des données notament les
+        d'autres scripts complètent la mise en œuvre des données notamment les
         modifications de base de données.
         
-    - dyn : contient les fichiers de paramètrage du framework décrit ci dessous
+    - dyn : contient les fichiers de paramétrage du framework décrit ci dessous
     
-    - gen : contient les scripts (obj) et requetes (sql) générées par le générateur
+    - gen : contient les scripts (obj) et requêtes (sql) générées par le générateur
     
     - img : contient les images du framework 
     
@@ -70,7 +70,7 @@ En introduction, il est proposé une explication de la hiérarchie des répertoi
     
     - pdf : contient les scripts d'édition du framework
     
-    - php : contient les librairies php utilisées par le framework notament : dbpear, phpmailer et fpdf
+    - php : contient les librairies php utilisées par le framework notamment : dbpear, phpmailer et fpdf
     
     - scr : contient les scripts d'affichage du framework
     
@@ -82,23 +82,23 @@ En introduction, il est proposé une explication de la hiérarchie des répertoi
     
     - trs : contient les fichiers uploadés de l'application (par base /1 /2 ...)
     
-    Les repertoires à modifier pour une application sont les suivants :
+    Les répertoires à modifier pour une application sont les suivants :
     
     - app : vos scripts spécifiques
-    - dyn : le paramètrage du framework et de l application
+    - dyn : le paramétrage du framework et de l application
     - gen : les scripts php et sql générés
     - obj : vos objets métiers en surcharge
-    - sql : les requetes sql surchargées
+    - sql : les requêtes sql surchargées
     - tmp : les  fichiers temporaires
     - trs : les fichiers transférés en upload.
 
-Ce chapître propose de vous décrire les outils de base du framework de la manière suivante :
+Ce chapitre propose de vous décrire les outils de base du framework de la manière suivante :
 
     - le paramétrage général du framework en /dyn
     - les méthodes pour construire des formulaires avec le framework
     - les outils d'édition du framework
     - l'outil de requête paramétrable du framework
-    - la gestion des accès du framework ainsi que la gestion multi collectivite
+    - la gestion des accès du framework ainsi que la gestion multi-collectivite
     - l'ergonomie intégrant jquery
     - la gestion de traitement et la construction de programme spécifiques avec les utilitaires
     - l'import des données CSV du framework
