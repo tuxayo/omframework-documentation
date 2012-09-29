@@ -21,10 +21,17 @@ Les outils indispensables :
    meld.rst
    poedit.rst 
 
+#############
+Autres outils
+#############
+
 - TortoiseSVN
+
 - TortoiseCVS
 
-L'environnement de développement :
+################################
+L'environnement de développement
+################################
 
 - Apache
 

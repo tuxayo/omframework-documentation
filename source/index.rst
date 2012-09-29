@@ -120,7 +120,7 @@ Contributeurs
 =============
 
 * `atReal <contact@atreal.fr>`_
-* `Thierry Benita tbenita@atreal.fr>`_
+* `Thierry Benita <tbenita@atreal.fr>`_
 * `Romain Beylerian <beylerian.romain@gmail.com>`_
 * `Nicolas Haye <nhaye@atreal.fr>`_
 * `Florent Michon <fmichon@atreal.fr>`_
