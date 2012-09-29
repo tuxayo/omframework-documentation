@@ -44,7 +44,7 @@ Le paramétrage par défaut est dans le tableau $conn[1] pour la base 1 :
 
 Il peut être paramétré plusieurs bases : conn[1] , conn[2] ...
 
-conn[1] est un tableau php qui contient les parametres de connexion suivants ::
+conn[1] est un tableau php qui contient les paramètres de connexion suivants ::
 
     'titre          => 'openxxx',       [parametrage openmairie]
     'phptype'       => 'mysql',         mysql ou 'pgsql' [parametrage dbpear]
@@ -65,7 +65,7 @@ conn[1] est un tableau php qui contient les parametres de connexion suivants ::
 Il est possible de définir tout phptype : mysql, pgsql (postgresql), oci8 pour oracle.
 
 Il faut voir la documentation de DB PEAR qui est le module d'abstraction utilisé
-dans openMairie dans sa version actuelle
+dans openMairie dans sa version actuelle.
 
 
 =======================
@@ -84,7 +84,7 @@ Le menu
 *******
 
 Le but de cette zone de navigation est de rassembler les liens vers toutes les
-fonctions du logiciel regrouper par rubrique et catégorie. Elle se situe à
+fonctions du logiciel regroupées par rubrique et catégorie. Elle se situe à
 gauche du contenu et est visible uniquement lorsque l'utilisateur est
 authentifié. 
 
@@ -100,12 +100,14 @@ Par défaut **le menu** est composé de la manière suivante ::
                             contient le menu "reqmo" qui reprend les requêtes
                                 mémorisées
     traitement              vide par défaut, cet option contient les scripts de
-                                traitement
+                                traitements
     parametrage             Cette option contient vos tables de paramétrage
-                                et le paramètreage des états / sous états / lettretype 
-    administration          Les scripts de cet option contiennent tout les scripts
-                                du framework pour paramètrage de la collectivité,
-                                om_sig  et la gestion des accès                                
+                                fonctionnel. Par défaut il contient le
+                                paramétrage des états / sous-états / lettres type 
+    administration          Cette option contient les fonctions de configuration
+                                de l'administrateur technique. Cela comprend
+                                notamment le paramètrage de la collectivité,
+                                om_sig  et la gestion des droits d'accès                                
 
 
 La configuration des liens se fait dans le fichier :file:`dyn/menu.inc.php`.
@@ -126,6 +128,7 @@ Les caracteristiques de ce tableau sont les suivantes :
      class (classe css qui s'affiche sur la rubrique)
      right (droit que l'utilisateur doit avoir pour visionner cette rubrique)
      links (obligatoire)
+     open (critères de pré-ouverture de cette rubrique du menu)
 
     tableau links ::
 
@@ -134,8 +137,24 @@ Les caracteristiques de ce tableau sont les suivantes :
      class (classe css qui s'affiche sur l'element)
      right (droit que l'utilisateur doit avoir pour visionner cet element)
      target (pour ouvrir le lien dans une nouvelle fenetre)
+     open (critères de pré-ouverture de la rubrique du menu dans laquelle est ce
+           lien, et sélection de ce lien en lien actif)
 
+L'entrée ``open`` sert à marquer une entrée de menu comme active. La rubrique
+contenant cette entrée est ouverte dès l'affichage de la page, et l'entrée active
+est mise en évidence. L'entrée ``open`` peut contenir soit une chaîne soit un
+``array()`` comportant plusieurs chaînes. Chaque chaîne est créée selon la syntaxe
+``'script.php|obj'``, chacune des deux parties étant optionnelle. Le caractère
+séparateur ``|`` est obligatoire.
 
+Exemple : ``'\|om_collectivite'`` sélectionnera l'entrée pour toutes les url
+          ayant ``obj=om_collectivite``
+          
+          ``'tab.php|om_collectivite'`` sélectionnera l'entrée pour l'affichage
+          du tableau de la classe ``om_collectivite``
+          
+          ``'unecran.php|'`` sélectionnera l'entrée dès lors que le script
+          ``unecran.php`` est appelé quelque soit la classe ``obj``
 
 ************************
 Les actions personnelles
