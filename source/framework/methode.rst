@@ -4,7 +4,6 @@
 La méthode
 ##########
 
-Il est décrit ici la méthode pour la création d' objets métiers:
 
 Le développement consiste à créer des objets métier (/obj) qui surchargent
 la classe abstraite  om_dbformdyn.class.php et à modifier les valeurs par défaut
@@ -13,7 +12,7 @@ des variables dans les fichiers sql (nom_objet.inc et nom_objet.form.inc)
 
 Voir aussi le *générateur* pour automatiser les scripts métier.
 
-
+Il est décrit ensuite les 2 objets : objet de connexion db et l'objet formulaire form.
 
 =================================
 Surcharger les classes openMairie
@@ -38,114 +37,6 @@ Exemple avec concession d'openCimetiere ::
             <- gen/obj/emplacement.class.php
                 <-/obj/emplacement.class.php <- /obj/concession.class.php
 
-
-
-===============================
-Modifier les valeurs par défaut
-===============================
-
-Il est décrit ici les valeurs par défaut dans core/om_dbformdyn.class.php 
-qui est une classe d'openMairie.
-
-
-Les valeurs suivantes sont mises par défaut afin de pouvoir construire rapidement un formulaire ::
-
-    valeur par défaut  
-       en ajout = initialisation vide
-   
-    type par défaut
-       type text pour ajout et modification
-       type hiddenstatic pour suppression
-   
-    libelle par défaut :
-       Libellé = nom du champ dans le SGBD
-   
-    taille et max d un champ
-       Taille et max = longueur du champ dans le SGBD
-   
-    les regroupements et groupements de champs sont vides
-   
-    les fonctions javascript ne sont pas utilisées
-
- 
-===========================================================
-Modifier les valeurs par défaut par les méthodes assesseurs
-===========================================================
-
-Elles se font dans la classe obj/nom_objet.class.php
-
-Les valeurs par défaut sont modifiées par la méthode setVal(nomduchamp, nouvelle valeur)
-
-Les types par défaut sont modifiés par la méthode setType(nomduchamp, nouveau type)
-
-Les longueurs d affichage par défaut sont modifiées par la méthode setTaille(nomduchamp, nouvelle valeur)
-
-Les maximums autorisés par défaut sont modifiés par la méthode setMax(nomduchamp, nouvelle valeur)
-
-Les libelles de champ par défaut sont modifiés par la méthode setLib(nomduchamp, nouvelle valeur)
-
-Les scripts javascript sont appelés dans la méthode setOnchange()
-
-
-Voir framework/formulaire
-
-===============================
-La class om_dbformdyn.class.php
-===============================
-
-om_dbform.class.php  est une classe openMairie dans core/
-
-La classe abstraite dbform gère l’interface entre l'objet métier et la base de données connectée via DBPEAR.
-
-Les méthodes principales sont les suivantes :
-
-* orientées sgbd ::
-
-    constructeur
-    ajouter : Ajoute un objet
-    Modifier : Modifie un objet
-    Supprimer : Supprime un objet
-    Verifier : Contrôle un objet
-    Clesecondaire : Contrôle les clés secondaires
-    triggers avant/après ajout/modification/suppression
-
-* orientées Formulaire ::
-
-    Formulaire : Constitue le formulaire et fait appel à formulaire.dyn.class.php
-    sousFormulaire : Constitue le sous-formulaire -> appel à formulaire.dyn.class.php
-    Message : Retourne le message d erreur (contrôle php)
-    bouton : Affiche le bouton
-    Retour : gère le retour à une interface php en fin de saisie
-    sousformulaireRetour : gère le retour à une interface php en fin de saisie de sous formulaire
-    setType : Envoi au formulaire les type de champ
-    setVal : Envoi au formulaire les valeurs par défaut
-    setValSousformulaire : Envoi au sous-formulaire les valeurs par défaut
-    setlib : Envoi au formulaire les libellés de champs
-    setTaille : Envoi au formulaire la taille du champ
-    setMax : Envoi au formulaire la taille maximum autorisée du champ
-    setSelect : Envoi au formulaire les champs select à afficher
-    setOnchange : Envoi au formulaire les contrôles javascript à effectuer en cas de changement de données dans le champ
-    setGroupe : Envoi au formulaire le groupement de champ par ligne
-    setRegroupe : Envoi au formulaire un fieldset
-    setOnkeyup
-    setOnclick
-    mail
-    selectiste
-    selectlistemulti
-
-* des fonctions de traitement de champ heure et date::
-
-    DateDB : transforme les dates affichées en date pour base de données
-    HeureDB : contrôle du champs heure saisi 00 ou 00:00 ou 00:00:00
-    DateSystemeDB : mise au format base de données de la date système
-    DatePHP : contrôle et transforme la date saisie (jj/mm/aaaa) en date format PHP
-
-*  des fonctions pour faire des calculs ::
-
-    AnneePHP : contrôle et récupère l'année de la date saisie (jj/mm/aaaa)
-    MoisPHP  : contrôle et récupère le mois de la date saisie (jj/mm/aaaa)
-    JourPHP  : contrôle et récupère le jour de la date saisie (jj/mm/aaaa)
-
 La classe dbformdyn.class.php fait appel à la classe formulaire.dyn.class.php pour afficher le formulaire.
 
 Il est créé 2 objets :
@@ -153,6 +44,7 @@ Il est créé 2 objets :
 - un objet db qui fait la connexion avec la base
 
 - un objet form qui décrit le formulaire
+
 
 
 ==========

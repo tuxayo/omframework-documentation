@@ -519,7 +519,7 @@ Valeur de la variable globale DEBUG ::
   EXTRA_VERBOSE_MODE : mode très bavard qui reprend les messages spécifiques
   dans la méthode addToLog
   exemple :
-  $this->addToLog("requete sig_interne maj parcelle inexistante :".$sql, VERBOSE_MODE);
+  $this->addToLog("requete sig_interne maj parcelle inexistante :".$sql, EXTRA_VERBOSE_MODE);
 
   VERBOSE_MODE : mode "bavard"
   dans ce mode , il est créé un fielset sous les formulaires qui indiquent

@@ -37,6 +37,7 @@ formulaire (longueur, max, nom).
 - om_dbformdyn.class.php ; assure la liaison entre le formulaire et la base de données
 - om_formulaire.class.php : rassemble toutes les méthodes permettant de construire des formulaires
 
+
 En introduction, il est proposé une explication de la hiérarchie des répertoires ::
     
     - app : contient tout ce qui est spécifique de votre application avec les

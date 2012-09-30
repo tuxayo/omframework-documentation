@@ -37,7 +37,25 @@ Modifier les cartes de om_sig_point
 Récupérer les données de l'IGN
 ==============================
 
-Exemple de récupération de données "parcelle" (fichier shape du CRIGE PACA)
+Les bases suivantes sont fournies gratuitement aux collectivités
+
+- base topographique
+
+- base parcellaire
+
+- base adresse
+
+L'application openReferentiel (Vitrolles) permet de créer un référentiel local sur la collectivité
+
+Les données sont fournies par département.
+
+Il faut récupérer les fichiers shape dans une base IGN puis ensuite construire le référentiel de la commune avec openReferentiel.
+
+
+Recupérer des données shape
+===========================
+
+Il est proposé un exemple de récupération de données "parcelle" 
 
 Les données de l'IGN sont fournies aux communes par département.
 
@@ -81,9 +99,5 @@ de l application openCadastre qui reconstitue des tables postgresql.
 Les fichiers gémétriques au format EDIGEO ne sont pas récupérés compte tenu de son format non standard
 et il est préféré utiliser les formats shape de l IGN
 
+L'application openCadastre permet de récupérer les données "texte".
 
-Recuperation de la base adresse de l'IGN
-========================================
-
-Le projet de la ville de Vitrolles openAdresseIGN inclu dans le projet openAdresse se propose de construire un référentiel adresse pour une commune
-sur la base des fichiers fournis par l IGN.

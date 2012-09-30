@@ -574,7 +574,7 @@ champs. Chaque méthode permet d'afficher un seul widget.
        ouvre une fenêtre tab_sig.php pour visualiser ou saisir une géométrie
        (selon l'action) la carte est définie en setSelect
 
-Les contrôle comboG, comboD, date, upload, voir et localisation sont à mettre
+Les widgets comboG, comboD, date, upload, voir et localisation sont à mettre
 dans les formulaires.
 Les contrôle comboG2, comboD2, date2, upload2, voir2 et localisation sont à
 mettre dans les sous formulaires.

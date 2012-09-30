@@ -70,7 +70,7 @@ type mysql (longueur)          tableinfo   -> type openMairie ::
     Double      (22)                Real        -> Int
     Decimal     (11)                Real        -> Int
     Text        (65535)             Blob        -> Blob
-    Tinyblob    (255)               blob        ->Blob
+    Tinyblob    (255)               blob        -> Blob
     Mediumblob  16777615            Blob        -> Blob
     Mediumtext  16777215            Blob        -> Blob
     Longtext    -1                  blob        -> Blob
@@ -99,6 +99,7 @@ pgsql (longueur) type tableinfo si different -> type openMairie ::
     Date        (4)                 Date        -> Date (Utilisation des paramètres de form.inc -
                                                    $pgsql_longueur_date)
     geometry    -5                              -> geom
+    boleen                          bolean      -> checkbox
 
 Pour postgresql, il est proposé dans form.inc 2 variables qui sont avec la version 4.2.0 inutiles car les longueurs sont gérées
 par le générateur (valeurs négatives) ::
