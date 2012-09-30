@@ -120,7 +120,7 @@ Les méthodes qui peuvent être implémentés dans obj/nom_table.class.php sont 
 suivantes ::
 
     - verifier
-    - regroupe et groupe pour modifier les présentations
+    - regroupe et groupe pour modifier les présentations [deprecated] utiliser setLayout
     - trigger avant ou après l'enregistrement:
     - triggerajouter
     - triggermodifier

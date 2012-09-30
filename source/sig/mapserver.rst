@@ -4,7 +4,6 @@
 Mapserver
 #########
 
-mapserver n est pas utilise et il a été préféré qgis_server dans les deploiements openMairie
 
 
 Ce chapitre propose quelques principes de map server 
@@ -39,7 +38,5 @@ creer un repertoire avec droit d ecriture pour www-data pour stocker les images 
             IMAGEURL "/tmp/" 
         END
 
-.. attention:: 
-   
-   Verifier le chemin dans  openmairie_cimetiere/sig/var.inc qui doit correspondre a votre installation
+
 

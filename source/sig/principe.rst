@@ -26,10 +26,9 @@ dans les applications openMairie suivantes ::
     openmairie circulation
     openmairie taxepub
     openmairie triSelectif
-    openmairie adresse postale
+    openmairie adresse (postale) et referentiel
     openmairie openelec (projet)
     openmairie resultat (projet)
-    openmairie dia (projet)
     openmairie erp (projet)
     
 
