@@ -33,9 +33,9 @@ Les informations récupérées dans le schéma sont les suivantes:
 
 Sur cette analyse le générateur crée les modèles de données. openMairie gère:
 
-- les clés primaire mono-colonne;
+- les clés primaires mono-colonne;
 - les clés étrangères;
 - la multi-collectivité (selon la présence d'un champ ``om_collectivite``).
 
 **Le générateur contient également des assistants permettant de créer
-facilement des états, associés à des collectivité.**
+facilement des états associés à des collectivités.**
