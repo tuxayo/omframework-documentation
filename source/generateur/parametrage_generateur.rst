@@ -28,7 +28,6 @@ le générateur.
     * Permet de choisir par quel moyen sont récupérées les clés primaires et les
     * clés étrangères :
     *  - "constraints" => en interrogeant les contraintes de la base de données
-    *                     (fonctionne uniquement avec PostGreSQL)
     *  - "postulate" => par les postulats :
     *    _ "le nom d'un champ 'clé primaire' a pour nom le nom de la table."
     *    _ "le nom d'un champ 'clé étrangère' a pour nom le nom de la table vers
