@@ -103,11 +103,6 @@ Un modèle de données généré peut également contenir, au plus, un groupe de
 champs unique. Cette fois, c'est la combinaison des valeurs de ces champs qui ne
 pourra exister qu'une seule fois.
 
-.. important::
-   Actuellement **le générateur ne peut pas gérer plus d'un groupe de champs
-   uniques** à la fois. S'il existe plusieurs groupes, ils devront être gérés
-   manuellement par le développeur dans les fichiers de surcharge.
-
 Définition des champs uniques
 -----------------------------
 
