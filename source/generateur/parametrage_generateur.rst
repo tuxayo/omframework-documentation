@@ -37,9 +37,7 @@ le générateur.
     * 
     * Default : $key_constraints_mode = "constraints";
     ***/
-   if (OM_DB_PHPTYPE == "mysql") {
-       $key_constraints_mode = "postulate";
-   }
+   $key_constraints_mode = "postulate";
    ?>
 
 .. code-block:: php
