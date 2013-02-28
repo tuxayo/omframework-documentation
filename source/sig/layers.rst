@@ -127,6 +127,41 @@ En cliquant sur le lotissement, il est possible d'accéder aux données (getFeat
 .. image:: ../_static/tab_sig_wms.png 
 
 
+version 4.4.0
+
+Trois nouveaux paramètres sont disponnibles :
+
+sqlfilter : possibilité de filtre du flux wms (attribut FILTER)
+
+  compléter la zone avec une requête SQL qui va généré le filtre (syntaxe suivant le serveur WMS)
+  
+exemple d'un filtre ::
+
+    pour produire le filtre suivant :
+    layer1:"champ1" = 'valeur1',layer2:"champ2" = 'valeur2'
+    
+    il faut entrer la requête suivante pour selectionner les electeurs d'un bureau :
+    
+    select 'electeur:²bureau² = '''||bureau.bureau||''' as buffer from &DB_PREFIXEbureau where bureau = '&idx'
+    
+    
+    select 'electeur:²bureau² = ''&idx'' as buffer from &DB_PREFIXEbureau where bureau = '&idx'
+    
+    ² = caractère utilisé pour les doubles quotes : "
+    || concatenation sql
+    ''' permet d echapper la simple quote
+    '' sql remplace les deux quotes par une quote (caractere quote)
+
+    le filtre final appliqué au flux wms est : electeur:"bureau" = '04'  pour le bureau 04
+     
+
+base_layers : possibilité d'utiliser le flux wms comme base layers (au même niveau qu'OSM)
+
+single_tile : raméne le flux wms en une seule image pour la fenêtre et non en imagette
+(permet de corriger les labels tronqués)
+
+Attention les temps de réponses peuvent s'allonger car il n'y a pas de cache.
+
 
 La notion de pannier
 ====================
@@ -225,4 +260,7 @@ Elles sont saisies dans om_sig_map_comp ::
 
 Dans l exemple précédent, il apparait une fenêtre select ou l utilisateur a le choix entre une géométrie "point"
 et une géométrie "polygone" du fait de la mise en place d'une géométrie complémentaire.
+
+
+
    
