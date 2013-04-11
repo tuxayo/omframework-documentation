@@ -4,7 +4,9 @@
 Abstraction du 'layout' (ergonomie)
 ###################################
 
-.. note::
+.. warning::
 
    Cette rubrique est en cours de rédaction.
+
+
 
