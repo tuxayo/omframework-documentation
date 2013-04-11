@@ -120,3 +120,5 @@ Ce chapitre propose de vous d√©crire les outils de base du framework de la mani√
    ergonomie.rst
    utilitaire.rst
    import.rst
+   layout.rst
+   filestorage.rst
