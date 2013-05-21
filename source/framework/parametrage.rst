@@ -452,9 +452,16 @@ Ce mode permet de pre-remplir le formulaire de login avec l'identifiant 'demo' e
 
 * La configuration des extensions autorisees dans le module upload.php
 
- Pour changer votre configuration, décommenter la ligne et modifier les extensions avec des ";" comme séparateur ::
+Pour changer votre configuration, décommenter la ligne et modifier les extensions avec des ";" comme séparateur ::
 
     $config['upload_extension'] = ".gif;.jpg;.jpeg;.png;.txt;.pdf;.csv;"
+
+
+* La configuration de la taille maximale des fichiers dans le module upload.php
+
+Pour changer votre configuration, décommenter la ligne et modifier la taille. La taille maximale est en mo. ::
+
+    $config['upload_taille_max'] = str_replace('M', '', ini_get('upload_max_filesize')) * 1024;
 
 
 * Le thème de l'application

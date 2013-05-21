@@ -151,7 +151,15 @@ attributs via les méthodes suivantes :
 
   .. method:: dbform.setSelect(&$form, $maj, $db, $DEBUG = false)
 
-     Méthode qui effectue les requêtes de configuration des champs select
+     Méthode qui effectue les requêtes de configuration des champs
+     Un exemple de configuration est l'ajout de contraintes de contrôles de la taille maximale et de l'extension lors de l'upload de fichier :
+     $params = array(
+         "constraint" => array(
+             "size_max" => 2,
+             "extension" => ".pdf;.txt;.odt"
+         ),
+     );
+     La taille maximale est en mo et la liste des extensions est une chaîne de caractères. 
 
   .. method:: dbform.setOnchange(&$form, $maj)
 
@@ -608,6 +616,7 @@ Ce sous programme permet de visualiser un fichier téléchargé sur le serveur
 Ce script utilise la classe core/upload.class.php (composant openMairie).
 
 Le paramétrage des extensions téléchargeables se fait dans dyn/config.inc.php.
+Le paramétrage de la taille maximale des fichiers téléchargeables se fait dans la classe métier de l'objet.
 
 **spg/rvb.php** et js/rvb.js
 
