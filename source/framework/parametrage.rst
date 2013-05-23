@@ -8,9 +8,10 @@ Le paramétrage de l'application se fait dans le répertoire /dyn.
 
 Il est proposé dans ce chapitre de décrire les différents fichiers de paramétrage.
 
-Les fichiers de paramétrage sont les suivants ::
+Pour le fichier dyn/database.inc.php, voir :ref:`parametrage_connexion_base_de_donnees`.
 
-    dyn/database.inc.php           connexion a la base de données
+Les fichiers de paramétrage sont les suivants ::
+    
     dyn/menu.inc.php               menu principal à gauche
     dyn/action.inc                 menu haut
     dyn/shortslink.inc             lien sous menu haut
@@ -31,41 +32,6 @@ Les fichiers de paramétrage sont les suivants ::
     INSTALL.txt
     
     app/SPECIFIC.txt                explication sur la partie spécifique de l application
-
-
-
-==================================
-La connexion de la base de donnees
-==================================
-
-Le paramétrage de la connexion se fait dans : *dyn/database.inc.php*
-
-Le paramétrage par défaut est dans le tableau $conn[1] pour la base 1 : 
-
-Il peut être paramétré plusieurs bases : conn[1] , conn[2] ...
-
-conn[1] est un tableau php qui contient les paramètres de connexion suivants ::
-
-    'titre          => 'openxxx',       [parametrage openmairie]
-    'phptype'       => 'mysql',         mysql ou 'pgsql' [parametrage dbpear]
-    'dbsyntax'      => '',              [ne pas changer parametrage dbpear]
-    'username'      => 'root',          [par defaut sur wamp easyphp ou lamp /
-                                        a voir avec le fournisseur d acces le cas echeant]
-    'password'      => ''               [par defaut sur wamp easyphp ou lamp /
-                                        a voir avec le fournisseur d acces le cas echeant]                     
-    'protocol'      => '',
-    'hostspec'      => 'localhost',     [nom de serveur par defaut wamp ou easyphp]
-    'port'          => '',              [ne pas changer parametrage dbpear]
-    'socket'        => '',              [ne pas changer parametrage dbpear]
-    'nom de la base'=> 'openxxx',       [parametrage openmairie]
-    'format date'   =>'AAAA-MM-JJ'      [parametrage openmairie ne pas changer]
-    'shema'         => ''               ou 'public' pour postgre
-    'prefixe'       => '' 
-
-Il est possible de définir tout phptype : mysql, pgsql (postgresql), oci8 pour oracle.
-
-Il faut voir la documentation de DB PEAR qui est le module d'abstraction utilisé
-dans openMairie dans sa version actuelle.
 
 
 =======================
