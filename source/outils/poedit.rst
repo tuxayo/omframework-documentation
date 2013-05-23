@@ -8,7 +8,7 @@ POEdit est un éditeur de traductions de chaînes en plusieurs langues.
 Les chaînes présentes dans l'interface des applications openMairie sont celles
 présentes dans le code. Elles ne peuvent pas comporter d'accent.
 
-Les étapes sont les suivantes ::
+Les étapes sont les suivantes :
 
 1 - avoir dans le code .php les chaînes à traduire, en texte sans accent ni
     caractères spéciaux
@@ -28,8 +28,10 @@ Spécification dans le code des chaînes à traduire
 Les chaînes peuvent être traduites, soit en français accentué, soit dans
 d'autres langues. Pour cela il est nécessaires qu'elles soient présentes dans
 les fichiers.php en respectant la syntaxe suivante ::
-  ``_('Ma chaine a traduire, sans accent')``
-  
+
+``_('Ma chaine a traduire, sans accent')``
+
+
 Toutes les chaînes de caractères correspondant aux noms de tables et de champs
 sont générées par le générateur et sont ainsi directement disponibles.
 
