@@ -124,4 +124,5 @@ Contributeurs
 * `Romain Beylerian <beylerian.romain@gmail.com>`_
 * `Nicolas Haye <nhaye@atreal.fr>`_
 * `Florent Michon <fmichon@atreal.fr>`_
+* `Virginie Pihour <vpihour@atreal.fr>`_
 * `Francois Raynaud <contact@openmairie.org>`_
