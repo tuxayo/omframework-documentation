@@ -104,12 +104,12 @@ mail-default ou directory-default) : ::
 Si aucun filestorage n'est paramétré, le filestorage deprecated sera instancié et
 le filestorage temporaire sera le filesystem.
 
-Description des méthodes
-************************
+Description des méthodes de la classe filestorage
+*************************************************
 
 La classe 'filestorage' contient des méthodes de gestion des fichiers :
 
-.. method:: om_filestorage.create($data, $metadonnees, $mode = "from_content")
+.. method:: filestorage.create($data, $metadonnees, $mode = "from_content")
 
    Permet de créer un fichier sur le filestorage,
 
@@ -127,7 +127,7 @@ La classe 'filestorage' contient des méthodes de gestion des fichiers :
 
    Cette méthode retourne l'UUID du fichier enregistré.
 
-.. method:: om_filestorage.update($uid, $data, $metadonnees, $mode = "from_content")
+.. method:: filestorage.update($uid, $data, $metadonnees, $mode = "from_content")
 
    Permet de mettre à jour un fichier sur le filestorage,
 
@@ -145,16 +145,16 @@ La classe 'filestorage' contient des méthodes de gestion des fichiers :
 
    Cette méthode retourne l'UUID du fichier enregistré.
 
-.. method:: om_filestorage.get($uid)
+.. method:: filestorage.get($uid)
 
     Cette méthode retourne le contenu et les métadonnées d'un fichier en fonction
     de l'UUID passé en paramètre.
 
-.. method:: om_filestorage.delete($uid)
+.. method:: filestorage.delete($uid)
 
     Cette méthode supprime un fichier en fonction de l'UUID passé en paramètre.
 
-.. method:: om_filestorage.create_temporary($data, $metadonnees, $mode = "from_content")
+.. method:: filestorage.create_temporary($data, $metadonnees, $mode = "from_content")
 
    Permet de créer un fichier sur le filestorage temporaire,
 
@@ -171,12 +171,12 @@ La classe 'filestorage' contient des méthodes de gestion des fichiers :
 
    Cette méthode retourne l'UUID du fichier enregistré temporairement.
 
-.. method:: om_filestorage.get_temporary($uid)
+.. method:: filestorage.get_temporary($uid)
 
     Cette méthode retourne le contenu et les métadonnées d'un fichier enregistré
     temporairement en fonction de l'UUID passé en paramètre.
 
-.. method:: om_filestorage.delete_temporary($uid)
+.. method:: filestorage.delete_temporary($uid)
 
     Cette méthode supprime un fichier temporaire en fonction de l'UUID passé en paramètre.
 
@@ -290,10 +290,6 @@ Utilisation
 Les méthodes de la classe d'abstraction sont désormais utilisées dans la classe
 upload et dans les widgets upload file du formulaire.
 
-.. image:: ../_static/framework-filestorage-utilisation-logo-form.png
-
-Exemple d'utilisation d'un formulaire avec widget d'upload :
-
 Il est possible de paramétrer une liste de métadonnées d'un champ upload,
 certains champs de ce formulaire pouvant contenir certaines informations à
 ajouter aux informations du fichier uploadé, il est necessaire de créer le
@@ -301,9 +297,13 @@ fichier lors de la validation du formulaire.
 Pour ce faire le fichier uploadé sera enregistré temporairement sur le filestorage
 défini pour les fichiers temporaires puis enregistré sur le filestorage définitif
 lors de la validation du formulaire.
-lors de la saisie du formulaire, un fichier peut être uploadé, il sera enregistré
-temporairement sur le filestorage défini, puis lors de la validation du formulaire
-sera envoyé sur le filestorage définitif.
+
+Hors formulaire la méthode create peut être utlisée de 3 façons : 
+
+ - en lui passant le chemin du fichier dans $data et avec le mode défini à "from_path"
+ - en lui passant le contenu du fichier dans $data (fonctionnement existant avant
+   modification)
+ - en lui passant l'UUID d'un fichier temporaire avec le mode défini à "from_temporary"
 
 Configuration du widget Upload
 ******************************
