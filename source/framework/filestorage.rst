@@ -57,8 +57,8 @@ C'est cette classe qui est instanciée et utilisée par d'autres scripts pour
 gérer la création, récupération, suppression de fichiers et ce peu importe le
 stockage utilisé. Son objectif est d'instancier la classe de stockage spécifique
 aussi appelée plugin de stockage correspondant au paramétrage sélectionné. Cette
-classe de stockage spécifique hérite de la classe 'base_storage' qui lui sert de
-modèle.
+classe de stockage spécifique hérite de la classe 'filestorage_base' qui lui sert
+de modèle.
 
 
 Description du fichier de configuration
@@ -81,6 +81,8 @@ le répertoire dans lequel vont être stockés les fichiers, pour le stockage
 'alfresco' il doit être possible de paramétrer l'adresse de l’hôte,
 l'identifiant et le mot de passe de connexion, ....
 
+Il permet aussi de stocker la configuration du stockage de fichier temporaire.
+
 Ce fichier s'inspire des autres fichiers de configuration (mail.inc.php,
 directory.inc.php, ...). Il doit contenir un tableau associatif : ::
 
@@ -93,9 +95,97 @@ mail-default ou directory-default) : ::
     $filestorage["filestorage-default"] = array {
         "storage" => "filesystem", // l'attribut storage est obligatoire
         "path" => "/var/www/openfoncier/data/",
+        "temporary" => array(
+            "storage" => "filesystem", // l'attribut storage est obligatoire
+            "path" => "../tmp/", // le repertoire de stockage
         ...
     }
 
+Si aucun filestorage n'est paramétré, le filestorage deprecated sera instancié et
+le filestorage temporaire sera le filesystem.
+
+Description des méthodes
+************************
+
+La classe 'filestorage' contient des méthodes de gestion des fichiers :
+
+.. method:: om_filestorage.create($data, $metadonnees, $mode = "from_content")
+
+   Permet de créer un fichier sur le filestorage,
+
+   $data : contenu du fichier
+
+   $metadonnees : tableau contenant la liste des métadonnées ($cle => valeur)
+
+   $mode ["from_content", "from_path"] :
+
+   - from_content : $data contient le contenu du fichier.
+
+   - from_temporary : $data l'uid d'un fichier enregistré sur le filesystem temporary.
+
+   - from_path : $data contient le chemin du fichier à enregistrer.
+
+   Cette méthode retourne l'UUID du fichier enregistré.
+
+.. method:: om_filestorage.update($uid, $data, $metadonnees, $mode = "from_content")
+
+   Permet de mettre à jour un fichier sur le filestorage,
+
+   $data : contenu du fichier
+
+   $metadonnees : tableau contenant la liste des métadonnées ($cle => valeur)
+
+   $mode ["from_content", "from_path"] :
+
+   - from_content : $data contient le contenu du fichier.
+
+   - from_temporary : $data l'uid d'un fichier enregistré sur le filesystem temporary.
+
+   - from_path : $data contient le chemin du fichier à enregistrer.
+
+   Cette méthode retourne l'UUID du fichier enregistré.
+
+.. method:: om_filestorage.get($uid)
+
+    Cette méthode retourne le contenu et les métadonnées d'un fichier en fonction
+    de l'UUID passé en paramètre.
+
+.. method:: om_filestorage.delete($uid)
+
+    Cette méthode supprime un fichier en fonction de l'UUID passé en paramètre.
+
+.. method:: om_filestorage.create_temporary($data, $metadonnees, $mode = "from_content")
+
+   Permet de créer un fichier sur le filestorage temporaire,
+
+    $data : contenu du fichier
+
+   $metadonnees : tableau contenant la liste des métadonnées ($cle => valeur)
+
+   $mode ["from_content", "from_path"] :
+
+   - from_content : utilisation normale de la méthode create(), $data contient
+     le contenu du fichier.
+
+   - from_path : $data contient le chemin du fichier à enregistrer.
+
+   Cette méthode retourne l'UUID du fichier enregistré temporairement.
+
+.. method:: om_filestorage.get_temporary($uid)
+
+    Cette méthode retourne le contenu et les métadonnées d'un fichier enregistré
+    temporairement en fonction de l'UUID passé en paramètre.
+
+.. method:: om_filestorage.delete_temporary($uid)
+
+    Cette méthode supprime un fichier temporaire en fonction de l'UUID passé en paramètre.
+
+
+L'appel aux méthodes "temporary" se fait sur une instance de filesystem défini
+dans le paramétrage.
+Ces méthodes sont implémentés dans la classe de base contrairement aux autres
+méthodes, elle peuvent toutefois être surchargées dans les classes de connecteurs
+spécifiques.
 
 
 Description du connecteur **depredacted**
@@ -108,6 +198,8 @@ stockage pour le système d'abstraction de stockage des fichiers. Le principe de
 ce plugin est de stocker tous les fichiers à plat selon la méthode utilisée
 avant la création du système de stockage. Ce plugin a été créé uniquement dans
 un soucis de garder la compatibilité pour les applications existantes.
+
+
 
 Description du connecteur **filesystem**
 ****************************************
@@ -195,9 +287,34 @@ Utilisation
 ***********
 
 
-
 Les méthodes de la classe d'abstraction sont désormais utilisées dans la classe
 upload et dans les widgets upload file du formulaire.
 
+.. image:: ../_static/framework-filestorage-utilisation-logo-form.png
 
+Exemple d'utilisation d'un formulaire avec widget d'upload :
+
+Il est possible de paramétrer une liste de métadonnées d'un champ upload,
+certains champs de ce formulaire pouvant contenir certaines informations à
+ajouter aux informations du fichier uploadé, il est necessaire de créer le
+fichier lors de la validation du formulaire.
+Pour ce faire le fichier uploadé sera enregistré temporairement sur le filestorage
+défini pour les fichiers temporaires puis enregistré sur le filestorage définitif
+lors de la validation du formulaire.
+lors de la saisie du formulaire, un fichier peut être uploadé, il sera enregistré
+temporairement sur le filestorage défini, puis lors de la validation du formulaire
+sera envoyé sur le filestorage définitif.
+
+Configuration du widget Upload
+******************************
+
+Contraintes
+-----------
+
+...
+
+Métadonnées
+-----------
+
+...
 
