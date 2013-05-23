@@ -311,7 +311,18 @@ Configuration du widget Upload
 Contraintes
 -----------
 
-...
+Les contraintes sont à rajouter dans la classe métier de l'objet concerné. 
+
+Exemple de configuration de l'ajout de contraintes de contrôles de la taille maximale et de l'extension lors de l'upload de fichier : ::
+
+    $params = array(
+        "constraint" => array(
+            "size_max" => 2,
+            "extension" => ".pdf;.txt;.odt"
+        ),
+    );
+
+La taille maximale est en mo et la liste des extensions est une chaîne de caractères. 
 
 Métadonnées
 -----------

@@ -152,14 +152,6 @@ attributs via les méthodes suivantes :
   .. method:: dbform.setSelect(&$form, $maj, $db, $DEBUG = false)
 
      Méthode qui effectue les requêtes de configuration des champs
-     Un exemple de configuration est l'ajout de contraintes de contrôles de la taille maximale et de l'extension lors de l'upload de fichier :
-     $params = array(
-         "constraint" => array(
-             "size_max" => 2,
-             "extension" => ".pdf;.txt;.odt"
-         ),
-     );
-     La taille maximale est en mo et la liste des extensions est une chaîne de caractères. 
 
   .. method:: dbform.setOnchange(&$form, $maj)
 
