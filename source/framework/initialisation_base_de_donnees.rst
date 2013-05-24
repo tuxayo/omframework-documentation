@@ -64,8 +64,8 @@ Ces fichiers contiennent les instructions de base de l'applicatif.
   autre schéma ou d'une autre base de données.
 
 
-Les fichiers ``init_metier_parametrage*.sql``
-=============================================
+Les fichiers ``init_parametrage*.sql``
+======================================
 
 Ces fichiers contiennent l'initialisation du paramétrage c'est-à-dire les
 données nécessaires à l'utilisation de l'application. Ils sont générés
@@ -74,22 +74,22 @@ généralement grâce à la commande : ::
     pg_dump -a -t <SCHEMA>.<TABLE1> -t <SCHEMA>.<TABLE2> ... <DATABASE>
 
 
-* Le fichier ``init_metier_parametrage.sql`` permet d'initialiser par exemple
+* Le fichier ``init_parametrage.sql`` permet d'initialiser par exemple
   la ou les collectivités de base ainsi que les profils et l'utilisateur admin.
   Dans certains applicatifs simple, ce fichier peut être unique et tout le
   paramétrage contenu dans ce dernier.
 
-* Le fichier ``init_metier_parametrage_permissions.sql`` permet d'initialiser
+* Le fichier ``init_parametrage_permissions.sql`` permet d'initialiser
   les permissions de l'applicatif. Cette initialisation se trouve dans
   un fichier séparé pour appréhender plus facilement le paramétrage des
   permissions et éventuellement la mise à jour de ce paramétrage.
 
-* Le fichier ``init_metier_parametrage_editions.sql`` permet d'initialiser les
+* Le fichier ``init_parametrage_editions.sql`` permet d'initialiser les
   editions de base générique de l'aplicatif. Cette initialisation se trouve dans
   un fichier séparé pour appréhender plus facilement le paramétrage des
   éditions et éventuellement la mise à jour de ce paramétrage.
   
-* Le fichier ``init_metier_parametrage_*.sql`` peut permettre de découper
+* Le fichier ``init_parametrage_*.sql`` peut permettre de découper
   encore l'initialisation pour appréhender plus facilement le paramétrage et
   éventuellement la mise à jour de ce paramétrage.
 
