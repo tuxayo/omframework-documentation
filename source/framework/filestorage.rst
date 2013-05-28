@@ -331,5 +331,37 @@ La taille maximale est en mo et la liste des extensions est une chaîne de carac
 Métadonnées
 -----------
 
-...
+Il y a des métadonnées globales et spécifiques.
+
+Les globales sont définies dans [obj/om_db_form.class.php] dans l'attribut $metadata_global.
+
+Exemple de configuration :
+
+.. code-block :: php
+
+   <?php
+        var $metadata_global = array(
+            "metadonne1" => "méthodeQuiRetourneLaBonneValeur1",
+            "metadonne2" => "méthodeQuiRetourneLaBonneValeur2",
+        );
+    ?>
+
+Les specifiques sont à ajouter en attribut de la classe métier de l'objet concerné. 
+
+Exemple de configuration de l'ajout de métadonnées : 
+
+.. code-block :: php
+
+   <?php
+        var $metadata = array(
+            "champ" => array(
+                "metadonne1" => "méthodeQuiRetourneLaBonneValeur1",
+                "metadonne2" => "méthodeQuiRetourneLaBonneValeur2",
+                ),
+            ),
+        );
+   ?>
+
+Les clés de ces tableaux sont les noms des métadonnées, les valeurs associées 
+sont les noms des méthodes qui retournent les métadonnées.
 
