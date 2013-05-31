@@ -153,6 +153,13 @@ attributs via les méthodes suivantes :
 
      Méthode qui effectue les requêtes de configuration des champs
 
+  .. method:: dbform.init_select(&$form = null, &$db = null, $maj, $debug, $field, $sql, $sql_by_id, $om_validite = false, $multiple = false)
+
+     Méthode qui permet la configuration des select et select multiple, elle effectue
+     les requêtes et met en forme le tableau des valeurs à afficher.
+     Il est possible de définir si le champ lié est affecté par une
+     date de validité ou de configurer l'affichage de select_multiple.
+
   .. method:: dbform.setOnchange(&$form, $maj)
 
      Permet de définir l'attribut "onchange" sur chaque champ
@@ -514,6 +521,16 @@ champs. Chaque méthode permet d'afficher un seul widget.
 
        affiche la valeur de la table liée, non modifiable ainsi que la valeur
        dans un champ hidden
+
+    .. method:: formulaire.select_multiple()
+
+       affiche un select multiple, les valeurs passées au formulaires doivent être
+       séparées par une virgule.
+
+    .. method:: formulaire.select_multiple_static()
+
+       affiche seulement les valeurs d'un select multiple, les valeurs passées au
+       formulaires doivent être séparées par une virgule.
 
     .. method:: formulaire.comboG()
 
