@@ -5,59 +5,236 @@ Arborescence
 ############
 
 Cette rubrique vise à décrire brièvement l'arborescence du framework pour
-comprendre l'objectif de chaque répertoire : ::
-    
-    - app : contient tout ce qui est spécifique de votre application avec les
-    javacripts (app/js/script.js) et les images (app/img)
-    
-    - css : contient les feuilles de style de base du framework
+comprendre l'objectif de chaque répertoire. Elle est divisée en deux parties :
+les répertoires spécifiques à l'applicatif qui sont modifiés lors du
+développement de l'applicatif et les répertoires du framework qui sont récupérés
+tel quel dans le framework.
 
-    - core : classe openMairie (version 4.2.0)
-    
-    - data : contient les requêtes sql permettant de créer votre application
-            pgsql : pour postgresql
-            mysql pour mysql
-        dans les 2 cas, init.sql permet de créer les tables om_xx du framework
-                        init_metier.sql sont les tables spécifiques de votre application
-        d'autres scripts complètent la mise en œuvre des données notamment les
-        modifications de base de données.
-        
-    - dyn : contient les fichiers de paramétrage du framework décrit ci dessous
-    
-    - gen : contient les scripts (obj) et requêtes (sql) générées par le générateur
-    
-    - img : contient les images du framework 
-    
-    - js : contient les javascripts de base du framework
-    
-    - lib : contient les librairies javascripts : openLayers et jquery
-    
-    - locales : contient les traductions de l'application
-    
-    - obj : contient les objets métiers surchargeant les objets générés (gen/obj)
-    
-    - pdf : contient les scripts d'édition du framework
-    
-    - php : contient les librairies php utilisées par le framework notamment : dbpear, phpmailer et fpdf
-    
-    - scr : contient les scripts d'affichage du framework
-    
-    - spg : contient les sous programmes génériques du framework
-    
-    - sql : contient les scripts sql surchargeant les scripts générés (gen/sql ...)
-    
-    - tmp : contient les fichiers temporaires créés par l'application
-    
-    - trs : contient les fichiers uploadés de l'application (par base /1 /2 ...)
+``[F] .htaccess`` dans les descriptions de répertoires ci-dessous représente des
+fichiers .htaccess empêchant l'accès dans les répertoires en question qui ne
+doivent pas être accessibles depuis l'interface par l'utilisateur.
 
 
+******************************************
+Les répertoires spécifiques à l'applicatif
+******************************************
 
-Les répertoires à modifier pour une application sont les suivants :
-    
-    - app : vos scripts spécifiques
-    - dyn : le paramétrage du framework et de l application
-    - gen : les scripts php et sql générés
-    - obj : vos objets métiers en surcharge
-    - sql : les requêtes sql surchargées
-    - tmp : les  fichiers temporaires
-    - trs : les fichiers transférés en upload.
+Ces répertoires sont ceux qui font l'applicatif. Par exemple, sur un applicatif
+comme openCimetière ce sont les répertoires qui vont se trouver dans le
+gestionnaire de fichiers que l'on appelle les répertoires spécifiques.
+
+
+``data/``
+*********
+
+Contient tous les fichiers d'initialisation de la base de données de
+l'applicatif ::
+
+    [D] data/
+     |-[F] .htaccess
+     |-[D] pgsql/
+        |---- ...
+     |---- ...
+
+
+``app/``
+********
+
+Contient tout les scripts spécifiques à l'applicatif que ce soit des
+javascripts ou des images ou des scripts PHP ::
+
+    [D] app/ 
+     |-[D] css/
+        |---- ...
+     |-[D] img/
+        |---- ...
+     |-[D] js/
+        |---- ...
+     |---- ...
+
+``dyn/``
+********
+
+Contient les fichiers de paramétrage de l'applicatif ::
+
+    [D] dyn
+     |-[F] .htaccess
+     |---- ...
+
+``gen/``
+********
+
+Contient les scripts (obj) et requêtes (sql) générés par le générateur ::
+
+    [D] gen
+     |-[F] .htaccess
+     |-[D] dyn/
+        |---- ...
+     |-[D] inc/
+        |---- ...
+     |-[D] obj/
+        |---- ...
+     |-[D] sql/
+        |-[D] pgsql
+        |---- ...
+     |---- ...
+
+
+``locales/``
+************
+
+Contient les fichiers de traduction de l'applicatif ::
+
+    [D] locales/
+     |-[F] .htaccess
+     |---- ...
+
+
+``obj/``
+********
+
+Contient les objets métiers surchargeant les objets générés ::
+
+    [D] obj/
+     |-[F] .htaccess
+     |---- ...
+
+
+``sql/``
+********
+
+Contient les scripts sql surchargeant les scripts générés ::
+
+    [D] sql/
+     |-[F] .htaccess
+     |-[D] pgsql/
+        |---- ...
+     |---- ...
+
+
+``tests/``
+**********
+
+Contient les jeux de tests unitaires et fonctionnels de l'applicatif ::
+
+    [D] tests/
+     |-[F] .htaccess
+     |---- ...
+
+
+``tmp/``
+********
+
+Contient les fichiers temporaires créés par l'applicatif ::
+
+    [D] tmp/
+     |-[F] .htaccess
+     |---- ...
+
+
+``trs/``
+********
+
+Contient les fichiers stockés par l'applicatif ::
+
+    [D] trs/
+     |-[F] .htaccess
+     |-[D] 1/
+        |---- ...
+     |---- ...
+
+
+****************************
+Les répertoires du framework
+****************************
+
+Ces répertoires sont ceux qui sont issus du framework, c'est-à-dire qu'ils ne
+sont pas dans l'applicatif lui même. Par exemple, sur un applicatif comme
+openCimetière ce sont les répertoires qui vont être récupérés par une propriété
+externals sur le gestionnaire de versions que l'on appelle les répertoires
+du framework.
+
+``php/``
+********
+
+Contient les librairies PHP utilisées par le framework (comme dbpear, phpmailer
+ou fpdf) ::
+
+    [D] php
+     |-[F] .htaccess
+     |---- ...
+
+
+``core/``
+*********
+
+Contient les classes de la librairie du framework ::
+
+    [D] core
+     |-[F] .htaccess
+     |---- ...
+
+
+``css/``
+********
+
+Contient les feuilles de style de base du framework ::
+
+    [D] css/
+     |---- ...
+
+
+``img/``
+********
+
+Contient les images du framework ::
+
+    [D] img/
+     |---- ...
+
+
+``js/``
+*******
+
+Contient les javascripts de base du framework ::
+
+    [D] js/
+     |---- ...
+
+
+``lib/``
+********
+
+Contient les librairies javascripts utilisées par le framework (comme openLayers
+ou jquery) ::
+
+    [D] lib/
+     |---- ...
+
+
+``pdf/``
+********
+
+Contient les scripts d'édition du framework ::
+
+    [D] pdf/
+     |---- ...
+
+
+``scr/``
+********
+
+Contient les scripts d'affichage du framework ::
+
+    [D] scr/
+     |---- ...
+
+
+``spg/``
+********
+
+Contient les sous programmes génériques du framework ::
+
+    [D] spg/
+     |---- ...
+
