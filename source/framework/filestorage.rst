@@ -94,6 +94,7 @@ mail-default ou directory-default) : ::
 
     $filestorage["filestorage-default"] = array {
         "storage" => "filesystem", // l'attribut storage est obligatoire
+        "storage_path" => "", // l'attribut storage_path n'est pas obligatoire
         "path" => "/var/www/openfoncier/data/",
         "temporary" => array(
             "storage" => "filesystem", // l'attribut storage est obligatoire
