@@ -30,7 +30,7 @@ le test a été effectué avec 2 normes :
     UTF8
 
 Attention, fpdf ne supporte pas utf8 et des modifications ont été faites dans
-la version 4.01 du framewrk pour qu'utf8 soit implémenté (commande utf8_decode et encode)
+la version 4.01 du framework pour qu'utf8 soit implémenté (commande utf8_decode et encode)
 
 De la même manière, des bugs ont été corrigés dans la recherche table et dans
 les sous formulaire (évolution openMairie 4.1.0)
@@ -50,6 +50,16 @@ postgresql 8.4 en rajoutant l'option T ::
 
     createdb -E SQL_ASCII -T template0 openelec
     
+Pour modifier l'encodage d'une base de donnée de sql_ascii en utf-8 :
+
+- faire un dump de la base sql_ascii
+- modifier l'encodage du dump exemple avec la commande unix `iconv <http://www.gnu.org/savannah-checkouts/gnu/libiconv/documentation/libiconv-1.13/iconv.1.html>`_ ::
+
+	iconv −f ISO−8859−1 −t UTF−8 dump_sql_ascii > dump_utf8
+
+- importer le dump en utf-8
+- modifier ensuite la configuration des locales dans l'application
+
     
 traduction
 ==========
