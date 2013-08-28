@@ -334,6 +334,24 @@ Ces méthodes sont appelées lors de la validation du formulaire.
      toutes les méthodes de traitement et vérification des données retournées
      par le formulaire.
 
+
+Gestion des transactions lors de l'appel aux méthodes d'actions
+===============================================================
+
+Afin de verifier les erreurs de base de données, la méthode isError est appelée,
+si la valeur true lui est passée en second paramètre elle ne stop pas l'execution
+mais retour true ou false. Cela dans le but d’appeler ces méthodes sur des objets
+métier instanciés manuellement dans des contextes qui n'utilise pas la classe formulaire.
+Exemple : lors de la création d'un web service qui instancierait une classe,
+si une erreur de base de données se produit, le script s'arrête et aucun message ne 
+peut être transmis au client du web service, ce qui ne se produit pas si le second
+paramètre est défini à true.
+
+Il est important d'instancier un objet métier et d'appeler les méthodes ajouter, 
+modifier ou supprimer pour effectuer un changement sur celui-ci car toutes les
+méthodes de trigger seront appelées.
+
+
 Méthodes appelées lors de la validation
 =======================================
 
