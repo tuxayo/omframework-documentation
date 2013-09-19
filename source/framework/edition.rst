@@ -64,7 +64,19 @@ Les paramètres sont les suivants ::
 
 
 Pour le corps et le titre, les zones entre crochets (exemple [nom]) sont les
-champs de fusion, sélectionnés par la requête SQL.
+champs de fusion, sélectionnés par la requête SQL. 
+
+Ces champs de fusion peuvent être mis en majucule ou en minuscule selon les 
+besoins grâce aux balises <MAJ></MAJ> et  <min></min>.
+
+EX. :
+
+Requête SQL = SELECT nom as nom FROM A;
+
+Cette phrase dans un PDF 
+'Lorem [nom] dolor sit amet, <MAJ>[nom]</MAJ> adipiscing elit. Curabitur feugiat.'
+deviendra
+'Lorem nom dolor sit amet, NOM adipiscing elit. Curabitur feugiat.'
 
 Les variables commençant par "&" sont celles définies dans dyn/varpdf.inc
 (exemple &aujourdhui) et dans la table om_parametre.
