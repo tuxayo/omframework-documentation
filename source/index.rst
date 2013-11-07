@@ -116,6 +116,16 @@ Mises à niveau
 
    upgrades/index.rst
 
+
+Documentation
+=============
+
+.. toctree::
+   :maxdepth: 3
+
+   documentation/index.rst
+
+
 Contributeurs
 =============
 
