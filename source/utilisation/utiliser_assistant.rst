@@ -4,10 +4,11 @@
 Créer ses états
 ###############
 
-Il vous est proposé de créer un état des courriers par service
+Il vous est proposé de créer un état des courriers par service.
 
-Il sera utilisé dans ce chapître l'assistant état et sous état du générateur
+Il sera utilisé dans ce chapitre l'assistant état et sous-état du générateur.
 
+Quittez le projet openCimetiere et revenez à openExemple.
 
 
 ====================
@@ -16,134 +17,133 @@ Créer l'état service
 
 Nous allons utiliser l'assistant état du générateur dans le menu :
 
-administration -> générateur  : assistant
+**Administration -> Générateur -> Assistants**
 
-Choisir "créer un état"
+Choisir *Création d'état* puis choisir dans le select l'option service.
 
-Puis choisr dans le select, l'option service
+Ensuite avec la touche *CTRL* sélectionner les champs *service.service* et *service.libellé*.
 
-Ensuite avec la touche "ctrl", sélectionner les champs service et libellé
-
-Appuyer ensuite sur "import service dans la base"
+Cliquer ensuite sur *Import service dans la base*.
 
 
 .. image:: ../_static/utilisation_12.png
 
 
-Un message apparait "service enregistré"
+Un message apparaît : *service enregistré*.
 
-Vous avez créé un enregistrement qui a pour identifiant "service" dans
-la table "om_etat".
+Vous avez créé un enregistrement qui a pour identifiant *service* dans
+la table *om_etat*.
 
-Vous devez rendre d'abord votre etat service "actif" pour pouvoir y accéder.
+.. image:: ../_static/utilisation_13.png
+
+Vous devez rendre d'abord votre état service *actif* pour pouvoir y accéder.
 
 
-Il faut maintenant permettre l'accès dans l'affichage du service.
+Il faut maintenant permettre l'accès dans l'affichage du service :
 
-Ouvrer le fichier sql/mysql/service.inc
+    - Ouvrir le fichier *sql/pgsql/service.inc.php*
 
-Ajouter le script suivant ::
+    - Ajouter le script suivant : ::
 
-    $href[3] = array(
-        "lien" => "../pdf/pdfetat.php?obj=".$obj."&amp;idx=",
-        "id" => "",
-        "lib" => "<img src=\"../img/pdf-16x16.png\" alt=\""
-                 ._("Edition PDF")."\" title=\""._("Edition PDF")."\" />",
-    );
+        $href[3] = array(
+            "lien" => "../pdf/pdfetat.php?obj=".$obj."&amp;idx=",
+            "id" => "",
+            "lib" => "<img src=\"../om-theme/img/pdf-16x16.png\" alt=\""
+                     ._("Edition PDF")."\" title=\""._("Edition PDF")."\" />",
+        );
 
 
 Nous rajoutons la ligne 3 dans le tableau href. Vous avez un état lié
 à l'affichage du service.
 
 
-Il y a des exemples d'utilisation de href dans om_collectivité, om_etat,
-om_utilisateur ...
+Il y a des exemples d'utilisation de href dans *om_collectivité*, *om_etat*,
+*om_utilisateur*,...
 
 
 
 ===========================
-Créer le sous état courrier
+Créer le sous-état courrier
 ===========================
 
 
-Nous allons utiliser l'assistant sous état du générateur dans le menu :
+Nous allons utiliser l'assistant sous-état du générateur dans le menu :
 
-administration -> générateur  : assistant : sousetat
+**Administration -> Générateur -> Assistants -> Création sous-état**
 
 Nous choisissons la table courrier et nous surlignons les champs
-dateenvoi, registre, objetcourrier et emetteur
+*courrier.dateenvoi*, *courrier.objetcourrier*, *courrier.emetteur* et *courrier.registre*.
 
-Nous choisissons courrier.service comme clé secondaire pour faire le lien
+Nous choisissons *courrier.service* comme clé secondaire pour faire le lien
 avec service.
-
-
-.. image:: ../_static/utilisation_13.png
-
-
-En cliquant sur "import courrier dans la base", vous créez un enregistrement
-ayant pour identifiant "courrier.service" dans la table om_sousetat
-
-===================================================
-Associer le sous état "courrier" à l'état "service"
-===================================================
-
-Vous devez rendre d'abord votre sous etat courrier.service actif pour pouvoir l'associer.
-
-Allez dans l option du menu : administration -> sous etat
-
-Recherchez le sous état "courrier.service" et modifier le en cochant sur actif
-(1er fieldset)
-
-Il vous faut maintenant associer le sous état "courrier.service" à l'état "service"
-
-Allez dans l'option du menu administration -> etat.
-
-Cherchez l'état "courrier" et modifiez le dans le fieldset (à déplier)
-sous état selection, choisissez le sous état "courrier.service"
 
 .. image:: ../_static/utilisation_14.png
 
-Vous avez désormais un état des courriers par service :
+
+En cliquant sur *Import courrier dans la base* vous créez un enregistrement
+ayant pour identifiant *courrier.service* dans la table *om_sousetat* :
 
 .. image:: ../_static/utilisation_15.png
 
+===================================================
+Associer le sous-état *courrier* à l'état *service*
+===================================================
+
+Vous devez rendre d'abord votre sous-état *courrier.service* actif pour pouvoir l'associer.
+
+Allez dans l'option **Sous Etat** du menu **Paramétrage**.
+
+Recherchez le sous-état *courrier.service* et modifiez le en cochant actif (premier fieldset : *collectivité*).
+
+Il vous faut maintenant associer le sous-état *courrier.service* à l'état *service*.
+
+Allez dans l'option **Etat** du menu **Paramétrage**.
+
+Modifiez l'état *service* et dans le fieldset à déplier
+*Sous-état(s)* après l'avoir coché actif sélectionnez le sous-état *courrier.service*.
+
+.. image:: ../_static/utilisation_16.png
+
+Vous avez désormais un état des courriers par service (**Paramétrage -> Service -> Edition PDF**) :
+
+.. image:: ../_static/utilisation_17.png
+
+.. image:: ../_static/utilisation_18.png
+
 
 ==========================================================
-Mettre le nom et le prénom de l'emetteur dans le sous état
+Mettre le nom et le prénom de l'emetteur dans le sous-état
 ==========================================================
 
 Nous souhaitons mettre le nom et le prénom de l'emetteur à la place de
 la clé secondaire.
 
-Vous devez modifier la requête sql de l'enregistrement courrier.service
-dans la table om_sousetat de la manière suivante ::
+Vous devez modifier la requête sql du sous-état *courrier.service*
+dans la table *om_sousetat* de la manière suivante : ::
 
-    select  courrier.dateenvoi as dateenvoi,
-            courrier.objetcourrier as objetcourrier,
-            concat(emetteur.nom,' ',emetteur.prenom) as emetteur,
-            courrier.registre as registre
-            from &DB_PREFIXEcourrier inner join &DB_PREFIXEemetteur
-            on emetteur.emetteur = courrier.emetteur
-            where courrier.service='&idx'
+    select courrier.dateenvoi as dateenvoi,
+    courrier.objetcourrier as objetcourrier,
+    concat(emetteur.nom,' ',emetteur.prenom) as emetteur,
+    courrier.registre as registre
+    from &DB_PREFIXEcourrier LEFT JOIN &DB_PREFIXEemetteur on emetteur.emetteur = courrier.emetteur
+    where courrier.service='&idx'
 
 Votre nouvel état a la forme suivante :
 
-.. image:: ../_static/utilisation_16.png
+.. image:: ../_static/utilisation_19.png
 
-Vous avez de nombreux exemples d'utilisation d'état et de sous état dans
+Vous avez de nombreux exemples d'utilisation d'état et de sous-état dans
 les applications openMairie.
 
-Une utilisation originale a été faite pour le cerfa du recensement dans
-openRecensement où à la place du logo, il a été mis une image du cerfa.
-
-
+Une utilisation originale a été faite pour le Cerfa du recensement dans
+openRecensement où à la place du logo il a été mis une image du Cerfa.
 
 On ne peut cependant pas faire tous les états et il est fort possible que vous ayez des
-etats spécifiques. Vous avez des exemples d'utilisation spécifique des méthodes
-de fpdf dans openElec : carte électorale, liste électorale ...
+états spécifiques. Vous avez des exemples d'utilisation spécifique des méthodes
+de fpdf dans openElec : carte électorale, liste électorale,...
 
-
-
-Vous pouvez compléter votre information avec le chapître *framework/edition*
+Vous pouvez compléter votre information avec le chapitre *framework/edition*
 et regarder les possibilités de paramétrage du générateur *generateur/parametrage*
 pour la réalisation d'état customisé.
+
+Vous avez maintenant terminé l'exemple d'utilisation du Framework, le chapitre suivant a pour but de vous informer de manière complète sur ce dernier.

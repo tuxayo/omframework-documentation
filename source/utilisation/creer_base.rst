@@ -5,20 +5,22 @@
 Créer la base de données
 ########################
 
-Vous devez au préalable copier openmairie_exemple dans le repertoire www de votre serveur apache
+Vous devez au préalable récupérer le framework.
+Dans le repertoire www de votre serveur apache : ::
+
+    svn checkout svn://scm.adullact.net/scmrepos/svn/openmairie/openmairie_exemple/trunk openExemple
 
 
-Il vous est proposé de créer la base de données sous mysql :
+Il vous est proposé de créer la base de données sous PostgreSQL :
 
-- Créer une base de données appellée "openmairie"
+- Créer les tables nécessaires au framework openMairie : ::
 
-- Créer les tables nécessaires au framework openMairie avec le fichier sql
+    cd data/pgsql
+    sudo su postgres
+    dropdb openexemple && createdb openexemple && psql openexemple -f install.sql
     
-    data/mysql/init.sql
 
-
-- Créer les tables necessaires a notre exemple
-
+- Créer les tables nécessaires à notre exemple :
 
 
     - table courrier ::
@@ -42,56 +44,62 @@ Il vous est proposé de créer la base de données sous mysql :
         service         int 8        cle primaire
         libelle         varchar 20
 
+    - La requête correspondante en PostgreSQL est la suivante : ::
 
+        -- Création des séquences
 
-- modifier le paramétrage openMairie pour faire un accès à la base créée si votre base a un nom différent d'openMairie :
+        CREATE SEQUENCE emetteur_seq
+        START WITH 1
+        INCREMENT BY 1
+        NO MINVALUE
+        NO MAXVALUE
+        CACHE 1;
+
+        CREATE SEQUENCE service_seq
+        START WITH 1
+        INCREMENT BY 1
+        NO MINVALUE
+        NO MAXVALUE
+        CACHE 1;
+
+        CREATE SEQUENCE courrier_seq
+        START WITH 1
+        INCREMENT BY 1
+        NO MINVALUE
+        NO MAXVALUE
+        CACHE 1;
+
+        -- Création des tables
+
+        CREATE TABLE emetteur (
+            emetteur          int PRIMARY KEY,  -- clé primaire
+            nom               varchar(20),
+            prenom            varchar(20)
+        );
+
+        CREATE TABLE service (
+            service           int PRIMARY KEY,  -- clé primaire
+            libelle           varchar(20)
+        );
+
+        CREATE TABLE courrier (
+            courrier          int PRIMARY KEY,           -- clé primaire
+            dateenvoi         date,
+            objetcourrier     text,
+            emetteur          int REFERENCES emetteur,   -- clé étrangère
+            service           int REFERENCES service     -- clé étrangère
+        );
+
+- Modifier le paramétrage openMairie pour faire un accès à la base créée :
 
 
     dyn/database.inc.php
 
-    voir framework/parametrage
+    *voir framework/parametrage*
 
 
+- Accéder avec votre navigateur sur openExemple :
 
-- accéder avec votre navigateur sur openmairie_exemple ::
-
-    login : demo
-    mot de passe : demo
-
-
-Le script mysql de création de la base de l'exemple est le suivant ::
-
-
-    --
-    -- Structure de la table 'courrier'
-    --
+    login : **demo**
     
-    CREATE TABLE courrier (
-      courrier int(8) NOT NULL,
-      dateenvoi date NOT NULL,
-      objetcourrier text NOT NULL,
-      emetteur int(8) NOT NULL,
-      service int(8) NOT NULL,
-      PRIMARY KEY  (courrier)
-    ) TYPE=MyISAM;
-    
-    --
-    -- Structure de la table 'emetteur'
-    --
-    
-    CREATE TABLE emetteur (
-      emetteur int(8) NOT NULL,
-      nom varchar(20) NOT NULL,
-      prenom varchar(20) NOT NULL,
-      PRIMARY KEY  (emetteur)
-    ) TYPE=MyISAM;
-    
-    --
-    -- Structure de la table 'service'
-    --
-    
-    CREATE TABLE service (
-      service int(8) NOT NULL,
-      libelle varchar(20) NOT NULL,
-      PRIMARY KEY  (service)
-    ) TYPE=MyISAM;
+    mot de passe : **demo**
