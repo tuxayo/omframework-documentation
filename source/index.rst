@@ -129,10 +129,14 @@ Documentation
 Contributeurs
 =============
 
+(par ordre alphabétique) 
+
 * `atReal <contact@atreal.fr>`_
-* `Thierry Benita <tbenita@atreal.fr>`_
-* `Romain Beylerian <beylerian.romain@gmail.com>`_
-* `Nicolas Haye <nhaye@atreal.fr>`_
-* `Florent Michon <fmichon@atreal.fr>`_
-* `Virginie Pihour <vpihour@atreal.fr>`_
-* `Francois Raynaud <contact@openmairie.org>`_
+* Thierry Benita
+* Romain Beylerian
+* Nicolas Haye
+* Nicolas Meucci
+* Florent Michon
+* Virginie Pihour
+* Francois Raynaud
+* Sofien Timezouaght
