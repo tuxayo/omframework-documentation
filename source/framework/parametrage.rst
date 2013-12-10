@@ -479,30 +479,65 @@ Par défaut, les librairies sont incluses dans openmairie_exemple :
 
 
 =============
-Le mode debug
+Le mode DEBUG
 =============
 
-Le mode debug d'openMairie se paramétre dans  *dyn/debug.inc.php*
+Dans le code, pour logger une information, il suffit de d'utiliser 
+la ligne suivante :
 
-Ce fichier contient le paramétrage pour le mode debug
-d'openMairie (om_debug.inc.php)
+.. code-block:: php
 
-Valeur de la variable globale DEBUG ::
+   $this->addToLog("requete sig_interne maj parcelle inexistante :".$sql, EXTRA_VERBOSE_MODE);
 
-  EXTRA_VERBOSE_MODE : mode très bavard qui reprend les messages spécifiques
-  dans la méthode addToLog
-  exemple :
-  $this->addToLog("requete sig_interne maj parcelle inexistante :".$sql, EXTRA_VERBOSE_MODE);
 
-  VERBOSE_MODE : mode "bavard"
-  dans ce mode , il est créé un fielset sous les formulaires qui indiquent
-  toutes les étapes de réalisation des scripts
+Les différents modes DEBUG présents dans l'application sont définis
+dans le fichier *core/om_debug.inc.php* :
 
-  DEBUG_MODE : mode debug
-  Les messages d'erreur sont visibles
+* EXTRA_VERBOSE_MODE - mode "très bavard" : affiche tous les messages
 
-  PRODUCTION_MODE : mode de production (il n y a pas de message)
+* VERBOSE_MODE - mode "bavard" : affiche tous les messages d'erreur ainsi
+  que toutes les requêtes exécutées
+
+* DEBUG_MODE - mode "debug" : affiche tous les messages d'erreur
+
+* PRODUCTION_MODE - mode "production" : il n y a pas de message
+
+
+Dans l'applicatif, on peut paramétrer le mode DEBUG grâce au fichier 
+*dyn/debug.inc.php* suivant. Il suffit de commenter/décommenter l'instruction 
+define souhaitée.
+
+.. code-block:: php
    
+   <?php
+   /**
+    * Ce fichier contient le parametrage pour le mode debug
+    *
+    * @package openmairie_exemple
+    * @version SVN : $Id: debug.inc.php 2198 2013-03-28 17:08:33Z fmichon $
+    */
+   
+   /**
+    *
+    */
+   (defined("PATH_OPENMAIRIE") ? "" : define("PATH_OPENMAIRIE", ""));
+   require_once PATH_OPENMAIRIE."om_debug.inc.php";
+   
+   /**
+    *
+    */
+   //define('DEBUG', EXTRA_VERBOSE_MODE);
+   //define('DEBUG', VERBOSE_MODE);
+   //define('DEBUG', DEBUG_MODE);
+   define('DEBUG', PRODUCTION_MODE);
+   
+   ?>
+
+
+Dans le dossier tmp/error_log.txt les messages de logs de niveau DEBUG_MODE
+sont écrits quelque soit le mode définit.
+
+
 ===============================
 La version de votre application
 ===============================
