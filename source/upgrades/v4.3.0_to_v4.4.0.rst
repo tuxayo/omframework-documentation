@@ -1,0 +1,56 @@
+==================================================
+Mettre à niveau depuis openMairie 4.3.0 vers 4.4.0
+==================================================
+
+Cette procédure permet de mettre à niveau une application utilisant openMairie
+version 4.3.0 vers openMairie 4.4.0.
+
+Pour conserver une application fonctionnelle tout au long de la mise à niveau,
+il est vivement conseillé de:
+
+- suivre les étapes de cette procédure dans l'ordre;
+- ne pas utiliser le générateur lorsque ce n'est pas indiqué.
+
+**Consultez la section sur les erreurs connues si des erreurs persistent après
+la mise à niveau.**
+
+Étape 1 : mettre à jour la base de données
+==========================================
+
+La structure
+------------
+
+La structure de la base de données d'openMairie a changée sensiblement depuis la
+version 4.3.0. Pour mettre à jour la base de données depuis cette version il
+faudra exécuter le script SQL ``ver_4.4.0.sql``.
+
+Pour PostgresSQL: ::
+
+/data/pgsql/ver_4.4.0.sql
+
+.. important::
+   Le support de mysql à été abandonné.
+
+Régénérer les fichiers via le générateur.
+
+Vérifier les surcharges des objets : obj/ et sql/
+
+Étape 2 : mise à jour du menu
+=============================
+
+Suite à l'ajout d'une table contenant les logos et une autre contenant les requêtes,
+les entrées correspondantes dans le menu devraient êtres ajoutées.
+
+Étape 3 : vérification des requêtes et logos
+============================================
+
+Vérifier que les logos et requêtes sont dans les bons état/lettres type.
+
+Étape 4 : système de stockage des fichiers
+==========================================
+
+Le système de stockage de fichier ayant été mis à jour, le système utilisé conserve
+la compatibilité avec les fichiers existant.
+
+Les erreurs connues
+===================
