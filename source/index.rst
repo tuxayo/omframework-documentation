@@ -3,9 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-=================================
-openMairie - Guide du développeur
-=================================
+=====================================
+openMairie 4.4 - Guide du développeur
+=====================================
 
 
 Ce document a pour but de guider les développeurs dans la mise en œuvre
