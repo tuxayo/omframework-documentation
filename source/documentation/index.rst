@@ -37,12 +37,7 @@ Voici les postulats :
 Sphinx
 ******
 
-
-
-Installer sphinx
-================
-
-
+http://sphinx-doc.org
 
 
 
@@ -269,9 +264,14 @@ URL du style :
 Chaque version dans readthedocs.org, correspond à une branche dans le dépôt du 
 projet sur github.com.
 
+...
+
 
 *******************
 docs.openmairie.org
 *******************
 
 Ce site permet de lister l'ensemble des documentations du projet openMairie.
+
+...
+
