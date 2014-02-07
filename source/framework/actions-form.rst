@@ -173,7 +173,7 @@ Actions du menu contextuel de la consultation
 Définition des actions dans les attributs de la classe de l'objet
 -----------------------------------------------------------------
 
-La configuration se fait dans les attributs des classes (obj/*.class.php).
+La configuration se fait dans les attributs des classes (obj/\*.class.php).
 
 L'ajout d'une action se présente de cette façon :
 
@@ -208,8 +208,8 @@ du lien, "order" permet de définir l'ordre, la clé "url" peu être utilisé po
 Les action de classes permettent de surcharger les actions ajouter, modifier,
 consulter et supprimer définies dans core/om_db_form.class.php.
 
-Définition des actions dans *.form.inc.php (obsolète)
------------------------------------------------------
+Définition des actions dans \*.form.inc.php (obsolète)
+------------------------------------------------------
 
 La configuration des actions du menu contextuel des formulaires en consultation
 se fait via les scripts ``sql/sgbd/objet.form.inc.php``
