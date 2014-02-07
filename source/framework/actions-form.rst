@@ -170,6 +170,47 @@ droits de la liste ``list``:
 Actions du menu contextuel de la consultation
 =============================================
 
+Définition des actions dans les attributs de la classe de l'objet
+-----------------------------------------------------------------
+
+La configuration se fait dans les attributs des classes (obj/*.class.php).
+
+L'ajout d'une action se présente de cette façon :
+
+.. code-block:: php
+
+   <?php
+    var $class_actions = array(
+        2 => array(
+            "portlet" => array(
+                "libelle"=>"supprimer",
+                "class" => "delete-16",
+                "order"=>20,
+                ),
+            "method" => "supprimer",
+            "button" => "supprimer",
+            "permission_suffix" => "supprimer",
+            "condition" => "delete_coll_condition"
+        ),
+    );
+   ?>
+   
+La clé du tableau correspond à la valeur $maj, le paramètre "method" correspond
+à la méthode appelée lors de la validation du formulaire, "button" est le texte du bouton de validation,
+"permission_suffix" est le suffixe du droit qui sera testé lors de l'affichage de l'action,
+"condition" permet de définir une méthode qui sera appelée avant l'affichage de l'action dans
+le portlet, si cette méthode retourne "true" l'action sera affichée.
+
+Si la clé "portlet" est définie l'action correspondante sera affichée (sous condition),
+la clé "libelle" est le texte affiché sur le lien, la classe définie dans "class" sera ajoutée à celles
+du lien, "order" permet de définir l'ordre, la clé "url" peu être utilisé pour définir une url spécifique.
+   
+Les action de classes permettent de surcharger les actions ajouter, modifier,
+consulter et supprimer définies dans core/om_db_form.class.php.
+
+Définition des actions dans *.form.inc.php (obsolète)
+-----------------------------------------------------
+
 La configuration des actions du menu contextuel des formulaires en consultation
 se fait via les scripts ``sql/sgbd/objet.form.inc.php``
 
