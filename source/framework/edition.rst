@@ -166,8 +166,8 @@ prochaine version openMairie.
 L'éditeur WYSIWYG
 =================
 
-Un éditeur avancé est prevu dans une prochaine version openMairie afin de
-permettre à l'utilisateur de définir des mises en forme complexes.
+Un éditeur avancé a été mis en place dans cette version openMairie afin de
+permettre à l'utilisateur de définir des mises en forme complexes. (tinymce)
 
 ===============
 Les scripts PDF
