@@ -56,10 +56,6 @@ Avec PostgresSQL
 Il suffit d'ajouter la contrainte SQL ``FOREIGN KEY`` à des colonnes pour créer
 des champs de type référence.
 
-Avec MySQL
-..........
-
-Il suffit de donner à une colonne le même nom que la table qu'elle référence.
 
 Fonctionnement interne du générateur
 ------------------------------------
