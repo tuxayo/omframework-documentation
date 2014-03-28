@@ -19,7 +19,7 @@ représentent.
 Le mot objet fait référence aux instances des classes d'openMairie et, par
 extension, aux enregistrements en base de données qui les représentent.
 
-.. note ::  la génération avec mysql est abandonnée avec cette version qui ne conserve que postgresql
+
 
 
 ============
@@ -38,6 +38,11 @@ Sur cette analyse le générateur crée les modèles de données. openMairie gè
 
 - les clés primaires mono-colonne;
 - les clés étrangères;
+
+.. note :: 
+   la génération avec mysql est abandonnée avec cette version qui ne conserve que postgresql
+
+
 - la multi-collectivité (selon la présence d'un champ ``om_collectivite``).
 
 **Le générateur contient également des assistants permettant de créer
