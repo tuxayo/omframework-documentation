@@ -16,20 +16,7 @@ Il est proposé dans ce chapitre de decrire le module
 tab_sig.php qui permet la geo localisation d'objet dans openMairie
 
 
-Ce module est accessible dans la version 4.01 du framework et il est utilisé
-dans les applications openMairie suivantes ::
-
-    openmairie domainepublic
-    openmairie foncier
-    openmairie debitboisson
-    openmairie cimetiere
-    openmairie circulation
-    openmairie taxepub
-    openmairie triSelectif
-    openmairie adresse (postale) et referentiel
-    openmairie openelec (projet)
-    openmairie resultat (projet)
-    openmairie erp (projet)
+A partir de la version 4.4.0, l'accès au module géographique se fait en mettant l'option_localisation d'om_paramètre à la valeur "sig_interne"
     
 
 L'objectif de tab_sig_map est de permettre une saisie le plus souvent automatique 
@@ -158,5 +145,5 @@ dyn/var_sig.inc ::
     $contenu_epsg[1] = array("choisir la projection",'lambert93','lambertSud');
         
 
-
+La version 4.4.0 contient les étendues des communes des bouches du rhône.
 
