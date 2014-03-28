@@ -38,7 +38,6 @@ Il est possible de copier une carte et de paramétrer  les champs suivants::
                 le type de géometrie et le nom de la couche openLayers (version 4.2.0) 
     - le retour de la carte
 
-Ces cartes sont possibles d'intégrer dans des menus, dans un
 
 
 Dans tab_sig.php, il y a 3 types de layers :
