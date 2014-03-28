@@ -39,3 +39,9 @@ Sur cette analyse le générateur crée les modèles de données. openMairie gè
 
 **Le générateur contient également des assistants permettant de créer
 facilement des états associés à des collectivités.**
+
+
+.. attention::
+   la version mysql est abandonnée
+
+
