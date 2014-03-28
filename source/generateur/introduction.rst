@@ -1,5 +1,10 @@
 .. _gen-introduction:
 
+.. note :: 
+   la génération avec mysql est abandonnée avec cette version qui ne conserve que postgresql
+
+
+
 Précision sur le vocabulaire utilisé dans cette documentation.
 
 **Modèle de données**
@@ -38,11 +43,6 @@ Sur cette analyse le générateur crée les modèles de données. openMairie gè
 
 - les clés primaires mono-colonne;
 - les clés étrangères;
-
-.. note :: 
-   la génération avec mysql est abandonnée avec cette version qui ne conserve que postgresql
-
-
 - la multi-collectivité (selon la présence d'un champ ``om_collectivite``).
 
 **Le générateur contient également des assistants permettant de créer
