@@ -42,6 +42,7 @@ facilement des états associés à des collectivités.**
 
 
 .. attention::
+   
    la version mysql est abandonnée
 
 
