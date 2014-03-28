@@ -19,7 +19,7 @@ représentent.
 Le mot objet fait référence aux instances des classes d'openMairie et, par
 extension, aux enregistrements en base de données qui les représentent.
 
-.. note::
+**note**
 
    la génération avec mysql est abandonnée avec cette version qui ne conserve que postgresql
 
