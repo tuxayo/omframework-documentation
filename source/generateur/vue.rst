@@ -17,7 +17,7 @@ Les vues ont été initiées dans la version 4.1.0.
 
 ===========
 vue interne
-==========
+===========
 
 creation d'une vue en sql ::
 

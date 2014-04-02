@@ -140,9 +140,7 @@ Un nouveau projet est une nouvelle application qui se base sur la dernière
 version taggée d'openmairie_exemple. Ce tutorial contient certains pré-requis
 comme la création du projet sur la forge, le fait d'avoir un utilisateur avec
 les droits corrects sur le projet, le fait d'avoir consulter la `dernière
-version taggée d'openmairie_exemple
-
-<https://adullact.net/scm/viewvc.php/openmairie_exemple/tags/?root=openmairie>`_
+version taggée d'openmairie_exemple <https://adullact.net/scm/viewvc.php/openmairie_exemple/tags/?root=openmairie>`_
 
 On se positionne dans la dossier tmp pour récupérer la dernière version
 d'openmairie_exemple ::

@@ -10,7 +10,7 @@ modifiables.
 Pour lancer le menu import, prenez l'option : administration -> import
 
 import_script.php permet les imports dans la base de donnees de fichier au
-format csv telecharge ::
+format csv telecharge :
 
 Exemple de format de fichier à importer (utilisateur.txt)::
 
