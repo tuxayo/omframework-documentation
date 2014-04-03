@@ -14,4 +14,3 @@ notifications:
       - "irc.freenode.org#openmairie"
     template:
       - "%{repository}/#%{build_number}/%{branch} (%{author}): %{message} %{build_url}"
-
