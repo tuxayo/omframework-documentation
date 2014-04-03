@@ -1,10 +1,15 @@
-.. _numerotation:
+###########
+Versionnage
+###########
 
-######################################################################
-Convention de numérotation des versions des applications et librairies
-######################################################################
 
-Il est convenu de numéroter les versions sur 3 chiffres séparé par des points.
+=======================================
+Convention de numérotation des versions
+=======================================
+
+
+Cette convention concerne le framework et les applications. Il est convenu de 
+numéroter les versions sur 3 chiffres séparés par des points.
 
 exemple: openMairie 4.0.0
 
@@ -19,7 +24,7 @@ Les versions beta sont indiqués en fin de numérotation et ne sont jamais maint
 
     openmairie_exemple_4.0.0beta
 
-    
+
 
 Seule la dernière version opérationnelle est maintenu
 
@@ -29,3 +34,6 @@ Exemple de versionning (complément de la réunion "dev-openMairie" du 13 juin 2
     4.2.0beta1      première version testée par le développeur
     4.2.0rc1        première version testée en production (1 site)
     4.2.0           première version stable généralisable
+
+
+

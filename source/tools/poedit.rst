@@ -1,5 +1,3 @@
-.. _poedit:
-
 ######
 POEdit
 ######
@@ -126,3 +124,4 @@ des libellés originaux.
 
 Attention, sur certaines configurations, un redémarrage du serveur web peut
 être nécessaire pour que les traductions soient mises à jour.
+
