@@ -1,11 +1,16 @@
-.. openMairie - Guide du développeur documentation master file, created by
-   sphinx-quickstart on Fri Oct  1 11:15:18 2010.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. openMairie Framework documentation master file
 
-=====================================
-openMairie 4.5 - Guide du développeur
-=====================================
+======================================
+openMairie Framework 4.5 documentation
+======================================
+
+.. note::
+
+    Cette création est mise à disposition selon le Contrat Paternité-Partage des
+    Conditions Initiales à l'Identique 2.0 France disponible en ligne
+    http://creativecommons.org/licenses/by-sa/2.0/fr/ ou par courrier postal à
+    Creative Commons, 171 Second Street, Suite 300, San Francisco,
+    California 94105, USA.
 
 
 Ce document a pour but de guider les développeurs dans la mise en œuvre
@@ -58,14 +63,7 @@ collectivités.
 
 Bonne lecture !
 
-Cette création est mise à disposition selon le Contrat Paternité-Partage des
-Conditions Initiales à l'Identique 2.0 France disponible en ligne
-http://creativecommons.org/licenses/by-sa/2.0/fr/ ou par courrier postal à
-Creative Commons, 171 Second Street, Suite 300, San Francisco,
-California 94105, USA.
 
-
-   
 Tutoriel - Créer une application
 ================================
 
@@ -98,6 +96,16 @@ L'information géographique
 
    sig/index.rst
 
+
+Historique de versions & Mises à niveau
+=======================================
+
+.. toctree::
+   :maxdepth: 3
+
+   upgrades/index.rst
+
+
 Règles et outils
 ================
 
@@ -107,23 +115,8 @@ Règles et outils
    regles/index.rst
    versions/index.rst
    outils/index.rst
-
-Mises à niveau
-==============
-
-.. toctree::
-   :maxdepth: 3
-
-   upgrades/index.rst
-
-
-Documentation
-=============
-
-.. toctree::
-   :maxdepth: 3
-
    documentation/index.rst
+
 
 
 Contributeurs

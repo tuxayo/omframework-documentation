@@ -15,7 +15,7 @@ Les fichiers de paramétrage sont les suivants ::
     dyn/menu.inc.php               menu principal à gauche
     dyn/action.inc                 menu haut
     dyn/shortslink.inc             lien sous menu haut
-    dyn/tbd.inc                    tableau de bord
+    dyn/dashboard.inc.php          tableau de bord
     dyn/locales.inc                application
     dyn/config.inc.php             application
     dyn/include.inc.php            chemin d'accès aux librairies
@@ -24,7 +24,23 @@ Les fichiers de paramétrage sont les suivants ::
     dyn/var_sig.inc                paramétrage sig 
     dyn/form_sig_update.inc.php    parametrage sig 
     dyn/form_sig_delete.inc.php    parametrage sig 
+    dyn/var_adresse_postale.inc    parametrage sig
+    dyn/filestorage.inc.php        filestorage 
+    dyn/footer.inc.php             enpieds 
+    dyn/tab.inc.php                variable specifique à passer dans l'url pour tab.php 
+    dyn/soustab.php                variable specifique à passer dans l'url pour soustab.php
+    dyn/form.php                   variable specifique à passer dans l'url pour form.php
+    dyn/sousform.php               variable specifique à passer dans l'url pour sous.php  
+    dyn/var.inc                    variable application (deprecated : préférez om_parametre
+    dyn/varetatpdf.inc             variable etat et sousetat pdf
+    dyn/varlettretypepdf.inc       varaible lettre type
+    dyn/varsousform.get.specific.inc.php    variable spécifique sousform
+    dyn/directory.inc.php          connexions a des annuaires LDAP
+    dyn/comboaffichage.inc.php     paramétrage combo
+    dyn/comboparametre.inc.php     parametrage combo
+    dyn/comboretour.inc.php        paramétrage combo     
     
+       
     README.txt                     fichiers textes
     HISTORY.txt
     LICENCE.txt
@@ -583,7 +599,8 @@ INSTALL.txt : installation de l application
 L'installation automatique
 ==========================
 
-La mise en place d une installation automatique est prévue dans une prochaine version openMairie.
+Lun fichier data/sql/install.sql permet d'installer rapidemment et data/sql/make_init.sh permet de constituer rapidemment des scripts sql d'installation.
+
 
 
 =========================
@@ -639,34 +656,8 @@ ces paramétres sont utilisés pour la saisie de carte : voir chapître sig
 
 Les post traitements de form_sig permettent de faire des traitement apres saisie de géométries avec om_sig
 
-
     form_sig_update.inc.php
 
     form_sig_delete.inc.php
 
-exemple recuperation du numéro de la parcelle dans openfoncier  dossier ::
 
-    if($table=="dossier" and $champ=="geom"){
-       echo "</center>";
-       if (file_exists ("../dyn/var.inc"))
-          include ("../dyn/var.inc");
-       // parcelle         
-       if($auto_parcelle==1){
-          $sql="select parcelle from ".DB_PREFIXE."parcelle  WHERE
-            ST_contains(geom,  geometryfromtext('".$geom."', ".$projection."))";
-          $parcelle = $f->db -> getOne($sql);
-          if($parcelle!=''){
-             $sql ="update ".DB_PREFIXE."dossier set parcelle = '".$parcelle."'
-                where dossier = '".$idx."'";
-             $res1 =  $f->db -> query($sql);
-             echo "<br>"._("parcelle")." ".$parcelle;
-             // Envoi des donnees dans le formulaire f1 si la fenetre est popup
-             if($popup==1){
-                echo "\n<script type=\"text/javascript\">\n";
-                echo "window.opener.fendata.document.f1.parcelle.value = '".$parcelle."';\n";
-                //echo "window.opener.fendata.reload";
-                echo "</script>\n";
-             }
-          }
-       }
-    ....

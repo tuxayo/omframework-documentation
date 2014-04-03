@@ -15,6 +15,10 @@ Il est proposé un renvoi sur la documentation française.
 
 http://postgis.refractions.net/documentation/manual-1.3/ch06.html 
 
+ou sur le projet pédagogique postgis (conférence avec documentation et nombreux exemples :
+
+https://adullact.net/projects/postgis/
+
 Les requêtes utilisant des fonctions potgis peuvent être implémentées dans "reqmo"
 
 

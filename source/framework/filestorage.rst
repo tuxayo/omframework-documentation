@@ -366,3 +366,58 @@ Exemple de configuration de l'ajout de métadonnées :
 Les clés de ces tableaux sont les noms des métadonnées, les valeurs associées 
 sont les noms des méthodes qui retournent les métadonnées.
 
+
+
+Récupération du fichier
+***********************
+
+//
+    $file = $f->storage->get($fic);
+
+
+
+
+
+Scripts permettant de visualiser / d'accéder au fichier
+*******************************************************
+
+spg/file.php
+------------
+
+Le script permet de télécharger le fichier.
+
+Le code pour composer le lien vers ce script est le suivant :
+
+.. code-block :: php
+
+   <?php
+
+      $file_download_link = "../spg/file.php?";
+      if ($obj != "" && $champ != "" && $id != "") {
+          $file_download_link .= "obj=".$obj."&amp;champ=".$champ."&amp;id=".$id;
+      } else {
+          $file_download_link .= "uid=".$fic;
+      }
+
+     
+   ?>
+
+
+spg/voir.php
+------------
+
+Le script permet de visualiser le fichier.
+
+.. code-block :: php
+
+   <?php
+
+      $file_voir_link = "../spg/voir.php?";
+      if ($obj != "" && $champ != "" && $id != "") {
+          $file_voir_link .= "obj=".$obj."&amp;champ=".$champ."&amp;id=".$id;
+      } else {
+          $file_voir_link .= "uid=".$fic;
+      }
+
+     
+   ?>
