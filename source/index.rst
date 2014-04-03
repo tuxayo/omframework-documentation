@@ -72,6 +72,7 @@ Tutoriel - Créer une application
 
    utilisation/index.rst
 
+
 Le framework
 ============
 
@@ -80,6 +81,7 @@ Le framework
 
    framework/index.rst
 
+
 Le générateur
 =============
 
@@ -87,6 +89,7 @@ Le générateur
    :maxdepth: 5
 
    generateur/index.rst
+
 
 L'information géographique
 ==========================
@@ -97,8 +100,8 @@ L'information géographique
    sig/index.rst
 
 
-Historique de versions & Mises à niveau
-=======================================
+Historique & Mises à niveau
+===========================
 
 .. toctree::
    :maxdepth: 3
@@ -106,17 +109,22 @@ Historique de versions & Mises à niveau
    upgrades/index.rst
 
 
-Règles et outils
-================
+Règles
+======
 
 .. toctree::
    :maxdepth: 5
-   
-   regles/index.rst
-   versions/index.rst
-   outils/index.rst
-   documentation/index.rst
 
+   rules/index.rst
+
+
+Outils
+======
+
+.. toctree::
+   :maxdepth: 2
+
+   tools/index.rst
 
 
 Contributeurs

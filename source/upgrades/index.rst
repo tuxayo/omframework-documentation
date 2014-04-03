@@ -1,8 +1,8 @@
 .. _upgrades:
 
-=======================================
-Historique de versions & Mises à niveau
-=======================================
+===========================
+Historique & Mises à niveau
+===========================
 
 .. toctree::
    :numbered:
