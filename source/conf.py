@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# openMairie - Guide du développeur documentation build configuration file, created by
+# openMairie Framework documentation build configuration file, created by
 # sphinx-quickstart on Fri Oct  1 11:15:18 2010.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -40,7 +40,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'openMairie 4.4 - Guide du développeur'
+project = u'openMairie Framework 4.4'
 copyright = u'2004-2014, openMairie'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -178,7 +178,7 @@ latex_paper_size = 'a4'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'openmairieframework.tex', u'openMairie - Guide du développeur Documentation',
+  ('index', 'openmairieframework.tex', u'openMairie Framework Documentation',
    u'openMairie', 'manual'),
 ]
 
@@ -214,6 +214,6 @@ latex_elements['preamble'] = '\\setcounter{secnumdepth}{5}\\setcounter{tocdepth}
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'openmairieframework', u'openMairie - Guide du développeur Documentation',
+    ('index', 'openmairieframework', u'openMairie Framework Documentation',
      [u'openMairie'], 1)
 ]
