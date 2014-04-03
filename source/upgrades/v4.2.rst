@@ -1,6 +1,18 @@
-==================================================
-Mettre à niveau depuis openMairie 4.1.2 vers 4.2.0
-==================================================
+##############
+La version 4.2
+##############
+
+
+================================
+Les nouveautés de la version 4.2
+================================
+
+...
+
+
+==============================================
+Mettre à niveau depuis openMairie 4.1 vers 4.2
+==============================================
 
 La version 4.2.0 du framework prend en charge plus de fonctionnalités et donne
 toutes possibilité de surcharge aux applications:

@@ -15,4 +15,4 @@ Le générateur
    analyse_base.rst
    fichier_genere.rst
    parametrage_generateur.rst
-   vue.rst
+

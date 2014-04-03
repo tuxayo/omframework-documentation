@@ -1,10 +1,5 @@
 .. _gen-introduction:
 
-.. note :: 
-   la génération avec mysql est abandonnée avec cette version qui ne conserve que postgresql
-
-
-
 Précision sur le vocabulaire utilisé dans cette documentation.
 
 **Modèle de données**
@@ -23,9 +18,6 @@ représentent.
 
 Le mot objet fait référence aux instances des classes d'openMairie et, par
 extension, aux enregistrements en base de données qui les représentent.
-
-
-
 
 ============
 Introduction
@@ -47,3 +39,10 @@ Sur cette analyse le générateur crée les modèles de données. openMairie gè
 
 **Le générateur contient également des assistants permettant de créer
 facilement des états associés à des collectivités.**
+
+
+.. attention::
+   
+   la version mysql est abandonnée
+
+

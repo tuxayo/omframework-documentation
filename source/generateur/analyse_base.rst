@@ -53,29 +53,6 @@ Les paramètres de dyn/form.inc permettent d'établir la longueur et la largeur 
 
 Les champs de type geometry sont des champs geom (accès a la fenetre tab_sig.php)
 
-Equivalence type mysql / type openMairie
-========================================
-
-type mysql (longueur)          tableinfo   -> type openMairie ::
-
-    Int         (taille mysql)                  -> Int
-    Date        (10)                            -> date 
-    Blob        (65535)                         -> Blob
-    Char        (taille mysql)      char        -> String
-    tinyint     (4)                 tinyint     -> Int
-    smallint    (6)                 smallint    -> Int
-    Mediumint   (9)                 mediumint   -> Int
-    Bigint      (20)                bigint      ->Int
-    Float       (12)                Real        -> Int
-    Double      (22)                Real        -> Int
-    Decimal     (11)                Real        -> Int
-    Text        (65535)             Blob        -> Blob
-    Tinyblob    (255)               blob        -> Blob
-    Mediumblob  16777615            Blob        -> Blob
-    Mediumtext  16777215            Blob        -> Blob
-    Longtext    -1                  blob        -> Blob
-    Longblob    -1                  Blob        -> Blob
-    Tinytext    255                 Blob -      -> blob
 
 Equivalence type pgsql / type openMairie
 ========================================
