@@ -9,7 +9,7 @@ Le widget est un petit script qui s'exécute dans le tableau de bord
 dans une fenêtre normalisée.
 
 Le script peut faire appel à l'application en cours ou a une application externe.
-Nous avons mis quelques exemples dans les deux derniers paragrapĥes. 
+Nous avons mis quelques exemples dans les deux derniers paragraphes. 
 Il est proposé d'abord de vous aider à créer les widgets.
 
 
