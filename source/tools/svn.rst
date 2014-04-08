@@ -4,9 +4,9 @@ Apache Subversion (SVN)
 
 `Site officiel du projet SVN <http://subversion.apache.org/>`_
 
-**********
+==========
 Pré-requis
-**********
+==========
 
 Installer subversion :
 `<http://subversion.apache.org/packages.html>`_  
@@ -14,9 +14,9 @@ Installer subversion :
 Il existe également des outils graphiques comme TortoiseSVN (Windows).
 
 
-**************
+==============
 L'arborescence
-**************
+==============
 
 Voici l'arborescence standard d'un projet versionné sur un SVN : ::
 
@@ -37,18 +37,18 @@ Voici l'arborescence standard d'un projet versionné sur un SVN : ::
 
 
 
-***************
+===============
 Les règles d'or
-***************
+===============
 
 * Ne jamais commiter dans un tag.
 * Ne jamais commiter sans message de commit.
 * Ne jamais tagger une version qui contient des externals vers un 'trunk'.
 
 
-**********************************
+==================================
 Les commandes basiques à connaître
-**********************************
+==================================
 
 
 Récupérer une copie locale : ::
@@ -75,9 +75,9 @@ Voir la différence entre sa copie locale et le dépôt : ::
     svn ci
 
 
-*********
+=========
 Externals
-*********
+=========
 
 C'est une propriété sur le dépôt SVN permettant d'importer du code provenant
 d'un dépôt différent.
@@ -110,14 +110,14 @@ Appliquer les propriétés externals : ::
 attention le repertoire ne doit pas etre existant (copie de travail verouillée)
 
 
-********
+========
 Keywords
-********
+========
 
 
-**********************
+======================
 Les clients graphiques
-**********************
+======================
 
 Il est recommandé de savoir utiliser et d'utiliser subversion en ligne de
 commande mais il existe quelques clients graphiques qui permettent de réaliser
@@ -128,13 +128,12 @@ certaines opérations d'une manière plus conviviale.
 * ...
 
 
-*********
+=========
 Tutoriaux
-*********
+=========
 
-==========================
 Importer un nouveau projet
-==========================
+--------------------------
 
 Un nouveau projet est une nouvelle application qui se base sur la dernière
 version taggée d'openmairie_exemple. Ce tutorial contient certains pré-requis
@@ -177,9 +176,8 @@ les externals ::
     svn ci
 
 
-============================
 Publier une nouvelle version
-============================
+----------------------------
 
 Ce tutorial contient certains pré-requis comme le fait d'avoir un utilisateur
 avec les droits corrects sur le projet ou connaître comment incrémenter le
@@ -246,9 +244,8 @@ openmairie_exemple ::
            svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/openmairie/openmairie_exemple/tags/<NOUVELLE_VERSION>
 
 
-===============
 svn utilisation
-===============
+---------------
 
 il est propose dans ce chapitre de lister quelques  commandes utiles
 en cas de conflit testées en svn

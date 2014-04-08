@@ -24,7 +24,7 @@ toutes possibilité de surcharge aux applications:
 - surcharge du javascript de base app/js/script.js.
 
 ``EXTERNALS.txt``
-=================
+-----------------
 
 Vider les 9 repertoires concernés avant de lancer externals.
 
@@ -64,26 +64,26 @@ Les dossiers suivant sont spécifiques à l'application elle même:
   pour le serveur web.
 
 Regenerer les tables avec ``genfull.php``
-=========================================
+-----------------------------------------
 
 Ajouter les droits d'écriture à www-data dans gen: ::
 
 $ sudo chmod -R 777 gen
 
 Modifier les paramètres dyn
-===========================
+---------------------------
 
 locales.inc.php (charset)
 include.inc.php (core)
 
 Dans ``obj/``
-=============
+-------------
 
 Ajouter ``om_table.class.php``, ``om_dbform.class.php``,  et
 ``om_formulaire.class.php``.
 
 Evolution om_sig_point vers om_sig_map
-======================================
+--------------------------------------
 
 om_sig_map est le nouvel outil SIG d'openMairie.
 

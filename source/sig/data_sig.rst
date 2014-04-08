@@ -9,7 +9,7 @@ ce chapitre propose de décrire la récupération de données SIG nécessaires �
 des scripts SIG internes openMairie.
 
 
-
+=================================
 Saisir le périmètre de sa commune
 =================================
 
@@ -33,7 +33,7 @@ de la manière suivante ::
 
 Modifier les cartes de om_sig_point
 
-
+==============================
 Récupérer les données de l'IGN
 ==============================
 
@@ -51,7 +51,7 @@ Les données sont fournies par département.
 
 Il faut récupérer les fichiers shape dans une base IGN puis ensuite construire le référentiel de la commune avec openReferentiel.
 
-
+===========================
 Recupérer des données shape
 ===========================
 
@@ -89,7 +89,7 @@ Pour mettre à jour le champ surface de parcelle dans openfoncier ::
 
     update parcelle set surface = round(cast(area2d(geom) as numeric), 2)
     
-
+==================================
 Recupération des données de la DGI
 ==================================
 

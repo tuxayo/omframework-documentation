@@ -21,7 +21,7 @@ est accessible via `ce lien`_.
 
 Le parametrage se fait dans le fichier sig/var_adresse_postale.php
 
-
+=======================
 var_adresse_postale.inc
 =======================
 
@@ -98,7 +98,7 @@ réseau interne sur la même base, ou sur une base différente (voir plus haut)
 
 Ensuite 3 API peuvent être initialisés : google, bing et mapquest
 
-
+===================================================================
 Mise en oeuvre dans un formulaire d'un bouton de la geolocalisation
 ===================================================================
 

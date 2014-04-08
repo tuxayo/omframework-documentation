@@ -15,9 +15,9 @@ fichiers .htaccess empêchant l'accès dans les répertoires en question qui ne
 doivent pas être accessibles depuis l'interface par l'utilisateur.
 
 
-******************************************
+==========================================
 Les répertoires spécifiques à l'applicatif
-******************************************
+==========================================
 
 Ces répertoires sont ceux qui font l'applicatif. Par exemple, sur un applicatif
 comme openCimetière ce sont les répertoires qui vont se trouver dans le
@@ -25,7 +25,7 @@ gestionnaire de fichiers que l'on appelle les répertoires spécifiques.
 
 
 ``data/``
-*********
+---------
 
 Contient tous les fichiers d'initialisation de la base de données de
 l'applicatif ::
@@ -38,7 +38,7 @@ l'applicatif ::
 
 
 ``app/``
-********
+--------
 
 Contient tout les scripts spécifiques à l'applicatif que ce soit des
 javascripts ou des images ou des scripts PHP ::
@@ -53,7 +53,7 @@ javascripts ou des images ou des scripts PHP ::
      |---- ...
 
 ``dyn/``
-********
+--------
 
 Contient les fichiers de paramétrage de l'applicatif ::
 
@@ -62,7 +62,7 @@ Contient les fichiers de paramétrage de l'applicatif ::
      |---- ...
 
 ``gen/``
-********
+--------
 
 Contient les scripts (obj) et requêtes (sql) générés par le générateur ::
 
@@ -81,7 +81,7 @@ Contient les scripts (obj) et requêtes (sql) générés par le générateur ::
 
 
 ``locales/``
-************
+------------
 
 Contient les fichiers de traduction de l'applicatif ::
 
@@ -91,7 +91,7 @@ Contient les fichiers de traduction de l'applicatif ::
 
 
 ``obj/``
-********
+--------
 
 Contient les objets métiers surchargeant les objets générés ::
 
@@ -101,7 +101,7 @@ Contient les objets métiers surchargeant les objets générés ::
 
 
 ``sql/``
-********
+--------
 
 Contient les scripts sql surchargeant les scripts générés ::
 
@@ -113,7 +113,7 @@ Contient les scripts sql surchargeant les scripts générés ::
 
 
 ``tests/``
-**********
+----------
 
 Contient les jeux de tests unitaires et fonctionnels de l'applicatif ::
 
@@ -123,7 +123,7 @@ Contient les jeux de tests unitaires et fonctionnels de l'applicatif ::
 
 
 ``tmp/``
-********
+--------
 
 Contient les fichiers temporaires créés par l'applicatif ::
 
@@ -133,7 +133,7 @@ Contient les fichiers temporaires créés par l'applicatif ::
 
 
 ``trs/``
-********
+--------
 
 Contient les fichiers stockés par l'applicatif ::
 
@@ -144,9 +144,9 @@ Contient les fichiers stockés par l'applicatif ::
      |---- ...
 
 
-****************************
+============================
 Les répertoires du framework
-****************************
+============================
 
 Ces répertoires sont ceux qui sont issus du framework, c'est-à-dire qu'ils ne
 sont pas dans l'applicatif lui même. Par exemple, sur un applicatif comme
@@ -155,7 +155,7 @@ externals sur le gestionnaire de versions que l'on appelle les répertoires
 du framework.
 
 ``php/``
-********
+--------
 
 Contient les librairies PHP utilisées par le framework (comme dbpear, phpmailer
 ou fpdf) ::
@@ -166,7 +166,7 @@ ou fpdf) ::
 
 
 ``core/``
-*********
+---------
 
 Contient les classes de la librairie du framework ::
 
@@ -176,7 +176,7 @@ Contient les classes de la librairie du framework ::
 
 
 ``css/``
-********
+--------
 
 Contient les feuilles de style de base du framework ::
 
@@ -185,7 +185,7 @@ Contient les feuilles de style de base du framework ::
 
 
 ``img/``
-********
+--------
 
 Contient les images du framework ::
 
@@ -194,7 +194,7 @@ Contient les images du framework ::
 
 
 ``js/``
-*******
+-------
 
 Contient les javascripts de base du framework ::
 
@@ -203,7 +203,7 @@ Contient les javascripts de base du framework ::
 
 
 ``lib/``
-********
+--------
 
 Contient les librairies javascripts utilisées par le framework (comme openLayers
 ou jquery) ::
@@ -213,7 +213,7 @@ ou jquery) ::
 
 
 ``pdf/``
-********
+--------
 
 Contient les scripts d'édition du framework ::
 
@@ -222,7 +222,7 @@ Contient les scripts d'édition du framework ::
 
 
 ``scr/``
-********
+--------
 
 Contient les scripts d'affichage du framework ::
 
@@ -231,7 +231,7 @@ Contient les scripts d'affichage du framework ::
 
 
 ``spg/``
-********
+--------
 
 Contient les sous programmes génériques du framework ::
 

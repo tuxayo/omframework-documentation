@@ -27,10 +27,10 @@ il est vivement conseillé de:
 la mise à niveau.**
 
 Étape 1 : mettre à jour la base de données
-==========================================
+------------------------------------------
 
 La structure
-------------
+............
 
 La structure de la base de données d'openMairie a changée sensiblement depuis la
 version 4.3.0. Pour mettre à jour la base de données depuis cette version il
@@ -48,21 +48,21 @@ Régénérer les fichiers via le générateur.
 Vérifier les surcharges des objets : obj/ et sql/
 
 Étape 2 : mise à jour du menu
-=============================
+-----------------------------
 
 Suite à l'ajout d'une table contenant les logos et une autre contenant les requêtes,
 les entrées correspondantes dans le menu devraient êtres ajoutées.
 
 Étape 3 : vérification des requêtes et logos
-============================================
+--------------------------------------------
 
 Vérifier que les logos et requêtes sont dans les bons état/lettres type.
 
 Étape 4 : système de stockage des fichiers
-==========================================
+------------------------------------------
 
 Le système de stockage de fichier ayant été mis à jour, le système utilisé conserve
 la compatibilité avec les fichiers existant.
 
 Les erreurs connues
-===================
+-------------------

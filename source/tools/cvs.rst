@@ -35,9 +35,9 @@ message ::
 
 
 
-=====================
+==============
 local -> forge
-=====================
+==============
 
 commit ::
 
@@ -117,7 +117,7 @@ exemple opencimetiere_facture
                                [      version   ]   [repertoire export ] [module]
 
 
-
+===
 tag
 ===
 
@@ -215,7 +215,7 @@ projet existant sur la forge de l'adullact.
 
 
 Pré-requis
-==========
+----------
 
 * Le projet sur l'adullact en CVS <NOM_DU_PROJET>
 * Le nom du module à récupérer <NOM_DU_MODULE>
@@ -223,7 +223,7 @@ Pré-requis
 
 
 Etape 1 - Récupérer le code du CVS
-==================================
+----------------------------------
 
 ::
 
@@ -237,7 +237,7 @@ A cette étape, il est recommandé de faire une archive du dossier
 
 
 Etape 2 - Changer le type de dépôt
-==================================
+----------------------------------
 
 En tant qu'administrateur, aller dans l'onglet 'Sources' puis cliquer sur le
 lien 'Administration'. Choisir alors SVN puis cliquer sur le bouton 'Mettre à
@@ -248,7 +248,7 @@ plusieurs heures) que le dépôt subversion soit activé.
 
 
 Etape 3 - Créer la structure du dépôt
-=====================================
+-------------------------------------
 
 Ici nous allons créer la structure standard d'un dépôt Subversion :
 
@@ -262,10 +262,10 @@ Ici nous allons créer la structure standard d'un dépôt Subversion :
 
 
 Etape 4 - Importer le code sur le nouveau dépôt Subversion
-==========================================================
+----------------------------------------------------------
 
 Cas 1
------
+.....
 
 Si l'application doit être utilisée telle qu'elle a été récupérée sur le CVS,
 alors nous allons l'importer directement dans le dossier 'trunk'. ::
@@ -274,7 +274,7 @@ alors nous allons l'importer directement dans le dossier 'trunk'. ::
 
 
 Cas 2
------
+.....
 
 Dans le cas de figure où l'application va être migrée vers OM4, nous allons
 placer le code récupéré sur le CVS dans une branche du dépôt correspondant à sa

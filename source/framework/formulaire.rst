@@ -6,15 +6,15 @@ Les formulaires
 
 Les formulaires openMairie sont une visualisation d'un objet d'une classe métier.
 
-************
+============
 Introduction
-************
+============
 
 Les formulaires permettent la consultation, l'ajout, la modification et la 
 suppression d'enregistrements des tables de la base de données.
 
 Consultation
-============
+------------
 
 La consultation d'un élément est construite de la même façon qu'un
 formulaire. Elle contient une liste d'actions contextuelles configurable.
@@ -25,14 +25,14 @@ Les données ne sont pas éditables.
    :width: 800
 
 Ajout
-=====
+-----
 
 L'ajout permet l'éditions de données. Lors de la validation,
 un traitement spécifique des données est effectué.
 Si la clé primaire de la table est automatique alors elle est générée.
 
 Modification
-============
+------------
 
 L'ouverture d'un élément en modification permet l'éditions de données
 déjà existantes, lors de la validation du formulaire les données sont traitées,
@@ -43,14 +43,14 @@ vérifiées puis envoyées dans la base.
    :width: 800
 
 Suppression
-===========
+-----------
 
 Accessible depuis la liste des actions contextuelles, une confirmation est
 demandée pour chaque suppression.
 
 
 Accès
-=====
+-----
 
 L'accès aux formulaires se fait depuis un :ref:`tableau d'éléments<affichage>`
 ou depuis la consultation d'un élément via le menu contextuel.
@@ -58,9 +58,9 @@ ou depuis la consultation d'un élément via le menu contextuel.
 Par défaut, depuis les tableaux, les actions d'ajout et consultation sont
 disponible.
 
-*********************
+=====================
 Description technique
-*********************
+=====================
 
 La gestion des formulaires se base sur deux classes :
     - formulaire : core/om_formulaire.class.php
@@ -70,7 +70,7 @@ La classe "formulaire" permet la gestion de l'affichage et "dbform"
 gère le traitement des données et la liaison à la base de données.
 
 scr/form.php et scr/sousform.php
-================================
+--------------------------------
 
 Ces scripts sont appelés pour afficher un formulaire.
 Ils instancient l'objet et appellent la méthode formulaire de celui-ci.
@@ -95,9 +95,9 @@ d'origine.
 
 .. _class-dbform:
 
-*******************************
+===============================
 Description de la classe dbform
-*******************************
+===============================
 
 .. class:: dbform($id, &$db, $DEBUG = false)
 
@@ -110,13 +110,13 @@ Description de la classe dbform
    suppression, consultation).
 
 Présentation des méthodes de la classe
-======================================
+--------------------------------------
 
 Les méthodes de dbform peuvent être surchargées dans obj/om_dbform.class.php
 ainsi que dans toutes les classes métier.
 
 Méthodes d'initialisation de l'affichage du formulaire
-======================================================
+------------------------------------------------------
 
   .. method:: dbform.formulaire($enteteTab, $validation, $maj, &$db, $postVar, $aff, $DEBUG = false, $idx, $premier = 0, $recherche = "", $tricol = "", $idz = "", $selectioncol = "", $advs_id = "", $valide = "", $retour = "", $actions = array(), $extra_parameters = array())
 
@@ -191,13 +191,11 @@ attributs via les méthodes suivantes :
          permet d'ouvrir/fermer ($contenu=D/F) une balise div sur un champ
          ($champ), avec un libellé ($libelle) et un attribut class ($style).
 
-          - une liste de classes css pour fieldset est disponible :
-
-              - group : permet une mise en ligne des champs contenu dans le div
-              - col_1 à col_12 : permet une mise en page simplifiée, par
-                exemple : "col_1" permet de définir une taille dynamique de
-                1/12ème de la page , col_6 correspond à 6/12 soit 50% de l'espace
-                disponible.
+          - une liste de classes css pour fieldset est disponible : 'group' permet
+            une mise en ligne des champs contenu dans le div et 'col_1 à col_12' 
+            permet une mise en page simplifiée (par exemple : "col_1" permet de 
+            définir une taille dynamique de 1/12ème de la page , col_6 correspond 
+            à 6/12 soit 50% de l'espace disponible).
 
           - il est possible de créer et ajouter des classes css aux différents
             div afin d'obtenir une mise en page personnalisé.
@@ -207,11 +205,10 @@ attributs via les méthodes suivantes :
          permet d'ouvrir/fermer ($contenu=D/F) un  fieldset sur un champ
          ($champ), avec une légende ($libelle) et un attribut class ($style).
 
-          - une liste de classes css pour fieldset est disponible :
-              - collapsible : ajoute un bouton sur la légende (jQuery) afin de
-                refermer le fieldset.
-              - startClosed : idem à la différence que le fieldset est fermé au
-                chargement de la page.
+          - une liste de classes css pour fieldset est disponible : 'collapsible'
+            ajoute un bouton sur la légende (jQuery) afin de refermer le fieldset 
+            et 'startClosed' idem à la différence que le fieldset est fermé au
+            chargement de la page.
 
       - exemple d'implémentation de la méthode setLayout() sans utiliser les
         méthodes setGroupe() et setRegroupe() :
@@ -312,7 +309,7 @@ attributs via les méthodes suivantes :
           ?>
 
 Méthodes d'actions
-==================
+------------------
 
 Ces méthodes sont appelées lors de la validation du formulaire.
 
@@ -336,7 +333,7 @@ Ces méthodes sont appelées lors de la validation du formulaire.
 
 
 Gestion des transactions lors de l'appel aux méthodes d'actions
-===============================================================
+---------------------------------------------------------------
 
 Afin de verifier les erreurs de base de données, la méthode isError est appelée,
 si la valeur true lui est passée en second paramètre elle ne stop pas l'execution
@@ -353,7 +350,7 @@ méthodes de trigger seront appelées.
 
 
 Méthodes appelées lors de la validation
-=======================================
+---------------------------------------
 
 .. _setValFAjout:
 
@@ -416,9 +413,9 @@ Méthodes appelées lors de la validation
      Permet d'effectuer des actions après la modification des données dans la base
 
 
-***********************************
+===================================
 Description de la classe formulaire
-***********************************
+===================================
 
 .. class :: formulaire($unused = NULL, $validation, $maj, $champs = array(), $val = array(), $max = array())
 
@@ -430,7 +427,7 @@ obj/om_formulaire.class.php
 .. _méthodes-affichage-widget:
 
 Méthodes d'affichage de widgets
-===============================
+-------------------------------
 
 Les widgets sont des éléments de formulaire, ils sont composés d'un ou plusieurs
 champs. Chaque méthode permet d'afficher un seul widget.
@@ -653,7 +650,7 @@ récupérer un code rvb.
 .. _méthodes-construction-formulaire:
 
 Les  méthodes de construction et d'affichage
-============================================
+--------------------------------------------
 
 Le formulaire est constitué de div, fieldset et de champs les méthodes suivantes
 permettent une mise en page structurée.
@@ -693,7 +690,7 @@ permettent une mise en page structurée.
 .. _méthodes-assesseurs:
 
 Les méthodes assesseurs changent les valeurs des attributs de l'objet formulaire
-================================================================================
+--------------------------------------------------------------------------------
 
 Ces méthodes sont appelées depuis les classes métier, elles permettent la
 configuration du formulaire.

@@ -20,6 +20,7 @@ Pour pouvoir gérer un projet sur ce site, il faut avoir un utilisateur
 d'obtenir un compte utilisateur très facilement).
 
 
+==================================
 Importer un nouveau projet sur RTD
 ==================================
 
@@ -60,6 +61,7 @@ du être générée, celle-ci est disponible en cliquant sur le bouton
 "Afficher les docs" sur la page du projet nouvellement créé.
 
 
+====================================================
 Paramétrer une nouvelle version d'un projet existant
 ====================================================
 

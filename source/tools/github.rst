@@ -12,7 +12,7 @@ L'objectif d'utiliser ce site est donc de faciliter la contribution
 Request" et de déclencher simplement la regénération des documentations
 grâce au lien automatique avec readthedocs.org.
 
-
+===============
 Créer un projet
 ===============
 
@@ -49,6 +49,7 @@ Voici les informations à saisir :
 Puis il suffit de cliquer sur le bouton "Create repository".
 
 
+===================================================================
 Importer la documentation depuis un projet subversion de l'adullact
 ===================================================================
 
@@ -111,13 +112,14 @@ Les pré-requis sont :
     svn import -m "Déplacement de la documentation vers Github" ../MOVED-TO-GITHUB.txt svn+ssh://${ADULLACTUSER}@scm.adullact.net/scmrepos/svn/${OLDPRODUCTNAME}/documentation/MOVED-TO-GITHUB.txt
 
 
-
+=========================================
 Faire l'import initial d'un projet sphinx
 =========================================
 
 Public(s) concerné(s) : Administrateur de projet openMairie.
 
 
+==============================
 Contribuer à une documentation
 ==============================
 

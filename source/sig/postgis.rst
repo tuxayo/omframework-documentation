@@ -7,7 +7,7 @@ postgis
 ce chapitre propose de décrire les possibilités d'utilisation de postgis dans openMairie.
 
 
-
+=========
 principes
 =========
 
@@ -24,7 +24,7 @@ Les requêtes utilisant des fonctions potgis peuvent être implémentées dans "
 
 Il sera proposé un lien sur un tutorial utilisant les fonctions postgis.
 
-
+==============
 base et schéma
 ==============
 

@@ -4,9 +4,9 @@
 Initialisation de la base de données
 ####################################
 
-**************************************
+======================================
 Description du dossier ``data/pgsql/``
-**************************************
+======================================
 
 Il est nécessaire de positionner l'entête de fichier suivant pour chacun des
 fichiers sql de ce dossier : ::
@@ -22,7 +22,7 @@ fichiers sql de ce dossier : ::
 
 
 Description de tous les fichiers ``init*.sql``
-**********************************************
+----------------------------------------------
 
 Il s'avère nécessaire de mettre dans l'entête des fichiers ``init*.sql`` la
 commande ou les instructions qui ont permis de générer ou de composer le fichier
@@ -30,7 +30,7 @@ en question.
 
 
 Le fichier ``init.sql``
-=======================
+.......................
 
 Ce fichier contient les instructions de base du framework. Il permet de créer
 les tables et les séquences du framework (celles qui commencent par `om_*`). Il
@@ -43,7 +43,7 @@ framework.
 
 
 Les fichiers ``init_metier*.sql``
-=================================
+.................................
 
 Ces fichiers contiennent les instructions de base de l'applicatif.
 
@@ -65,7 +65,7 @@ Ces fichiers contiennent les instructions de base de l'applicatif.
 
 
 Les fichiers ``init_parametrage*.sql``
-======================================
+......................................
 
 Ces fichiers contiennent l'initialisation du paramétrage c'est-à-dire les
 données nécessaires à l'utilisation de l'application. Ils sont générés
@@ -95,7 +95,7 @@ généralement grâce à la commande : ::
 
 
 Le fichier ``init_data.sql``
-============================
+............................
 
 Ce fichier contient l'initialisation d'un jeu de données à destination de trois
 environnements distincts :
@@ -106,7 +106,7 @@ environnements distincts :
 
 
 Description des fichiers ``vX.X.X.sql`` ou ``ver_X.X.X.sql``
-************************************************************
+------------------------------------------------------------
 
 Ces fichiers permettent de mettre à jour les applicatifs d'une version vers
 la version supérieure. Le X.X.X correspond au numéro de version vers lequel
@@ -121,7 +121,7 @@ modifications et ce fichier renommé avec son nom ``vX.X.X.sql`` ou
 
 
 Description du fichier ``update_sequences.sql``
-***********************************************
+-----------------------------------------------
 
 Ce fichier permet de créer une fonction capable de mettre à jour toutes les
 séquences correctement liées aux champs auxquels elles se rattachent en
@@ -130,7 +130,7 @@ de la fonction ce script exécute la fonction.
 
 
 Description du fichier ``install.sql``
-**************************************
+--------------------------------------
 
 Ce fichier permet d'initialiser tous les fichiers qui sont décrits ci-dessus
 dans le bon ordre. Par défaut ce fichier installe la base de données et les
@@ -150,9 +150,9 @@ données nécessaires aux trois environnements suivants :
 
 .. _parametrage_connexion_base_de_donnees:
 
-************************************************
+================================================
 Paramétrage de la connexion à la base de données
-************************************************
+================================================
 
 Le paramétrage de la connexion à la base de données se fait dans le fichier
 ``dyn/database.inc.php``.

@@ -7,6 +7,7 @@ Les actions vers formulaires
 Les liens vers les formulaires sont principalement dans les tableaux et
 formulaires de consultation d'objets.
 
+====================
 Actions des tableaux
 ====================
 
@@ -167,6 +168,7 @@ droits de la liste ``list``:
 - ``OR``, l'utilisateur doit avoir au moins un droit;
 - ``AND``, l'utilisateur doit avoir tous les droits.
 
+=============================================
 Actions du menu contextuel de la consultation
 =============================================
 

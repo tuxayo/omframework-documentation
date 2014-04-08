@@ -27,10 +27,10 @@ il est vivement conseillé de:
 la mise à niveau.**
 
 Étape 1: mettre à jour les surcharges du framework
-==================================================
+--------------------------------------------------
 
 Classe ``application``
-----------------------
+......................
 
 Supprimer l'utilisation de l'attribut:
 
@@ -57,19 +57,19 @@ jour avec leur nouvelle implémentation.
 
 
 Classe ``dbForm``
------------------
+.................
 
 Les méthodes surchargés de la classe ``dbForm`` doivent être mises à jour avec
 leur nouvelle implémentation.
 
 Classe ``formulaire``
----------------------
+.....................
 
 Les méthodes surchargés de la classe ``formulaire`` doivent être mises à jour
 avec leur nouvelle implémentation.
 
 Classe ``table``
------------------
+................
 
 Les méthodes surchargés de la classe ``table`` doivent être mises à jour avec
 leur nouvelle implémentation.
@@ -95,10 +95,10 @@ Si elle est utilisée dans une surchage, elle doit être remplacée par:
    ?>
 
 Étape 2: mettre à jour la base de données
-=========================================
+-----------------------------------------
 
 La structure
-------------
+............
 
 La structure de la base de données d'openMairie a changée sensiblement depuis la
 version 4.2.0. Pour mettre à jour la base de données depuis cette version il
@@ -113,7 +113,7 @@ Pour PostgresSQL: ::
 /data/pgsql/ver_4.3.0.sql
 
 Les tables métier
------------------
+.................
 
 Le générateur gère maintenant plusieurs contraintes:
 
@@ -126,7 +126,7 @@ En fonction de ces contraintes les fichiers de l'application sont générés
 différemment par rapport à openMairie version 4.2.0.
 
 ``PRIMARY KEY``
-...............
+,,,,,,,,,,,,,,,
 
 **Ajouter la contrainte SQL PRIMARY KEY.**
 
@@ -135,7 +135,7 @@ identifiant, il faudra utiliser la contrainte ``PRIMARY KEY`` à la place des
 noms de table en tant que nom de colonne.
 
 ``FOREIGN KEY (PostgresSQL)``
-.............................
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 
 **Ajouter la contrainte SQL FOREING KEY.**
 
@@ -144,7 +144,7 @@ créer des références, il faudra utiliser la contrainte ``FOREIGN KEY`` à la
 place des noms de table étrangères en tant que nom de colonne.
 
 ``UNIQUE``
-..........
+,,,,,,,,,,
 
 - **Ajouter la contrainte SQL UNIQUE.**
 - **Mettre a jour les fichiers de surcharge du répertoire obj/.**
@@ -156,7 +156,7 @@ modèles pour gérer ce type de champ. Il faudra nettoyer les surcharges de
 remplacer par des contraintes ``UNIQUE`` dans la base de données.
 
 ``NOT NULL``
-............
+,,,,,,,,,,,,
 
 - **Ajouter la contrainte NOT NULL aux champs requis.**
 - **Supprimer la clause DEFAULT des champs requis.**
@@ -181,10 +181,10 @@ sans clause ``DEFAULT`` dans la base de données.
    Vous pouvez générer à nouveau l'application à partir d'ici.
 
 Étape 3: mettre à jour les fichiers de surcharge du répertoire ``sql/``
-=======================================================================
+-----------------------------------------------------------------------
 
 Alias des tables étrangères
----------------------------
+...........................
 
 **Prefixer le nom des colonnes étrangères par l'alias généré dans gen/sql/.**
 
@@ -197,7 +197,7 @@ par l'alias adéquat. Cet alias apparaît dans la définition de la variable
 ``$table`` dans les fichiers générés du répertoire ``gen/sql/``.
 
 La clause ``ORDER BY``
-----------------------
+......................
 
 **Supprimer les surcharges de la variable $tri = 'ORDER BY libelle', ce tri est
 généré par défaut.**
@@ -212,11 +212,11 @@ primaire.
    si cette colonne est une clé étrangère, alors le tri se fera sur le libellé
    de la table étrangère.
 
-Les actions du tableau
-----------------------
+Les actions du tableau 
+......................
 
 Les actions d'openMairie
-........................
+,,,,,,,,,,,,,,,,,,,,,,,,
 
 - **Remplacer $href[0] par $tab_actions['corner']['ajouter'].**
 - **Remplacer $href[1] par $tab_actions['left']['modifier'].**
@@ -282,7 +282,7 @@ Pour surcharger l'action supprimer, il faut maintenant surcharger
    ?>
 
 Les actions personnalisées
-..........................
+,,,,,,,,,,,,,,,,,,,,,,,,,,
 
 **Redéfinir les actions avec la nouvelle manière.**
 
@@ -304,7 +304,7 @@ Exemple:
    ?>
 
 Définition de l'action
-,,,,,,,,,,,,,,,,,,,,,,
+;;;;;;;;;;;;;;;;;;;;;;
 
 La première clé de ``$tab_actions`` permet choisir la position d'affichage:
 
@@ -318,7 +318,7 @@ clé doit être différente de: ``ajouter``, ``consulter``, ``modifier`` et
 Les clés ``lien``, ``id`` et ``lib`` s'utilise de la même manière qu'avant.
 
 Définition du mode d'affichage en sous-tableau
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 La clé ``ajax`` permet d'indiquer si l'action doit être affichée en ajax ou non
 dans les sous-tableaux:
@@ -327,7 +327,7 @@ dans les sous-tableaux:
 - ``false``, l'action n'utilisera pas la fonction ``ajaxIt()``.
 
 Définition de l'ordre d'affichage
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 La clé ``ordre`` permet de déterminer l'odre d'affichage par rapport aux autres
 actions.
@@ -352,7 +352,7 @@ Si la position ``left`` est sélectionnée:
 - 11, l'action s'affichera après l'action ``consulter``.
 
 Définition des droits d'affichage
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 La clé ``rights`` permet de définir le ou les droits nécessaire à l'utilisateur
 pour visualiser cette action. Cette clé est optionnelle. Si ``rights`` n'existe
@@ -368,4 +368,4 @@ droits de la liste ``list``:
 - ``AND``, l'utilisateur doit avoir tous les droits.
 
 Les erreurs connues
-===================
+-------------------

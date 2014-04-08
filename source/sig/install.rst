@@ -11,7 +11,7 @@ Pour faire fonctionner tab_sig.php, il faut :
 - openlayers qui est de base dans le framework lib/openlayers
 
 
-
+=================================
 optimisation composant openLayers
 =================================
 

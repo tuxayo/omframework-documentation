@@ -114,7 +114,8 @@ db est l'objet de connexion a la base dont les propriétés sont les suivantes :
 			[_error_class] => DB_Error 
 			[_expected_errors] => Array ( ) 
     )
-    
+
+
 ============
 L'objet form
 ============
@@ -176,4 +177,4 @@ form est l'objet formulaire dont les propriétés sont les suivantes ::
         [regroupe] =>
         [correct] =>
     ) 
-       
+
