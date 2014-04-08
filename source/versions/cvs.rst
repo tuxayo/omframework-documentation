@@ -7,7 +7,7 @@ Concurrent versions system (CVS)
 `Site officiel du projet CVS <http://www.nongnu.org/cvs/>`_
 
 
-Il est noté dans ce chapître les commandes de bases de cvs à titre d'indicatif.
+Il est noté dans ce chapitre les commandes de bases de cvs à titre d'indicatif.
 Les développeurs d openMairie souhaitent qs'orienter sur SVN qui est plus facile dans
 la gestion des répertoires (notament la suppression) et dans la mise en place
 de composants externes (externals)

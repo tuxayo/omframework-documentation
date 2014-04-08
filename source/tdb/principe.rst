@@ -4,7 +4,7 @@
 principe
 ########
 
-Il est proposé dans ce chapître de décrire le tableau de bord paramètrable pour
+Il est proposé dans ce chapitre de décrire le tableau de bord paramètrable pour
 les utilisateurs
 
 ===========

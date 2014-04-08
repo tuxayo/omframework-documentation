@@ -97,7 +97,7 @@ En introduction, il est proposé une explication de la hiérarchie des répertoi
 
 
 
-Ce chapître propose de vous décrire les outils de base du framework de la manière suivante :
+Ce chapitre propose de vous décrire les outils de base du framework de la manière suivante :
 
     - le paramétrage général du framework en /dyn
     - les méthodes pour construire des formulaires avec le framework

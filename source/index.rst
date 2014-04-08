@@ -32,27 +32,27 @@ Cette maquette permet très rapidement d'engager un dialogue participatif avec l
 utilisateurs, de  concentrer le développeur uniquement sur le "métier" et de faire valider
 par l'utilisateur les évolutions successives.
 
-Si vous débutez, il est préférable de commencer par le chapître
+Si vous débutez, il est préférable de commencer par le chapitre
 "créer une application" qui permet de prendre en main facilement le générateur et le
 framework openMairie en vous guidant pas à pas dans le mise en place d'une
 gestion de courrier.
 
-Le chapître sur le "framework" complète l'exemple ci dessus en vous décrivant
+Le chapitre sur le "framework" complète l'exemple ci dessus en vous décrivant
 le paramètrage, les classes formulaires et éditions du framework. Il a pour but
 de vous informer de manière complète sur le fonctionnement du framework
 
-Le chapître consacré au "générateur" décrit dans le détail le fonctionnement
+Le chapitre consacré au "générateur" décrit dans le détail le fonctionnement
 de cet outil et de ses assistants. Cet outil permet de fabriquer la maquette.
 
 La version 4.1.0 permet de construire des applications composites (ou mash up)
 en intégrant des contenus venant d'application externes. Cela permet de construire
 rapidemment une application à faible coût grâce à la fusion de multiple service internet
 
-Le chapître consacré a l' "information geographique" décrit dans le détail le
+Le chapitre consacré a l' "information geographique" décrit dans le détail le
 fonctionnement SIG interne d'openMairie combinant les API d'internet avec le framework.
 (La version 4.2.0 améliore l'interface avec l'intégration de web service)
 
-Le chapître sur les widgets décrit le tableau de bord paramétrable et individualisé
+Le chapitre sur les widgets décrit le tableau de bord paramétrable et individualisé
 par l'utilisateur  permettant l'accès à tout type de fonctions internes ou externes.
 
 Enfin ce document rassemble toutes les règles de codage du projet

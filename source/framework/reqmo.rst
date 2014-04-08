@@ -49,7 +49,7 @@ La requete executée est celle qui est reconstituée avec les zones sasisies par
 Enfin, l'utilisateur choisit soit un affichage soit en tableau, soit en csv avec un choix de séparateur.
 
 Il n y a pas d'outil de fabrication de requête à part l'option du générateur
-(voir chapître sur le *générateur*)
+(voir chapitre sur le *générateur*)
 
 
 =======

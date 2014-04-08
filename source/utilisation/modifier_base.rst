@@ -189,5 +189,5 @@ Vous pouvez aussi regarder **deux scripts de traitement** :
 
 - trt/archivage.php qui tranfere en archive les courriers avant une date
 
-Vous avez plus de détail sur les traitements dans le chapître
+Vous avez plus de détail sur les traitements dans le chapitre
 *framework/util* notament sur la mise à jour du registre.

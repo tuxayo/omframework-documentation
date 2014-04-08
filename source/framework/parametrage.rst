@@ -172,7 +172,7 @@ Ce fichier est appellé par le script scr/dashboard.php.
 Pour avoir son propre tableau de bord, il suffit de decommenter la ligne 
 // die(); et on accède plus au widget
 
-Voir chapître : widget et tableau de bord paramétrable
+Voir chapitre : widget et tableau de bord paramétrable
 
 
 ==================================
@@ -225,7 +225,7 @@ Ce fichier contient :
 Les zones à traduire sont sous le format : _("zone a traduire")
 
 
-Voir le chapître sur les outils : *poEdit*
+Voir le chapitre sur les outils : *poEdit*
 
 
 
@@ -409,7 +409,7 @@ de formulaire comboD et comboG (pour formulaire) ou comboD2 et comboG2 (pour sou
         meme chose que comboparametre.inc si il n'y a qu un enregistrement en lien
         (pas d'affichage de la fenetre)
 
-Voir *chapître framework/formulaire, sous programme générique combo.php*
+Voir *chapitre framework/formulaire, sous programme générique combo.php*
 
 =======================
 Les paramétres éditions
@@ -421,7 +421,7 @@ Les variables dans les éditions sont paramétrées dans ::
     - varetatpdf.inc            pour les états et les sous états
     - varlettretypepdf.inc      pour les lettres type
     
-Voir *chapître framework/édition*
+Voir *chapitre framework/édition*
 
 
 
@@ -442,7 +442,7 @@ les paramètres sont les suivants ::
     $type_geometrie[0] = array("","point","line","polygon");
     $type_geometrie[1] = array("choisir le type de géométrie",'point','ligne','polygone');
 
-ces paramétres sont utilisés pour la saisie de carte : voir chapître sig
+ces paramétres sont utilisés pour la saisie de carte : voir chapitre sig
 
 Les post traitements de form_sig permettent de faire des traitement apres saisie de géométries avec om_sig
 

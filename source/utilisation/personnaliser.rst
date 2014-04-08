@@ -223,5 +223,5 @@ Voila quelques exemples des possibilités de modification dans les fichiers sql
 
 En aucun cas, il ne faut modifier les fichiers dans gen/ qui est l'espace de travail du générateur.
 
-**Nous allons dans le prochain chapître modifier la base et  regénérer les écrans sans mettre en danger
+**Nous allons dans le prochain chapitre modifier la base et  regénérer les écrans sans mettre en danger
 votre personnalisation.**

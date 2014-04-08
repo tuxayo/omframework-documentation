@@ -6,7 +6,7 @@ Créer ses états
 
 Il vous est proposé de créer un état des courriers par service
 
-Il sera utilisé dans ce chapître l'assistant état et sous état du générateur
+Il sera utilisé dans ce chapitre l'assistant état et sous état du générateur
 
 
 
@@ -144,6 +144,6 @@ de fpdf dans openElec : carte électorale, liste électorale ...
 
 
 
-Vous pouvez compléter votre information avec le chapître *framework/edition*
+Vous pouvez compléter votre information avec le chapitre *framework/edition*
 et regarder les possibilités de paramétrage du générateur *generateur/parametrage*
 pour la réalisation d'état customisé.
