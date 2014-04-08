@@ -168,5 +168,5 @@ Vous pouvez regarder également l'application openCourrier mais attention à la 
         - trt/num_registre.php qui remet à 0 le numéro de registre
         - trt/archivage.php qui tranfere en archive les courriers avant une date
 
-Vous avez également des détails sur les traitements dans le chapître *framework/util*
+Vous avez également des détails sur les traitements dans le chapitre *framework/util*
 notament sur la mise à jour du registre.
