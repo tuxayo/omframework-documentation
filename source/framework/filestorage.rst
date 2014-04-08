@@ -8,9 +8,9 @@ Abstraction du 'filestorage' (stockage des fichiers)
 
    Cette rubrique est en cours de rédaction.
 
-****************
+================
 Principe général
-****************
+================
 
 L'objectif de cette rubrique est de gérer le stockage des fichiers dans les
 applications. Ce stockage permet d'avoir des stockages complexes.
@@ -40,12 +40,12 @@ Description des fichiers permettant de gérer le filestorage : ::
 
 
 
-**************
+==============
 Fonctionnement
-**************
+==============
 
 Description de l'abstracteur
-****************************
+----------------------------
 
 [core/om_filestorage.class.php]
 
@@ -62,7 +62,7 @@ de modèle.
 
 
 Description du fichier de configuration
-***************************************
+---------------------------------------
 
 [dyn/filestorage.inc.php]
 
@@ -106,7 +106,7 @@ Si aucun filestorage n'est paramétré, le filestorage deprecated sera instanci�
 le filestorage temporaire sera le filesystem.
 
 Description des méthodes de la classe filestorage
-*************************************************
+-------------------------------------------------
 
 La classe 'filestorage' contient des méthodes de gestion des fichiers :
 
@@ -190,7 +190,7 @@ spécifiques.
 
 
 Description du connecteur **depredacted**
-*****************************************
+-----------------------------------------
 
 [core/om_filestorage_deprecated.class.php]
 
@@ -203,7 +203,7 @@ un soucis de garder la compatibilité pour les applications existantes.
 
 
 Description du connecteur **filesystem**
-****************************************
+----------------------------------------
 
 [core/om_filestorage_filesystem.class.php]
 
@@ -262,7 +262,7 @@ Méthode pour générer les uuid : ::
 
 
 Description du connecteur **filetransferprotocol**
-**************************************************
+--------------------------------------------------
 
 [core/om_filestorage_filetransferprotocol.class.php]
 
@@ -273,7 +273,7 @@ le système est capable de faire).
 
 
 Description du connecteur **alfresco**
-**************************************
+--------------------------------------
  
 [core/om_filestorage_alfresco.class.php]
 
@@ -283,9 +283,9 @@ que le système est capable de faire).
 
 
 
-***********
+===========
 Utilisation
-***********
+===========
 
 
 Les méthodes de la classe d'abstraction sont désormais utilisées dans la classe
@@ -307,10 +307,10 @@ Hors formulaire la méthode create peut être utlisée de 3 façons :
  - en lui passant l'UUID d'un fichier temporaire avec le mode défini à "from_temporary"
 
 Configuration du widget Upload
-******************************
+------------------------------
 
 Contraintes
------------
+...........
 
 Les contraintes sont à rajouter dans la classe métier de l'objet concerné, dans la méthode setSelect. 
 
@@ -330,7 +330,7 @@ Exemple de configuration de l'ajout de contraintes de contrôles de la taille ma
 La taille maximale est en mo et la liste des extensions est une chaîne de caractères. 
 
 Métadonnées
------------
+...........
 
 Il y a des métadonnées globales et spécifiques.
 
@@ -369,20 +369,22 @@ sont les noms des méthodes qui retournent les métadonnées.
 
 
 Récupération du fichier
-***********************
+-----------------------
 
-//
-    $file = $f->storage->get($fic);
+.. code-block :: php
+
+   //
+   $file = $f->storage->get($fic);
 
 
 
 
 
 Scripts permettant de visualiser / d'accéder au fichier
-*******************************************************
+-------------------------------------------------------
 
 spg/file.php
-------------
+............
 
 Le script permet de télécharger le fichier.
 
@@ -404,7 +406,7 @@ Le code pour composer le lien vers ce script est le suivant :
 
 
 spg/voir.php
-------------
+............
 
 Le script permet de visualiser le fichier.
 

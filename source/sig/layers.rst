@@ -49,7 +49,7 @@ Dans tab_sig.php, il y a 3 types de layers :
 - les données wms (overlay)
 
 
-
+=========
 Les fonds
 =========
 
@@ -61,7 +61,7 @@ sat : satelite google
 
 bing : satellite microsoft 
 
-
+=========
 Les datas
 =========
 
@@ -83,7 +83,7 @@ point (même géom) sur un  seul popup
 En effet, il est constitué un popup lorsque l on clique sur l objet
 et donne la possibilité à un accès URL parametrée dans om_sig_map
 
-
+============
 Les flux wms
 ============
 
@@ -161,7 +161,7 @@ single_tile : raméne le flux wms en une seule image pour la fenêtre et non en 
 
 Attention les temps de réponses peuvent s'allonger car il n'y a pas de cache.
 
-
+====================
 La notion de pannier
 ====================
 
@@ -214,7 +214,7 @@ le script de gestion de pannier est : scr/sig_pannier.php
 
 
 
-
+==========================================
 La géométrie à modifier : couche vectors :
 ==========================================
 
@@ -238,10 +238,10 @@ Dans dyn/form_sig_update.inc.php, il est possible de paramétrer des post traite
 
 Dans dyn/form_sig_delete.inc.php, il est possible de paramétrer des post traitements de suppression
 
-
+==============================
 Les géométries complémentaires
 ==============================
-cd so   
+
 Il peut y avoir plusieurs géométries pour un même objet.
 
 Elles sont saisies dans om_sig_map_comp ::

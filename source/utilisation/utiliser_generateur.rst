@@ -166,9 +166,9 @@ dans le fichier config.inc.php (option utilisée que pour le développement) dé
 
 Vous pouvez maintenant accéder à vos formulaires par le menu.
 
-####
+====
 Menu
-####
+====
 
 **Application -> Courrier**
 

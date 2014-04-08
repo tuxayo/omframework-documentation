@@ -61,9 +61,8 @@ Quatre zones de navigation différentes sont disponibles dans le framework :
     :width: 800px
 
 
-*******
 Le menu
-*******
+-------
 
 Le but de cette zone de navigation est de rassembler les liens vers toutes les
 fonctions du logiciel regroupées par rubrique et catégorie. Elle se situe à
@@ -138,9 +137,9 @@ Exemple : ``'\|om_collectivite'`` sélectionnera l'entrée pour toutes les url
           ``'unecran.php|'`` sélectionnera l'entrée dès lors que le script
           ``unecran.php`` est appelé quelque soit la classe ``obj``
 
-************************
+
 Les actions personnelles
-************************
+------------------------
 
 Le but de cette zone de navigation est de regrouper des liens vers des fonctions
 qui concernent les informations de connexion de l'utilisateur. Elle se situe
@@ -208,9 +207,8 @@ Description de chaque paramètre du tableau associatif :
 +-------------+------------+---------------------------------------------------+
 
 
-**************
 Les raccourcis
-**************
+--------------
 
 Le but de cette zone de navigation est de regrouper des liens vers des fonctions
 précises utilisées très souvent. Elle se situe en haut à droite de l'écran
@@ -265,9 +263,8 @@ associatif représente un lien.
 +-------------+------------+---------------------------------------------------+
 
 
-********************
 Les actions globales
-********************
+--------------------
 
 Le but de cette zone de navigation est de représenter la section "À propos" du
 logiciel. Elle se situe en bas de l'écran juste au dessous du contenu de la

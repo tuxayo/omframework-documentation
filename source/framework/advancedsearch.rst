@@ -1,7 +1,8 @@
-====================
+####################
 La recherche avancée
-====================
+####################
 
+=================================
 Les différents types de recherche
 =================================
 
@@ -80,6 +81,7 @@ Description du formulaire:
 - il dispose d'un bouton ``+`` permettant de basculer sur le formulaire
   mono-critère.
 
+=====================================
 Configuration de la recherche avancée
 =====================================
 
@@ -187,6 +189,7 @@ Enfin avec:
 
 Seules les valeurs égales **exactement** à « admin » seront retournées.
 
+=======================================
 Configuration des critères de recherche
 =======================================
 

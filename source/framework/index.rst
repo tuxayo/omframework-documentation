@@ -65,7 +65,7 @@ Ce chapitre propose de vous d√©crire les outils de base du framework de la mani√
    edition.rst
    reqmo.rst
    acces.rst
-   tdb.rst
+   dashboard.rst
    ergonomie.rst
    utilitaire.rst
    import.rst

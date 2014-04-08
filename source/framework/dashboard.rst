@@ -1,4 +1,4 @@
-.. _tdb:
+.. _dashboard:
 
 ##########################
 Tableau de bord et widgets

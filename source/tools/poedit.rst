@@ -20,6 +20,8 @@ Les étapes sont les suivantes :
 
 5 - traduire les chaînes dans POEdit et sauvegarder
 
+
+=================================================
 Spécification dans le code des chaînes à traduire
 =================================================
 
@@ -33,6 +35,8 @@ les fichiers.php en respectant la syntaxe suivante ::
 Toutes les chaînes de caractères correspondant aux noms de tables et de champs
 sont générées par le générateur et sont ainsi directement disponibles.
 
+
+===================================
 Préparation des dossiers de locales
 ===================================
 
@@ -55,6 +59,8 @@ au moyen de POEdit ou directement depuis un éditeur de texte simple.
 Le fichier .mo contient les traductions sous une forme compilée. Il est généré
 par POEdit automatiquement lors de chaque sauvegarde des traductions.
 
+
+=======================================
 Installation et configuration de POEdit
 =======================================
 
@@ -81,6 +87,7 @@ le fichier de pays correspondant (exemple : ``/var/lib/locales/supported.d/fr``)
 puis lancer la commande, en root, ``dpkg-reconfigure locales``. Cela ne sera
 nécessaire que pour ajouter la prise en charge d'une nouvelle langue.
 
+=====================================
 Configuration d'un projet dans POEdit
 =====================================
 
@@ -107,7 +114,9 @@ Configuration d'un projet dans POEdit
   Le rapport affiche les chaînes désuètes (celles qui ne figurent plus dans le
   code) et les nouvelles chaînes. Les chaînes désuètes sont alors commentées
   dans le fichier .po et n'apparaissent plus dans l'interface de traduction.
-  
+
+
+======================
 Traduction des chaînes
 ======================
 
