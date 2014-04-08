@@ -130,7 +130,7 @@ Outils
 Contributeurs
 =============
 
-(par ordre alphabétique) 
+(par ordre alphabétique)
 
 * `atReal <contact@atreal.fr>`_
 * Thierry Benita
