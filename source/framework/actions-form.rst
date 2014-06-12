@@ -172,6 +172,23 @@ droits de la liste ``list``:
 Actions du menu contextuel de la consultation
 =============================================
 
+Dans dyn/config.inc.php :
+
+.. code-block:: php
+
+   <?php
+   /**
+    * Parametre de gestion des nouvelles actions
+    * Permet de definir si la gestion des actions se fait dans la classe ou non.
+    * Si on decide d'utiliser les nouvelles actions alors il n'y à pas de
+    * retro-compatibilité, les actions supplémentaires de portlet initialement
+    * déclarées dans sql/pgsql/*.form.inc.php ne fonctionneront plus et devront
+    * être initialisées dans les attributs de la classe ciblée.
+    * Default : $config['activate_class_action'] = true;
+    */
+    $config['activate_class_action'] = true;
+    ?>
+
 Définition des actions dans les attributs de la classe de l'objet
 -----------------------------------------------------------------
 
@@ -212,6 +229,15 @@ consulter et supprimer définies dans core/om_db_form.class.php.
 
 Définition des actions dans \*.form.inc.php (obsolète)
 ------------------------------------------------------
+
+Dans dyn/config.inc.php :
+
+.. code-block:: php
+
+    <?php
+    $config['activate_class_action'] = false;
+    ?>
+
 
 La configuration des actions du menu contextuel des formulaires en consultation
 se fait via les scripts ``sql/sgbd/objet.form.inc.php``
