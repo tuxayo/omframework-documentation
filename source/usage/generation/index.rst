@@ -1,8 +1,8 @@
-.. _generateur:
+.. _generation:
 
-=============
-Le générateur
-=============
+##########
+Génération
+##########
 
 .. toctree::
    :numbered:

@@ -1,4 +1,4 @@
-.. _utilisation:
+.. _tutorial:
 
 ################################
 Tutoriel - Créer une application

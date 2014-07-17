@@ -6,7 +6,7 @@ L'interface
 
 Le menu generateur est le suivant :
 
-.. image:: ../_static/ecran_1.png
+.. image:: ../../_static/ecran_1.png
 
 En appuyant sur la touche generation on accède à l'écran de génération qui se
 décompose en :
@@ -18,7 +18,7 @@ décompose en :
 - les options de génération
 
 
-.. image:: ../_static/ecran_2.png
+.. image:: ../../_static/ecran_2.png
 
 Analyse de la base
 ==================

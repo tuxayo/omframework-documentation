@@ -1,8 +1,8 @@
-.. _framework:
+.. _reference:
 
-############
-Le framework
-############
+###################
+Manuel de référence
+###################
 
 openMairie_exemple est le framework de base dans lequel vous pouvez
 développer votre propre application.
@@ -71,3 +71,4 @@ Ce chapitre propose de vous décrire les outils de base du framework de la mani�
    import.rst
    layout.rst
    filestorage.rst
+   sig.rst

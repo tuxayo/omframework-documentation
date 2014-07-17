@@ -70,34 +70,25 @@ Tutoriel - Créer une application
 .. toctree::
    :maxdepth: 5
 
-   utilisation/index.rst
+   tutorial/index.rst
 
 
-Le framework
-============
-
-.. toctree::
-   :maxdepth: 5
-
-   framework/index.rst
-
-
-Le générateur
-=============
+Manuel d'usage
+==============
 
 .. toctree::
    :maxdepth: 5
 
-   generateur/index.rst
+   usage/index.rst
 
 
-L'information géographique
-==========================
+Manuel de référence
+===================
 
 .. toctree::
    :maxdepth: 5
 
-   sig/index.rst
+   reference/index.rst
 
 
 Historique & Mises à niveau
@@ -135,6 +126,7 @@ Contributeurs
 * `atReal <contact@atreal.fr>`_
 * Thierry Benita
 * Romain Beylerian
+* Matthias Broquet
 * Nicolas Haye
 * Nicolas Meucci
 * Florent Michon
