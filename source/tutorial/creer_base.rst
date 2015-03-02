@@ -6,7 +6,7 @@ Créer la base de données
 ########################
 
 Vous devez au préalable récupérer le framework.
-Dans le repertoire www de votre serveur apache : ::
+Dans le répertoire www de votre serveur apache : ::
 
     svn checkout svn://scm.adullact.net/scmrepos/svn/openmairie/openmairie_exemple/trunk openExemple
 
