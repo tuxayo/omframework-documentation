@@ -148,11 +148,16 @@ d'openmairie_exemple ::
     svn export --ignore-externals svn://scm.adullact.net/svnroot/openmairie/
         openmairie_exemple/tags/<DERNIERE_VERSION_OPENMAIRIE_EXEMPLE>/ openexemple
 
-On cré l'arborescence standard sur le dépôt ::
+On cré l'arborescence standard sur le dépôt (si elle n'existe pas déjà) ::
 
     svn mkdir svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/scmrepos/svn/<NOUVEAU_PROJET>/trunk
     svn mkdir svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/scmrepos/svn/<NOUVEAU_PROJET>/tags
     svn mkdir svn+ssh://<NOM_DU_DEVELOPPEUR>@scm.adullact.net/scmrepos/svn/<NOUVEAU_PROJET>/branches
+
+On se positionne dans le dossier précédemment importé pour supprimer les répertoires à recupérer en EXTERNALS depuis le framework ::
+
+    cd openexemple 
+    rm -rf core/ css/ img/ js/ lib/ pdf/ php/ scr/ spg/ tests/resources/core/
 
 On se positionne dans le dossier précédemment importé pour importer sur le
 dépôt son contenu ::
@@ -170,7 +175,7 @@ locale du projet ::
 On se positionne dans le dossier php de l'application pour appliquer
 les externals ::
     
-    cd <NOUVEAU_PROJET>/php
+    cd <NOUVEAU_PROJET>
     svn propset svn:externals -F ./EXTERNALS.txt .
     svn up
     svn ci
