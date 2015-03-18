@@ -40,7 +40,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'openMairie Framework 4.5'
-copyright = u'2004-2014, openMairie'
+copyright = u'2004-2015, openMairie'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
