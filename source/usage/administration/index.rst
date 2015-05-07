@@ -138,7 +138,8 @@ Trois configurations différentes de l'éditeur de texte riche sont utilisées :
 +----------------------------+--------+--------+--------+
 | Correction orthographique  | x      | x      | x      |
 +----------------------------+--------+--------+--------+
-
+| Voir le code source        | x      | x      | x      |
++----------------------------+--------+--------+--------+
 
 
 --------------------
@@ -283,7 +284,7 @@ Permet d'insérer une ligne avant ou après la ligne sur laquelle le curseur est
 positionné.
 
 
-* **Éffacer une ligne** :
+* **Effacer une ligne** :
 
 Supprimer la ligne sur laquelle le curseur est positionné.
 
@@ -308,7 +309,7 @@ Insère une colonne avant ou après la colonne sur laquelle le curseur est
 positionné.
 
 
-* **Éffacer une colonne** :
+* **Effacer une colonne** :
 
 Supprime la colonne sur laquelle le curseur est positionné.
 
