@@ -4,8 +4,7 @@
 Manuel de référence
 ###################
 
-openMairie_exemple est le framework de base dans lequel vous pouvez
-développer votre propre application.
+openMairie_exemple est le framework de base dans lequel vous pouvez développer votre propre application.
 
 openMairie_exemple est `téléchargeable sur le site de l'adullact`_.
 
@@ -18,12 +17,9 @@ chaque logiciel qui utilise le framework".
 
 http://fr.wikipedia.org/wiki/Framework
 
-Dans un environnement LAMP/WAMP, le framework openMairie intègre des composants au travers
-de classes qui permettent de créer des formulaires et des états.
-Ces classes sont surchargées par les objets métier à créer.
+Dans un environnement LAMP/WAMP, le framework openMairie intègre des composants au travers de classes qui permettent de créer des formulaires et des états. Ces classes sont surchargées par les objets métier à créer.
 
-openMairie intègre de nombreux composants : DBPEAR et FPDF dans toutes les applications,
-mais aussi ARTISHOW (pour les graphes), JQUERY pour l'ergonomie, OPENLAYERS pour l interface SIG ...
+openMairie intègre de nombreux composants : DBPEAR et FPDF dans toutes les applications, JQUERY pour l'ergonomie, OPENLAYERS pour l'interface SIG ...
 
 DBPEAR est un abstracteur de base de données qui permet d'utiliser diverses bases de données notamment MYSQL ou POSTGRESQL.
 
@@ -36,8 +32,6 @@ formulaire (longueur, max, nom).
 
 - om_dbformdyn.class.php ; assure la liaison entre le formulaire et la base de données
 - om_formulaire.class.php : rassemble toutes les méthodes permettant de construire des formulaires
-
-
 
 
 Ce chapitre propose de vous décrire les outils de base du framework de la manière suivante :
