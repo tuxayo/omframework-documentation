@@ -69,7 +69,7 @@ Un script permet de dérouler cette routine de manière automatisée :
 
 .. code-block:: sh
 
-  ./init_testenv
+  ./om-tests -c initenv
 
 
 Ce script permet de :
@@ -90,7 +90,7 @@ Lancer tous les tests avec initialisation de l'environnement de tests
 
 .. code-block:: sh
 
-  ./run_all_testsuite
+  ./om-tests -c runall
 
 
 Un seul TestSuite
@@ -100,13 +100,13 @@ Lancer un TestSuite avec initialisation de l'environnement de tests
 
 .. code-block:: sh
 
-  ./run_testsuite 000_testsuite_a_executer.robot
+  ./om-tests -c runone -t 000_testsuite_a_executer.robot
 
 Lancer un TestSuite sans initialisation de l'environnement de tests
 
 .. code-block:: sh
 
-  ./run_testsuite 000_testsuite_a_executer.robot noinit
+  ./om-tests -c runone -t 000_testsuite_a_executer.robot --noinit
 
 
 =================================
