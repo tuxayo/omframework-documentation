@@ -37,24 +37,28 @@ Chaque utilisateur paramètre son tableau de bord.
 
 
 -------------------------------
-le tableau de bord paramètrable
+le tableau de bord paramétrable
 -------------------------------
 
-Chaque utilisateur choisit ses widgets parmi ceux proposés dans l'application par
-l'administrateur. Il peut placer ses widgets où il veut dans son tableau de bord.
-Le paramétrage est conservé dans la table om_tdb
+L'administrateur choisit les widgets présents sur le tableau de bord de chaque profil parmi ceux proposés dans l'application. Il peut placer les widgets où il le souhaite.
+
+
+--------------
+Les composants
+--------------
+
+Les scripts du framework qui s'occupent de la gestion du tableau de bord et des widgets sont :
+
+- ``scr/dashboard.php``
+- ``scr/dashboard_composer.php``
+- ``spg/widgetctl.php``
+
 
 ======
 widget
 ======
 
-
-Le widget est un petit script qui s'exécute dans le tableau de bord
-dans une fenêtre normalisée.
-
-Le script peut faire appel à l'application en cours ou a une application externe.
-Nous avons mis quelques exemples dans les deux derniers paragraphes. 
-Il est proposé d'abord de vous aider à créer les widgets.
+Le widget (WIDGET DASHBOARD) est un bloc d'informations contextualisées accessible depuis le tableau de bord de l'utilisateur. Il peut être de type 'Web' ou de type 'Script'.
 
 
 ---------------------
@@ -87,9 +91,12 @@ l'application ::
     l'horoscope, la météo, une vidéo, des photos ...
 
 
---------------------
-Les widgets internes
---------------------
+-----------------------
+Le widget de type 'Web'
+-----------------------
+
+interne
+=======
 
 les liens sur les cartes (à mettre danbs le champ lien)::
 
@@ -125,11 +132,8 @@ Attention si vous affichez plusieurs widgets "openmairie", mettre un id differen
 pour chaque div (ici aff3)
 
 
-
-
---------------------
-Les widgets externes
---------------------
+externe
+=======
 
 Les autres applications openMairie peuvent aussi être accessibles par widget de la même
 manière que le paragraphe ci dessus.
@@ -209,13 +213,47 @@ Affichage de photos avec flick 'r (appel javascript)::
     </tr></table>
 
 
+--------------------------
+Le widget de type 'Script'
+--------------------------
 
+``app/widget_example.php``
+
+.. code-block:: php
+
+   <?php
+   /**
+    * WIDGET DASHBOARD - widget_example.
+    *
+    * L'objet de ce script est de fournir un exemple de widget de type 'Script'.
+    *
+    * @package openmairie_framework
+    * @version SVN : $Id$
+    */
+   
+   // On instancie la classe utils uniquement si la variable $f n'est pas déjà définie
+   // pour protéger l'accès direct au script depuis l'URL. La permission "forbidden"
+   // a pour vocation de n'être donnée à aucun utilisateur.
+   require_once "../obj/utils.class.php";
+   if (!isset($f)) {
+       $f = new utils(null, "forbidden");
+   }
+   
+   //
+   $footer = "";
+   
+   //
+   $footer_title = "";
+   
+   //
+   $widget_is_empty = true;
+   
+   ?>
 
 ===============================
 le tableau de bord paramétrable
 ===============================
 
-ce paragraphe propose de décrire l'utilisation du tableau de bord paramétrable par utilisateur
 
 ------------------------
 accès au tableau de bord
