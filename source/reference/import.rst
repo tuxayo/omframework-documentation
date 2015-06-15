@@ -1,8 +1,8 @@
 .. _import:
 
-###########################
-Importer des données en csv
-###########################
+###############
+Module 'Import'
+###############
 
 Il est possible d'importer des données suivant des scripts pré-paramétrés mais
 qui sont modifiables. Pour lancer le menu import, prenez l'option :
