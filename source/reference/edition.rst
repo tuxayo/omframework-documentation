@@ -204,25 +204,21 @@ Il n'est pas prévu d'intégration dans la prochaine version.
 Composants
 ==========
 
-Les scripts ci dessous sont les classes qui interfacent openmairie avec fpdf et tcpdf ::
+Les scripts du framework qui s'occupent de la gestion des éditions sont :
 
 - ``core/fpdf_etat.php``
 - ``core/fpdf_etiquette.php``
 - ``core/db_fpdf.php``
 - ``core/om_edition.class.php``
 - ``scr/edition.php``
-- ``core/om_edition.class.php``
-``core/om_edition.class.php``
-``core/om_edition.class.php``
-
-    core/fpdf_etat.php
-    core/fpdf_etiquette.php
-    core/db_fpdf.php
-    core/om_edition.class.php
+- ``pdf/pdf.php``
+- ``pdf/pdfetat.php``
+- ``pdf/pdflettretype.php``
+- ``pdf/pdfetiquette.php``
 
 
-Les librairies PHP sont ::
+Les librairies PHP sont :
 
-    php/fpdf
-    php/tcpdf
+- ``php/fpdf/``
+- ``php/tcpdf/``
 
