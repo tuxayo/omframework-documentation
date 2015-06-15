@@ -5,6 +5,11 @@ Module 'Tableau de bord'
 ########################
 
 
+.. warning::
+
+   Cette rubrique est en cours de rédaction.
+
+
 ========
 principe
 ========
@@ -43,15 +48,7 @@ le tableau de bord paramétrable
 L'administrateur choisit les widgets présents sur le tableau de bord de chaque profil parmi ceux proposés dans l'application. Il peut placer les widgets où il le souhaite.
 
 
---------------
-Les composants
---------------
 
-Les scripts du framework qui s'occupent de la gestion du tableau de bord et des widgets sont :
-
-- ``scr/dashboard.php``
-- ``scr/dashboard_composer.php``
-- ``spg/widgetctl.php``
 
 
 ======
@@ -250,10 +247,37 @@ Le widget de type 'Script'
    
    ?>
 
-===============================
-le tableau de bord paramétrable
-===============================
 
+-----------------
+Modèle de données
+-----------------
+
+.. code-block:: sql
+
+    CREATE TABLE om_widget
+    (
+      om_widget integer NOT NULL, -- Identifiant unique
+      libelle character varying(100) NOT NULL, -- Libellé du widget
+      lien character varying(80) NOT NULL DEFAULT ''::character varying, -- Lien qui pointe vers le widget (peut être vers une URL ou un fichier)
+      texte text NOT NULL DEFAULT ''::text, -- Texte affiché dans le widget
+      type character varying(40) NOT NULL, -- Type du widget ('web' si pointe vers une URL ou 'file' si pointe vers un fichier)
+      CONSTRAINT om_widget_pkey PRIMARY KEY (om_widget)
+    );
+
+- ``obj/om_widget.class.php``
+- ``sql/pgsql/om_widget.form.inc.php``
+- ``sql/pgsql/om_widget.inc.php``
+- ``core/obj/om_widget.class.php``
+- ``core/sql/pgsql/om_widget.form.inc.php``
+- ``core/sql/pgsql/om_widget.inc.php``
+- ``gen/obj/om_widget.class.php``
+- ``gen/sql/pgsql/om_widget.form.inc.php``
+- ``gen/sql/pgsql/om_widget.inc.php``
+
+
+====================
+Les tableaux de bord
+====================
 
 ------------------------
 accès au tableau de bord
@@ -278,18 +302,44 @@ bord
 
 .. image:: ../_static/tdb_2.png
 
----------------
-la table om_tdb
----------------
+-----------------
+Modèle de données
+-----------------
+
+.. code-block:: sql
+
+    CREATE TABLE om_dashboard
+    (
+      om_dashboard integer NOT NULL, -- Identifiant unique
+      om_profil integer NOT NULL, -- Profil auquel on affecte le tableau de ville
+      bloc character varying(10) NOT NULL, -- Bloc de positionnement du widget
+      "position" integer, -- Position du widget dans le bloc
+      om_widget integer NOT NULL, -- Identifiant du widget
+      CONSTRAINT om_dashboard_pkey PRIMARY KEY (om_dashboard),
+      CONSTRAINT om_dashboard_om_profil_fkey FOREIGN KEY (om_profil)
+          REFERENCES openexemple.om_profil (om_profil),
+      CONSTRAINT om_dashboard_om_widget_fkey FOREIGN KEY (om_widget)
+          REFERENCES openexemple.om_widget (om_widget)
+    );
+
+- ``obj/om_dashboard.class.php``
+- ``sql/pgsql/om_dashboard.form.inc.php``
+- ``sql/pgsql/om_dashboard.inc.php``
+- ``core/obj/om_dashboard.class.php``
+- ``core/sql/pgsql/om_dashboard.form.inc.php``
+- ``core/sql/pgsql/om_dashboard.inc.php``
+- ``gen/obj/om_dashboard.class.php``
+- ``gen/sql/pgsql/om_dashboard.form.inc.php``
+- ``gen/sql/pgsql/om_dashboard.inc.php``
 
 
-La table om_tbd comprend les champs suivants ::
+==========
+Composants
+==========
 
-    om_tdb int(8) NOT NULL,  : numero d ordre
-    login varchar(40) NOT NULL, : login de l'utilisateur
-    bloc varchar(10) NOT NULL, : bloc ou colone (c1 ou c2 ou c3)
-    position int(8),   : position dans la colone
-    om_widget int(8) NOT NULL, : numero de widget dans om_widget
-    
+Les scripts du framework qui s'occupent de la gestion du tableau de bord sont :
 
-Attention, en cas de changement de login, un utilisateur perd ses paramètres
+- ``scr/dashboard.php``
+- ``scr/dashboard_composer.php``
+- ``spg/widgetctl.php``
+
