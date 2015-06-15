@@ -4,7 +4,64 @@
 Module 'Édition'
 ################
 
-openMairie permet d'effectuer des éditions au format PDF. Ces éditions
+
+.. warning::
+
+   Cette rubrique est en cours de rédaction.
+
+
+Le framework openMairie permet d'effectuer des éditions au format PDF. Ce module est composé de trois éléments fonctionnels :
+
+* les listings,
+* les étiquettes,
+* les états et lettres types.
+
+
+============
+Les listings
+============
+
+Description de la fonctionnalité
+--------------------------------
+
+
+
+
+Le fichier de paramétrage ``../sql/pgsql/<OBJ>.pdf.inc.php``
+------------------------------------------------------------
+
+Un état PDF peut être généré par le générateur (option).
+
+Les paramètres sont les suivants ::
+
+    texte et caractéristique du Titre
+    Entête de tableau (nom de colonne)
+    caractéristique du tableau
+    caractéristique des cellules
+    total, moyenne, nombre
+    requête SQL
+
+
+
+==============
+Les étiquettes
+==============
+
+Description de la fonctionnalité
+--------------------------------
+
+
+
+Le fichier de paramétrage ``../sql/pgsql/<OBJ>.pdfetiquette.inc.php``
+---------------------------------------------------------------------
+
+
+
+==========================
+Les états et lettres types
+==========================
+
+Les différents types d'éditions sont les suivants 
 sont paramétrées depuis l'interface du logiciel. Pour chaque édition PDF des
 champs de fusion permettent de récupérer dynamiquement les données à imprimer.
 
@@ -20,12 +77,10 @@ Depuis la version 4 d'openMairie, les éditions sont conservées dans 3 tables :
     - om_sousetat : pour les sous-états
     - om_lettretype : pour les lettres types
 
-Contrairement aux états et aux lettres-types, les tableaux de bord PDF sont
-stockés dans un fichier : nom_objet.pdf.inc .
 
-================
+
 Actif, non actif
-================
+----------------
 
 Les sous-etats sont liés a un ou plusieurs état.
 
@@ -44,9 +99,8 @@ Les éditions d'une collectivité ayant le statut "non-actif" ne sont pas prises
 en compte.
 
 
-====================
 Paramétrer des états
-====================
+--------------------
 
 Il est conseillé d'utiliser l'assistant état du générateur.
 
@@ -81,32 +135,10 @@ deviendra
 Les variables commençant par "&" sont celles définies dans dyn/varpdf.inc
 (exemple &aujourdhui) et dans la table om_parametre.
 
-=========================
-Paramétrer des sous-états
-=========================
-
-Il est conseillé d'utiliser l'assistant sous-etat du générateur.
-
-Les paramètres  sont les suivants ::
-
-    texte et caractéristique du Titre
-    Intervalle avant et après le tableau
-    Entête de tableau (nom de colonne)
-    caractéristique du tableau
-    caractéristique des cellules
-    total, moyenne, nombre
-    requête SQL
 
 
-Pour le titre, les zones entre crochets sont les champs de fusion,
-sélectionnés par la requête.
-
-Les variables commençant par "&" sont celles définies dans dyn/varpdf.inc
-(exemple &aujourdhui) et dans la table om_parametre.
-
-===========================
 Paramétrer des lettres-type
-===========================
+---------------------------
 
 Il est conseillé d'utiliser l'assistant lettre-type du générateur.
 
@@ -128,77 +160,97 @@ sélectionnés par la requête.
 Les variables commençant par "&" sont celles définies dans
 dyn/varlettretypepdf.inc (exemple &aujourdhui) et dans la table om_parametre.
 
-==========================
-Paramétrer des édition PDF
-==========================
 
-Un état PDF peut être généré par le générateur (option).
+Les sous-états
+--------------
 
-L’édition est paramétrée dans un fichier sql/sgbd/nom_objet.pdf.inc et dans la
+Il est conseillé d'utiliser l'assistant sous-etat du générateur.
 
-Les paramètres sont les suivants ::
+Les paramètres  sont les suivants ::
 
     texte et caractéristique du Titre
+    Intervalle avant et après le tableau
     Entête de tableau (nom de colonne)
     caractéristique du tableau
     caractéristique des cellules
     total, moyenne, nombre
     requête SQL
 
-Pour le titre, les zones entre crochets sont les champs de fusion, sélectionnés
-par la requête.
+
+Pour le titre, les zones entre crochets sont les champs de fusion,
+sélectionnés par la requête.
 
 Les variables commençant par "&" sont celles définies dans dyn/varpdf.inc
 (exemple &aujourdhui) et dans la table om_parametre.
 
-=========================
-Paramétrer les étiquettes
-=========================
 
-Les zones entre crochets  sont les champs de fusion sélectionnés par la requête.
-Les variables (exemple &aujourdhui) sont celles définies dans
-dyn/varetiquettepdf.inc et dans la table om_parametre.
+Les champs de fusion
+--------------------
 
-Il y aura une integration depuis l'utilisation d'openPersonnalite dans une
-prochaine version openMairie.
 
-=================
+
+
+Les variables de remplacement
+-----------------------------
+
+Lorsque dans les zones de remplacement des éditions, une chaîne de caractère commençant par "&" est identifiée elle essaye d'être remplacée. Ces éléments sont nommées variables de remplacement. Elles peuvent provenir de trois sources différentes : 
+
+- les fichiers de configuration ``../dyn/var*pdf.inc``,
+- les méthodes globales de la classe du fichier ``../obj/om_dbform.class.php``,
+- la table de paramètres ``om_parametre``.
+
+
+Les fichiers de configuration ``../dyn/var*pdf.inc``
+====================================================
+
+
+Les méthodes globales de la classe du fichier ``../obj/om_dbform.class.php``
+============================================================================
+
+
+La table de paramètres ``om_parametre``
+=======================================
+
+
+
+
+Les requêtes
+------------
+
+
+
+- ``obj/om_requete.class.php``
+- ``core/obj/om_requete.class.php``
+- ``gen/obj/om_requete.class.php``
+- ``sql/pgsql/om_requete.form.inc.php``
+- ``sql/pgsql/om_requete.inc.php``
+- ``core/sql/pgsql/om_requete.form.inc.php``
+- ``core/sql/pgsql/om_requete.inc.php``
+- ``gen/sql/pgsql/om_requete.form.inc.php``
+- ``gen/sql/pgsql/om_requete.inc.php``
+
+
+Les logos
+---------
+
+- ``obj/om_logo.class.php``
+- ``core/obj/om_logo.class.php``
+- ``gen/obj/om_logo.class.php``
+- ``sql/pgsql/om_logo.form.inc.php``
+- ``sql/pgsql/om_logo.inc.php``
+- ``core/sql/pgsql/om_logo.form.inc.php``
+- ``core/sql/pgsql/om_logo.inc.php``
+- ``gen/sql/pgsql/om_logo.form.inc.php``
+- ``gen/sql/pgsql/om_logo.inc.php``
+
+
+
+
 L'éditeur WYSIWYG
-=================
+-----------------
 
-Un éditeur avancé est prevu dans une prochaine version openMairie afin de
-permettre à l'utilisateur de définir des mises en forme complexes.
+Description de l'intégration de TinyMCE et des différents configurations.
 
-===============
-Les scripts PDF
-===============
-
-Les scripts sont dans le répertoire  **pdf/** et sont  appelés par le framework
-sous la forme ::
-
-    pdfetat.php?obj=nom_etat&idx=enregistrement_a_editer
-
-les scripts sont les suivants ::
-
-    pdfetat.php : état et sous-état
-    pdf.php : édition PDF
-    pdfetiquette.php : étiquette
-    pdflettretype.php
-
-pdfEtiquette sera repris dans une prochaine version d'openMairie
-
-**specifique openCourrier pour ecriture sur pdf** ::
-
-    fpdf_tpl.php
-    fpdi.php
-    fpdi2tcpdf_bridge.php
-    fpdi_pdf_parser.php
-    histo.htm
-    pdf_context.php
-    pdf_parser.php
-    testfpdi.php
-
-Il n'est pas prévu d'intégration dans la prochaine version.
 
 ==========
 Composants
@@ -211,10 +263,6 @@ Les scripts du framework qui s'occupent de la gestion des éditions sont :
 - ``core/db_fpdf.php``
 - ``core/om_edition.class.php``
 - ``scr/edition.php``
-- ``pdf/pdf.php``
-- ``pdf/pdfetat.php``
-- ``pdf/pdflettretype.php``
-- ``pdf/pdfetiquette.php``
 
 
 Les librairies PHP sont :
