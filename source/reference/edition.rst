@@ -135,18 +135,42 @@ en compte.
 Les requêtes
 ------------
 
+Description
+===========
+
+Une requête peut être :
+
+- de type SQL
+- de type OBJET
+
+
+Modèle de données
+=================
+
+.. code-block:: sql
+
+   CREATE TABLE om_requete (
+       om_requete integer NOT NULL,
+       code character varying(50) NOT NULL,
+       libelle character varying(100) NOT NULL,
+       description character varying(200),
+       requete text,
+       merge_fields text,
+       type character varying(200) NOT NULL,
+       classe character varying(200),
+       methode character varying(200)
+   );
 
 
 - ``obj/om_requete.class.php``
-- ``core/obj/om_requete.class.php``
-- ``gen/obj/om_requete.class.php``
 - ``sql/pgsql/om_requete.form.inc.php``
 - ``sql/pgsql/om_requete.inc.php``
+- ``core/obj/om_requete.class.php``
 - ``core/sql/pgsql/om_requete.form.inc.php``
 - ``core/sql/pgsql/om_requete.inc.php``
+- ``gen/obj/om_requete.class.php``
 - ``gen/sql/pgsql/om_requete.form.inc.php``
 - ``gen/sql/pgsql/om_requete.inc.php``
-
 
 
 Les sous-états
@@ -210,7 +234,7 @@ Les méthodes globales de la classe du fichier ``../obj/om_dbform.class.php``
 La table de paramètres ``om_parametre``
 =======================================
 
-`prefixe_edition_substitution_vars` doit être définit.
+``prefixe_edition_substitution_vars`` doit être définit.
 
 
 
