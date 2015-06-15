@@ -1,8 +1,8 @@
 .. _reqmo:
 
-#######################
-Les requêtes memorisées
-#######################
+##############
+Module 'Reqmo'
+##############
 
 les requêtes mémorisées permettent au développeur de fournir un ensemble de requêtes :
 
