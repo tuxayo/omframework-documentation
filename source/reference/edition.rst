@@ -149,16 +149,18 @@ Modèle de données
 
 .. code-block:: sql
 
-   CREATE TABLE om_requete (
-       om_requete integer NOT NULL,
-       code character varying(50) NOT NULL,
-       libelle character varying(100) NOT NULL,
-       description character varying(200),
-       requete text,
-       merge_fields text,
-       type character varying(200) NOT NULL,
-       classe character varying(200),
-       methode character varying(200)
+   CREATE TABLE om_requete
+   (
+     om_requete integer NOT NULL, -- Identifiant unique
+     code character varying(50) NOT NULL, -- Code de la requête
+     libelle character varying(100) NOT NULL, -- Libellé de la requête
+     description character varying(200), -- Description de la requête
+     requete text, -- Requête SQL
+     merge_fields text, -- Champs de fusion
+     type character varying(200) NOT NULL, -- Requête SQL ou objet ?
+     classe character varying(200), -- Nom de(s) la classe(s) contenant la méthode
+     methode character varying(200), -- Méthode (de la première classe si plusieurs définies) fournissant les champs de fusion. Si non spécifiée appel à une méthode générique
+     CONSTRAINT om_requete_pkey PRIMARY KEY (om_requete)
    );
 
 
