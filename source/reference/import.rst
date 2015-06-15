@@ -4,6 +4,12 @@
 Module 'Import'
 ###############
 
+
+.. warning::
+
+   Cette rubrique est en cours de rédaction.
+
+
 Il est possible d'importer des données suivant des scripts pré-paramétrés mais
 qui sont modifiables. Pour lancer le menu import, prenez l'option :
 *administration -> import*.
