@@ -4,6 +4,12 @@
 Module 'Reqmo'
 ##############
 
+
+.. warning::
+
+   Cette rubrique est en cours de rédaction.
+
+
 les requêtes mémorisées permettent au développeur de fournir un ensemble de requêtes :
 
 - mémorisées
