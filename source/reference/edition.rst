@@ -1,8 +1,8 @@
 .. _edition:
 
-############
-Les éditions
-############
+################
+Module 'Édition'
+################
 
 openMairie permet d'effectuer des éditions au format PDF. Ces éditions
 sont paramétrées depuis l'interface du logiciel. Pour chaque édition PDF des
@@ -204,14 +204,25 @@ Il n'est pas prévu d'intégration dans la prochaine version.
 Composants
 ==========
 
-*/core* 
+Les scripts ci dessous sont les classes qui interfacent openmairie avec fpdf et tcpdf ::
 
-Les scripts ci dessous sont les classes qui interfacent openmairie avec fpdf ::
+- ``core/fpdf_etat.php``
+- ``core/fpdf_etiquette.php``
+- ``core/db_fpdf.php``
+- ``core/om_edition.class.php``
+- ``scr/edition.php``
+- ``core/om_edition.class.php``
+``core/om_edition.class.php``
+``core/om_edition.class.php``
 
-    fpdf_etat.php
-    fpdf_etiquette.php
-    db_fpdf.php
+    core/fpdf_etat.php
+    core/fpdf_etiquette.php
+    core/db_fpdf.php
+    core/om_edition.class.php
 
-*php/fpdf*
 
-    A ce niveau se situe le composant fpdf
+Les librairies PHP sont ::
+
+    php/fpdf
+    php/tcpdf
+
