@@ -1,8 +1,9 @@
 .. _sig:
 
-##########################
-L'information géographique
-##########################
+########################
+Module 'Géolocalisation'
+########################
+
 
 
 Il est necessaire que l'API openLayers soit dans le framework :
