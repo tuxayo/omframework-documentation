@@ -55,7 +55,6 @@ Ce chapitre propose de vous d√©crire les outils de base du framework de la mani√
    advancedsearch.rst
    formulaire.rst
    actions-form.rst
-   methode.rst
    acces.rst
    dashboard.rst
    edition.rst
