@@ -129,9 +129,17 @@ Méthodes d'initialisation de l'affichage du formulaire
 Ces méthodes instancient un objet "formulaire" et initialisent certains de ses
 attributs via les méthodes suivantes :
 
-  .. method:: dbform.setVal(&$form, $maj, $validation, &$db, $DEBUG = false)
+  .. method:: dbform.setVal(&$form, $maj, $validation)
 
-     Permet de définir les valeurs des champs
+     Permet de définir les valeurs des champs en contexte formulaire
+
+  .. method:: dbform.setValsousformulaire(&$form, $maj, $validation, $idxformulaire, $retourformulaire, $typeformulaire)
+
+     Permet de définir les valeurs des champs en contexte sous-formulaire
+
+  .. method:: dbform.set_form_default_values(&$form, $maj, $validation)
+
+     Permet de définir les valeurs des champs en contextes formulaire et sous-formulaire
 
   .. method:: dbform.setType(&$form, $maj)
 
