@@ -54,11 +54,13 @@ Installation
   sudo pip install robotframework robotframework-selenium2library robotframework-selenium2screenshots requests robotframework-requests
 
 
-.. warning:: La librairie selenium2screenshots doit être modifiée pour fonctionner correctement.
+.. warning::
 
-vim /usr/local/lib/python2.7/dist-packages/Selenium2Screenshots/keywords.robot
-
-:%s/u'  '/u'  '  count=1/g
+  La librairie selenium2screenshots doit être modifiée pour fonctionner correctement.
+  
+  vim /usr/local/lib/python2.7/dist-packages/Selenium2Screenshots/keywords.robot
+  
+  :%s/u'  '/u'  '  count=1/g
 
 
 =============================
