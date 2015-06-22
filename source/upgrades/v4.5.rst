@@ -14,5 +14,10 @@ Les nouveautés de la version 4.5
 Mettre à niveau depuis openMairie 4.4 vers 4.5
 ==============================================
 
+
+
+* Remplacer tous les appels au script ``scr/requeteur.php`` par des appels au script ``scr/reqmo.php``. Le code du module 'Reqmo' a été factorisé et a entrainé la suppression du script en question.
+
+* 
 ...
 
