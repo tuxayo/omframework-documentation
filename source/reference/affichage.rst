@@ -86,6 +86,18 @@ Les paramètres sont les suivants pour om_parametre.inc.php
 Il est possible de surcharger les liens du tableau (voir 
 :ref:`la configuration des actions<actions-form>`)
 
+===================
+Les fonctionnalités
+===================
+
+- la recherche simple
+- la recherche avancée
+- la pagination
+- le tri
+- les éléments archivés
+- l'export PDF
+- l'export CSV
+- les actions
 
 =======================
 Le composant openMairie
