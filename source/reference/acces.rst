@@ -12,6 +12,15 @@ Le framework fournit un gestionnaire d'accès configurable dans les menus :
 
 Les accès sont conservés dans les tables du même nom.
 
+===============
+Fonctionnalités
+===============
+
+- Synchronisation des utilisateurs provenant d'un annuaire
+- Modification du mot de passe par l'utilisateur
+- Mot de passe oublié et réinitialisation du mot de passe
+
+
 ==========
 Les tables
 ==========
