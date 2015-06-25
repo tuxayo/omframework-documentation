@@ -9,13 +9,11 @@ Module 'Import'
 
    Cette rubrique est en cours de rédaction.
 
+========
+Principe
+========
 
-Il est possible d'importer des données suivant des scripts pré-paramétrés mais
-qui sont modifiables. Pour lancer le menu import, prenez l'option :
-*administration -> import*.
-
-import_script.php permet les imports dans la base de donnees de fichier au
-format csv, au moyen d'un formulaire de chargement de fichier.
+Ce module permet l'import de données au format CSV dans les tables de la base de données par une interface utilisateur.
 
 Exemple de format de fichier à importer (utilisateur.txt): ::
 
@@ -25,11 +23,15 @@ Exemple de format de fichier à importer (utilisateur.txt): ::
     "Albert DUPONT";"Albert";"05c7e24700502a079cdd88012b5a76d3";"6"
 
 
-La description du transfert se fait dans le fichier extension import_nomobjet.inc dans /sql/...:
+===========
+Paramétrage
+===========
 
-exemple : import_script.php?obj=utilisateur
 
-Dans utilisateur.import .inc , il est defini: ::
+Le fichier de paramétrage ``../sql/pgsql/<OBJ>.import.inc.php``
+------------------------------------------------------------
+
+Dans utilisateur.import .inc.php , il est defini: ::
 
     
     le message affiché en import :
@@ -84,3 +86,14 @@ Dans utilisateur.import .inc , il est defini: ::
     La valeur par défaut :
     En effet, si $zone['profil']="" on peut définir un profil par défaut
         $defaut['profil']='5' Le profil par défaut sera 5 
+
+
+==========
+Composants
+==========
+
+Les scripts du framework qui gèrent le module 'Import' sont :
+
+* ``core/om_import.class.php``
+* ``scr/import.php``
+
