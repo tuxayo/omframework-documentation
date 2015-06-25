@@ -8,6 +8,10 @@ Module 'Reqmo'
 
    Cette rubrique est en cours de rédaction.
 
+========
+Principe
+========
+
 
 les requêtes mémorisées permettent au développeur de fournir un ensemble de requêtes :
 
@@ -27,10 +31,13 @@ menu export-> requete
 
 
 
-==========================
-Description du parametrage
-==========================
- 
+===========
+Paramétrage
+===========
+
+
+Le script de paramétrage ``../sql/pgsql/<OBJ>.reqmo.inc.php``
+--------------------------------------------------------------
 
 **Les parametres de reqmo  sont :**
 
@@ -50,16 +57,6 @@ Description du parametrage
 
 
 La requete executée est celle qui est reconstituée avec les zones sasisies par l'utilisateur
-
-Enfin, l'utilisateur choisit soit un affichage soit en tableau, soit en csv avec un choix de séparateur.
-
-Il n y a pas d'outil de fabrication de requête à part l'option du générateur
-(voir chapitre sur le *générateur*)
-
-
-=======
-Exemple
-=======
 
 **voies sous openCimetiere** ::
 
@@ -85,3 +82,12 @@ Exemple
     $reqmo['cimetiere']="select cimetiere,concat(cimetiere,' ',
             cimetierelib) from cimetiere";
 
+
+==========
+Composants
+==========
+
+Les scripts du framework qui gèrent le module 'Reqmo' sont :
+
+* ``core/om_reqmo.class.php``
+* ``scr/reqmo.php``
