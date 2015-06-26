@@ -28,8 +28,8 @@ Paramétrage
 ===========
 
 
-Le fichier de paramétrage ``../sql/pgsql/<OBJ>.import.inc.php``
-------------------------------------------------------------
+Le script de paramétrage ``../sql/pgsql/<OBJ>.import.inc.php``
+--------------------------------------------------------------
 
 Dans utilisateur.import .inc.php , il est defini: ::
 
