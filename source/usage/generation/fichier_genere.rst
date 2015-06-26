@@ -12,8 +12,8 @@ Les fichiers générés concernent :
 
 - le script d'import de données
 
-Les formulaires
-===============
+Formulaires
+===========
 
 Les formulaires sont génèrés suivant le nom de la table dans le répertoire sql,
 sous repertoire portant le nom de la base pour régler le problème de
@@ -63,8 +63,8 @@ Par défaut :
 
 - tous les champs sont affichés les uns en dessous des autres
 
-Les Objets « métier »
-=====================
+Objets « métier »
+=================
 
 L'objet métier généré est stocké en gen/obj/nom_table.class.php. Ce script ne
 doit pas être modifié car il est reconstitué à chaque génération :
@@ -167,8 +167,8 @@ dans openMairie en surchargeant la méthode setType::
 
 voir framework/formulaire
 
-Les états
-=========
+Etats
+=====
 
 Seul l'état « pdf » est généré par le générateur 
 
@@ -198,8 +198,8 @@ l'état pdf.
 
 Attention :  les champs « blob » ne sont pas pris en compte dans les éditions.
 
-les requêtes mémorisées
-=======================
+Requêtes mémorisées
+===================
 
 Les requêtes paramétrées sont crées suivant le principe suivant :
 
@@ -212,8 +212,8 @@ Les requêtes paramétrées sont crées suivant le principe suivant :
 
 Les requêtes sont accessibles dans l'option du menu -> export.
 
-les imports
-===========
+Imports
+=======
 
 Un script d'import des données est généré suivant le principe suivant :
 
@@ -224,3 +224,11 @@ Un script d'import des données est généré suivant le principe suivant :
     - vérification de l'existence de la clé secondaire à chaque enregistrement 
 
 Les tables avec clés secondaires doivent donc être importées en dernier.
+
+Mots-clefs Robot Framework
+==========================
+
+Un fichier de ressources de mots-clefs est créé pour chaque objet.
+De plus tous ces fichiers sont inclus dans un fichier ressource général.
+
+(Pour plus d'informations voir :ref:`generation_robot_framework`.)

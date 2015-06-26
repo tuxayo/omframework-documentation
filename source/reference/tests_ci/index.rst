@@ -147,9 +147,18 @@ Convention de nommage
     * des fichiers : mon_theme_fonctionnel.robot
     * des testcase : Saisir un nouvel élément
 
+.. _generation_robot_framework:
+
+Génération
+----------
+
+Pré-requis : créer le dossier 'gen' dans '../tests/resources/core/gen/'.
+
+Lancer une génération complète à chaque modification de la structure de la base
+de données permet de créer les mots-clefs basiques de chaque table : "depuis le
+contexte", "ajouter", "modifier", "supprimer" et "saisir".
 
 Bonnes pratiques
 ----------------
 
 * Éviter d'utiliser les sélecteurs XPATH, les sélecteurs CSS ou par ID sont largement préférables.
-
