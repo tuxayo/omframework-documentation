@@ -362,3 +362,29 @@ Logos
 La géolocalisation
 ==================
 
+Ce document a pour objet de décrire le module sig interne d'openMairie dans la version om 4.4.5.
+
+
+
+Dans sa version 4.4.5 ;
+
+- intégration des formulaires dans le sig interne
+
+- integration des résultats du moteur de recherche dans les cartes (cas utilisation moteur de
+recherche) 
+
+- intégration dans les cartes d'un résultat dans reqmo (cas d'utilisation reqmo)
+
+- accès multiples aux objets
+
+- accès à des objets multi géométrie
+
+
+
+Dans un premier, temps, il sera décrit l'ergonomie du sig interne.
+
+Dans une deuxiéme partie, nous aborderons le paramètrage du sig interne.
+
+Enfin dans une troisième partie nous aborderons les éléments de développement.
+
+
