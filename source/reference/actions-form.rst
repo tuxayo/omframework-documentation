@@ -182,7 +182,7 @@ Dans dyn/config.inc.php :
     * Permet de definir si la gestion des actions se fait dans la classe ou non.
     * Si on decide d'utiliser les nouvelles actions alors il n'y à pas de
     * retro-compatibilité, les actions supplémentaires de portlet initialement
-    * déclarées dans sql/pgsql/*.form.inc.php ne fonctionneront plus et devront
+    * déclarées dans sql/pgsql/*.inc.php ne fonctionneront plus et devront
     * être initialisées dans les attributs de la classe ciblée.
     * Default : $config['activate_class_action'] = true;
     */
