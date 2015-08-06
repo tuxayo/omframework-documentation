@@ -68,7 +68,7 @@ Paramétrer une nouvelle version d'un projet existant
 Public(s) concerné(s) : Administrateur de projet openMairie.
 
 Par défaut un projet sur readthedocs.org gère uniquement la dernière version de
-la cocumentation 'latest' en récupérant la branche par défaut de la documentation
+la documentation 'latest' en récupérant la branche par défaut de la documentation
 sur github.com 'master'.
 
 Il est possible de gérer plusieurs versions de la documentation pour obtenir des 
