@@ -11,5 +11,6 @@ Règles
    coding.rst
    versioning.rst
    documentation.rst
+   publication.rst
 
 
