@@ -60,7 +60,9 @@ Installation
   
   vim /usr/local/lib/python2.7/dist-packages/Selenium2Screenshots/keywords.robot
   
-  :%s/u'  '/u'  '  count=1/g
+  .. code-block:: sh
+  
+    :%s/u'  '/u'  '  count=1/g
 
 
 =============================
