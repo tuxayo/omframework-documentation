@@ -269,6 +269,11 @@ Les fichiers de paramétrage ``../sql/pgsql/<OBJ>.etat.inc.php``, ``../sql/pgsql
 
 Un système d'import est disponible dans le générateur pour transformer ces anciens fichiers de paramétrage en enregistremment selon le nouveau format de paramétrage.
 
+La prévisualisation
+-------------------
+
+Le bouton Prévisualiser permet, pour une lettre type ou un état, d'avoir un apercu du document qui sera généré. Le document prévisualisé est le document sur lequel on est, qu'il soit actif ou non. Les champs de fusion sont affichés entre crochets pour la prévisualisation.
+
 
 ============
 Les listings
