@@ -272,7 +272,7 @@ Un système d'import est disponible dans le générateur pour transformer ces an
 La prévisualisation
 -------------------
 
-Le bouton Prévisualiser permet, pour une lettre type ou un état, d'avoir un apercu du document qui sera généré. Le document prévisualisé est le document sur lequel on est, qu'il soit actif ou non. Les champs de fusion sont affichés entre crochets pour la prévisualisation.
+Le bouton Prévisualiser permet, pour une lettre type ou un état, d'avoir un apercu du document qui sera généré. Les champs de fusion ne seront pas interprétés.
 
 
 ============
