@@ -2,7 +2,7 @@
 Versionnage
 ###########
 
-Cette convention de numérotation des versions concerne le framework et les applications. Il est convenu de numéroter les versions sur 3 chiffres séparés par des points avec un éventuel suffixe : X.X.X ou X.X.X-aX.
+Cette convention de numérotation des versions concerne le framework et les applications. Il est convenu de numéroter les versions sur 3 chiffres séparés par des points avec un éventuel suffixe : X.X.X ou X.X.X-XX.
 
 Composantes du numéro de version :
 
