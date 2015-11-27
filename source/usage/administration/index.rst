@@ -384,6 +384,10 @@ Dans un premier, temps, il sera décrit l'ergonomie du sig interne.
 
 Dans une deuxiéme partie, nous aborderons le paramètrage du sig interne.
 
-Enfin dans une troisième partie nous aborderons les éléments de développement.
+
+
+.. toctree::
+    couche.rst
+
 
 
