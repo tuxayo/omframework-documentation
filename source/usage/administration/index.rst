@@ -5,7 +5,7 @@ Administration
 ##############
 
 Cette rubrique est dédiée à l'administration des fonctionnalités disponibles
-depuis l'interface : les tableaux de bord, les éditions, la géolocalisation, 
+depuis l'interface : les tableaux de bord, les éditions, le module om_sig, 
 ...
 
 ====================
@@ -358,9 +358,9 @@ Logos
 -----
 
 
-==================
-La géolocalisation
-==================
+======================
+Usage du module om_sig
+======================
 
 Ce document a pour objet de décrire le module sig interne d'openMairie dans la version om 4.4.5.
 
@@ -379,9 +379,6 @@ Dans sa version 4.4.5 ;
 - accès à des objets multi géométrie
 
 
-
-Nous décrivons l'interface SIG interne d'openMairie
-
 La nouveauté de la version 4.4.5 du sig interne est la mise en place d'une nouvelle ergonomie avec
 un cartouche où sont accessibles toutes les commandes.
 
@@ -395,5 +392,22 @@ un cartouche où sont accessibles toutes les commandes.
     boite_outil.rst
     edition.rst
 
+============================
+Paramétrage du module om_sig
+============================
 
+Il est décrit ici le paramétrage du sig interne.
+
+Il est décrit les principes ainsi que les différents formulaires du sig interne.
+
+Ces formulaires sont accessibles dans le menu option adminitration.
+
+.. toctree::
+
+    principe
+    om_sig_map.rst
+    om_sig_flux.rst
+    om_sig_map_comp.rst
+    om_sig_map_flux.rst
+    om_sig_extent.rst
 
