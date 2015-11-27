@@ -13,7 +13,7 @@ onglet om_sig_map_flux.
 
 Le flux associé est dans un sous formulaire d'om_sig_map 
 
-.. image:: ../_static/tab_om_sig_map_flux.png
+.. image:: tab_om_sig_map_flux.png
 
 Formulaire :
 ============
@@ -21,7 +21,7 @@ Formulaire :
 Il est possible de modifier / supprimer les fluxs dans le sous formulaire de saisie om_sig_map_flux
 en appuyant sur modifier ou supprimer
 
-.. image:: ../_static/form_om_sig_map_flux.png
+.. image:: form_om_sig_map_flux.png
 
 les champs suivants peuvent etre mis a jour :
 

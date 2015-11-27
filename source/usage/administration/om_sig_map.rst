@@ -6,7 +6,7 @@ Saisie des cartes :
 
 Il est possible de lister les cartes disponnibles dans le menu  administration -> option om_sig_map
 
-.. image:: ../_static/tab_om_sig_map.png
+.. image:: tab_om_sig_map.png
 
 Formulaire
 ==========
@@ -14,7 +14,7 @@ Formulaire
 Il est possible de modifier / supprimer les cartes dans le formulaire de saisie om_sig_map
 en appuyant sur modifier ou supprimer
 
-.. image:: ../_static/form_om_sig_map.png
+.. image:: form_om_sig_map.png
 
 les champs suivants peuvent etre mis a jour :
 
@@ -153,9 +153,6 @@ Exemple de requête SQL pour affichage des marqueurs ::
         Père 01aa aa      description   
         nomenclature_lib: Nomenclature pere 02
         nomenclature_code: 02
-
-
-
 
 
 

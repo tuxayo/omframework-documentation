@@ -17,7 +17,7 @@ option om_sig_map onglet, om_sig_map_comp.
 
 Le champ géométrique à mettre à jour se fait dans un sous formulaire d'om_sig_map 
 
-.. image:: ../_static/tab_om_sig_map_comp.png
+.. image:: tab_om_sig_map_comp.png
 
 Formulaire
 ==========
@@ -26,7 +26,7 @@ Formulaire
 Il est possible de modifier / supprimer les géeométries dans le sous formulaire de saisie om_sig_map_comp
 en appuyant sur modifier ou supprimer
 
-.. image:: ../_static/form_om_sig_map_comp.png
+.. image:: form_om_sig_map_comp.png
 
 les champs suivants peuvent etre mis a jour :
 

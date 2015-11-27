@@ -8,7 +8,7 @@ Saisie om_sig_extent
 
 Il est possible de lister les extents dans le menu  administration -> option om_sig_extent
 
-.. image:: ../_static/tab_om_sig_extent.png
+.. image:: tab_om_sig_extent.png
 
 Formulaire
 ==========
@@ -16,7 +16,7 @@ Formulaire
 Il est possible de modifier / supprimer les om_sig_extents dans le formulaire de saisie om_sig_extent
 en appuyant sur modifier ou supprimer
 
-.. image:: ../_static/form_om_sig_extent.png
+.. image:: form_om_sig_extent.png
 
 les champs suivants peuvent etre mis a jour :
 
@@ -77,4 +77,4 @@ Ajuster la carte aux frontières communales
 
 Aller dans l onglet export et noter les coordonnées géographiques "zone à exporter"
 
-.. image:: ../_static/osm_export.png
+.. image:: osm_export.png
