@@ -380,14 +380,20 @@ Dans sa version 4.4.5 ;
 
 
 
-Dans un premier, temps, il sera décrit l'ergonomie du sig interne.
+Nous décrivons l'interface SIG interne d'openMairie
 
-Dans une deuxiéme partie, nous aborderons le paramètrage du sig interne.
+La nouveauté de la version 4.4.5 du sig interne est la mise en place d'une nouvelle ergonomie avec
+un cartouche où sont accessibles toutes les commandes.
 
 
 
 .. toctree::
+
+    ergonomie.rst
     couche.rst
+    info.rst
+    boite_outil.rst
+    edition.rst
 
 
 
