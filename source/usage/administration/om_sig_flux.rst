@@ -13,7 +13,7 @@ Il est traité les flux wms (web map service) et les flux de tuiles (tiles)
 
 Il est possible de lister les flux dans le menu  administration -> option om_sig_flux
 
-.. image:: ../_static/tab_om_sig_flux.png
+.. image:: tab_om_sig_flux.png
 
 
 Formulaire
@@ -22,7 +22,7 @@ Formulaire
 Il est possible de modifier / supprimer les flux dans le formulaire de saisie om_sig_flux
 en appuyant sur modifier ou supprimer
 
-.. image:: ../_static/form_om_sig_flux.png
+.. image:: form_om_sig_flux.png
 
 les champs suivants peuvent etre mis a jour :
 
