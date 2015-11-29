@@ -60,7 +60,7 @@ Ce chapitre propose de vous d√©crire les outils de base du framework de la mani√
    edition.rst
    import.rst
    reqmo.rst
-   sig.rst
+   sig/index.rst
    layout.rst
    filestorage.rst
    tests_ci/index.rst
