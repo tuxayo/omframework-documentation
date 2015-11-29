@@ -60,7 +60,6 @@ Ce chapitre propose de vous d√©crire les outils de base du framework de la mani√
    edition.rst
    import.rst
    reqmo.rst
-   sig/architecture.rst
    sig.rst
    layout.rst
    filestorage.rst
