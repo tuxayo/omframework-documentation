@@ -20,7 +20,7 @@ Ce module s'adresse aux développeurs et décrit le fonctionnement du sig intern
 
 
 .. toctree::
-   :numbered:
+    :numbered:
     
     sig/architecture.rst
     sig/core.rst
