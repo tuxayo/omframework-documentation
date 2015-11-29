@@ -18,14 +18,15 @@ Module om_sig
 
 Ce module s'adresse aux développeurs et décrit le fonctionnement du sig interne
 
+
 .. toctree::
+   :numbered:
     
     sig/architecture.rst
     sig/core.rst
     sig/js.rst
     sig/base.rst
     sig/evolution.rst
-
 
 
 ================
