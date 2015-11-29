@@ -19,7 +19,7 @@ Module om_sig
 Ce module s'adresse aux développeurs et décrit le fonctionnement du sig interne
 
 
-.. toctree::git
+.. toctree::
     
     architecture.rst
     core.rst
