@@ -37,7 +37,7 @@ Il sagit du module permettant de récupérer une adresse
 Il est basé sur le script 
 
 
-.. image:: ../_static/geocodage_1.png 
+.. image:: ../../_static/geocodage_1.png 
 
 
 Il est appelé depuis la classe métier suivant l'exemple suivant :
