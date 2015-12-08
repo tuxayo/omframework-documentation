@@ -50,8 +50,8 @@ Installation
 
 .. code-block:: sh
 
-  sudo apt-get install python python-pip
-  sudo pip install robotframework robotframework-selenium2library robotframework-selenium2screenshots requests robotframework-requests
+  sudo apt-get install python python-dev python-pip
+  sudo pip install robotframework robotframework-selenium2library robotframework-selenium2screenshots requests robotframework-requests Pillow
 
 
 .. warning::
