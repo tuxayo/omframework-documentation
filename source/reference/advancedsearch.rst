@@ -38,6 +38,8 @@ Elle permet de:
 - rechercher des valeurs dans des tables et des colonnes qui ne sont pas
   affichées.
 
+Le numéro d'action (*$maj*) consacré à la recherche avancée est le 999.
+
 Recherche avancée mono-critère
 ..............................
 

@@ -199,19 +199,26 @@ L'ajout d'une action se présente de cette façon :
 .. code-block:: php
 
    <?php
-    var $class_actions = array(
-        2 => array(
+    function init_class_actions() {
+
+        // On récupère les actions génériques définies dans la méthode 
+        // d'initialisation de la classe parente
+        parent::init_class_actions();
+
+        // ACTION - 002 - supprimer
+        //
+        $this->class_actions[2] = array(
             "portlet" => array(
                 "libelle"=>"supprimer",
                 "class" => "delete-16",
-                "order"=>20,
+                "order"=> 20,
                 ),
             "method" => "supprimer",
             "button" => "supprimer",
             "permission_suffix" => "supprimer",
             "condition" => "delete_coll_condition"
-        ),
-    );
+        );
+    }
    ?>
    
 La clé du tableau correspond à la valeur $maj, le paramètre "method" correspond
@@ -226,6 +233,33 @@ du lien, "order" permet de définir l'ordre, la clé "url" peu être utilisé po
    
 Les action de classes permettent de surcharger les actions ajouter, modifier,
 consulter et supprimer définies dans core/om_db_form.class.php.
+
+**L'action qui porte le numéro 999 est réservée à la recherche avancée.**
+
+CRUD
+----
+
+Les formulaires de base sont facilement reproductibles : il existe un mode
+pour chaque action : Create, Read, Update et Delete.
+
+En définissant le paramètre "crud" adéquat, vous aurez automatiquement la vue
+et sa méthode de traitement sans développement supplémentaire.
+
+Ainsi cette action "ajouter_bis" est une copie fonctionnelle et suffisante de
+l'action ajouter :
+
+.. code-block:: php
+
+   <?php
+    // ACTION - 004 - ajouter_bis
+    //
+    $this->class_actions[4] = array(
+        "identifier" => "ajouter_bis",
+        "permission_suffix" => "ajouter",
+        "crud" => "create",
+    );
+   ?>
+   
 
 Définition des actions dans \*.form.inc.php (obsolète)
 ------------------------------------------------------
