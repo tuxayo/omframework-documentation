@@ -22,7 +22,7 @@ _________
 * Chaque évolution / correction se fait dans une branche
 * Chaque évolution / correction est documentée
 * Technique de développement en TDD
-* Tous les tests de l'application doivent passer pour que la modification soit incorporable
+* Tous les tests de l'application doivent passer
 
 TDD (Test-Driven Development)
 _____________________________
@@ -84,7 +84,7 @@ Le déroulement est similaire à celui décrit ci-dessus. Seule la méthodologie
 * Dans le cas où il n'existe pas de scénario de tests permettant de matérialiser le bug, un nouveau test dédié est rédigé.
 La correction du bug s'effectue alors, jusqu'à ce que les tests altérés ou nouvellement créés passent.
 
-Bonne pratiques
+Bonnes pratiques
 _______________
 
 * Isolation des tests : chacun des tests ajouté doit être indépendant de ceux existant (consitution de son propre jeu de données, accès au ressources par recherche, etc)
