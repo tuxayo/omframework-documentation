@@ -12,6 +12,6 @@ Règles
    versioning.rst
    documentation.rst
    publication.rst
-   development_strategy.rst
+   development_strategies.rst
 
 
