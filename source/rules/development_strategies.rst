@@ -68,7 +68,7 @@ Tous les tests de l'application sont relancés et doivent passer avec succès.
 Dans le cas où l'un d'entre-eux échoue, il doit être corrigé.
 
 Incorporation
-------------
+-------------
 
 L'évolution peut alors être incorporée sur le tronc de l'application. Pour ce faire, la branche est ré-actualisée avec les dernières modifications potentielles du tronc.
 Dans le cas où le tronc a évolué depuis la création de la branche, l'étape d'intégration précedement décrite est conduite à nouveau.
@@ -82,10 +82,11 @@ Le déroulement est similaire à celui décrit ci-dessus. Seule la méthodologie
 
 * Dans le cas où il existe des tests couvrant la fonctionnalité dans laquelle est relevé le bug, ceux-ci sont altérés pour le prendre en compte.
 * Dans le cas où il n'existe pas de scénario de tests permettant de matérialiser le bug, un nouveau test dédié est rédigé.
+
 La correction du bug s'effectue alors, jusqu'à ce que les tests altérés ou nouvellement créés passent.
 
 Bonnes pratiques
-_______________
+________________
 
 * Isolation des tests : chacun des tests ajouté doit être indépendant de ceux existant (consitution de son propre jeu de données, accès au ressources par recherche, etc)
 * ...

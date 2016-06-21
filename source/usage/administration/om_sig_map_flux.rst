@@ -86,12 +86,12 @@ Description des champs :
 - visible par défaut : affiche la couche si c'est vrai à l'ouverture de la carte
 
 - singletile : raméne le flux wms en une seule image pour la fenêtre et non en une série
-d'imagette, ce qui permet de résoudre le problème des étiquettes tronquées. ATTENTION les
-temps de réponses peuvent s'allonger car le cache ( du serveur wms ou du navigateur ???)
-n'est pas utilisé
+  d'imagette, ce qui permet de résoudre le problème des étiquettes tronquées. ATTENTION les
+  temps de réponses peuvent s'allonger car le cache ( du serveur wms ou du navigateur ???)
+  n'est pas utilisé
 
 - pannier : le pannier permet de stocker des géométries en vue de définir la géométrie de
-l'objet en cours : exemple : un permis de construire est un ensemble de parcelles
+  l'objet en cours : exemple : un permis de construire est un ensemble de parcelles
 
 En cas d'utilisation du pannier, il faut :
 
