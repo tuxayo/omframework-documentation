@@ -99,6 +99,14 @@ Les fonctionnalités
 - l'export CSV
 - les actions
 
+.. NOTE::
+  Par défaut l'export CSV reprend la requête SQL d'affichage définie précédemment.
+  Le script de paramétrage ``../sql/pgsql/<OBJ>.export_csv.inc.php`` permet
+  de surcharger ses paramètres.
+
+  Exemple d'utilisation : écraser ``$champAffiche``
+  pour redéfinir les colonnes du CSV exporté.
+
 =======================
 Le composant openMairie
 =======================
