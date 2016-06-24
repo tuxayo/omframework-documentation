@@ -34,4 +34,7 @@ Mettre à niveau depuis openMairie 4.4 vers 4.5
   );
   ?>
 
-* La fonction javascript ``traces()`` a été supprimée du framework. Il suffit de copier/coller la définition de cette fonction dans le fichier javascript de l'application.
+* La fonction javascript ``traces()`` a été supprimée du framework. Il suffit de copier/coller la définition de cette fonction dans le fichier javascript ``../app/js/script.js`` ̀de l'application.
+
+* La méthode getPathFolderTrs() a été supprimée du framework. Il suffit de copier/coller la définition de cette méthode dans la classe utils de l'application ``../obj/utils.class.php``.
+
