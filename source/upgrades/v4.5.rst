@@ -16,6 +16,22 @@ Mettre à niveau depuis openMairie 4.4 vers 4.5
 
 
 
-* Remplacer tous les appels au script ``scr/requeteur.php`` par des appels au script ``scr/reqmo.php``. Le code du module 'Reqmo' a été factorisé et a entrainé la suppression du script en question.
+* Remplacer dans l'application tous les appels au script ``scr/requeteur.php`` par des appels au script ``scr/reqmo.php``. Le code du module 'Reqmo' a été factorisé et a entrainé la suppression du script en question.
 
+* Le système de stockage par défaut des fichiers à évolué vers le système 'filesystem'. Il est fortement conseillé d'envisager la migration des données de l'application vers ce système. Si cette migration n'est pas réalisable dans l'immédiat, l'ancien système est toujours disponible via un fichier de configuration ``dyn/filestorage.inc.php`` ̀suivant : 
 
+.. code-block :: php
+
+   <?php
+  $filestorage = array();
+  $filestorage["filestorage-default"] = array (
+      "storage" => "deprecated", // l'attribut storage est obligatoire
+      "path" => "../trs/1/", // attention il est peut être nécessaire de remplacer 1 par la clé de la configuration de votre base de données
+      "temporary" => array(
+          "storage" => "filesystem", // l'attribut storage est obligatoire
+          "path" => "../tmp/", // le repertoire de stockage
+      ),
+  );
+  ?>
+
+* La fonction javascript ``traces()`` a été supprimée du framework. Il suffit de copier/coller la définition de cette fonction dans le fichier javascript de l'application.
