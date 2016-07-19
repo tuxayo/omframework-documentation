@@ -75,6 +75,9 @@ le générateur.
     *        // désactivation des sousformulaires pour que les onglets ne s'affichent
     *        // pas dans le contexte de la table
     *        "tabs_in_form" => false,
+    *        // définition de l'option 'om_validite' pour que les colonnes soient
+    *        // cachées par défaut
+    *        "om_validite" => "hidden_by_default",
     *    ),
     * );
     */
@@ -90,6 +93,8 @@ le générateur.
            "tablename_in_page_title" => "widgets",
            // 
            "tabs_in_form" => false,
+           //
+           "om_validite" => "hidden_by_default",
        ),
    );
    
