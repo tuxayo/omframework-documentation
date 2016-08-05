@@ -197,8 +197,6 @@ Dans panier, choisir un panier (ici tronçon panier)
 
 Le fond correspondant à troncon panier s'affiche
 
-.. image:: panier_troncon.png
-
 Séléctionner une ou des géométries.
 
 Valider l'option récupération panier en appuyant sur
