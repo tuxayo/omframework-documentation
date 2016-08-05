@@ -194,6 +194,9 @@ Le paramétrage de la connexion à la base de données se fait dans le fichier
         NULL, // Paramétrage pour l'annuaire LDAP
         "mail-default", // Paramétarge pour le serveur de mail
         "filestorage-default", // Paramétrage pour le stockage des fichiers
+        "extras" => array( // Paramétrage optionnel, utilisé pour les plugins.
+            "sig" => "",
+        ),
     );
     
     ?>
