@@ -1,4 +1,4 @@
-.. _edition:
+.. _administration_edition:
 
 ==============
 Mode édition :
