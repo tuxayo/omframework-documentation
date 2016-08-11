@@ -62,6 +62,30 @@ Tous les fichiers PHP doivent avoir un entête de ce style ::
     
     ?>
 
+Quand et comment commenter son code ?
+*************************************
+
+L'objectif est de produire du code facilement lisible, qui permet à un dévelopeur débutant de comprendre la logique implémentée. Il faut donc éviter de paraphraser le code, et réserver les commentaires pour tout ce qui n'est pas compréhensible de premier abord, ou qui fait appel à de la logique *métier*.
+
+Par exemple, éviter ce genre de commentaires ::
+
+    // si $maj est plus grand que 3
+    if ($maj >= 3) { 
+        // alors on met $i à zéro
+        $i = 0;
+    }
+
+... qui n'amène aucune information pertinente.
+
+Le commentaire suivant, par contre, apporte une explication fonctionnelle pertinente ::
+
+    // Dans le contexte du dossier d'autorisation alors le tableau affiche 
+    // une colonne supplémentaire pour afficher le numéro du dossier
+    if ($contexte == "dossier_autorisation") {
+        $nb_col = 4;
+    } else {
+        $nb_col = 3;
+    }
 
 ======
 Images
