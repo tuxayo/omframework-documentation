@@ -2,7 +2,7 @@
 Stratégies de développement
 ###########################
 
-On définit ici plusieurs stratégies de développement co-existant au sein de l'écosystème desapplications openMairie :
+On définit ici plusieurs stratégies de développement co-existant au sein de l'écosystème des applications openMairie :
 
 * SD01 - haut niveau de qualité 
 * SD02 - niveau de qualité intermédiaire
@@ -27,9 +27,9 @@ _________
 TDD (Test-Driven Development)
 _____________________________
 
-Le TDD, ou développement piloté par les tests repose sur le principe suivant ::
+Le TDD, ou développement piloté par les tests repose sur le principe suivant :
 
-  Chaque implémentation d'une nouvelle fonctionnalité ou chaque correction de bug commence par l'écriture de tests.
+  *Chaque implémentation d'une nouvelle fonctionnalité ou chaque correction de bug commence par l'écriture de tests.*
 
 Scénario-type de développement d'une évolution
 ______________________________________________
@@ -46,7 +46,7 @@ Rédactions des tests
 Avant tout développement, des tests modélisant la fonctionnalité à implémenter sont rédigés. Selon le type d'évolution, il peut s'agir de :
 
 * tests fonctionnels (on teste les scénarios utilisateur - Librairie RobotFramework)
-* tests d'intégrations (comment s'intègre ma fonctionnalité dans les scénarios existannt - Librairie RobotFramework)
+* tests d'intégration (comment s'intègre ma fonctionnalité dans les scénarios existants - Librairie RobotFramework)
 * tests unitaires (on teste méthodes et fonctions unitairement - Librairie PHPUnit)
 
 Une fois rédigés, les tests sont lancés, et doivent être en échec (évolution non-implémentée).
@@ -91,12 +91,51 @@ ________________
 * Isolation des tests : chacun des tests ajouté doit être indépendant de ceux existant (consitution de son propre jeu de données, accès au ressources par recherche, etc)
 * ...
 
+Label
+_____
+
+Les applications openMairie respectant cette stratégie de développement sont estampillées avec le logo suivant : 
+
+.. image:: ../_static/SD01.png
+   :height: 128
+   :width: 128
+
 ====
 SD02
 ====
 
+Principes
+_________
+
+...
+
+Label
+_____
+
+Les applications openMairie qui suivent cette stratégie de développement sont estampillées avec le logo suivant : 
+
+.. image:: ../_static/SD02.png
+   :height: 128
+   :width: 128
+   
+
 ====
 SD03
 ====
+
+Principes
+_________
+
+...
+
+Label
+_____
+
+Les applications openMairie qui suivent cette stratégie de développement sont estampillées avec le logo suivant : 
+
+.. image:: ../_static/SD03.png
+   :height: 128
+   :width: 128
+ 
 
 
