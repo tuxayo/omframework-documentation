@@ -48,7 +48,9 @@ Le Code HTML rendu doit être validé et correspondre aux standards W3C.
 Les commentaires dans le code
 =============================
 
-Tout le code PHP doit être commenté selon les règles de PHPDocumentor https://www.phpdoc.org/docs/latest/index.html ::
+Tout le code PHP doit être commenté selon les règles de PHPDocumentor https://www.phpdoc.org/docs/latest/index.html :
+
+.. code-block:: php
 
     <?php
     /**
