@@ -108,12 +108,12 @@ L'export CSV peut être activé seulement si la recherche avancée est configur�
 .. code-block:: php
 
    $options [] = array (
-   		'type' => 'search',
-   		'display' => true,
-   		'advanced' => $champs,
-   		'export' => array('csv',),
-   		'default_form' => 'advanced',
-   		'absolute_object' => 'facture' 
+       'type' => 'search',
+       'display' => true,
+       'advanced' => $champs,
+       'export' => array('csv',),
+       'default_form' => 'advanced',
+       'absolute_object' => 'facture' 
    );
 
 
