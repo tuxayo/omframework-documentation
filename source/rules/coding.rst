@@ -48,7 +48,7 @@ Le Code HTML rendu doit être validé et correspondre aux standards W3C.
 Les commentaires dans le code
 =============================
 
-Tous les fichiers PHP doivent avoir un entête de ce style ::
+Tout le code PHP doit être commenté selon les règles de PHPDocumentor https://www.phpdoc.org/docs/latest/index.html ::
 
     <?php
     /**
@@ -59,6 +59,45 @@ Tous les fichiers PHP doivent avoir un entête de ce style ::
      * @package openmairie
      * @version SVN : $Id$
      */
+    
+    (defined("PATH_OPENMAIRIE") ? "" : define("PATH_OPENMAIRIE", ""));
+    require_once PATH_OPENMAIRIE."om_debug.inc.php";
+    (defined("DEBUG") ? "" : define("DEBUG", PRODUCTION_MODE));
+    require_once PATH_OPENMAIRIE."om_logger.class.php";
+
+    /**
+     * Définition de la classe edition.
+     *
+     * Cette classe gère le module 'Édition' du framework openMairie. Ce module
+     * permet de gérer les différentes vues pour la génération des éditions PDF.
+     */
+    class edition {
+
+        /**
+         * Instance de la classe utils
+         * @var resource
+         */
+        var $f = null;
+    
+        /**
+         * Comparaison de chaines de caractères.
+         * 
+         * Fonction permettant de comparer les valeurs de l'attribut title
+         * des deux tableaux passés en paramètre.
+         * 
+         * @param array $a
+         * @param array $b
+         *
+         * @return bool 
+         */
+        function sort_by_lower_title($a, $b) {
+            if (strtolower($a["title"]) == strtolower($b["title"])) {
+                return 0;
+            }
+            return (strtolower($a["title"]) < strtolower($b["title"]) ? -1 : 1);
+        }
+    
+    }
     
     ?>
 
