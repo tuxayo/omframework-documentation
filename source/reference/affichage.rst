@@ -99,6 +99,24 @@ Les fonctionnalités
 - l'export CSV
 - les actions
 
+
+l'export CSV
+------------
+
+L'export CSV peut être activé seulement si la recherche avancée est configurée sur le listing. Il suffit donc de rajouter dans le tableau de paramétrage de cette dernière la clé 'export' avec la valeur array('csv', ) comme le montre l'exemple suivant :
+
+.. code-block:: php
+
+   $options [] = array (
+   		'type' => 'search',
+   		'display' => true,
+   		'advanced' => $champs,
+   		'export' => array('csv',),
+   		'default_form' => 'advanced',
+   		'absolute_object' => 'facture' 
+   );
+
+
 .. NOTE::
   Par défaut l'export CSV reprend la requête SQL d'affichage définie précédemment.
   Le script de paramétrage ``../sql/pgsql/<OBJ>.export_csv.inc.php`` permet
@@ -106,6 +124,7 @@ Les fonctionnalités
 
   Exemple d'utilisation : écraser ``$champAffiche``
   pour redéfinir les colonnes du CSV exporté.
+
 
 =======================
 Le composant openMairie
