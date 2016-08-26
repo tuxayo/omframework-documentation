@@ -100,6 +100,58 @@ Les fonctionnalités
 - les actions
 
 
+le tri
+------
+
+Par défaut le listing est trié en fonction du critère ORDER BY de la requête paramétrable via la variable $tri dans le script `sql/<SGBD>/<OBJ>.inc.php` :
+
+.. code-block:: php
+
+   <?php
+   // Critère de tri par défaut
+   $tri = "";
+   // Exemple de tri su la colonne libellé de la table om_droit
+   $tri = " ORDER BY om_droit.libelle ";
+   ?>
+
+
+Une fois le listing chargé avec le tri par défaut, l'utilisateur peut choisir de trier sur une colonne en particulier en cliquant sur le titre de la colonne.
+
+Premier clic pour le tri croissant
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+Marqueur représentant le tri croissant :
+
+.. code-block:: html
+
+    <span class="ui-icon ui-icon-triangle-1-s"><!-- --></span>
+
+.. image:: framework-exemple-tri-listing-tri-croissant.png
+
+Second clic pour le tri décroissant
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+Marqueur représentant le tri décroissant :
+
+.. code-block:: html
+
+    <span class="ui-icon ui-icon-triangle-1-n"><!-- --></span>
+
+.. image:: framework-exemple-tri-listing-tri-decroissant.png
+
+Troisième clic pour aucun tri particulier
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+Marqueur représentant aucun tri particulier :
+
+.. code-block:: html
+
+    <span class="ui-icon ui-icon-triangle-1-e"><!-- --></span>
+
+.. image:: framework-exemple-tri-listing-aucun-tri.png
+
+
+
 l'export CSV
 ------------
 
