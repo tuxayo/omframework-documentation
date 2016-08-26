@@ -175,3 +175,4 @@ Bonnes pratiques
 ----------------
 
 * Éviter d'utiliser les sélecteurs XPATH, les sélecteurs CSS ou par ID sont largement préférables.
+* Isolation des tests : chacun des tests ajouté doit être indépendant de ceux existants (consitution de son propre jeu de données, accès aux éléments par recherche, éventuellement nettoyage des données crées, etc).

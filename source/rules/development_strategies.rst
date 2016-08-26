@@ -85,11 +85,6 @@ Le déroulement est similaire à celui décrit ci-dessus. Seule la méthodologie
 
 La correction du bug s'effectue alors, jusqu'à ce que les tests altérés ou nouvellement créés passent.
 
-Bonnes pratiques
-________________
-
-* Isolation des tests : chacun des tests ajouté doit être indépendant de ceux existant (consitution de son propre jeu de données, accès au ressources par recherche, etc)
-* ...
 
 Label
 _____
