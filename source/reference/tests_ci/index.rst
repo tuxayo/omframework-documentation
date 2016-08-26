@@ -128,7 +128,18 @@ Il est prévu de consigner ici les bonnes pratiques et les consignes pour le dé
 Documentation RobotFramework
 ----------------------------
 
-http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html
+
+Librairie du framework openMairie `Core <https://scm.adullact.net/anonscm/svn/openmairie/openmairie_exemple/trunk/tests/doc/core.html>`_.
+
+.. raw:: html
+
+   <iframe src="https://scm.adullact.net/anonscm/svn/openmairie/openmairie_exemple/trunk/tests/doc/core.html" width="100%" height="500px"></iframe>
+
+
+RobotFramework :
+
+- http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html
+
 
 Librairies :
 
