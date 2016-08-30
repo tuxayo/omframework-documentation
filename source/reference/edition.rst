@@ -143,6 +143,75 @@ Une requête peut être :
 - de type SQL
 - de type OBJET
 
+---
+SQL
+---
+
+Lorsqu'elle est de type SQL il s'agit d'un ordre *SELECT* dont les colonnes récupérées seront les champs de fusion.
+La clause *WHERE* permet de filtrer sur l'enregistrement adéquat.
+Prenons par exemple cette requête :
+
+.. code-block:: sql
+
+  SELECT employe.nom as nom_employe FROM employe WHERE employe.id = &idx
+
+Elle est liée à la lettre-type *fiche_employe* comportant le champ de fusion *[nom_employe]*.
+Pour générer l'édition depuis l'objet métier *employe* on appelle :
+
+
+.. code-block:: php
+
+  $pdf = $this->compute_pdf_output('lettretype', 'fiche_employe', null, $this->getVal($this->clePrimaire));
+
+
+.. note::
+
+  Mettre à jour les colonnes de la requête SQL (*om_requete.requete*)
+  oblige à corriger les champs de fusion (*om_requete.merge_fields*)
+  afin de proposer une aide à la saisie cohérente lors de la rédaction d'une lettre-type.
+
+
+-----
+OBJET
+-----
+
+Dans le cas d'une requête objet les champs *om_requete.requete* et *om_requete.merge_fields* ne sont plus utilisés.
+Ce sont les méthodes de la classe *dbForm* *get_values_merge_fields()* et *get_labels_merge_fields()*
+qui retournent respectivement les champs de fusion et l'aide à la saisie.
+Pour reprendre l'exemple de la requête SQL, il faut dans ce cas spécifier la classe *employe* (*om_requete.classe*).
+Nous aurons automatiquement accès à tous ses champs.
+Les booléens sont transformés en oui/non, les dates sont formatées en jj/mm/aaaa et les libellés des clés étrangères sont récupérés.
+
+.. note::
+
+  Si un employé est rattaché à une entreprise elle-même liée à une ville,
+  alors définir la classe *employe;entreprise;ville* permettra de récupérer
+  les champs de tous ces objets.
+
+On peut également disposer de notre propre méthode (*om_requete.methode*) pour construire manuellement les champs de fusion.
+Celle-ci doit avoir un argument de type *string*. Il peut prendre la valeur de *values* ou *labels* selon où le framework y fait appel.
+Ainsi pour une requête objet dont on ne veut que le nom de l'employe il faut créer la méthode suivante :
+
+.. code-block:: php
+
+  public function get_only_name($type) {
+    switch ($type) {
+        case 'values':
+            //
+            $values = array();
+            $values['employe.nom'] = $this->getVal('nom');
+            return $values;
+        case 'labels':
+            //
+            $labels = array();
+            $labels['employe']['employe.nom'] = _("nom de l'employé");
+            return $labels;
+    }
+  }
+
+Le tableau des labels a une dimension supplémentaire.
+Cela permet de catégoriser les champs de fusions proposés dans l'aide à la saisie (un tableau HTML par catégorie).
+
 
 Modèle de données
 =================
