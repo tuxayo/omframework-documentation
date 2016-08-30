@@ -135,6 +135,19 @@ Librairie du framework openMairie `Core <https://scm.adullact.net/anonscm/svn/op
 
    <iframe src="https://scm.adullact.net/anonscm/svn/openmairie/openmairie_exemple/trunk/tests/doc/core.html" width="100%" height="500px"></iframe>
 
+Cette documentation de la librairie du framework openMairie a été générée avec la commande suivante :
+
+.. code-block:: sh
+
+  ./om-tests -c gendoc
+
+La commande est automatiquement exécutée lorsque l'on lance un ou tous les TestSuite.
+La documentation est générée au format HTML dans le répertoire *tests/doc*.
+Il y a une documentation par dossier de ressources :
+
+  - *tests/resources/app* → *tests/doc/app.html*
+  - *tests/resources/core* → *tests/doc/core.html*
+
 
 RobotFramework :
 
