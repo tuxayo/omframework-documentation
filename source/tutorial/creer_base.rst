@@ -46,7 +46,11 @@ Il vous est proposé de créer la base de données sous PostgreSQL :
 
     - La requête correspondante en PostgreSQL est la suivante : ::
 
-        -- Création des séquences
+	-- Selection du schéma
+
+	SET search_path TO openexemple;
+
+	-- Création des séquences
 
         CREATE SEQUENCE emetteur_seq
         START WITH 1
@@ -100,6 +104,6 @@ Il vous est proposé de créer la base de données sous PostgreSQL :
 
 - Accéder avec votre navigateur sur openExemple :
 
-    login : **demo**
+    login : **admin**
     
-    mot de passe : **demo**
+    mot de passe : **admin**
