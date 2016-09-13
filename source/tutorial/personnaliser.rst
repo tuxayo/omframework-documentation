@@ -15,6 +15,10 @@ Sinon exécutez la requête PostgreSQL suivante : ::
 
     -- création des tables de séquence déjà faite
 
+    -- Selection du schéma
+
+    SET search_path TO openexemple;
+    
     -- insertion de deux émetteurs avec récupération et incrémentation de la table de séquences
     
     INSERT INTO emetteur (emetteur, nom, prenom) VALUES
