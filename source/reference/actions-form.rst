@@ -19,45 +19,30 @@ L'ajout d'actions se présente de cette façon :
   .. code-block:: php
 
     <?php
-        // Actions en coin ('corner') : ajouter
-        $tab_actions['corner']['ajouter'] =
-            array('lien' => 'form.php?obj='.$obj.'&amp;action=0',
-                  'id' => '&amp;advs_id='.$advs_id.'&amp;tricol='.$tricol.
-                          '&amp;valide='.$valide.'&amp;retour=tab',
-                  'lib' => '<span class="om-icon om-icon-16 om-icon-fix add-16"
-                              title="'._('Ajouter').'">'._('Ajouter').'</span>',
-                  'rights' => array('list' => array($obj, $obj.'_ajouter'),
-                                      'operator' => 'OR'),
-                  'ordre' => 10,);
-
-        // Actions à gauche ('left'): consulter
-        $tab_actions['left']['consulter'] =
-            array('lien' => 'form.php?obj='.$obj.'&amp;action=3'.'&amp;idx=',
-                  'id' => '&amp;premier='.$premier.'&amp;advs_id='.$advs_id.
-                          '&amp;recherche='.$recherche1.'&amp;tricol='.$tricol.
-                          '&amp;selectioncol='.$selectioncol.'&amp;valide='.
-                          $valide.'&amp;retour=tab',
-                  'lib' => '<span class="om-icon om-icon-16 om-icon-fix
-                            consult-16" title="'._('Consulter').'">'.
-                            _('Consulter').'</span>',
-                  'rights' => array('list' => array($obj, $obj.'_consulter'),
-                              'operator' => 'OR'),
-                  'ordre' => 10,);
-
-        // Action sur la cinquième colonne de contenu
-        $tab_actions['specific_content'][4] =
-            array('lien' => 'form.php?obj='.$obj.'&amp;action=2'.'&amp;idx=',
-                  'id' => '&amp;premier='.$premier.'&amp;advs_id='.$advs_id.
-                          '&amp;recherche='.$recherche1.'&amp;tricol='.$tricol.
-                          '&amp;selectioncol='.$selectioncol.
-                          '&amp;valide='.$valide.'&amp;retour=tab',
-                  'lib' => '<span class="om-icon om-icon-16 om-icon-fix
-                            delete-16" title="'._('Consulter').'">'.
-                            _('Consulter').'</span>',
-                  'rights' => array('list' => array($obj, $obj.'_consulter'),
-                                    'operator' => 'OR'),
-                  'ordre' => 10,);
-
+    // Actions en coin ('corner') : ajouter
+    $tab_actions['corner']['ajouter'] = array(
+        'lien' => 'form.php?obj='.$obj.'&amp;action=0',
+        'id' => '&amp;advs_id='.$advs_id.'&amp;tricol='.$tricol.'&amp;valide='.$valide.'&amp;retour=tab',
+        'lib' => '<span class="om-icon om-icon-16 om-icon-fix add-16" title="'._('Ajouter').'">'._('Ajouter').'</span>',
+        'rights' => array('list' => array($obj, $obj.'_ajouter'), 'operator' => 'OR'),
+        'ordre' => 10,
+    );
+    // Actions à gauche ('left'): consulter
+    $tab_actions['left']['consulter'] = array(
+        'lien' => 'form.php?obj='.$obj.'&amp;action=3'.'&amp;idx=',
+        'id' => '&amp;premier='.$premier.'&amp;advs_id='.$advs_id.'&amp;recherche='.$recherche1.'&amp;tricol='.$tricol.'&amp;selectioncol='.$selectioncol.'&amp;valide='.$valide.'&amp;retour=tab',
+        'lib' => '<span class="om-icon om-icon-16 om-icon-fix consult-16" title="'._('Consulter').'">'._('Consulter').'</span>',
+        'rights' => array('list' => array($obj, $obj.'_consulter'), 'operator' => 'OR'),
+        'ordre' => 10,
+    );
+    // Action sur la cinquième colonne de contenu
+    $tab_actions['specific_content'][4] = array(
+        'lien' => 'form.php?obj='.$obj.'&amp;action=2'.'&amp;idx=',
+        'id' => '&amp;premier='.$premier.'&amp;advs_id='.$advs_id.'&amp;recherche='.$recherche1.'&amp;tricol='.$tricol.'&amp;selectioncol='.$selectioncol.'&amp;valide='.$valide.'&amp;retour=tab',
+        'lib' => '<span class="om-icon om-icon-16 om-icon-fix delete-16" title="'._('Consulter').'">'._('Consulter').'</span>',
+        'rights' => array('list' => array($obj, $obj.'_consulter'), 'operator' => 'OR'),
+        'ordre' => 10,
+    );
     ?>
 
 Plusieurs emplacements d'actions existent :
@@ -89,14 +74,13 @@ suivante:
 .. code-block:: php
 
    <?php
-
-   $tab_actions['left']['modifier'] =
-       array('lien' => 'form.php?obj='.$obj.'&amp;action=1'.'&amp;idx=',
-             'id' => '&amp;premier='.$premier.'&amp;advs_id='.$advs_id.'&amp;recherche='.$recherche1.'&amp;tricol='.$tricol.'&amp;selectioncol='.$selectioncol.'&amp;valide='.$valide.'&amp;retour=tab',
-             'lib' => '<span class="om-icon om-icon-16 om-icon-fix edit-16" title="'._('Modifier').'">'._('Modifier').'</span>',
-             'rights' => array('list' => array($obj, $obj.'_modifier'), 'operator' => 'OR'),
-             'ordre' => 20,);
-
+   $tab_actions['left']['modifier'] = array(
+       'lien' => 'form.php?obj='.$obj.'&amp;action=1'.'&amp;idx=',
+       'id' => '&amp;premier='.$premier.'&amp;advs_id='.$advs_id.'&amp;recherche='.$recherche1.'&amp;tricol='.$tricol.'&amp;selectioncol='.$selectioncol.'&amp;valide='.$valide.'&amp;retour=tab',
+       'lib' => '<span class="om-icon om-icon-16 om-icon-fix edit-16" title="'._('Modifier').'">'._('Modifier').'</span>',
+       'rights' => array('list' => array($obj, $obj.'_modifier'), 'operator' => 'OR'),
+       'ordre' => 20,
+   );
    ?>
 
 Définition de l'action
@@ -186,8 +170,8 @@ Dans dyn/config.inc.php :
     * être initialisées dans les attributs de la classe ciblée.
     * Default : $config['activate_class_action'] = true;
     */
-    $config['activate_class_action'] = true;
-    ?>
+   $config['activate_class_action'] = true;
+   ?>
 
 Définition des actions dans les attributs de la classe de l'objet
 -----------------------------------------------------------------
@@ -199,28 +183,28 @@ L'ajout d'une action se présente de cette façon :
 .. code-block:: php
 
    <?php
-    function init_class_actions() {
+   function init_class_actions() {
+       // On récupère les actions génériques définies dans la méthode 
+       // d'initialisation de la classe parente
+       parent::init_class_actions();
 
-        // On récupère les actions génériques définies dans la méthode 
-        // d'initialisation de la classe parente
-        parent::init_class_actions();
-
-        // ACTION - 002 - supprimer
-        //
-        $this->class_actions[2] = array(
-            "portlet" => array(
-                "libelle"=>"supprimer",
-                "class" => "delete-16",
-                "order"=> 20,
-                ),
-            "method" => "supprimer",
-            "button" => "supprimer",
-            "permission_suffix" => "supprimer",
-            "condition" => "delete_coll_condition"
-        );
-    }
+       // ACTION - 002 - supprimer
+       //
+       $this->class_actions[2] = array(
+           "portlet" => array(
+               "libelle" => "supprimer",
+               "class" => "delete-16",
+               "order" => 20,
+               "description" => _("Accéder au formulaire de suppression de l'enregistrement"),
+           ),
+           "method" => "supprimer",
+           "button" => "supprimer",
+           "permission_suffix" => "supprimer",
+           "condition" => "delete_coll_condition"
+       );
+   }
    ?>
-   
+
 La clé du tableau correspond à la valeur $maj, le paramètre "method" correspond
 à la méthode appelée lors de la validation du formulaire, "button" est le texte du bouton de validation,
 "permission_suffix" est le suffixe du droit qui sera testé lors de l'affichage de l'action,
@@ -251,13 +235,13 @@ l'action ajouter :
 .. code-block:: php
 
    <?php
-    // ACTION - 004 - ajouter_bis
-    //
-    $this->class_actions[4] = array(
-        "identifier" => "ajouter_bis",
-        "permission_suffix" => "ajouter",
-        "crud" => "create",
-    );
+   // ACTION - 004 - ajouter_bis
+   //
+   $this->class_actions[4] = array(
+       "identifier" => "ajouter_bis",
+       "permission_suffix" => "ajouter",
+       "crud" => "create",
+   );
    ?>
    
 
@@ -268,9 +252,18 @@ Dans dyn/config.inc.php :
 
 .. code-block:: php
 
-    <?php
-    $config['activate_class_action'] = false;
-    ?>
+   <?php
+   /**
+    * Parametre de gestion des nouvelles actions
+    * Permet de definir si la gestion des actions se fait dans la classe ou non.
+    * Si on decide d'utiliser les nouvelles actions alors il n'y à pas de
+    * retro-compatibilité, les actions supplémentaires de portlet initialement
+    * déclarées dans sql/pgsql/*.inc.php ne fonctionneront plus et devront
+    * être initialisées dans les attributs de la classe ciblée.
+    * Default : $config['activate_class_action'] = true;
+    */
+   $config['activate_class_action'] = false;
+   ?>
 
 
 La configuration des actions du menu contextuel des formulaires en consultation
@@ -288,9 +281,9 @@ L'ajout d'une action se présente de cette façon :
    $portlet_actions['edition'] = array(
        'lien' => '../pdf/pdflettretype.php?obj=om_utilisateur&amp;idx=',
        'id' => '',
-       'lib' => '<span class="om-prev-icon om-icon-16 om-icon-fix pdf-16"
-                        title="'._('Edition').'">'._('Edition').'</span>',
+       'lib' => '<span class="om-prev-icon om-icon-16 om-icon-fix pdf-16">'._('Edition').'</span>',
        'ajax' => false,
        'ordre' => 21,
+       'description' => _("Télécharger le courrier de l'utilisateur au format PDF"),
    );
    ?>
