@@ -93,6 +93,17 @@ Le paramètre "action" peut prendre 4 valeurs :
 Les autres paramètres passés permettent de conserver la configuration du tableau
 d'origine.
 
+La fonction **verrou**
+----------------------
+
+.. note::
+   Cette description correspond au fonctionnement du verrou depuis la version 4.5.0.
+
+La fonction **verrou** a pour objectif d'empêcher la double soumission de formulaire côté serveur. Elle est active dans les VIEW ``formulaire()`` et ``sousformulaire()``. A chaque affichage de formulaire, lorsqu'un bouton est affiché alors on insère un champ caché (input de type hidden) qui contient comme valeur un identifiant généré et supposé unique, puis on stocke cet identifiant dans une liste dédiée dans la variable de session de l'utilisateur connecté. Lors de la soumission du formulaire, on vérifie que la valeur de l'identifiant postée avec le formulaire est bien présente dans la liste dédiée dans la variable de session, si c'est le cas on enlève la valeur de cette liste et on exécute le traitement. Si ce n'est pas le cas, cela signifie que le formulaire a déjà été soumis au préalable donc on affiche une erreur à l'utilisateur.
+
+Les trois méthodes de l'ancienne implémentation ``verrouille()``, ``deverouille()`` et ``testverrou()`` ont été vidées et conservées pour la réto-compatibilité des applications. Tous les appels à ces méthodes ont été supprimés du framework. Ces méthodes sont vides dans la version 4.5.0 et seront supprimées dans la 4.6.0. 
+
+
 .. _class-dbform:
 
 ===============================
