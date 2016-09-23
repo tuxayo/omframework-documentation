@@ -91,6 +91,15 @@ Manuel de référence
    reference/index.rst
 
 
+Tests & Intégration Continue
+============================
+
+.. toctree::
+   :maxdepth: 5
+
+   tests_ci/index.rst
+
+
 Historique & Mises à niveau
 ===========================
 

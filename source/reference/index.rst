@@ -63,5 +63,4 @@ Ce chapitre propose de vous dÃ©crire les outils de base du framework de la maniÃ
    sig/index.rst
    layout.rst
    filestorage.rst
-   tests_ci/index.rst
    utilitaire.rst
