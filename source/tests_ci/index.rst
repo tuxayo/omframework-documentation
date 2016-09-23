@@ -64,6 +64,254 @@ Installation
   
     :%s/u'  '/u'  '  count=1/g
 
+Jenkins
+-------
+
+jenkins.openmairie.org
+
+
+=================================
+Arboresence du répertoire `tests`
+=================================
+
+::
+
+  .
+  ├── [drwxrwxr-x]  binary_files
+  ├── [drwxrwxr-x]  doc
+  ├── [drwxrwxr-x]  results
+  ├── [drwxrwxr-x]  resources
+  │   ├── [drwxrwxr-x]  app
+  │   │   ├── [drwxrwxr-x]  gen
+  │   │   ├── [-rw-rw-r--]  __init__.py
+  │   │   ├── [-rw-rw-r--]  om_tests.py
+  │   │   └── [-rw-rw-r--]  keywords.robot
+  │   ├── [drwxrwxr-x]  core
+  │   ├── [-rw-rw-r--]  __init__.py
+  │   └── [-rw-rw-r--]  resources.robot
+  ├── [-rwxrwxr-x]  om-tests
+  ├── [-rw-rw-r--]  config.xml
+  ├── [-rw-rw-r--]  000_generation.robot
+  └── [-rw-rw-r--]  000_test_unitaire.php
+
+
+`tests/om-tests`
+----------------
+
+Ce fichier doit être exécutable.
+
+.. code-block:: python
+
+  #!/usr/bin/python
+  from resources.app.om_tests import om_tests
+  tests = om_tests()
+  tests.main()
+
+
+`tests/config.xml`
+------------------
+
+.. code-block:: xml
+
+  <phpunit>
+    <testsuites>
+      <testsuite name="openmairie">
+          <file>000_test_unitaire.php</file>
+      </testsuite>
+    </testsuites>
+  </phpunit>
+
+
+`tests/000_generation.robot`
+----------------------------
+
+.. code-block:: xml
+
+  *** Settings ***
+  Resource  resources/resources.robot
+  Suite Setup  For Suite Setup
+  Suite Teardown  For Suite Teardown
+  Documentation  Le 'Framework' de l'application permet de générer
+  ...  automatiquement certains scripts en fonction du modèle de données. Lors
+  ...  du développement la règle est la suivante : toute modification du
+  ...  modèle de données doit entrainer une regénération complète de tous les
+  ...  scripts. Pour vérifier à chaque modification du code que la règle a bien
+  ...  été respectée, ce 'Test Suite' permet de lancer une génération complète.
+  ...  Si un fichier est généré alors le test doit échoué.
+
+
+  *** Test Cases ***
+  Génération complète
+
+      Depuis la page d'accueil    admin    admin
+      Générer tout
+
+
+`tests/000_test_unitaire.php`
+-----------------------------
+
+.. code-block:: php
+
+  <?php
+  class General extends PHPUnit_Framework_TestCase {
+
+      /**
+       * Méthode lancée en début de traitement
+       */
+      public function setUp() {
+      }
+
+      /**
+       * Méthode lancée en fin de traitement
+       */
+      public function tearDown() {
+      }
+
+      /**
+       * Test Case n°01
+       */
+      public function test_case_01() {
+          require_once "../obj/utils.class.php";
+          @session_start();
+          $_SESSION['collectivite'] = 1;
+          $_SESSION['login'] = "admin";
+          $_SERVER['REQUEST_URI'] = "";
+          $f = new utils("nohtml");
+          $f->disableLog();
+
+          $this->assertEquals($year, 2015);
+
+          $f->__destruct();
+      }
+  }
+  ?>
+
+
+`tests/doc/`
+------------
+
+Répertoire destiné à recevoir la génération de la documentation des mots clés Robot Framework. 
+
+
+`tests/results/`
+----------------
+
+Répertoire destiné à recevoir la génération des rapports et des captures d'écran produits pendant l'exécution des tests.
+
+
+`tests/binary_files/`
+---------------------
+
+Répertoire destiné à recevoir les fichiers de configuration ou d'initialisation de l'environnement de tests.
+
+
+`tests/resources/`
+------------------
+
+Répertoire contenant les ressources utilisées par les tests suite.
+
+
+`tests/resources/__init__.py`
+-----------------------------
+
+Fichier vide pour définir le répertoire `resources` comme un module python.
+
+
+`tests/resources/resources.robot`
+---------------------------------
+
+.. code-block:: xml
+
+  *** Settings ***
+  #
+  Resource          core${/}om_resources.robot
+  #
+  Resource          app${/}keywords.robot
+
+  *** Variables ***
+  ${SERVER}           localhost
+  ${PROJECT_NAME}     openexemple
+  ${BROWSER}          firefox
+  ${DELAY}            0
+  ${ADMIN_USER}       admin
+  ${ADMIN_PASSWORD}   admin
+  ${PROJECT_URL}      http://${SERVER}/${PROJECT_NAME}/
+  ${PATH_BIN_FILES}   ${EXECDIR}${/}binary_files${/}
+  ${TITLE}            :: openMairie :: openexemple
+
+  *** Keywords ***
+  For Suite Setup
+      # Les keywords définit dans le resources.robot sont prioritaires
+      Set Library Search Order    resources
+      Ouvrir le navigateur
+      Tests Setup
+
+
+  For Suite Teardown
+      Fermer le navigateur
+
+
+`tests/resources/app/`
+----------------------
+
+Répertoire contenant les fichiers de déclaration de mots clé dédiés à l'application.
+
+
+`tests/resources/app/gen/`
+--------------------------
+
+Répertoire destiné à recevoir des fichiers de mots clé générés à partir du modèle de données.
+
+
+`tests/resources/app/__init__.py`
+---------------------------------
+
+Fichier vide pour définir le répertoire `app` comme un module python.
+
+
+`tests/resources/app/om_tests.py`
+---------------------------------
+
+.. code-block:: python
+
+  #!/usr/bin/python
+  # -*- coding: utf-8 -*-
+  from resources.core.om_tests import om_tests_core
+
+
+  class om_tests(om_tests_core):
+      """
+      """
+
+      _database_name_default = "openexemple"
+      _instance_name_default = "openexemple"
+
+
+`tests/resources/app/keywords.robot`
+------------------------------------
+
+.. code-block:: xml
+
+  *** Settings ***
+  Documentation   Keywords openexemple.
+
+  *** Keywords ***
+  Depuis le listing
+      [Documentation]
+      [Arguments]  ${listing_obj}
+      Go To  ${PROJECT_URL}scr/tab.php?obj=${listing_obj}
+
+
+`tests/resources/core/`
+-----------------------
+
+Répertoire récupéré depuis le core du framework via un EXTERNALS.
+
+.. code-block:: xml
+
+  tests/resources/core/  svn://scm.adullact.net/svnroot/openmairie/openmairie_exemple/trunk/tests/resources/core/
+
+
 
 =============================
 Fonctionnement et Utilisation
