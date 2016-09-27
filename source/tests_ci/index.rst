@@ -35,8 +35,8 @@ Installation
 
 .. code-block:: sh
 
-  wget http://selenium-release.storage.googleapis.com/2.45/selenium-server-standalone-2.45.0.jar
-  java -jar selenium-server-standalone-2.45.0.jar
+  wget http://selenium-release.storage.googleapis.com/2.45/selenium-server-standalone-2.53.1.jar
+  java -jar selenium-server-standalone-2.53.1.jar
 
 
 Robot Framework
