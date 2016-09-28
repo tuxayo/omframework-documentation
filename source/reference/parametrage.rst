@@ -636,6 +636,19 @@ Pour récupérer la valeur du paramètre sans se préoccuper d'où vient le para
    ...
    ?>
 
+
+La valeur par défaut lorsqu'une permission n'existe pas
+-------------------------------------------------------
+
+Ce paramètre permet de spécifier la valeur retour de la méthode vérifiant si l'utilisateur possède une permission lorsque cette permission n'existe pas. Ce paramètre est défini au niveau du framework à la valeur `false` ce qui signifie que si la permission n'existe pas alors la méthode va retourner que l'utilisateur n'a pas la permission. Ce paramètre peut éventuellement être surchargé au niveau de l'instance. Il suffit de définir dans le script *dyn/config.inc.php* le paramètre 'permission_if_right_does_not_exist' sur le tableau '$config'. Important : il est conseillé de ne sucrharger ce paramètre que sur une instance de développement et jamais en production.
+
+.. code-block:: php
+
+   <?php
+   $config = array();
+   $config["permission_if_right_does_not_exist"] = true;
+   ?>
+
   
 =============================  
 Le Parametrage des librairies
