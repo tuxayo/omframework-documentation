@@ -470,7 +470,7 @@ Pour configurer au niveau de l'instance, il faut définir dans le script *dyn/co
    $config["dashboard_nb_column"] = 4;
    ?>
 
-Pour configurer au niveau de l'application, il faut définir dans la classe 'utils' définie dans le script *obj/utils.class.php* l'attribut 'dashboard_nb_column'.
+Pour configurer au niveau de l'application, il faut définir dans la classe 'utils' définie dans le script *obj/utils.class.php* l'attribut 'config__dashboard_nb_column'.
 
 .. code-block:: php
    
@@ -483,11 +483,11 @@ Pour configurer au niveau de l'application, il faut définir dans la classe 'uti
         *
         * @var mixed Configuration niveau application.
         */
-        var $dashboard_nb_column = 2;
+        var $config__dashboard_nb_column = 2;
    ...
    ?>
 
-Une configuration par défaut est définie dans le framework, dans la classe 'application' définie dans le script *core/om_application.class.php* l'attribut 'dashboard_nb_column'.
+Une configuration par défaut est définie dans le framework, dans la classe 'application' définie dans le script *core/om_application.class.php* l'attribut 'config__dashboard_nb_column'.
 
 .. code-block:: php
    
@@ -500,7 +500,7 @@ Une configuration par défaut est définie dans le framework, dans la classe 'ap
         *
         * @var mixed Configuration niveau framework.
         */
-        var $dashboard_nb_column = 3;
+        var $config__dashboard_nb_column = 3;
    ...
    ?>
 
@@ -575,6 +575,66 @@ Pour récupérer la valeur du paramètre sans se préoccuper d'où vient le para
    ...
    ?>
 
+
+Le mode de gestion des permissions
+----------------------------------
+
+Ce paramètre permet de définir si la gestion des profils se fait de manière hiérarchique ou non. Si on décide d'utiliser les profils hiérarchiques alors un utilisateur qui a le profil SUPER UTILISATEUR (hiérarchie 4) peut effectuer toutes les actions possibles pour un utilisateur qui a le profil UTILISATEUR (hiérarchie 3). Par contre si on décide d'utiliser les profils non hiérarchiques, l'utilisateur qui a le profil SUPER UTILISATEUR ne peut effectuer que les actions qui lui sont permises spécifiquement. Important : la modification de cette option doit être suivie de la modification complète du paramétrage des droits.
+
+Trois niveaux de configuration sont disponibles pour cet élément : framework, application et instance. Voici l'ordre de préférence si les trois niveaux sont configurés : instance > application > framework.
+
+Pour configurer au niveau de l'instance, il faut définir dans le script *dyn/config.inc.php* le paramètre 'permission_by_hierarchical_profile' sur le tableau '$config'.
+
+.. code-block:: php
+   
+   <?php
+   $config = array();
+   $config["permission_by_hierarchical_profile"] = true;
+   ?>
+
+Pour configurer au niveau de l'application, il faut définir dans la classe 'utils' définie dans le script *obj/utils.class.php* l'attribut 'config__permission_by_hierarchical_profile'.
+
+.. code-block:: php
+   
+   <?php
+   ...
+   class utils extends application {
+
+       /**
+        * Gestion du mode de gestion des permissions.
+        *
+        * @var mixed Configuration niveau application.
+        */
+        var $config__permission_by_hierarchical_profile = false;
+   ...
+   ?>
+
+Une configuration par défaut est définie dans le framework, dans la classe 'application' définie dans le script *core/om_application.class.php* l'attribut 'config__permission_by_hierarchical_profile'.
+
+.. code-block:: php
+   
+   <?php
+   ...
+   class application {
+
+       /**
+        * Gestion du mode de gestion des permissions.
+        *
+        * @var mixed Configuration niveau framework.
+        */
+        var $config__permission_by_hierarchical_profile = true;
+   ...
+   ?>
+
+Pour récupérer la valeur du paramètre sans se préoccuper d'où vient le paramètre l'accesseur 'get_config__permission_by_hierarchical_profile' est disponible dans la classe 'application'. C'est toujours cette méthode qui doit être utilisée pour accéder au paramètre. Exemple d'utilisation : 
+
+.. code-block:: php
+   
+   <?php
+   ...
+   $f->get_config__permission_by_hierarchical_profile();
+   ...
+   ?>
 
   
 =============================  
