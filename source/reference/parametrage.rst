@@ -454,6 +454,128 @@ Il est initialisé dans EXTERNALS.TXT du repertoire om-theme (version 4.2.0) ::
                     om_ui-darkness/tags/1.8.14
 
 
+Le nombre de colonnes du tableau de bord
+----------------------------------------
+
+Ce paramètre permet de spécifier le nombre de colonnes présentes sur le tableau de bord de l'application. Important : la modification de ce paramètre doit être suivie de la modification des données dans la base car des widgets existent peut être dans des colonnes supprimées.
+
+Trois niveaux de configuration sont disponibles pour cet élément : framework, application et instance. Voici l'ordre de préférence si les trois niveaux sont configurés : instance > application > framework.
+
+Pour configurer au niveau de l'instance, il faut définir dans le script *dyn/config.inc.php* le paramètre 'dashboard_nb_column' sur le tableau '$config'.
+
+.. code-block:: php
+   
+   <?php
+   $config = array();
+   $config["dashboard_nb_column"] = 4;
+   ?>
+
+Pour configurer au niveau de l'application, il faut définir dans la classe 'utils' définie dans le script *obj/utils.class.php* l'attribut 'dashboard_nb_column'.
+
+.. code-block:: php
+   
+   <?php
+   ...
+   class utils extends application {
+
+       /**
+        * Gestion du nombre de colonnes du tableau de bord.
+        *
+        * @var mixed Configuration niveau application.
+        */
+        var $dashboard_nb_column = 2;
+   ...
+   ?>
+
+Une configuration par défaut est définie dans le framework, dans la classe 'application' définie dans le script *core/om_application.class.php* l'attribut 'dashboard_nb_column'.
+
+.. code-block:: php
+   
+   <?php
+   ...
+   class application {
+
+       /**
+        * Gestion du nombre de colonnes du tableau de bord.
+        *
+        * @var mixed Configuration niveau framework.
+        */
+        var $dashboard_nb_column = 3;
+   ...
+   ?>
+
+Pour récupérer la valeur du paramètre sans se préoccuper d'où vient le paramètre l'accesseur 'get_config__dashboard_nb_column' est disponible dans la classe 'application'. C'est toujours cette méthode qui doit être utilisée pour accéder au paramètre. Exemple d'utilisation : 
+
+.. code-block:: php
+   
+   <?php
+   ...
+   $f->get_config__dashboard_nb_column();
+   ...
+   ?>
+
+
+Le favicon de l'application
+---------------------------
+
+Ce paramètre permet de spécifier l'image utilisée comme favicon de l'application.
+
+Trois niveaux de configuration sont disponibles pour cet élément : framework, application et instance. Voici l'ordre de préférence si les trois niveaux sont configurés : instance > application > framework.
+
+Pour configurer au niveau de l'instance, il faut définir dans le script *dyn/config.inc.php* le paramètre 'favicon' sur le tableau '$config'.
+
+.. code-block:: php
+   
+   <?php
+   $config = array();
+   $config["favicon"] = "../custom/favicon.ico";
+   ?>
+
+Pour configurer au niveau de l'application, il faut définir dans la classe 'utils' définie dans le script *obj/utils.class.php* l'attribut 'html_head_favicon'.
+
+.. code-block:: php
+   
+   <?php
+   ...
+   class utils extends application {
+
+       /**
+        * Gestion du favicon de l'application.
+        *
+        * @var mixed Configuration niveau application.
+        */
+        var $html_head_favicon = "../app/img/favicon.ico";
+   ...
+   ?>
+
+Une configuration par défaut est définie dans le framework, dans la classe 'application' définie dans le script *core/om_application.class.php* l'attribut 'html_head_favicon'. Actuellement le framework ne spéficie aucun favicon par défaut.
+
+.. code-block:: php
+   
+   <?php
+   ...
+   class application {
+
+       /**
+        * Gestion du favicon de l'application.
+        *
+        * @var mixed Configuration niveau framework.
+        */
+        var $html_head_favicon = null;
+   ...
+   ?>
+
+Pour récupérer la valeur du paramètre sans se préoccuper d'où vient le paramètre l'accesseur 'get_config__favicon' est disponible dans la classe 'application'. C'est toujours cette méthode qui doit être utilisée pour accéder au paramètre. Exemple d'utilisation : 
+
+.. code-block:: php
+   
+   <?php
+   ...
+   $f->get_config__favicon();
+   ...
+   ?>
+
+
   
 =============================  
 Le Parametrage des librairies
