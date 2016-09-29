@@ -4,49 +4,50 @@
 Paramétrage du framework
 ########################
 
-Le paramétrage de l'application se fait dans le répertoire /dyn.
+Le paramétrage de l'application se fait dans le répertoire ``dyn/``. Il est proposé dans ce chapitre de décrire les différents scripts de paramétrage et leur utilisation. 
 
-Il est proposé dans ce chapitre de décrire les différents fichiers de paramétrage.
+==========================
+Les scripts de paramétrage
+==========================
 
-Pour le fichier dyn/database.inc.php, voir :ref:`parametrage_connexion_base_de_donnees`.
+- ``dyn/database.inc.php`` : voir :ref:`parametrage_connexion_base_de_donnees`.
 
-Les fichiers de paramétrage sont les suivants ::
-    
-    dyn/menu.inc.php               menu principal à gauche
-    dyn/action.inc                 menu haut
-    dyn/shortslink.inc             lien sous menu haut
-    dyn/locales.inc                application
-    dyn/config.inc.php             application
-    dyn/include.inc.php            chemin d'accès aux librairies
-    dyn/debug.inc.php              mode debug
-    dyn/version.inc                paramétrage de la version
-    dyn/var_sig.inc                paramétrage sig 
-    dyn/form_sig_update.inc.php    parametrage sig 
-    dyn/form_sig_delete.inc.php    parametrage sig 
-    dyn/var_adresse_postale.inc    parametrage sig
-    dyn/filestorage.inc.php        filestorage 
-    dyn/footer.inc.php             enpieds 
-    dyn/tab.inc.php                variable specifique à passer dans l'url pour tab.php 
-    dyn/soustab.php                variable specifique à passer dans l'url pour soustab.php
-    dyn/form.php                   variable specifique à passer dans l'url pour form.php
-    dyn/sousform.php               variable specifique à passer dans l'url pour sous.php  
-    dyn/var.inc                    variable application (deprecated : préférez om_parametre
-    dyn/varetatpdf.inc             variable etat et sousetat pdf
-    dyn/varlettretypepdf.inc       varaible lettre type
-    dyn/varsousform.get.specific.inc.php    variable spécifique sousform
-    dyn/directory.inc.php          connexions a des annuaires LDAP
-    dyn/comboaffichage.inc.php     paramétrage combo
-    dyn/comboparametre.inc.php     parametrage combo
-    dyn/comboretour.inc.php        paramétrage combo     
-    
-       
-    README.txt                     fichiers textes
-    HISTORY.txt
-    LICENCE.txt
-    TODO.txt
-    INSTALL.txt
-    
-    app/SPECIFIC.txt                explication sur la partie spécifique de l application
+- ``dyn/config.inc.php`` : application
+
+- ``dyn/filestorage.inc.php`` : système de stockage des fichiers 
+- ``dyn/mail.inc.php`` : serveur smtp pour l'envoi de mails
+- ``dyn/directory.inc.php`` : annuaire LDAP pour la synchronisation des utilisateurs
+
+- ``dyn/custom.inc.php`` : ...
+
+- ``dyn/menu.inc.php`` : zone de navigation 'Menu'
+- ``dyn/actions.inc.php`` : zone de navigation 'Actions personnelles'
+- ``dyn/shortslinks.inc.php`` : zone de navigation 'Raccourcis'
+- ``dyn/footer.inc.php`` : zone de navigation 'Actions globales'
+
+- ``dyn/locales.inc.php`` : application
+- ``dyn/include.inc.php`` : chemin d'accès aux librairies
+- ``dyn/debug.inc.php`` : mode debug
+- ``dyn/version.inc.php`` : paramétrage de la version
+
+* ``dyn/comboaffichage.inc.php`` : paramétrage combo
+* ``dyn/comboparametre.inc.php`` : parametrage combo
+* ``dyn/comboretour.inc.php`` : paramétrage combo
+
+* ``dyn/tab.inc.php`` : variable specifique à passer dans l'url pour tab.php 
+* ``dyn/soustab.php`` : variable specifique à passer dans l'url pour soustab.php
+* ``dyn/form.inc.php`` : variable specifique à passer dans l'url pour form.php
+* ``dyn/sousform.inc.php`` : variable specifique à passer dans l'url pour sous.php           
+* ``dyn/form.get.specific.inc.php``
+* ``dyn/sousform.get.specific.inc.php`` : variable spécifique sousform
+
+* ``dyn/varetatpdf.inc`` : variable etat et sousetat pdf
+* ``dyn/varlettretypepdf.inc`` : varaible lettre type
+* ``dyn/varsousetatpdf.inc``: ...
+
+* ``dyn/var.inc`` : variable application (deprecated : préférez om_parametre)
+* ``dyn/var_sig.inc`` : paramétrage sig 
+* ``dyn/var_adresse_postale.inc`` : parametrage sig
 
 
 =======================
