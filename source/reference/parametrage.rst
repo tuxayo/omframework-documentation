@@ -418,17 +418,6 @@ Exemple de paramétrage avec openCourrier ::
     $config['session_name'] = "openCourrier";
 
 
-* le mode demonstration de l'application se paramétre avec $config['demo']
-
-Ce mode permet de pre-remplir le formulaire de login avec l'identifiant 'demo' et le mot de passe 'demo' ::
-
-    $config['demo'] = false;  l'application n'est pas en mode démo
-                      true; l'application est en mode démo
- 
-    Attention, pour empêcher de changer le mot de passe, il faut paramétrer l'accès
-    dans la table om_droit : password
-
-
 * La configuration des extensions autorisees dans le module upload.php
 
 Pour changer votre configuration, décommenter la ligne et modifier les extensions avec des ";" comme séparateur ::
@@ -452,6 +441,19 @@ Il est initialisé dans EXTERNALS.TXT du repertoire om-theme (version 4.2.0) ::
     
     om_theme svn://scm.adullact.net/svnroot/openmairie/externals/jquery-ui-theme/
                     om_ui-darkness/tags/1.8.14
+
+
+Le mode démonstration
+---------------------
+
+Ce paramètre permet de spécifier si l'instance de l'application se trouve en mode démonstration ou non. Ce mode permet de pré-remplir le formulaire de login avec l'identifiant 'demo' et le mot de passe 'demo'. Par défaut, ce paramètre est positionné à 'false' et peut donc éventuellement être surchargé au niveau de l'instance. Il suffit de définir dans le script `dyn/config.inc.php` le paramètre `demo` sur le tableau `$config`. Important : Pour empêcher l'utilisateur ainsi connecter de changer le mot de passe, il faut supprimer la permission au profil de l'utilisateur.
+
+.. code-block:: php
+
+   <?php
+   $config = array();
+   $config["demo"] = true;
+   ?>
 
 
 Le nombre de colonnes du tableau de bord
