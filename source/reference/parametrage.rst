@@ -430,6 +430,19 @@ Ce paramètre permet de spécifier si l'instance de l'application se trouve en m
    ?>
 
 
+La redéfinition du mot de passe oublié par l'utilisateur
+--------------------------------------------------------
+
+Ce paramètre permet d'activer ou non la redéfinition de son mot de passe en cas d'oubli via un lien sur le formulaire de login. Par défaut, ce paramètre est positionné à 'false' et peut donc éventuellement être surchargé au niveau de l'instance. Il suffit de définir dans le script ``dyn/config.inc.php`` le paramètre **password_reset** sur le tableau ``$config``. Important : La réinitialisation du mot de passe est effectuée par un envoi de mail, il est donc nécessaire d'avoir configuré un serveur mail au préalable.
+
+.. code-block:: php
+
+   <?php
+   $config = array();
+   $config["password_reset"] = true;
+   ?>
+
+
 Le nombre de colonnes du tableau de bord
 ----------------------------------------
 
