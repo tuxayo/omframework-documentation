@@ -417,17 +417,6 @@ Pour changer votre configuration, décommenter la ligne et modifier la taille. L
     $config['upload_taille_max'] = str_replace('M', '', ini_get('upload_max_filesize')) * 1024;
 
 
-* Le thème de l'application
-
-A partir de la version 3.1.0, le theme n'est plus géré dans config.inc.php.
-Il est initialisé dans EXTERNALS.TXT du repertoire om-theme (version 4.2.0) ::
-
-    exemple pour om_ui_darkness 
-    
-    om_theme svn://scm.adullact.net/svnroot/openmairie/externals/jquery-ui-theme/
-                    om_ui-darkness/tags/1.8.14
-
-
 Le mode démonstration
 ---------------------
 
