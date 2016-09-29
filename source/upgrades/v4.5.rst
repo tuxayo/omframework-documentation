@@ -15,6 +15,7 @@ Mettre à niveau depuis openMairie 4.4 vers 4.5
 ==============================================
 
 
+* Le script ``dyn/dashboard.inc.php`` n'est plus appelé. Il était utilisé pour surcharger le système de tableau de bord standard de l'application. Il est désormais surchargeable via la méthode ``om_dashboard::view_dashboard()``.
 
 * Remplacer dans l'application tous les appels au script ``scr/requeteur.php`` par des appels au script ``scr/reqmo.php``. Le code du module 'Reqmo' a été factorisé et a entrainé la suppression du script en question.
 
