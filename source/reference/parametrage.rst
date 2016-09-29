@@ -15,7 +15,6 @@ Les fichiers de paramétrage sont les suivants ::
     dyn/menu.inc.php               menu principal à gauche
     dyn/action.inc                 menu haut
     dyn/shortslink.inc             lien sous menu haut
-    dyn/dashboard.inc.php          tableau de bord
     dyn/locales.inc                application
     dyn/config.inc.php             application
     dyn/include.inc.php            chemin d'accès aux librairies
@@ -323,20 +322,6 @@ associatif représente un lien.
 | right       | N          | Permission nécessaire à l'utilisateur pour        |
 |             |            | visualiser l'élément                              |
 +-------------+------------+---------------------------------------------------+
-
-
-==================
-Le tableau de bord
-==================
-
-Le tableau de bord se paramètre dans le fichier *dyn/dashboard.inc*. 
-
-Ce fichier est appellé par le script scr/dashboard.php.
-
-Pour avoir son propre tableau de bord, il suffit de decommenter la ligne 
-// die(); et on accède plus au widget
-
-Voir chapitre : widget et tableau de bord paramétrable
 
 
 ==================================
