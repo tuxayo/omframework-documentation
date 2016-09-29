@@ -420,7 +420,7 @@ Pour changer votre configuration, décommenter la ligne et modifier la taille. L
 Le mode démonstration
 ---------------------
 
-Ce paramètre permet de spécifier si l'instance de l'application se trouve en mode démonstration ou non. Ce mode permet de pré-remplir le formulaire de login avec l'identifiant 'demo' et le mot de passe 'demo'. Par défaut, ce paramètre est positionné à 'false' et peut donc éventuellement être surchargé au niveau de l'instance. Il suffit de définir dans le script `dyn/config.inc.php` le paramètre `demo` sur le tableau `$config`. Important : Pour empêcher l'utilisateur ainsi connecter de changer le mot de passe, il faut supprimer la permission au profil de l'utilisateur.
+Ce paramètre permet de spécifier si l'instance de l'application se trouve en mode démonstration ou non. Ce mode permet de pré-remplir le formulaire de login avec l'identifiant 'demo' et le mot de passe 'demo'. Par défaut, ce paramètre est positionné à 'false' et peut donc éventuellement être surchargé au niveau de l'instance. Il suffit de définir dans le script ``dyn/config.inc.php`` le paramètre `demo` sur le tableau `$config`. Important : Pour empêcher l'utilisateur ainsi connecter de changer le mot de passe, il faut supprimer la permission au profil de l'utilisateur.
 
 .. code-block:: php
 
@@ -437,7 +437,7 @@ Ce paramètre permet de spécifier le nombre de colonnes présentes sur le table
 
 Trois niveaux de configuration sont disponibles pour cet élément : framework, application et instance. Voici l'ordre de préférence si les trois niveaux sont configurés : instance > application > framework.
 
-Pour configurer au niveau de l'instance, il faut définir dans le script *dyn/config.inc.php* le paramètre 'dashboard_nb_column' sur le tableau '$config'.
+Pour configurer au niveau de l'instance, il faut définir dans le script ``dyn/config.inc.php`` le paramètre 'dashboard_nb_column' sur le tableau '$config'.
 
 .. code-block:: php
    
@@ -446,7 +446,7 @@ Pour configurer au niveau de l'instance, il faut définir dans le script *dyn/co
    $config["dashboard_nb_column"] = 4;
    ?>
 
-Pour configurer au niveau de l'application, il faut définir dans la classe 'utils' définie dans le script *obj/utils.class.php* l'attribut 'config__dashboard_nb_column'.
+Pour configurer au niveau de l'application, il faut définir dans la classe ``utils`` définie dans le script ``obj/utils.class.php`` l'attribut 'config__dashboard_nb_column'.
 
 .. code-block:: php
    
@@ -463,7 +463,7 @@ Pour configurer au niveau de l'application, il faut définir dans la classe 'uti
    ...
    ?>
 
-Une configuration par défaut est définie dans le framework, dans la classe 'application' définie dans le script *core/om_application.class.php* l'attribut 'config__dashboard_nb_column'.
+Une configuration par défaut est définie dans le framework, dans la classe ``application`` définie dans le script ``core/om_application.class.php`` l'attribut 'config__dashboard_nb_column'.
 
 .. code-block:: php
    
@@ -480,7 +480,7 @@ Une configuration par défaut est définie dans le framework, dans la classe 'ap
    ...
    ?>
 
-Pour récupérer la valeur du paramètre sans se préoccuper d'où vient le paramètre l'accesseur 'get_config__dashboard_nb_column' est disponible dans la classe 'application'. C'est toujours cette méthode qui doit être utilisée pour accéder au paramètre. Exemple d'utilisation : 
+Pour récupérer la valeur du paramètre sans se préoccuper d'où vient le paramètre l'accesseur 'get_config__dashboard_nb_column' est disponible dans la classe ``application``. C'est toujours cette méthode qui doit être utilisée pour accéder au paramètre. Exemple d'utilisation : 
 
 .. code-block:: php
    
@@ -498,7 +498,7 @@ Ce paramètre permet de spécifier l'image utilisée comme favicon de l'applicat
 
 Trois niveaux de configuration sont disponibles pour cet élément : framework, application et instance. Voici l'ordre de préférence si les trois niveaux sont configurés : instance > application > framework.
 
-Pour configurer au niveau de l'instance, il faut définir dans le script *dyn/config.inc.php* le paramètre 'favicon' sur le tableau '$config'.
+Pour configurer au niveau de l'instance, il faut définir dans le script ``dyn/config.inc.php`` le paramètre 'favicon' sur le tableau '$config'.
 
 .. code-block:: php
    
@@ -507,7 +507,7 @@ Pour configurer au niveau de l'instance, il faut définir dans le script *dyn/co
    $config["favicon"] = "../custom/favicon.ico";
    ?>
 
-Pour configurer au niveau de l'application, il faut définir dans la classe 'utils' définie dans le script *obj/utils.class.php* l'attribut 'html_head_favicon'.
+Pour configurer au niveau de l'application, il faut définir dans la classe ``utils`` définie dans le script ``obj/utils.class.php`` l'attribut 'html_head_favicon'.
 
 .. code-block:: php
    
@@ -524,7 +524,7 @@ Pour configurer au niveau de l'application, il faut définir dans la classe 'uti
    ...
    ?>
 
-Une configuration par défaut est définie dans le framework, dans la classe 'application' définie dans le script *core/om_application.class.php* l'attribut 'html_head_favicon'. Actuellement le framework ne spéficie aucun favicon par défaut.
+Une configuration par défaut est définie dans le framework, dans la classe ``application`` définie dans le script ``core/om_application.class.php`` l'attribut 'html_head_favicon'. Actuellement le framework ne spéficie aucun favicon par défaut.
 
 .. code-block:: php
    
@@ -541,7 +541,7 @@ Une configuration par défaut est définie dans le framework, dans la classe 'ap
    ...
    ?>
 
-Pour récupérer la valeur du paramètre sans se préoccuper d'où vient le paramètre l'accesseur 'get_config__favicon' est disponible dans la classe 'application'. C'est toujours cette méthode qui doit être utilisée pour accéder au paramètre. Exemple d'utilisation : 
+Pour récupérer la valeur du paramètre sans se préoccuper d'où vient le paramètre l'accesseur 'get_config__favicon' est disponible dans la classe ``application``. C'est toujours cette méthode qui doit être utilisée pour accéder au paramètre. Exemple d'utilisation : 
 
 .. code-block:: php
    
@@ -559,7 +559,7 @@ Ce paramètre permet de définir si la gestion des profils se fait de manière h
 
 Trois niveaux de configuration sont disponibles pour cet élément : framework, application et instance. Voici l'ordre de préférence si les trois niveaux sont configurés : instance > application > framework.
 
-Pour configurer au niveau de l'instance, il faut définir dans le script *dyn/config.inc.php* le paramètre 'permission_by_hierarchical_profile' sur le tableau '$config'.
+Pour configurer au niveau de l'instance, il faut définir dans le script ``dyn/config.inc.php`` le paramètre 'permission_by_hierarchical_profile' sur le tableau '$config'.
 
 .. code-block:: php
    
@@ -568,7 +568,7 @@ Pour configurer au niveau de l'instance, il faut définir dans le script *dyn/co
    $config["permission_by_hierarchical_profile"] = true;
    ?>
 
-Pour configurer au niveau de l'application, il faut définir dans la classe 'utils' définie dans le script *obj/utils.class.php* l'attribut 'config__permission_by_hierarchical_profile'.
+Pour configurer au niveau de l'application, il faut définir dans la classe ``utils`` définie dans le script ``obj/utils.class.php`` l'attribut 'config__permission_by_hierarchical_profile'.
 
 .. code-block:: php
    
@@ -585,7 +585,7 @@ Pour configurer au niveau de l'application, il faut définir dans la classe 'uti
    ...
    ?>
 
-Une configuration par défaut est définie dans le framework, dans la classe 'application' définie dans le script *core/om_application.class.php* l'attribut 'config__permission_by_hierarchical_profile'.
+Une configuration par défaut est définie dans le framework, dans la classe ``application`` définie dans le script ``core/om_application.class.php`` l'attribut 'config__permission_by_hierarchical_profile'.
 
 .. code-block:: php
    
@@ -602,7 +602,7 @@ Une configuration par défaut est définie dans le framework, dans la classe 'ap
    ...
    ?>
 
-Pour récupérer la valeur du paramètre sans se préoccuper d'où vient le paramètre l'accesseur 'get_config__permission_by_hierarchical_profile' est disponible dans la classe 'application'. C'est toujours cette méthode qui doit être utilisée pour accéder au paramètre. Exemple d'utilisation : 
+Pour récupérer la valeur du paramètre sans se préoccuper d'où vient le paramètre l'accesseur 'get_config__permission_by_hierarchical_profile' est disponible dans la classe ``application``. C'est toujours cette méthode qui doit être utilisée pour accéder au paramètre. Exemple d'utilisation : 
 
 .. code-block:: php
    
@@ -616,7 +616,7 @@ Pour récupérer la valeur du paramètre sans se préoccuper d'où vient le para
 La valeur par défaut lorsqu'une permission n'existe pas
 -------------------------------------------------------
 
-Ce paramètre permet de spécifier la valeur retour de la méthode vérifiant si l'utilisateur possède une permission lorsque cette permission n'existe pas. Ce paramètre est défini au niveau du framework à la valeur `false` ce qui signifie que si la permission n'existe pas alors la méthode va retourner que l'utilisateur n'a pas la permission. Ce paramètre peut éventuellement être surchargé au niveau de l'instance. Il suffit de définir dans le script *dyn/config.inc.php* le paramètre 'permission_if_right_does_not_exist' sur le tableau '$config'. Important : il est conseillé de ne sucrharger ce paramètre que sur une instance de développement et jamais en production.
+Ce paramètre permet de spécifier la valeur retour de la méthode vérifiant si l'utilisateur possède une permission lorsque cette permission n'existe pas. Ce paramètre est défini au niveau du framework à la valeur `false` ce qui signifie que si la permission n'existe pas alors la méthode va retourner que l'utilisateur n'a pas la permission. Ce paramètre peut éventuellement être surchargé au niveau de l'instance. Il suffit de définir dans le script ``dyn/config.inc.php`` le paramètre 'permission_if_right_does_not_exist' sur le tableau '$config'. Important : il est conseillé de ne sucrharger ce paramètre que sur une instance de développement et jamais en production.
 
 .. code-block:: php
 
