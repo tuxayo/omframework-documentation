@@ -45,5 +45,5 @@ Les versions de distributions suivantes n'ont pas la librairie au niveau exigé 
   WAPP de Bitnami ???
   CentOS ???
 
-
+Crédit : Laurent GROLEAU Mairie de Marseille
 
