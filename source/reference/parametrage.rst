@@ -401,7 +401,6 @@ Exemple de paramétrage avec openCourrier ::
 
     $config['application'] = _("openCourrier");
     $config['title'] = ":: "._("openMairie")." :: "._("openCourrier");
-    $config['session_name'] = "openCourrier";
 
 
 * La configuration des extensions autorisees dans le module upload.php
@@ -416,6 +415,67 @@ Pour changer votre configuration, décommenter la ligne et modifier les extensio
 Pour changer votre configuration, décommenter la ligne et modifier la taille. La taille maximale est en mo. ::
 
     $config['upload_taille_max'] = str_replace('M', '', ini_get('upload_max_filesize')) * 1024;
+
+
+Le nom de la session
+--------------------
+
+Ce paramètre permet de spécifier le nom de la session. Il est important que chaque instance d'application possède un nom de session différent afin d'éviter des conflits de connexion entre plusieurs instances. Le nom de session est utilisé comme nom pour les cookies et les URLs (i.e. PHPSESSID). Il ne doit contenir que des caractères alphanumériques ; il doit être court et descriptif (surtout pour les utilisateurs ayant activé l'alerte cookie). Voir : http://php.net/manual/fr/function.session-name.php.
+
+Trois niveaux de configuration sont disponibles pour cet élément : framework, application et instance. Voici l'ordre de préférence si les trois niveaux sont configurés : instance > application > framework.
+
+Pour configurer au niveau de l'instance, il faut définir dans le script ``dyn/config.inc.php`` le paramètre **session_name** sur le tableau ``$config``.
+
+.. code-block:: php
+   
+   <?php
+   $config = array();
+   $config["session_name"] = "a2f587f1425bba47a8";
+   ?>
+
+Pour configurer au niveau de l'application, il faut définir dans la classe ``utils`` définie dans le script ``obj/utils.class.php`` l'attribut ``$config__session_name``.
+
+.. code-block:: php
+   
+   <?php
+   ...
+   class utils extends application {
+
+       /**
+        * Gestion du nom de la session.
+        *
+        * @var mixed Configuration niveau application.
+        */
+        var $config__session_name = "c3f587f1425bba47a8";
+   ...
+   ?>
+
+Une configuration par défaut est définie dans le framework, dans la classe ``application`` définie dans le script ``core/om_application.class.php`` l'attribut ``$config__session_name``.
+
+.. code-block:: php
+   
+   <?php
+   ...
+   class application {
+
+       /**
+        * Gestion du nom de la session.
+        *
+        * @var mixed Configuration niveau framework.
+        */
+        var $config__session_name = "1bb484de79f96a7d0b00ff463c18fcbf";
+   ...
+   ?>
+
+Pour récupérer la valeur du paramètre sans se préoccuper d'où vient le paramètre l'accesseur ``application::get_config__session_name()`` est disponible. C'est toujours cette méthode qui doit être utilisée pour accéder au paramètre. Exemple d'utilisation : 
+
+.. code-block:: php
+   
+   <?php
+   ...
+   $f->get_config__session_name();
+   ...
+   ?>
 
 
 Le mode démonstration
