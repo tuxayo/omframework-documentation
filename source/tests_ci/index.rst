@@ -346,7 +346,11 @@ Ce script permet de :
 Les tests sont prévus pour être exécutés sur le navigateur Firefox. Il est possible d'utiliser une version spécifique automatiquement lors de l'execution des tests.
 Pour définir une version de navigateur spécifique il faut :
 
-* télécharger le navigateur Firefox conseillé : `64 bits<https://ftp.mozilla.org/pub/firefox/releases/31.2.0esr/linux-x86_64/fr/firefox-31.2.0esr.tar.bz2>`_ / `32 bits<https://ftp.mozilla.org/pub/firefox/releases/31.2.0esr/linux-i686/fr/firefox-31.2.0esr.tar.bz2>`_ 
+* télécharger le navigateur Firefox conseillé :
+
+    * `64 bits <https://ftp.mozilla.org/pub/firefox/releases/31.2.0esr/linux-x86_64/fr/firefox-31.2.0esr.tar.bz2>`_
+    * `32 bits <https://ftp.mozilla.org/pub/firefox/releases/31.2.0esr/linux-i686/fr/firefox-31.2.0esr.tar.bz2>`_ 
+
 * extraire l'application dans le dossier souhaité
 * créer un fichier de configuration dans votre dossier utilisateur :
 
