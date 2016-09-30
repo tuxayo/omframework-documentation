@@ -27,4 +27,23 @@ Liens de références ::
 
 Crédit : Jean Christophe BECQUET APITUX
 
+Niveau de version nécessaire au fonctionnement de la version om 4.5.0
+=====================================================================
+
+Dans le nouveau fonctionnement des éditions, il est nécessaire d'avoir la libraire libxml au niveau  2.9.0. pour ne pas rencontrer des problèmes d encodage.
+
+Les distributions suivantes fonctionnent avec cette librairie ::
+
+  ubuntu 14.04 et +
+  wamp server 3.06 +
+  debian ???
+  
+Les versions de distributions suivantes n'ont pas la librairie au niveau exigé ::
+
+  ubuntu 12.04 et -
+  wamp server 2.0 et -
+  WAPP de Bitnami ???
+  CentOS ???
+
+
 
