@@ -50,6 +50,89 @@ Les scripts de paramétrage
 * ``dyn/var_adresse_postale.inc`` : parametrage sig
 
 
+==========================
+Le serveur d'envoi de mail
+==========================
+
+Niveau de configuration 'INSTANCE'.
+
+Le script ``dyn/mail.inc.php`` permet de configurer le serveur SMTP qui va être utilisé pour envoyer tous les mails depuis l'application. L'unique fonctionnalité dans le framewok qui gère un envoi de mail est la réinitialisation du mot de passe oublié par un utilisateur.
+
+La variable ``$mail`` est un tableau associatif. Ce tableau peut, de ce fait, contenir plusieurs configurations de serveur mail différentes. Chaque serveur est représenté par une clé de tableau. Ces clés se retrouvent dans le script ``dyn/database.inc.php`` et permettent d'associer une base de données précise a un serveur mail précis.
+
+Les clés de configuration sont :
+
+* mail_host -> Adresse du serveur de mail
+* mail_port -> Port d'ecoute du serveur de mail
+* mail_username -> Identifiant de l'utilisateur du serveur de mail
+* mail_pass -> Mot de passe de cet utilisateur
+* mail_from -> Adresse email de l'expediteur
+* mail_from_name -> Nom de l'expediteur
+
+Exemple d'un fichier de configuration :
+
+.. code-block:: php
+
+    <?php
+    $mail = array();
+    $mail["mail-default"] = array(
+        'mail_host' => 'mail.exemple.com',
+        'mail_port' => '25',
+        'mail_username' => 'nospam@exemple.com',
+        'mail_pass' => 'mot_de_passe',
+        'mail_from' => 'contact@exemple.com',
+        'mail_from_name' => 'exemple',
+    );
+    ?>
+
+
+===============
+L'annuaire LDAP
+===============
+
+Niveau de configuration 'INSTANCE'.
+
+Le script ``dyn/directory.inc.php`` permet de configurer le serveur LDAP qui va être utilisé pour synchroniser les utilisateurs et les authentifier.
+
+La variable ``$directory`` est un tableau associatif. Ce tableau peut, de ce fait, contenir plusieurs configurations d'annuaires LDAP différentes. Chaque connexion est représentee par une clef de tableau. Ces clefs se retrouvent dans le script ``dyn/database.inc.php`` et permettent d'associer une base de données précise a un annuaire LDAP précis.
+
+Les clés de configuration sont :
+
+* ldap_server      -> Adresse du serveur LDAP
+* ldap_server_port -> Port d'ecoute du serveur LDAP
+* ldap_admin_login  -> identifiant de l'administrateur LDAP
+* ldap_admin_passwd -> mot de passe de cet administrateur
+* ldap_base       -> Base de l'arbre LDAP
+* ldap_base_users -> Base utilisateurs de l'arbre LDAP
+* ldap_user_filter  -> Filtre utiliser par la fonction ldap_search
+* ldap_login_attrib -> Attribut LDAP qui sera utilise comme login dans la base
+* ldap_more_attrib -> Correspondance des champs entre l'annuaire et la base (Par exemple si on prend l'exemple de configuration ci dessous, la colonne 'nom' de la base de données sera synchronisée avec l'attribut 'name' de l'annuaire. De plus la colonne 'email' sera synchronisée avec l'attribut 'mail' de l'annuaire. Si l'attribut 'mail' n'est pas trouvé dans le schéma LDAP, l'attribut 'mailAddress' sera utilisé à la place. Il est possible de spécifier plusieurs attributs en utilisant un tableau de cette manière.)
+* default_om_profil -> Profil des utilisateurs ajoutes depuis l'annuaire
+
+Exemple d'un fichier de configuration :
+
+.. code-block:: php
+
+    <?php
+    $directory = array();
+    $directory["ldap-default"] = array(
+        'ldap_server' => 'localhost',
+        'ldap_server_port' => '389',
+        'ldap_admin_login' => 'cn=admin,dc=openmairie,dc=org',
+        'ldap_admin_passwd' => 'admin',
+        'ldap_base' => 'dc=openmairie,dc=org',
+        'ldap_base_users' => 'dc=openmairie,dc=org',
+        'ldap_user_filter' => 'objectclass=person',
+        'ldap_login_attrib' => 'cn',
+        'ldap_more_attrib' => array(
+            'nom' => 'name',
+            'email' => array('mail', 'mailAddress'),
+        ),
+        'default_om_profil' => 1,
+    );
+    ?>
+
+
 =======================
 Les zones de navigation
 =======================
