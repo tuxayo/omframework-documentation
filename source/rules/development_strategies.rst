@@ -118,9 +118,9 @@ La branche doit ensuite être validée puis fusionnée dans le tronc par un *Dé
 Checklist
 *********
 
-[ ] La fonctionnalité est entièrement documentée [CONTROL_DOC]
-[ ] La fonctionnalité est testée (les nouveaux cas d'utilisation sont couverts) [CONTROL_TEST]
-[ ] L'intégralité des tests existants passent sur la branche à jour [CONTROL_REGRESSION]
+* La fonctionnalité est entièrement documentée - *[CTRL_DOC]*
+* La fonctionnalité est testée (les nouveaux cas d'utilisation sont couverts) - *[CTRL_TEST]*
+* L'intégralité des tests existants passent sur la branche à jour - *[CTRL_REGRESSION]*
 
 
 Label
