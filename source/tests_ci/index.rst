@@ -53,6 +53,9 @@ Installation
   sudo apt-get install python python-dev python-pip
   sudo pip install selenium robotframework robotframework-selenium2library robotframework-selenium2screenshots requests robotframework-requests Pillow robotframework-archivelibrary
 
+.. warning::
+
+  Il faut utiliser la version 2.7 de python.
 
 .. warning::
 
