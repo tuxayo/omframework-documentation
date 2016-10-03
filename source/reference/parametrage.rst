@@ -891,9 +891,7 @@ Ce paramètre permet de spécifier la valeur retour de la méthode vérifiant si
 Les extensions de fichiers autorisées
 -------------------------------------
 
-Utilisé dans le module upload.php.
-
-Pour changer votre configuration, décommenter la ligne et modifier les extensions avec des ";" comme séparateur.
+Utilisé dans le module upload.php. Chaque extension est séparée avec un ";".
 
 .. code-block:: php
    
@@ -906,9 +904,7 @@ Pour changer votre configuration, décommenter la ligne et modifier les extensio
 La taille maximale de fichiers autorisée
 ----------------------------------------
 
-Utilisé dans le module upload.php.
-
-Pour changer votre configuration, décommenter la ligne et modifier la taille. La taille maximale est en mo.
+Utilisé dans le module upload.php. La taille maximale est en mo.
 
 .. code-block:: php
 
