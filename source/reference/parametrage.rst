@@ -897,7 +897,7 @@ Utilisé dans le module upload.php. Chaque extension est séparée avec un ";".
    
    <?php
    $config = array();
-   $config["upload_extension"] = ".gif;.jpg;.jpeg;.png;.txt;.pdf;.csv;"
+   $config["upload_extension"] = ".gif;.jpg;.jpeg;.png;.txt;.pdf;.csv;";
    ?>
 
 
