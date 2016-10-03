@@ -478,26 +478,131 @@ La configuration générale de l'application se fait aussi dans *dyn/config.inc.
 Les paramètres sont récupérés avec la création d'un objet utils par :
 $f->config['nom_du_parametre']
 
-*Voir framework/utilitaire*
 
-Exemple de paramétrage avec openCourrier ::
+Le nom de l'application
+-----------------------
 
-    $config['application'] = _("openCourrier");
-    $config['title'] = ":: "._("openMairie")." :: "._("openCourrier");
+C'est le nom de l'application, il est utilisé pour l'affichage dans le footer (juste avant les actions globales) et dans le générateur pour distinguer la génération des mots clés du core et ceux de l'application.
+
+Trois niveaux de configuration sont disponibles pour cet élément : framework, application et instance. Voici l'ordre de préférence si les trois niveaux sont configurés : instance > application > framework.
+
+Pour configurer au niveau de l'instance, il faut définir dans le script ``dyn/config.inc.php`` le paramètre **application** sur le tableau ``$config``.
+
+.. code-block:: php
+   
+   <?php
+   $config = array();
+   $config["application"] = "openExemple";
+   ?>
+
+Pour configurer au niveau de l'application, il faut définir dans la classe ``utils`` définie dans le script ``obj/utils.class.php`` l'attribut ``$_application_name``.
+
+.. code-block:: php
+   
+   <?php
+   ...
+   class utils extends application {
+
+       /**
+        * Gestion du nom de l'application.
+        *
+        * @var mixed Configuration niveau application.
+        */
+       protected $_application_name = "openExemple";
+   ...
+   ?>
+
+Une configuration par défaut est définie dans le framework, dans la classe ``application`` définie dans le script ``core/om_application.class.php`` l'attribut ``$_application_name``.
+
+.. code-block:: php
+   
+   <?php
+   ...
+   class application {
+
+       /**
+        * Gestion du nom de l'application.
+        *
+        * @var mixed Configuration niveau framework.
+        */
+       protected $_application_name = "openMairie";
+
+   ...
+   ?>
+
+Pour récupérer la valeur du paramètre sans se préoccuper d'où vient le paramètre l'accesseur ``application::get_config__html_head_title()`` est disponible. C'est toujours cette méthode qui doit être utilisée pour accéder au paramètre. Exemple d'utilisation : 
+
+.. code-block:: php
+   
+   <?php
+   ...
+   $f->get_config__html_head_title();
+   ...
+   ?>
 
 
-* La configuration des extensions autorisees dans le module upload.php
+Le titre HTML de l'application
+------------------------------
 
-Pour changer votre configuration, décommenter la ligne et modifier les extensions avec des ";" comme séparateur ::
+C'est le contenu de l'attribut titre de la page HTML, il est utilisé dans :
 
-    $config['upload_extension'] = ".gif;.jpg;.jpeg;.png;.txt;.pdf;.csv;"
+- le titre de l'onglet du navigateur,
+- le titre du favori lorsque la page y est ajouté.
 
+Trois niveaux de configuration sont disponibles pour cet élément : framework, application et instance. Voici l'ordre de préférence si les trois niveaux sont configurés : instance > application > framework.
 
-* La configuration de la taille maximale des fichiers dans le module upload.php
+Pour configurer au niveau de l'instance, il faut définir dans le script ``dyn/config.inc.php`` le paramètre **title** sur le tableau ``$config``.
 
-Pour changer votre configuration, décommenter la ligne et modifier la taille. La taille maximale est en mo. ::
+.. code-block:: php
+   
+   <?php
+   $config = array();
+   $config["title"] = ":: openMairie :: openExemple - Framework";
+   ?>
 
-    $config['upload_taille_max'] = str_replace('M', '', ini_get('upload_max_filesize')) * 1024;
+Pour configurer au niveau de l'application, il faut définir dans la classe ``utils`` définie dans le script ``obj/utils.class.php`` l'attribut ``$html_head_title``.
+
+.. code-block:: php
+   
+   <?php
+   ...
+   class utils extends application {
+
+       /**
+        * Titre HTML.
+        *
+        * @var mixed Configuration niveau application.
+        */
+       protected $html_head_title = ":: openMairie :: openExemple - Framework";
+   ...
+   ?>
+
+Une configuration par défaut est définie dans le framework, dans la classe ``application`` définie dans le script ``core/om_application.class.php`` l'attribut ``$html_head_title``.
+
+.. code-block:: php
+   
+   <?php
+   ...
+   class application {
+
+       /**
+        * Titre HTML.
+        *
+        * @var mixed Configuration niveau framework.
+        */
+        var $html_head_title = ":: openMairie ::";
+   ...
+   ?>
+
+Pour récupérer la valeur du paramètre sans se préoccuper d'où vient le paramètre l'accesseur ``application::get_config__html_head_title()`` est disponible. C'est toujours cette méthode qui doit être utilisée pour accéder au paramètre. Exemple d'utilisation : 
+
+.. code-block:: php
+   
+   <?php
+   ...
+   $f->get_config__html_head_title();
+   ...
+   ?>
 
 
 Le nom de la session
@@ -516,7 +621,7 @@ Pour configurer au niveau de l'instance, il faut définir dans le script ``dyn/c
    $config["session_name"] = "a2f587f1425bba47a8";
    ?>
 
-Pour configurer au niveau de l'application, il faut définir dans la classe ``utils`` définie dans le script ``obj/utils.class.php`` l'attribut ``$config__session_name``.
+Pour configurer au niveau de l'application, il faut définir dans la classe ``utils`` définie dans le script ``obj/utils.class.php`` l'attribut ``$_session_name``.
 
 .. code-block:: php
    
@@ -529,11 +634,11 @@ Pour configurer au niveau de l'application, il faut définir dans la classe ``ut
         *
         * @var mixed Configuration niveau application.
         */
-        var $config__session_name = "c3f587f1425bba47a8";
+        var $_session_name = "c3f587f1425bba47a8";
    ...
    ?>
 
-Une configuration par défaut est définie dans le framework, dans la classe ``application`` définie dans le script ``core/om_application.class.php`` l'attribut ``$config__session_name``.
+Une configuration par défaut est définie dans le framework, dans la classe ``application`` définie dans le script ``core/om_application.class.php`` l'attribut ``$_session_name``.
 
 .. code-block:: php
    
@@ -546,17 +651,17 @@ Une configuration par défaut est définie dans le framework, dans la classe ``a
         *
         * @var mixed Configuration niveau framework.
         */
-        var $config__session_name = "1bb484de79f96a7d0b00ff463c18fcbf";
+       protected $_session_name = "1bb484de79f96a7d0b00ff463c18fcbf";
    ...
    ?>
 
-Pour récupérer la valeur du paramètre sans se préoccuper d'où vient le paramètre l'accesseur ``application::get_config__session_name()`` est disponible. C'est toujours cette méthode qui doit être utilisée pour accéder au paramètre. Exemple d'utilisation : 
+Pour récupérer la valeur du paramètre sans se préoccuper d'où vient le paramètre l'accesseur ``application::get_session_name()`` est disponible. C'est toujours cette méthode qui doit être utilisée pour accéder au paramètre. Exemple d'utilisation : 
 
 .. code-block:: php
    
    <?php
    ...
-   $f->get_config__session_name();
+   $f->get_session_name();
    ...
    ?>
 
@@ -782,7 +887,37 @@ Ce paramètre permet de spécifier la valeur retour de la méthode vérifiant si
    $config["permission_if_right_does_not_exist"] = true;
    ?>
 
-  
+
+Les extensions de fichiers autorisées
+-------------------------------------
+
+Utilisé dans le module upload.php.
+
+Pour changer votre configuration, décommenter la ligne et modifier les extensions avec des ";" comme séparateur ::
+
+.. code-block:: php
+
+   <?php
+   $config = array();
+   $config["upload_extension"] = ".gif;.jpg;.jpeg;.png;.txt;.pdf;.csv;"
+   ?>
+
+
+La taille maximale de fichiers autorisée
+----------------------------------------
+
+Utilisé dans le module upload.php.
+
+Pour changer votre configuration, décommenter la ligne et modifier la taille. La taille maximale est en mo. ::
+
+.. code-block:: php
+
+   <?php
+   $config = array();
+   $config["upload_taille_max"] = str_replace('M', '', ini_get('upload_max_filesize')) * 1024;
+   ?>
+
+
 =============================  
 Le Parametrage des librairies
 =============================
