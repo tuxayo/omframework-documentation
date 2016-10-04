@@ -50,7 +50,7 @@ Installation
 
 .. code-block:: sh
 
-  sudo apt-get install python python-dev python-pip
+  sudo apt-get install python python-dev python-pip libjpeg-dev
   sudo pip install selenium robotframework robotframework-selenium2library robotframework-selenium2screenshots requests robotframework-requests Pillow robotframework-archivelibrary
 
 .. warning::
