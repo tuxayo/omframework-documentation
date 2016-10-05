@@ -75,7 +75,7 @@ L'évolution peut alors être incorporée sur le tronc de l'application. Pour ce
 Dans le cas où le tronc a évolué depuis la création de la branche, l'étape d'intégration précedement décrite est conduite à nouveau.
 La branche peut ensuite fusionnée dans le tronc.
 
-A ce stade, la branche / le fork de la documentation est également intégré dans la documentation principale.
+À ce stade, la branche / le fork de la documentation est également intégré dans la documentation principale.
 
 Scénario-type de correction de bug
 __________________________________
