@@ -133,7 +133,7 @@ Le *Développeur* peut intégrer sur le tronc un développement fait dans une br
 Qui ?
 *****
 
-Le *Développeur* acquiers sa qualité par l'un des moyens suivants :
+Le *Développeur* acquiert sa qualité par l'un des moyens suivants :
 
 * Il est membre fondateur du projet
 * Il est *Contributeur*, et actif sur une période suffisament étendue, pour qu'un ensemble significatif de *Développeurs* puisse constater le respect des règles qui régissent la stratégie SD01. A l'issu de quoi, à sa demande et après validation du *Chef de projet*, il peut devenir *Développeur*.
@@ -143,7 +143,6 @@ Responsable de version
 
 Documentation en cours.
 
-.. todo:: Documenter ce rôle
 
 Label
 _____
