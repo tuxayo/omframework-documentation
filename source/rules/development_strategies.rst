@@ -91,10 +91,13 @@ La correction du bug s'effectue alors, jusqu'à ce que les tests altérés ou no
 Règles de contribution
 ______________________
 
-Il existe 2 niveaux de participation au développement d'un projet respectant la SD01 :
+Il existe 3 rôles dans le cadre du développement d'un projet respectant la SD01 :
 
 * Développeur
 * Contributeur
+* Responsable de version
+
+Cette section ne couvre pas l'aspect fonctionnel et décisionnel (choix et temporalité de la feuille de route, identification des processus métiers évolutif ou réglementaire, préservation de la cohérence de l'application, etc) qui reste la responsabilité propre de l'instance de pilotage de l'application (Comité de pilotage, communauté, etc).
 
 Contributeur
 ------------
@@ -104,16 +107,16 @@ Qui ?
 
 Pour contribuer, la première étape consiste à obtenir le droit de commit sur le dépôt du code-source du projet. La procédure est la suivante :
 
-* Le candidat rejoint le projet (ex: compte sur adullact et demande de participation au projet) 
-* Le *Chef de projet* valide la candidature
- 
-Comment ?
-*********
+#. Le candidat rejoint le projet (ex: compte sur adullact et demande de participation au projet).
+#. Le *Chef de projet* valide la candidature.
+
+Comment contribuer ?
+********************
 
 Le *Contributeur* doit respecter les régles de développement de la stratégie courante.
 
 Chaque nouvelle fonctionnalité est développée dans une branche, et est accompagnée de sa documentation et de ses tests. À l'issue du développement, le *Contributeur* signale par le moyen de son choix son souhait d'intégration dans le tronc commun. À ce stade, tous les points présentés dans la check-list ci-dessous doivent avoir été couverts. 
-La branche doit ensuite être validée puis fusionnée dans le tronc par un *Développeur*.
+La branche est ensuite validée puis fusionnée dans le tronc par un *Développeur*.
 
 Checklist
 *********
@@ -122,6 +125,25 @@ Checklist
 * La fonctionnalité est testée (les nouveaux cas d'utilisation sont couverts) - *[CTRL_TEST]*
 * L'intégralité des tests existants passent sur la branche à jour - *[CTRL_REGRESSION]*
 
+Développeur
+-----------
+
+Le *Développeur* peut intégrer sur le tronc un développement fait dans une branche, par lui-même ou un tiers. Il est cependant d'usage d'éviter d'intégrer ses propres évolutions.
+
+Qui ?
+*****
+
+Le *Développeur* acquiers sa qualité par l'un des moyens suivants :
+
+* Il est membre fondateur du projet
+* Il est *Contributeur*, et actif sur une période suffisament étendue, pour qu'un ensemble significatif de *Développeurs* puisse constater le respect des règles qui régissent la stratégie SD01. A l'issu de quoi, à sa demande et après validation du *Chef de projet*, il peut devenir *Développeur*.
+
+Responsable de version
+----------------------
+
+Documentation en cours.
+
+.. todo:: Documenter ce rôle
 
 Label
 _____
