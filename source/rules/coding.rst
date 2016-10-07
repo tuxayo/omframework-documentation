@@ -42,7 +42,7 @@ Un saut de ligne unique est ajouté après la fermeture de la balise.
 
 Il faut éviter de mixer PHP et HTML. 
 
-Préférer ::
+Préférer :
 
 .. code-block:: php 
     
@@ -54,7 +54,7 @@ Préférer ::
     );
     ?>
 
-à ::
+à :
 
 .. code-block:: php 
     
@@ -71,28 +71,24 @@ Règles typographiques
 Accolades
 *********
 
-Les accolades sont asymétriques ::
+Les accolades sont asymétriques :
 
 .. code-block:: php 
 
+    <?php
     function ma_fonction() {
     }
     if ($variable === true) {
     }
 
-Passage de paramètres
-*********************
-
-Lorsque des paramètres sont passée à une méthodes
-
-
 Espacement
 **********
 
-Pour les opérateurs à deux composantes, l'opérateur est entouré d'espaces ::
+Pour les opérateurs à deux composantes, l'opérateur est entouré d'espaces :
 
 .. code-block:: php
 
+    <?php
     $a = 2;
     $b = $c + 2;
     if ($a > 2) {
@@ -100,65 +96,127 @@ Pour les opérateurs à deux composantes, l'opérateur est entouré d'espaces ::
     };
     $abc = "une" . "concaténation";
     
-En cas de parenthèses, insérez un espace avant dans les cas suivants ::
+En cas de parenthèses :
+
+    * insérez un espace avant dans les cas suivants :
+
+        .. code-block:: php
+
+            <?php
+            if ($a == $b) {
+                for ($a = 0; $a < $b, $a++) {
+                    echo $a;
+                }
+            
+            foreach ($a as $key => $value) {
+                switch ($c) {
+                    case 23: 
+                        break;
+                    case 4:
+                        echo $b;
+                }
+            }
+
+    * mais pas dans les cas suivants :
+    
+        .. code-block:: php
+
+            <?php
+            function azerty($a = null) {
+                fopen($a);
+
+
+2 saut de ligne entre chaque définition de méthode dans une classe :
+
+    .. code-block:: php
+
+        <?php
+        /**
+         *
+         */
+        function a() {
+          echo "a";
+        }
+
+
+        /**
+         *
+         */
+        function b() {
+          echo "b";
+        }
+
+Espace après une virgule :
+
+    .. code-block:: php
+
+        <?php
+        function azerty($a = null, $b = "c") {
+
+Indentation
+***********
+
+- tableaux :
+
+    .. code-block:: php
+
+        <?php
+        $azerty = array(
+            "a" => $b,
+            "b" => $a,
+        );
+
+- fonctions et méthodes :
+
+    * sur une ligne :
+
+        .. code-block:: php
+
+            <?php
+            function azerty($a = null, $b = "c") {
+
+    * sur plusieurs lignes (déprécié) :
+    
+        .. code-block:: php
+
+            <?php
+            public function copier_view(
+                $enteteTab,
+                $validation,
+                $maj,
+                &$db,
+                $postVar,
+                $aff,
+                $DEBUG = false,
+                $idx,
+                $premier = 0,
+                $recherche = "",
+                $tricol = "",
+                $idz = "",
+                $selectioncol = "",
+                $advs_id = "",
+                $valide = "",
+                $retourformulaire = "",
+                $idxformulaire = "",
+                $retour = "",
+                $actions = array(),
+                $extra_parameters = array()
+            ) {
+
+        .. note::
+            
+            Une fonction ou méthode ne devrait pas posséder autant de paramètres.
+
+Expressions
+***********
+
+Le php étant un language à typage faible il est nécessaire de comparer les retours de fonctions et méthodes de façon *stricte* :
 
 .. code-block:: php
 
-    if ($a == $b) {
-        for ($a = 0; $a < $b, $a++) {
-            echo $a;
-        }
-    
-    foreach ($a as $key => $value) {
-        switch ($c) {
-            case 23: 
-                break;
-            case 4:
-                echo $b;
-        }
+    <?php
+    if(isset($a) === true) {
     }
-
-
-  
-  * "function azerty($a = null) {"
-  * "fopen("/tmp/plop.txt");"
-
-XXX
-- saut de ligne entre chaque définition de méthode dans une classe
-
-    /**
-     *
-     */
-    function a() {
-      echo "a";
-    }
-
-    /**
-     *
-     */
-    function b() {
-      echo "b";
-    }
-
-- préférer "isset($a) === true" à "isset($a)"
-
-- espace après une virgule :
-
-function azerty($a = null, $b = "c") {
-
-- indentation des tableaux :
-
-$azerty = array(
-    "a" => $b,
-    "b" => $a,
-);
-
-- prototype function
-
-*one line
-function azerty($a = null, $b = "c") {
-
-XXX
 
 ==================
 HTML Valide et W3C
@@ -231,8 +289,11 @@ Quand et comment commenter son code ?
 
 L'objectif est de produire du code facilement lisible, qui permet à un dévelopeur débutant de comprendre la logique implémentée. Il faut donc éviter de paraphraser le code, et réserver les commentaires pour tout ce qui n'est pas compréhensible de premier abord, ou qui fait appel à de la logique *métier*.
 
-Par exemple, éviter ce genre de commentaire ::
+Par exemple, éviter ce genre de commentaire :
 
+.. code-block:: php
+
+    <?php
     // si $maj est plus grand que 3
     if ($maj >= 3) { 
         // alors on met $i à zéro
@@ -241,8 +302,11 @@ Par exemple, éviter ce genre de commentaire ::
 
 ... qui n'amène aucune information.
 
-Le commentaire suivant, par contre, apporte une explication fonctionnelle pertinente ::
+Le commentaire suivant, par contre, apporte une explication fonctionnelle pertinente :
 
+.. code-block:: php
+
+    <?php
     // Dans le contexte du dossier d'autorisation alors le tableau affiche 
     // une colonne supplémentaire pour afficher le numéro du dossier
     if ($contexte == "dossier_autorisation") {
