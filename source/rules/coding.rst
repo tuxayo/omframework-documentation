@@ -18,8 +18,11 @@ différemment les tabulations alors que les espaces sont tous interprétés de l
 même façon. De plus lors de commit, les historiques des gestionnaires de
 versions (CVS ou SVN) sont faussés par ces caractères.
 
-Il est recommandé que la longueur des lignes ne dépasse pas 75 à 85 caractères.
+============================
+Longueur maximum d'une ligne
+============================
 
+Il est recommandé que la longueur des lignes ne dépasse pas 80 caractères afin de garder une bonne visibilité lors de l'affichage sur un terminal.
 
 =====================
 Encodage des fichiers
@@ -28,20 +31,140 @@ Encodage des fichiers
 L'encodage des fichiers doit être UTF-8.
 
 
-=====================
-Tags dans le code PHP
-=====================
+========
+Tags PHP
+========
 
-Il faut utiliser toujours <?php ?> pour délimiter du code PHP, et non la version 
-abrégée <? ?>. Cela est la méthode la plus portable pour inclure du code PHP 
+Il faut utiliser toujours *<?php [...] ?>* pour délimiter du code PHP, et non la version 
+abrégée *<? [...] ?>*. Cela est la méthode la plus portable pour inclure du code PHP 
 sur des systèmes d'exploitations disposant de configurations différentes.
+Un saut de ligne unique est ajouté après la fermeture de la balise.
 
+Il faut éviter de mixer PHP et HTML. 
+
+Préférer ::
+
+.. code-block:: php 
+    
+    <?php 
+    var $plop = "attention";
+    printf(
+        '<script type="text/javascript">alert(\'%s\');</script>', 
+        $plop
+    );
+    ?>
+
+à ::
+
+.. code-block:: php 
+    
+    <?php 
+    var $plop = "attention";
+    ?>
+    <script type="text/javascript">alert('<?php echo $plop; ?>');</script>
+
+
+=====================
+Règles typographiques
+=====================
+
+Accolades
+*********
+
+Les accolades sont asymétriques ::
+
+.. code-block:: php 
+
+    function ma_fonction() {
+    }
+    if ($variable === true) {
+    }
+
+Passage de paramètres
+*********************
+
+Lorsque des paramètres sont passée à une méthodes
+
+
+Espacement
+**********
+
+Pour les opérateurs à deux composantes, l'opérateur est entouré d'espaces ::
+
+.. code-block:: php
+
+    $a = 2;
+    $b = $c + 2;
+    if ($a > 2) {
+        $a = -1;   
+    };
+    $abc = "une" . "concaténation";
+    
+En cas de parenthèses, insérez un espace avant dans les cas suivants ::
+
+.. code-block:: php
+
+    if ($a == $b) {
+        for ($a = 0; $a < $b, $a++) {
+            echo $a;
+        }
+    
+    foreach ($a as $key => $value) {
+        switch ($c) {
+            case 23: 
+                break;
+            case 4:
+                echo $b;
+        }
+    }
+
+
+  
+  * "function azerty($a = null) {"
+  * "fopen("/tmp/plop.txt");"
+
+XXX
+- saut de ligne entre chaque définition de méthode dans une classe
+
+    /**
+     *
+     */
+    function a() {
+      echo "a";
+    }
+
+    /**
+     *
+     */
+    function b() {
+      echo "b";
+    }
+
+- préférer "isset($a) === true" à "isset($a)"
+
+- espace après une virgule :
+
+function azerty($a = null, $b = "c") {
+
+- indentation des tableaux :
+
+$azerty = array(
+    "a" => $b,
+    "b" => $a,
+);
+
+- prototype function
+
+*one line
+function azerty($a = null, $b = "c") {
+
+XXX
 
 ==================
 HTML Valide et W3C
 ==================
 
-Le Code HTML rendu doit être validé et correspondre aux standards W3C.
+Le Code HTML rendu doit être valide selon les standards du W3C.
 
 
 =============================
