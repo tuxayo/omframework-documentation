@@ -110,13 +110,13 @@ La fonction **directlink** a pour objectif d'accéder via une URL à une vue sp�
 
 Paramètres du script ``spg/direct_link.php`` qui récupère l'identifiant de l'objet parent lié et l'identifiant de l'onglet correspondant à la classe de l'objet à afficher :
 
-- obj (*obligatoire) : classe de l'objet contexte
-- action (*obligatoire) : action sur l'objet contexte
+- obj (obligatoire) : classe de l'objet contexte
+- action (obligatoire) : action sur l'objet contexte
 - idx (optionnel soit idx soit direct_field) : identifiant de l'objet contexte
 - direct_field  (optionnel soit idx soit direct_field) : nom du champ contenant l'identifiant de l'objet contexte 
-- direct_form (*obligatoire) : nom de l'objet direct a afficher
-- direct_action (*obligatoire) : action a effectuer sur l'objet direct
-- direct_idx (*obligatoire) : identifiant de l'objet direct à afficher
+- direct_form (obligatoire) : nom de l'objet direct a afficher
+- direct_action (obligatoire) : action a effectuer sur l'objet direct
+- direct_idx (obligatoire) : identifiant de l'objet direct à afficher
 
 Paramètres du script ``scr/form.php`` :
 
