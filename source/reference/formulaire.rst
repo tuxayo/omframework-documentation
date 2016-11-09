@@ -103,6 +103,48 @@ La fonction **verrou** a pour objectif d'empêcher la double soumission de formu
 
 Les trois méthodes de l'ancienne implémentation ``verrouille()``, ``deverouille()`` et ``testverrou()`` ont été vidées et conservées pour la réto-compatibilité des applications. Tous les appels à ces méthodes ont été supprimés du framework. Ces méthodes sont vides dans la version 4.5.0 et seront supprimées dans la 4.6.0. 
 
+La fonction **directlink**
+--------------------------
+
+La fonction **directlink** a pour objectif d'accéder via une URL à une vue spécifique d'un objet dans un onglet dans le contexte d'un formulaire. Ce sont les script ``spg/direct_link.php`` et ``scr/form.php`` qui sont en charge de réaliser l'opération. 
+
+Paramètres du script ``spg/direct_link.php`` qui récupère l'identifiant de l'objet parent lié et l'identifiant de l'onglet correspondant à la classe de l'objet à afficher :
+
+- obj : objet de l'objet parent
+- action :  action sur l'objet parent
+- direct_field : nom du champ contenant l'id de l'objet parent
+- direct_form : nom de l'objet du sous form a afficher
+- direct_action : action a effectuer sur le sous-form
+- direct_idx : id de l'objet du sous-form a afficher
+
+Paramètres du script ``scr/form.php`` :
+
+- obj
+- action
+- idx
+- direct_form
+- direct_action
+- direct_idx
+- identifiant de l'onglet #ui-tabs
+
+Par exemple, pour accéder au formulaire de modification de l'utilisateur dont l'identifiant est le 1 dans le contexte de sa collectivité directement via une URL voici l'URL à appeler :
+
+.. code-block:: php
+
+   ../spg/direct_link.php?obj=om_collectivite&action=3&direct_field=om_collectivite&direct_form=om_utilisateur&direct_action=1&direct_idx=1
+
+Celle ci va rediriger vers :
+
+.. code-block:: php
+
+   ../scr/form.php?obj=om_collectivite&action=3&idx=1&direct_form=om_utilisateur&direct_idx=1&direct_action=1#ui-tabs-1
+
+.. note::
+   *Limitations* - Ne peut fonctionner que si : 
+
+    - la vue par défaut de l'onglet doit être un soustab standard
+    - l'objet doit contenir dans son modèle de données un champ contenant l'identifiant de l'objet du contexte souhaité
+
 
 .. _class-dbform:
 
