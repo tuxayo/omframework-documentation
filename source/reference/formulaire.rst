@@ -110,12 +110,13 @@ La fonction **directlink** a pour objectif d'accéder via une URL à une vue sp�
 
 Paramètres du script ``spg/direct_link.php`` qui récupère l'identifiant de l'objet parent lié et l'identifiant de l'onglet correspondant à la classe de l'objet à afficher :
 
-- obj : objet de l'objet parent
-- action :  action sur l'objet parent
-- direct_field : nom du champ contenant l'id de l'objet parent
-- direct_form : nom de l'objet du sous form a afficher
-- direct_action : action a effectuer sur le sous-form
-- direct_idx : id de l'objet du sous-form a afficher
+- obj (*obligatoire) : classe de l'objet contexte
+- action (*obligatoire) : action sur l'objet contexte
+- idx (optionnel soit idx soit direct_field) : identifiant de l'objet contexte
+- direct_field  (optionnel soit idx soit direct_field) : nom du champ contenant l'identifiant de l'objet contexte 
+- direct_form (*obligatoire) : nom de l'objet direct a afficher
+- direct_action (*obligatoire) : action a effectuer sur l'objet direct
+- direct_idx (*obligatoire) : identifiant de l'objet direct à afficher
 
 Paramètres du script ``scr/form.php`` :
 
@@ -142,8 +143,8 @@ Celle ci va rediriger vers :
 .. note::
    *Limitations* - Ne peut fonctionner que si : 
 
-    - la vue par défaut de l'onglet doit être un soustab standard
-    - l'objet doit contenir dans son modèle de données un champ contenant l'identifiant de l'objet du contexte souhaité
+    - la vue par défaut de l'onglet est un soustab standard et non une vue par défaut
+    - l'objet doit contenir dans son modèle de données un champ contenant l'identifiant de l'objet du contexte souhaité si on utilise le paramètre direct_field
 
 
 .. _class-dbform:
