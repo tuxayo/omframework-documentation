@@ -4,6 +4,12 @@
 Les scripts specifiques de l'application
 ########################################
 
+.. contents::
+
+============
+Introduction
+============
+
 Les méthodes spécifiques à l'application sont dans obj/utils.class.php
 qui héritent de la class om_application.class.php d 'openmairie
 

@@ -4,9 +4,7 @@
 Module 'Reqmo'
 ##############
 
-.. warning::
-
-   Cette rubrique est en cours de rédaction.
+.. contents::
 
 ========
 Principe

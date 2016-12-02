@@ -4,6 +4,12 @@
 Arborescence
 ############
 
+.. contents::
+
+============
+Introduction
+============
+
 Cette rubrique vise à décrire brièvement l'arborescence du framework pour
 comprendre l'objectif de chaque répertoire. Elle est divisée en deux parties :
 les répertoires spécifiques à l'applicatif qui sont modifiés lors du

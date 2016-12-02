@@ -51,12 +51,10 @@ Ce chapitre propose de vous d√©crire les outils de base du framework de la mani√
    arborescence.rst
    initialisation_base_de_donnees.rst
    parametrage.rst
-   affichage.rst
-   advancedsearch.rst
-   formulaire.rst
-   actions-form.rst
    acces.rst
    dashboard.rst
+   listing.rst
+   formulaire.rst
    edition.rst
    import.rst
    reqmo.rst

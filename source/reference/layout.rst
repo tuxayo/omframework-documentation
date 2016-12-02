@@ -8,6 +8,7 @@ Abstraction du 'layout' (ergonomie)
 
    Cette rubrique est en cours de rédaction.
 
+.. contents::
 
 Depuis la version openMairie 4, il est utilisé l'ergonomie de jquery.
 

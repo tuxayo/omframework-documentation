@@ -4,6 +4,8 @@
 Initialisation de la base de données
 ####################################
 
+.. contents::
+
 ======================================
 Description du dossier ``data/pgsql/``
 ======================================

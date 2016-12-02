@@ -1,17 +1,13 @@
 .. _dashboard:
 
-########################
-Module 'Tableau de bord'
-########################
+##################
+Le tableau de bord
+##################
 
-
-.. warning::
-
-   Cette rubrique est en cours de rédaction.
-
+.. contents::
 
 ========
-principe
+Principe
 ========
 
 Il est proposé dans ce chapitre de décrire le tableau de bord paramètrable pour

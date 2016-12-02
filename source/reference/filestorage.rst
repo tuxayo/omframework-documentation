@@ -4,11 +4,7 @@
 Abstraction du 'filestorage' (stockage des fichiers)
 ####################################################
 
-
-.. warning::
-
-   Cette rubrique est en cours de rédaction.
-
+.. contents::
 
 ================
 Principe général

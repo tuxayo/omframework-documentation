@@ -4,6 +4,12 @@
 La gestion des accès
 ####################
 
+.. contents::
+
+============
+Introduction
+============
+
 Le framework fournit un gestionnaire d'accès configurable dans les menus :
 
 - administration -> profil

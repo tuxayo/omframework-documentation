@@ -4,6 +4,12 @@
 Paramétrage du framework
 ########################
 
+.. contents::
+
+============
+Introduction
+============
+
 Le paramétrage de l'application se fait dans le répertoire ``dyn/``. Il est proposé dans ce chapitre de décrire les différents scripts de paramétrage et leur utilisation. 
 
 ==========================

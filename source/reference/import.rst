@@ -4,10 +4,7 @@
 Module 'Import'
 ###############
 
-
-.. warning::
-
-   Cette rubrique est en cours de rédaction.
+.. contents::
 
 ========
 Principe

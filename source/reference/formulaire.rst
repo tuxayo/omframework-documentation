@@ -4,14 +4,13 @@
 Les formulaires
 ###############
 
-Les formulaires openMairie sont une visualisation d'un objet d'une classe métier.
+.. contents::
 
 ============
 Introduction
 ============
 
-Les formulaires permettent la consultation, l'ajout, la modification et la 
-suppression d'enregistrements des tables de la base de données.
+Les formulaires openMairie sont une visualisation d'un objet d'une classe métier. Les formulaires permettent la consultation, l'ajout, la modification et la suppression d'enregistrements des tables de la base de données.
 
 Consultation
 ------------
@@ -23,6 +22,9 @@ Les données ne sont pas éditables.
 .. image:: ../_static/mode_consult_context.png
    :height: 380
    :width: 800
+
+
+
 
 Ajout
 -----
@@ -52,7 +54,7 @@ demandée pour chaque suppression.
 Accès
 -----
 
-L'accès aux formulaires se fait depuis un :ref:`tableau d'éléments<affichage>`
+L'accès aux formulaires se fait depuis un :ref:`tableau d'éléments<listing>`
 ou depuis la consultation d'un élément via le menu contextuel.
 
 Par défaut, depuis les tableaux, les actions d'ajout et consultation sont
@@ -145,6 +147,145 @@ Celle ci va rediriger vers :
 
     - la vue par défaut de l'onglet est un soustab standard et non une vue par défaut
     - l'objet doit contenir dans son modèle de données un champ contenant l'identifiant de l'objet du contexte souhaité si on utilise le paramètre direct_field
+
+
+
+=============================================
+Actions du menu contextuel de la consultation
+=============================================
+
+Dans dyn/config.inc.php :
+
+.. code-block:: php
+
+   <?php
+   /**
+    * Parametre de gestion des nouvelles actions
+    * Permet de definir si la gestion des actions se fait dans la classe ou non.
+    * Si on decide d'utiliser les nouvelles actions alors il n'y à pas de
+    * retro-compatibilité, les actions supplémentaires de portlet initialement
+    * déclarées dans sql/pgsql/*.inc.php ne fonctionneront plus et devront
+    * être initialisées dans les attributs de la classe ciblée.
+    * Default : $config['activate_class_action'] = true;
+    */
+   $config['activate_class_action'] = true;
+   ?>
+
+Définition des actions dans les attributs de la classe de l'objet
+-----------------------------------------------------------------
+
+La configuration se fait dans les attributs des classes (obj/\*.class.php).
+
+L'ajout d'une action se présente de cette façon :
+
+.. code-block:: php
+
+   <?php
+   function init_class_actions() {
+       // On récupère les actions génériques définies dans la méthode 
+       // d'initialisation de la classe parente
+       parent::init_class_actions();
+
+       // ACTION - 002 - supprimer
+       //
+       $this->class_actions[2] = array(
+           "portlet" => array(
+               "libelle" => "supprimer",
+               "class" => "delete-16",
+               "order" => 20,
+               "description" => _("Accéder au formulaire de suppression de l'enregistrement"),
+           ),
+           "method" => "supprimer",
+           "button" => "supprimer",
+           "permission_suffix" => "supprimer",
+           "condition" => "delete_coll_condition"
+       );
+   }
+   ?>
+
+La clé du tableau correspond à la valeur $maj, le paramètre "method" correspond
+à la méthode appelée lors de la validation du formulaire, "button" est le texte du bouton de validation,
+"permission_suffix" est le suffixe du droit qui sera testé lors de l'affichage de l'action,
+"condition" permet de définir une méthode qui sera appelée avant l'affichage de l'action dans
+le portlet, si cette méthode retourne "true" l'action sera affichée.
+
+Si la clé "portlet" est définie l'action correspondante sera affichée (sous condition),
+la clé "libelle" est le texte affiché sur le lien, la classe définie dans "class" sera ajoutée à celles
+du lien, "order" permet de définir l'ordre, la clé "url" peu être utilisé pour définir une url spécifique.
+   
+Les action de classes permettent de surcharger les actions ajouter, modifier,
+consulter et supprimer définies dans core/om_db_form.class.php.
+
+**L'action qui porte le numéro 999 est réservée à la recherche avancée.**
+
+CRUD
+----
+
+Les formulaires de base sont facilement reproductibles : il existe un mode
+pour chaque action : Create, Read, Update et Delete.
+
+En définissant le paramètre "crud" adéquat, vous aurez automatiquement la vue
+et sa méthode de traitement sans développement supplémentaire.
+
+Ainsi cette action "ajouter_bis" est une copie fonctionnelle et suffisante de
+l'action ajouter :
+
+.. code-block:: php
+
+   <?php
+   // ACTION - 004 - ajouter_bis
+   //
+   $this->class_actions[4] = array(
+       "identifier" => "ajouter_bis",
+       "permission_suffix" => "ajouter",
+       "crud" => "create",
+   );
+   ?>
+   
+
+Définition des actions dans \*.form.inc.php (obsolète)
+------------------------------------------------------
+
+Dans dyn/config.inc.php :
+
+.. code-block:: php
+
+   <?php
+   /**
+    * Parametre de gestion des nouvelles actions
+    * Permet de definir si la gestion des actions se fait dans la classe ou non.
+    * Si on decide d'utiliser les nouvelles actions alors il n'y à pas de
+    * retro-compatibilité, les actions supplémentaires de portlet initialement
+    * déclarées dans sql/pgsql/*.inc.php ne fonctionneront plus et devront
+    * être initialisées dans les attributs de la classe ciblée.
+    * Default : $config['activate_class_action'] = true;
+    */
+   $config['activate_class_action'] = false;
+   ?>
+
+
+La configuration des actions du menu contextuel des formulaires en consultation
+se fait via les scripts ``sql/sgbd/objet.form.inc.php``
+
+Dans ces scripts, peuvent être surchargés, la liste des champs (ordre ou champs
+affichés), requêtes sql permettant de remplir les widget de formulaires ainsi
+que les actions du menu contextuel.
+
+L'ajout d'une action se présente de cette façon :
+
+.. code-block:: php
+
+   <?php
+   $portlet_actions['edition'] = array(
+       'lien' => '../pdf/pdflettretype.php?obj=om_utilisateur&amp;idx=',
+       'id' => '',
+       'lib' => '<span class="om-prev-icon om-icon-16 om-icon-fix pdf-16">'._('Edition').'</span>',
+       'ajax' => false,
+       'ordre' => 21,
+       'description' => _("Télécharger le courrier de l'utilisateur au format PDF"),
+   );
+   ?>
+
 
 
 .. _class-dbform:

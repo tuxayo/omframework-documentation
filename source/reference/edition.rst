@@ -4,17 +4,18 @@
 Module 'Édition'
 ################
 
+.. contents::
 
-.. warning::
-
-   Cette rubrique est en cours de rédaction.
-
+============
+Introduction
+============
 
 Le framework openMairie permet d'effectuer des éditions au format PDF. Ce module est composé de trois éléments fonctionnels :
 
 * les états et lettres types,
 * les listings,
 * les étiquettes.
+
 
 
 ==========================
