@@ -125,27 +125,6 @@ En cas de parenthèses :
             function azerty($a = null) {
                 fopen($a);
 
-
-2 saut de ligne entre chaque définition de méthode dans une classe :
-
-    .. code-block:: php
-
-        <?php
-        /**
-         *
-         */
-        function a() {
-          echo "a";
-        }
-
-
-        /**
-         *
-         */
-        function b() {
-          echo "b";
-        }
-
 Espace après une virgule :
 
     .. code-block:: php
