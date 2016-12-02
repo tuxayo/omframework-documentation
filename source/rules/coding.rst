@@ -187,6 +187,12 @@ Indentation
             
             Une fonction ou méthode ne devrait pas posséder autant de paramètres.
 
+Nommage des classes, fonctions, méthodes et variables
+*****************************************************
+
+Les mots composant les noms de classes, fonctions, méthodes et variables doivent être séparés par un underscore et en minuscule (exemple : snake_case).
+
+
 Expressions
 ***********
 
@@ -197,6 +203,7 @@ Le php étant un language à typage faible il est nécessaire de comparer les re
     <?php
     if (isset($a) === true) {
     }
+
 
 ==================
 HTML Valide et W3C
