@@ -264,7 +264,10 @@ Tout le code PHP doit être commenté selon les règles de PHPDocumentor https:/
             if (strtolower($a["title"]) == strtolower($b["title"])) {
                 return 0;
             }
-            return (strtolower($a["title"]) < strtolower($b["title"]) ? -1 : 1);
+            if (strtolower($a["title"]) < strtolower($b["title"])) {
+                return -1;
+            }
+            return 1;
         }
     
     }
