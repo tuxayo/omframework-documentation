@@ -255,8 +255,8 @@ Tout le code PHP doit être commenté selon les règles de PHPDocumentor https:/
          * Fonction permettant de comparer les valeurs de l'attribut title
          * des deux tableaux passés en paramètre.
          * 
-         * @param array $a
-         * @param array $b
+         * @param array $a Premier élément à comparer.
+         * @param array $b Second élément à comparer.
          *
          * @return bool 
          */
