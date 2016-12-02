@@ -7,6 +7,7 @@ de la distribution officielle d'openMairie ainsi qu'aux applicatifs de la gamme.
 La convention de codage permet de conserver un code consistant et de le rendre 
 lisible et maintenable facilement par les développeurs openMairie.
 
+.. contents::
 
 =====================
 L'indentation du code
