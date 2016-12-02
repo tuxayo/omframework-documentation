@@ -194,7 +194,7 @@ Le php étant un language à typage faible il est nécessaire de comparer les re
 .. code-block:: php
 
     <?php
-    if(isset($a) === true) {
+    if (isset($a) === true) {
     }
 
 ==================
