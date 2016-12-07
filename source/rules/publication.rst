@@ -25,5 +25,7 @@ Sur readthedoc :
 
 Depuis l'URL docs.openmairie.org faire un "refresh" pour mettre à jour la page de présentation des documentations : http://docs.openmairie.org/?refresh
 
-Dans l'application, modifier le lien dans le fichier doc/index.php pour pointer vers la nouvelle URL.
+Dans l'application :
+
+* modifier le lien dans les fichiers *dyn/footer.inc.php* et *doc/index.php* pour pointer vers la nouvelle URL.
 
