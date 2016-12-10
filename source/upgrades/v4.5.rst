@@ -7,8 +7,21 @@ La version 4.5
 Les nouveautés de la version 4.5
 ================================
 
-...
+Intégration du WYSIWIG dans la mise en forme des états (librairie js tinyMCE)
 
+Nouveau module SIG (information géographique)
+
+Nouvelle fonctionnalité "custom" permettant de "customizer" son application "métier"
+
+Amélioration de la recherche avancée par l'ajout de filtre
+
+Amélioration du générateur avec de nouvelles possibilités de configuration 
+
+Intégration des scripts "scr" dans la classe du générateur afin de pouvoir favoriser la personnalisation par surcharge
+
+Utilisation du filestorage lors de la génération de CSV (avec reqmo par exemple)
+
+Ajout de point spécifique d'entrée dans le framework et ajout de la possibilité d'accès direct a un objet (direct link)
 
 ==============================================
 Mettre à niveau depuis openMairie 4.4 vers 4.5
