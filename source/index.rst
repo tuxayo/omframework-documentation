@@ -32,27 +32,23 @@ Cette maquette permet très rapidement d'engager un dialogue participatif avec l
 utilisateurs, de  concentrer le développeur uniquement sur le "métier" et de faire valider
 par l'utilisateur les évolutions successives.
 
-Si vous débutez, il est préférable de commencer par le chapitre
+Si vous débutez, il est préférable de commencer par le manuel d'usage et par le chapitre
 "créer une application" qui permet de prendre en main facilement le générateur et le
 framework openMairie en vous guidant pas à pas dans le mise en place d'une
 gestion de courrier.
 
-Le chapitre sur le "framework" complète l'exemple ci dessus en vous décrivant
+Le manuel d'usage complète l'exemple ci dessus en vous decrivant le fonctionnement du framework: 
+installation,configuration, administration (tableaux de bord, éditions, module SIG)
+
+Le chapitre consacré du manuel d'usgae au "générateur" (génération) décrit dans le détail le fonctionnement
+de cet outil et de ses assistants. Cet outil permet de fabriquer rapidemment la maquette de votre
+application.
+
+Le manuel de référence s'adresse plus aux utilisateurs confirmés en décrivant
 le paramétrage, les classes formulaires et éditions du framework. Il a pour but
-de vous informer de manière complète sur le fonctionnement du framework
+de vous informer de manière complète sur le fonctionnement du framework  et de la génération.
 
-Le chapitre consacré au "générateur" décrit dans le détail le fonctionnement
-de cet outil et de ses assistants. Cet outil permet de fabriquer la maquette.
-
-La version 4.1.0 permet de construire des applications composites (ou mash up)
-en intégrant des contenus venant d'application externes. Cela permet de construire
-rapidement une application à faible coût grâce à la fusion de multiple service internet
-
-Le chapitre consacré a l' "information géographique" décrit dans le détail le
-fonctionnement SIG interne d'openMairie combinant les API d'internet avec le framework.
-(La version 4.2.0 améliore l'interface avec l'intégration de web service)
-
-Enfin ce document rassemble toutes les règles de codage du projet
+Ce document rassemble aussi toutes les règles de codage du projet
 openMairie, ainsi que des outils pour aider et guider les développeurs de la
 communauté.
 
@@ -60,6 +56,9 @@ Les règles indiquées doivent être appliquées pour qu'un projet puisse
 intégrer la distribution openMairie car l'objectif est de faciliter la
 lisibilité et la maintenance du code ainsi que la prise en main par les
 collectivités.
+
+Enfin, il est noté en dernier chapître, l'historique des versions du framework et les
+conseils pour les mises à niveau.
 
 Bonne lecture !
 
