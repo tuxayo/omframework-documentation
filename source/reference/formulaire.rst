@@ -616,6 +616,34 @@ Méthodes appelées lors de la validation
      Permet d'effectuer des actions après la modification des données dans la base
 
 
+Méthodes permettant d'afficher des informations spécifiques.
+------------------------------------------------------------
+
+Ces méthodes fournissent des points d'entrée dans les formulaires et les sous formulaires 
+(voir opencourrier : liaison de courrier dans obj/courrier.class.php)
+
+  .. method:: formSpecificContent($maj)
+
+     Cette méthode à surcharger permet d'afficher des informations 
+     spécifiques en fin de formulaire.
+     
+ .. method:: sousFormSpecificContent($maj)
+ 
+     Cette méthode à surcharger permet d'afficher des informations 
+     spécifiques en fin de sous formulaire.
+
+ .. method:: afterFormSpecificContent() 
+ 
+     Cette méthode à surcharger permet d'afficher des informations 
+     spécifiques après le formulaire.
+
+ .. method:: afterSousFormSpecificContent() { }
+
+     Cette méthode à surcharger permet d'afficher des informations 
+     spécifiques après le sous formulaire.
+
+
+
 ===================================
 Description de la classe formulaire
 ===================================
@@ -965,13 +993,17 @@ classes métier.
 Ces scripts peuvent être stockés en dehors de l'application pour des besoins spécifiques qui 
 n'entrent pas dans le champs fonctionnel de base.
 
-Le répertoire ou doit être les scripts est à paramétrer dans dyn/include.inc ::
+Le répertoire ou doit être les scripts est à paramétrer dans dyn/include.inc 
+
+.. code-block:: php
 
    // CUSTOM reqmo - pdf - import
    define("PATH_CUSTOM", getcwd()."/../custom/");
 
 Il faut ensuite indiquer quels sont  les scripts qui surchargent les scripts métiers de l'application 
-dans le fichier dyn/custom.inc.php ::
+dans le fichier dyn/custom.inc.php 
+
+.. code-block:: php
 
    $custom=array();
    $custom['tab']['om_utilisateur'] = '../custom/sql/pgsql/om_utilisateur.inc.php';
@@ -979,7 +1011,9 @@ dans le fichier dyn/custom.inc.php ::
    $custom['form']['om_utilisateur'] = '../custom/sql/pgsql/om_utilisateur.form.inc.php';
    $custom['obj']['om_utilisateur'] = '../custom/obj/om_utilisateur.class.php';
 
-Enfin il faut créer les surcharges ::
+Enfin il faut créer les surcharges 
+
+.. code-block:: php
 
    // exemple dans ../custom/sql/pgsql/om_utilisateur.inc.php
    include "../sql/pgsql/om_utilisateur.inc.php";
