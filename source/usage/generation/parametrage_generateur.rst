@@ -300,7 +300,9 @@ Ce fichier n'est plus utilisé par le générateur depuis la version 4.0 et la g
 
 Nous décrivons ici les limites du générateur qui pourront être réglées dans des versions ultérieures
 
-Si un champ de type date2 en sous formulaire a le même nom qu'un champ de type date en formulaire, le champ du sous formulaire date2 n'est pas alimenté par le calendrier datepicker. 
+Lorsqu'un formulaire principal (FP) contient un champ nommé "libelle" ainsi qu'un sous formulaire (FS) contenant lui-même un champ "libelle", cela pose plusieurs problèmes :
+- pas w3c compliant,
+- lors de l'exécution de javascript sur le sélecteur (id) du champ, en effet l'id du champ est le nom de la colonne correspondante dans la bdd.
 
 La saisie des décimaux est limitée au type de champs pgsql "numeric" : pas de prise en compte des champs float
 
