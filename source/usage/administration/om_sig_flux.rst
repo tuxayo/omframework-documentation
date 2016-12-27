@@ -24,35 +24,6 @@ en appuyant sur modifier ou supprimer
 
 .. image:: form_om_sig_flux.png
 
-les champs suivants peuvent etre mis a jour :
-
-.. note::
-
-	Le champ *'om_sig_flux'* est un champ numerique entier non obligatoire.
-
-	Le champ *'libelle'* est un champ libelle non obligatoire de 50 caractere(s) .
-
-	Le champ *'om_collectivite'* est un champ numerique entier non obligatoire.
-
-	Le champ *'id'* est un champ libelle non obligatoire de 50 caractere(s) .
-
-	Le champ *'attribution'* est un champ libelle obligatoire de 150 caractere(s) .
-
-	Le champ *'cache_type'* est un champ libelle obligatoire de 3 caractere(s) .
-
-	Le champ *'chemin'* est un champ libelle non obligatoire de 255 caractere(s) .
-
-	Le champ *'couches'* est un champ libelle non obligatoire de 255 caractere(s) .
-
-	Le champ *'cache_gfi_chemin'* est un champ libelle obligatoire de 255 caractere(s) .
-
-	Le champ *'cache_gfi_couches'* est un champ libelle obligatoire de 255 caractere(s) .
-
-	Il y a une contrainte  de cle primaire  dont le nom est *'om_sig_flux_pkey'*.
-
-	Il y a une contrainte  de cle scondaire  dont le nom est *'om_sig_flux_om_collectivite_fkey'*.
-
-
 
 Description des champs :
 ========================
