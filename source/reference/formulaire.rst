@@ -959,7 +959,7 @@ configuration du formulaire.
 Custom de l'application
 -----------------------
 
-Il est possible d'ajouter des scripts personnalisés pour reqmo et import  ainsi que pour les 
+Il est possible d'ajouter des scripts personnalisés pour les scripts reqmo et import  ainsi que pour les 
 classes métier.
 
 Ces scripts peuvent être stockés en dehors de l'application pour des besoins spécifiques qui 
@@ -970,7 +970,7 @@ Le répertoire ou doit être les scripts est à paramétrer dans dyn/include.inc
    // CUSTOM reqmo - pdf - import
    define("PATH_CUSTOM", getcwd()."/../custom/");
 
-Il faut ensuite indiquer les scripts qui surchargent les scripts métiers de l'application 
+Il faut ensuite indiquer quels sont  les scripts qui surchargent les scripts métiers de l'application 
 dans le fichier dyn/custom.inc.php ::
 
    $custom=array();
@@ -981,14 +981,14 @@ dans le fichier dyn/custom.inc.php ::
 
 Enfin il faut créer les surcharges ::
 
-   // dans ../custom/sql/pgsql/om_utilisateur.inc.php
+   // exemple dans ../custom/sql/pgsql/om_utilisateur.inc.php
    include "../sql/pgsql/om_utilisateur.inc.php";
    $champAffiche = array(
       'om_utilisateur.om_utilisateur as "'._("om_utilisateur").'"',
       'om_utilisateur.nom as "'._("nom").'"',
       );
 
-   // dans ../custom/obj/om_utilisateur.class.php
+   // exemple dans ../custom/obj/om_utilisateur.class.php
    require_once "../obj/om_utilisateur.class.php";
 
    class om_utilisateur_custom extends om_utilisateur {
@@ -999,23 +999,22 @@ Enfin il faut créer les surcharges ::
 
 
        function setType(&$form,$maj) {
-           //
            parent::setType($form, $maj);
            if($maj==1)
                $form->setType("pwd", "hiddenstatic");
-           $form->setType("login", "geom");
        }
 
        function setLib(&$form,$maj) {
-           //
            parent::setLib($form, $maj);
-               $form->setLib("nom", "nom dans la classe surchargee");
+           $form->setLib("nom", "nom dans la classe surchargee");
        }
 
     }   
    
-Pour les reqmo et les imports, il n'est pas besoin de paramètrer dn/custom.inc.php
+Pour les reqmo et les imports, il n'est pas besoin de paramètrer dyn/custom.inc.php
 car le framework les récupèrent automatiquement.
 
-Attention, le custom ne fonctionne que pour la classe surchargée et non si il y a une surcharge
-dans l application de la classe cible.
+.. note::
+
+   Attention, la surcharge du custom ne fonctionne que pour la classe cible et non celles qui 
+   eventuellement surcharge dans l application la classe cible.
