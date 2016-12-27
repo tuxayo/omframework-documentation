@@ -28,9 +28,8 @@ les champs suivants peuvent etre mis a jour :
 
 	Le champ *'extent'* est un champ libelle obligatoire de 150 caractere(s) .
     
-    Le champ *'valide'* est un champ booleen non obligatoire
+        Le champ *'valide'* est un champ booleen non obligatoire
 
-	Il y a une contrainte  de cle primaire  dont le nom est *'om_sig_extent_pkey'*.
 
 
 
