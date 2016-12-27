@@ -37,7 +37,9 @@ le générateur.
     * Default : $key_constraints_mode = "constraints";
     */
    $key_constraints_mode = "postulate";
-   
+ 
+ 
+  
    /**
     * Liste des tables à ne pas générer
     *
@@ -290,4 +292,17 @@ Ce fichier n'est plus utilisé par le générateur depuis la version 4.0 et la g
 ============================
 
 Ce fichier n'est plus utilisé par le générateur depuis la version 4.0 et la gestion des éditions en base de données.
+
+
+
+``Limites du générateur``
+========================
+
+Nous décrivons ici les limites du générateur qui pourront être réglées dans des versions ultérieures
+
+Si un champ de type date2 en sous formulaire a le même nom qu'un champ de type date en formulaire, le champ du sous formulaire date2 n'est pas alimenté par le calendrier datepicker. 
+
+La saisie des décimaux est limitée au type de champs pgsql "numeric" : pas de prise en compte des champs float
+
+Le générateur ne prend pas les noms de tables ou de champs en majuscule
 
