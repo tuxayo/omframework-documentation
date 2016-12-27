@@ -16,67 +16,6 @@ en appuyant sur modifier ou supprimer
 
 .. image:: form_om_sig_map.png
 
-les champs suivants peuvent etre mis a jour :
-
-.. note::
-
-	Le champ *'om_sig_map'* est un champ numerique entier non obligatoire.
-
-	Le champ *'id'* est un champ libelle non obligatoire de 50 caractere(s) .
-
-	Le champ *'om_collectivite'* est un champ numerique entier non obligatoire.
-
-	Le champ *'libelle'* est un champ libelle non obligatoire de 50 caractere(s) .
-
-	Le champ *'actif'* est un champ booleen obligatoire.
-
-	Le champ *'util_idx'* est un champ booleen obligatoire.
-
-	Le champ *'util_reqmo'* est un champ booleen obligatoire.
-
-	Le champ *'util_recherche'* est un champ booleen obligatoire.
-
-	Le champ *'source_flux'* est un champ numerique entier obligatoire.
-
-	Le champ *'zoom'* est un champ libelle non obligatoire de 3 caractere(s) .
-
-	Le champ *'fond_osm'* est un champ booleen obligatoire.
-
-	Le champ *'fond_bing'* est un champ booleen obligatoire.
-
-	Le champ *'fond_sat'* est un champ booleen obligatoire.
-
-	Le champ *'layer_info'* est un champ booleen obligatoire.
-
-	Le champ *'fond_default'* est un champ libelle non obligatoire de 10 caractere(s) .
-
-	Le champ *'om_sig_extent'* est un champ numerique entier non obligatoire.
-
-	Le champ *'restrict_extent'* est un champ booleen obligatoire.
-
-	Le champ *'point_centrage'* est un champ geometrique obligatoire.
-
-	Le champ *'projection_externe'* est un champ libelle non obligatoire de 60 caractere(s) .
-
-	Le champ *'url'* est un champ texte non obligatoire.
-
-	Le champ *'om_sql'* est un champ texte non obligatoire.
-
-	Le champ *'sld_marqueur'* est un champ libelle obligatoire de 254 caractere(s) .
-
-	Le champ *'sld_data'* est un champ libelle obligatoire de 254 caractere(s) .
-
-	Le champ *'retour'* est un champ libelle non obligatoire de 50 caractere(s) .
-
-	Il y a une contrainte  de cle primaire  dont le nom est *'om_sig_map_pkey'*.
-
-	Il y a une contrainte  de cle scondaire  dont le nom est *'om_sig_map_om_collectivite_fkey'*.
-
-	Il y a une contrainte  de cle scondaire  dont le nom est *'om_sig_map_om_sig_map_fkey'*.
-
-	Il y a une contrainte  de cle scondaire  dont le nom est *'om_sig_map_om_sig_extent_fkey'*.
-
-
 
 Description des champs :
 ========================
