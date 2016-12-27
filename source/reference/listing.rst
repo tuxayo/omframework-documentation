@@ -64,7 +64,7 @@ Titre (fil d'ariane) de la page.
   ?>
       
 Ces variables peuvent être accessibles par les classes métier qui peuvent modifier le fil d'ariane
-depuis un formualaire ou un sous formulaire      
+depuis un formulaire ou un sous formulaire      
 
 .. code-block:: php
 
