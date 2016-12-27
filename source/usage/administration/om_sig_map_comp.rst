@@ -28,36 +28,6 @@ en appuyant sur modifier ou supprimer
 
 .. image:: form_om_sig_map_comp.png
 
-les champs suivants peuvent etre mis a jour :
-
-.. note::
-
-	Le champ *'om_sig_map_comp'* est un champ numerique entier non obligatoire.
-
-	Le champ *'om_sig_map'* est un champ numerique entier non obligatoire.
-
-	Le champ *'libelle'* est un champ libelle non obligatoire de 50 caractere(s) .
-
-	Le champ *'obj_class'* est un champ libelle non obligatoire de 100 caractere(s) .
-
-	Le champ *'ordre'* est un champ numerique entier non obligatoire.
-
-	Le champ *'actif'* est un champ booleen obligatoire.
-
-	Le champ *'comp_maj'* est un champ booleen obligatoire.
-
-	Le champ *'comp_table_update'* est un champ libelle obligatoire de 30 caractere(s) .
-
-	Le champ *'comp_champ_idx'* est un champ libelle obligatoire de 30 caractere(s) .
-
-	Le champ *'comp_champ'* est un champ libelle obligatoire de 30 caractere(s) .
-
-	Le champ *'type_geometrie'* est un champ libelle obligatoire de 30 caractere(s) .
-
-	Il y a une contrainte  de cle primaire  dont le nom est *'om_sig_map_comp_pkey'*.
-
-	Il y a une contrainte  de cle scondaire  dont le nom est *'om_sig_map_comp_om_sig_map_fkey'*.
-
 
 
 Description des champs :
