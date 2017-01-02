@@ -258,9 +258,6 @@ Enregistrer une ligne :
 
 .. image:: map-edit-record.png
 
-Cette option permet d'enregistrer une ligne.
+Cette option permet d'enregistrer une igne.
 
 Problèmes
----------
-
-A voir le double enregistrement point + périmetre ???
