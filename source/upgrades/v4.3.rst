@@ -9,9 +9,6 @@ Les nouveautés de la version 4.3
 
 Modification om sig
 
-Om_sig_map et wms 
-
-
 ==============================================
 Mettre à niveau depuis openMairie 4.2 vers 4.3
 ==============================================
