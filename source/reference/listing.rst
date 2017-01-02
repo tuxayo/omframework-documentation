@@ -328,7 +328,7 @@ dans les sous-tableaux:
 Définition de l'ordre d'affichage
 .................................
 
-La clé ``ordre`` permet de déterminer l'ordre d'affichage par rapport aux autres
+La clé ``order`` permet de déterminer l'ordre d'affichage par rapport aux autres
 actions.
 
 Chaque action dispose d'une valeur numérique permettant de définir sa place au
