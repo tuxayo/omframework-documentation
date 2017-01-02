@@ -7,7 +7,17 @@ La version 4.4
 Les nouveautés de la version 4.4
 ================================
 
-...
+- fonctionnement du générateur sur pgsql
+
+- nouveau filestorage
+
+- nouveau dashboard
+
+- version sig (single tile, filtre wms, tile cache)
+
+- mode consultation
+
+- abstraction du layout
 
 
 ==============================================
