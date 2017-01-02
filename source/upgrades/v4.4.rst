@@ -11,7 +11,7 @@ Les nouveautés de la version 4.4
 
 - nouveau filestorage
 
-- nouveau dashboard 
+- nouveau dashboard : om dashboard et om widget 
 
 - version sig (single tile, filtre wms, tile cache)
 
