@@ -4,6 +4,7 @@
 Installation
 ############
 
+Vous devez avoir installer apache, php et postgres.
 
 Installation de qgis serveur sur linux debian et ubuntu
 =======================================================
