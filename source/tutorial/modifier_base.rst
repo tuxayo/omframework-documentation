@@ -143,8 +143,7 @@ Les surcharges d'openCourrier
 
 Vous pouvez utiliser openCourrier qui est téléchargeable au lien suivant :
 
-svn://scm.adullact.net/scmrepos/svn/opencourrier/trunk
-
+http://www.adullact.net/frs/?group_id=297
 
 Si les surcharges qui ont été faites dans notre exemple sont celles d'openCourrier, il y a
 d'autre surcharges dans le script *courrier.class.php* d'openCimetiere  :
