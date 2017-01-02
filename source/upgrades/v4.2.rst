@@ -7,6 +7,12 @@ La version 4.2
 Les nouveautés de la version 4.2
 ================================
 
+- openmairie en core
+
+- om_sig_point devient om_sig_map : geometry autre que point
+
+- rajout du wms et geom complementaire dans om_sig
+
 ...
 
 
