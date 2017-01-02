@@ -16,7 +16,7 @@ openMairie Framework 4.5 documentation
 Ce document a pour but de guider les développeurs dans la mise en œuvre
 d'un projet openMairie.
 
-Avec plus de 30 applications développées pour les collectivités locales accessibles
+Avec plus de 50 applications développées pour les collectivités locales accessibles
 sur le site http://openmairie.org, nous souhaitons au travers de ce guide , diffuser notre
 expérience auprès  des collectivités et des acteurs économiques du libre qui les accompagnent.
 
@@ -40,7 +40,7 @@ gestion de courrier.
 Le manuel d'usage complète l'exemple ci dessus en vous decrivant le fonctionnement du framework: 
 installation,configuration, administration (tableaux de bord, éditions, module SIG)
 
-Le chapitre consacré du manuel d'usgae au "générateur" (génération) décrit dans le détail le fonctionnement
+Le chapitre consacré du manuel d'usage au "générateur" (génération) décrit dans le détail le fonctionnement
 de cet outil et de ses assistants. Cet outil permet de fabriquer rapidemment la maquette de votre
 application.
 
