@@ -7,7 +7,9 @@ La version 4.3
 Les nouveautés de la version 4.3
 ================================
 
-...
+Modification om sig
+
+Om_sig_map et wms 
 
 
 ==============================================
