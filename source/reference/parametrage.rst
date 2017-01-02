@@ -1118,10 +1118,13 @@ les paramètres sont les suivants ::
 
 ces paramétres sont utilisés pour la saisie de carte : voir chapitre sig
 
+Les etendues ne sont plus gérées dans ce fichier avec la version 4.5
+
 Les post traitements de form_sig permettent de faire des traitement apres saisie de géométries avec om_sig
 
     form_sig_update.inc.php
 
     form_sig_delete.inc.php
-
+    
+Ces post traitements sont deprecated en version 4.5.
 
