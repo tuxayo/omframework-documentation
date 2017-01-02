@@ -288,8 +288,6 @@ Il apparait alors ::
     
 Le déplacement du widget de haut en bas ou de gauche à droite se fait par copier/glisser avec la souris.
 
-
-
 .. image:: ../_static/tdb_1.png
 
 
@@ -297,6 +295,9 @@ En cliquant sur "+", il est possible de rajouter des widgets dans son tableau de
 bord
 
 .. image:: ../_static/tdb_2.png
+
+Dans la version om 4.5, la composition du tableau de bord se fait avec l option "composer le tableau de bord" du menu administration. Le paramétrage se fait par profil.
+
 
 -----------------
 Modèle de données
