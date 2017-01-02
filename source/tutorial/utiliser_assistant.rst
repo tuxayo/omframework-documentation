@@ -102,6 +102,9 @@ Allez dans l'option **Etat** du menu **Paramétrage**.
 Modifiez l'état *service* et dans le fieldset à déplier
 *Sous-état(s)* après l'avoir coché actif sélectionnez le sous-état *courrier.service*.
 
+Attention la mise en place de sous etat dans un état a été modifié dans la version 4.5 du framework 
+La version ci dessous est om 4.4.
+
 .. image:: ../_static/utilisation_16.png
 
 Vous avez désormais un état des courriers par service (**Paramétrage -> Service -> Edition PDF**) :
