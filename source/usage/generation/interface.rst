@@ -65,4 +65,4 @@ en :
 
 - sql/basededonnees/table.form.inc
 
-basededonnees = mysql ou pgsql
+basededonnees = pgsql
