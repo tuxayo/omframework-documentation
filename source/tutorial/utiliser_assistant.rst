@@ -149,4 +149,4 @@ Vous pouvez compléter votre information avec le chapitre *framework/edition*
 et regarder les possibilités de paramétrage du générateur *generateur/parametrage*
 pour la réalisation d'état customisé.
 
-Vous avez maintenant terminé l'exemple d'utilisation du Framework, le chapitre suivant a pour but de vous informer de manière complète sur ce dernier.
+Vous avez maintenant terminé l'exemple d'utilisation du Framework, le chapitre suivant a pour but de vous informer sur l'usage du framework..
