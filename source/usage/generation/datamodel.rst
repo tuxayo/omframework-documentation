@@ -37,7 +37,6 @@ modèle ne peut pas être créé.
 
 **il  n'est pas possible d'utiliser une clé primaire composée de plusieurs colonnes**
 
-Non
 Les références vers d'autres objets
 ===================================
 
