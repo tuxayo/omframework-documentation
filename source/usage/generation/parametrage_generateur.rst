@@ -303,8 +303,3 @@ Nous décrivons ici les limites du générateur qui pourront être réglées dan
 Lorsqu'un formulaire principal (FP) contient un champ nommé "libelle" ainsi qu'un sous formulaire (FS) contenant lui-même un champ "libelle", cela pose plusieurs problèmes :
 - pas w3c compliant,
 - lors de l'exécution de javascript sur le sélecteur (id) du champ, en effet l'id du champ est le nom de la colonne correspondante dans la bdd.
-
-La saisie des décimaux est limitée au type de champs pgsql "numeric" : pas de prise en compte des champs float
-
-Le générateur ne prend pas les noms de tables ou de champs en majuscule
-
