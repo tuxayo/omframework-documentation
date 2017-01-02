@@ -137,15 +137,14 @@ Le paragraphe suivant vous indique les surcharges d'openCimetiere que vous
 pouvez intégrer dans votre exemple, maintenant que vous avez la méthode.
 
 
-==============================
-Les surcharges d'openCimetiere
-==============================
+=============================
+Les surcharges d'openCourrier
+=============================
 
-Vous pouvez utiliser openCimetiere (actuellement version 3.0.0-a5-dev) qui est téléchargeable au lien suivant :
+Vous pouvez utiliser openCourrier qui est téléchargeable au lien suivant :
 
-svn://scm.adullact.net/scmrepos/svn/opencimetiere/trunk
+svn://scm.adullact.net/scmrepos/svn/opencourrier/trunk
 
-La base de données d'openCimetiere est plus complexe.
 
 Si les surcharges qui ont été faites dans notre exemple sont celles d'openCourrier, il y a
 d'autre surcharges dans le script *courrier.class.php* d'openCimetiere  :
