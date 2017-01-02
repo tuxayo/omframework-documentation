@@ -10,8 +10,9 @@ gen.class.php.
 La construction des formulaires se fait suivant 5 types de champs reconnus par le générateur: ::
 
     - string : chaîne de caractère 
-    - int : nombre (entier ou décimal)
-    - date 
+    - int : nombre (entier)
+    - float : nombre decimal
+    - date 
     - blob : texte
     - geom : geometry (pour postgres)
 
@@ -65,10 +66,10 @@ pgsql (longueur) type tableinfo si different -> type openMairie ::
     Bigint      (8)                 int8        -> int
     Smallint    (2)                 Int2        -> Int
     Integer     (4)                 Int4        -> Int
-    Real        (4)                 Float4      -> Int
-    Doubleprecision (8)             Float8      -> Int
-    Numeric     (20)                Numeric     -> Int
-    Money       (8)                 Money       -> Int
+    Real        (4)                 Float4      -> float
+    Doubleprecision (8)             Float8      -> float
+    Numeric     (20)                Numeric     -> float
+    Money       (8)                 Money       -> float
     Char        (1)                 Char        -> String   (Quelque soit la longueur= 1)
     Character   (-1)                Bpchar      -> String (Utilisation de la longueur d'affichage)
     Character varying (-1)          Varchar     -> String (Utilisation de la longueur d'affichage)
