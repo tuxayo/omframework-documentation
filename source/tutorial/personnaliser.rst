@@ -151,7 +151,7 @@ de la manière suivante : ::
         
         if ($validation==0) {
             if ($maj == 0){
-                $form->setVal("dateenvoi", date('Y-m-d'));
+                $form->setVal("dateenvoi", date('Y-m-d'));
             }
         }
     }
