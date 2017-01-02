@@ -209,7 +209,9 @@ Les caracteristiques de ce tableau sont les suivantes :
      target (pour ouvrir le lien dans une nouvelle fenetre)
      open (critères de pré-ouverture de la rubrique du menu dans laquelle est ce
            lien, et sélection de ce lien en lien actif)
-
+     //  condition d affichage de l option suivent valeur d un om parametre
+     "parameters" => array("option_courrier_depart" => 'true', ),
+     
 L'entrée ``open`` sert à marquer une entrée de menu comme active. La rubrique
 contenant cette entrée est ouverte dès l'affichage de la page, et l'entrée active
 est mise en évidence. L'entrée ``open`` peut contenir soit une chaîne soit un
