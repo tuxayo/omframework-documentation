@@ -35,10 +35,9 @@ modèle ne peut pas être créé.
    rétro-compatibilité. Les versions d'openMairie antérieures à 4.3.0
    n'utilisaient pas encore la contrainte ``PRIMARY KEY``.
 
-**Est-il possible d'utiliser une clé primaire composée de plusieurs colonnes?**
+**il  n'est pas possible d'utiliser une clé primaire composée de plusieurs colonnes**
 
-Non, et c'est bien mieux comme ça.
-
+Non
 Les références vers d'autres objets
 ===================================
 
