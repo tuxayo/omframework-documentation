@@ -11,7 +11,7 @@ Modification om sig
 
 Prise en compte des  contraintes clés primaires et étrangère  dans le générateur .
 
-Re ecriture du href tab_action
+Re ecriture des actions  en tableau :  href  tab_action
 
 
 ==============================================
