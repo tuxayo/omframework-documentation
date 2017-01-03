@@ -23,51 +23,6 @@ en appuyant sur modifier ou supprimer
 
 .. image:: form_om_sig_map_flux.png
 
-les champs suivants peuvent etre mis a jour :
-
-.. note::
-
-	Le champ *'om_sig_map_flux'* est un champ numerique entier non obligatoire.
-
-	Le champ *'om_sig_flux'* est un champ numerique entier non obligatoire.
-
-	Le champ *'om_sig_map'* est un champ numerique entier non obligatoire.
-
-	Le champ *'ol_map'* est un champ libelle non obligatoire de 50 caractere(s) .
-
-	Le champ *'ordre'* est un champ numerique entier non obligatoire.
-
-	Le champ *'visibility'* est un champ booleen obligatoire.
-
-	Le champ *'panier'* est un champ booleen obligatoire.
-
-	Le champ *'pa_nom'* est un champ libelle obligatoire de 50 caractere(s) .
-
-	Le champ *'pa_layer'* est un champ libelle obligatoire de 50 caractere(s) .
-
-	Le champ *'pa_attribut'* est un champ libelle obligatoire de 50 caractere(s) .
-
-	Le champ *'pa_encaps'* est un champ libelle obligatoire de 3 caractere(s) .
-
-	Le champ *'pa_sql'* est un champ texte obligatoire.
-
-	Le champ *'pa_type_geometrie'* est un champ libelle obligatoire de 30 caractere(s) .
-
-	Le champ *'sql_filter'* est un champ texte obligatoire.
-
-	Le champ *'baselayer'* est un champ booleen obligatoire.
-
-	Le champ *'singletile'* est un champ booleen obligatoire.
-
-	Le champ *'maxzoomlevel'* est un champ numerique entier obligatoire.
-
-	Il y a une contrainte  de cle primaire  dont le nom est *'om_sig_map_flux_pkey'*.
-
-	Il y a une contrainte  de cle scondaire  dont le nom est *'om_sig_map_flux_om_sig_map_fkey'*.
-
-	Il y a une contrainte  de cle scondaire  dont le nom est *'om_sig_map_flux_om_sig_flux_fkey'*.
-
-
 
 Description des champs :
 ========================
