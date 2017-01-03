@@ -18,21 +18,6 @@ en appuyant sur modifier ou supprimer
 
 .. image:: form_om_sig_extent.png
 
-les champs suivants peuvent etre mis a jour :
-
-.. note::
-
-	Le champ *'om_sig_extent'* est un champ numerique entier non obligatoire.
-
-	Le champ *'nom'* est un champ libelle obligatoire de 150 caractere(s) .
-
-	Le champ *'extent'* est un champ libelle obligatoire de 150 caractere(s) .
-    
-        Le champ *'valide'* est un champ booleen non obligatoire
-
-
-
-
 exemple d'extent (libellé) ::
 
     1.38015228874262,49.8395709942243,2.10618821851606,50.3699899402347
