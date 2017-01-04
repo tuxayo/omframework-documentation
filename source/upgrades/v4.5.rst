@@ -52,3 +52,5 @@ Mettre à niveau depuis openMairie 4.4 vers 4.5
 
 * La méthode getPathFolderTrs() a été supprimée du framework. Il suffit de copier/coller la définition de cette méthode dans la classe utils de l'application ``../obj/utils.class.php`` si elle est utilisée.
 
+* La méthode ``application::displayAllScriptJsCall()`` a été supprimée du framework. Il suffit de copier/coller la définition de cette méthode dans la classe ``utils`` de l'application ``../obj/utils.class.php`` si elle est utilisée.
+
