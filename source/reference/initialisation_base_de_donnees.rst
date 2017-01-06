@@ -202,7 +202,7 @@ Le paramétrage de la connexion à la base de données se fait dans le fichier
     );
     
     ?>
-
+L'attribut optionnel 'extras' est un tab!eau associatif qui contient un ou plusieurs parametrage de base de données.La méthode get_database_extra_parameters de la classe om_application permet de recuperer ces paramètres.
 
 La documentation de DB PEAR qui est le module d'abstraction utilisé par le
 framework donne plus d'informations sur les paramètres.
