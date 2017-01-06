@@ -103,3 +103,5 @@ index, type, len ... ou openMairie : objet pour les noms de champs ou table.
 
 Limites du generateur :
 Attention de ne pas utiliser les majuscules dans les noms de tables ou champs.
+
+postgresql réagit assez mal avec les majuscules qu'il met entre guillemets dans les requêtes.
