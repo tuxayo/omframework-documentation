@@ -182,7 +182,17 @@ automatiquement.
 
 Voici les paramètres disponibles :
 
-.. code-block:: php
+.. code-block:: phpfonctionnement de l autocomplete en sous formulaire si l'autocomplete.
+La solution de contournement que j ai trouvé :slight_smile:
+1- en modification désactiver les ongleits : $option_tab_disabled_on_edit=true;
+la méthode autocomplete ne peut être active que dans formulaire
+2- surcharge de la méthode autocomplete dans obj/om_formulaire.class 
+if($this->correct){
+$this->text($champ, $validation, $DEBUG = false);
+}else{
+...
+-> si la validation est ok, on n utilise plus la methode autocomplete dans le formulaire de retour qui gene l'utilisation de cette mếme méthode dans le sous fomulaire si on va dans un onglet 
+..
  
    <?php
    
@@ -301,5 +311,21 @@ Ce fichier n'est plus utilisé par le générateur depuis la version 4.0 et la g
 Nous décrivons ici les limites du générateur qui pourront être réglées dans des versions ultérieures
 
 Lorsqu'un formulaire principal (FP) contient un champ nommé "libelle" ainsi qu'un sous formulaire (FS) contenant lui-même un champ "libelle", cela pose plusieurs problèmes :
+
 - pas w3c compliant,
+
 - lors de l'exécution de javascript sur le sélecteur (id) du champ, en effet l'id du champ est le nom de la colonne correspondante dans la bdd.
+
+fonctionnement
+La solution de contournement exemple avec autocomplete ayant le même nom en form et sous form 
+
+1- en modification désactiver les onglets : $option_tab_disabled_on_edit=true;
+la méthode autocomplete ne peut être active que dans formulaire
+
+2- surcharge de la méthode autocomplete dans obj/om_formulaire.class.php ::
+    if($this->correct){
+       $this->text($champ, $validation, $DEBUG = false);
+    }else{
+    ...
+    
+si la validation est ok, on n utilise plus la methode autocomplete dans le formulaire de retour qui gene l'utilisation de cette mếme méthode dans le sous fomulaire
