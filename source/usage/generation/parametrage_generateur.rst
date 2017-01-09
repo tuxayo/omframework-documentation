@@ -322,7 +322,10 @@ La solution de contournement exemple avec autocomplete ayant le même nom en for
 1- en modification désactiver les onglets : $option_tab_disabled_on_edit=true;
 la méthode autocomplete ne peut être active que dans formulaire
 
-2- surcharge de la méthode autocomplete dans obj/om_formulaire.class.php ::
+2- surcharge de la méthode autocomplete dans obj/om_formulaire.class.php 
+
+.. code-block :: php
+
     if($this->correct){
        $this->text($champ, $validation, $DEBUG = false);
     }else{
