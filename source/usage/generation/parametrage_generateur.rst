@@ -184,9 +184,6 @@ Voici les paramètres disponibles :
 
 .. code-block:: php 
 éthode autocomplete ne peut être active que dans formulaire
-2- surcharge de la méthode autocomplete dans obj/om_formulaire.class 
-if($this->correct){
-$this->text($champ, $validation, $DEBUG = false);
 ..
  
    <?php
@@ -201,8 +198,8 @@ $this->text($champ, $validation, $DEBUG = false);
     */
    $files_to_avoid = array(
        "pdf_lettre_rar.class.php",
-       "pilotage.class.php",
-   );
+       "pilotage.class.php
+  );
    
    /**
     * Liste des permissions spécifiques
