@@ -182,16 +182,11 @@ automatiquement.
 
 Voici les paramètres disponibles :
 
-.. code-block:: phpfonctionnement de l autocomplete en sous formulaire si l'autocomplete.
-La solution de contournement que j ai trouvé :slight_smile:
-1- en modification désactiver les ongleits : $option_tab_disabled_on_edit=true;
-la méthode autocomplete ne peut être active que dans formulaire
+.. code-block:: php 
+éthode autocomplete ne peut être active que dans formulaire
 2- surcharge de la méthode autocomplete dans obj/om_formulaire.class 
 if($this->correct){
 $this->text($champ, $validation, $DEBUG = false);
-}else{
-...
--> si la validation est ok, on n utilise plus la methode autocomplete dans le formulaire de retour qui gene l'utilisation de cette mếme méthode dans le sous fomulaire si on va dans un onglet 
 ..
  
    <?php
