@@ -183,8 +183,7 @@ automatiquement.
 Voici les paramètres disponibles :
 
 .. code-block:: php 
-éthode autocomplete ne peut être active que dans formulaire
-..
+
  
    <?php
    
@@ -308,7 +307,6 @@ Lorsqu'un formulaire principal (FP) contient un champ nommé "libelle" ainsi qu'
 
 - lors de l'exécution de javascript sur le sélecteur (id) du champ, en effet l'id du champ est le nom de la colonne correspondante dans la bdd.
 
-fonctionnement
 La solution de contournement exemple avec autocomplete ayant le même nom en form et sous form 
 
 1- en modification désactiver les onglets : $option_tab_disabled_on_edit=true;
