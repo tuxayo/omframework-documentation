@@ -199,7 +199,7 @@ Répertoire destiné à recevoir la génération de la documentation des mots cl
 `tests/results/`
 ----------------
 
-Répertoire destiné à recevoir la génération des rapports et des captures d'écran produits pendant l'exécution des tests.
+Répertoire destiné à recevoir la génération des rapports et des captures d'écran produits pendant l'exécution des tests. Afin que ces nouveaux fichiers ne gênent pas l'utilisation des commandes Subversion, tous les fichiers à l'intérieur de ce dossier sont ignorés grâce à la propriété svn:ignore.
 
 
 `tests/binary_files/`
