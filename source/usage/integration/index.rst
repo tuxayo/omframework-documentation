@@ -25,5 +25,4 @@ Liens de références ::
   http://hub.qgis.org/projects/quantum-gis/wiki/QGIS_Server_Tutorial
   http://io.gchatelier.fr/blog/installation-qgis-server-publication-dun-projet-qgis/
 
-Crédit : Jean Christophe BECQUET APITUX
 
