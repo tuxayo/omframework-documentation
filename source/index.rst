@@ -63,17 +63,11 @@ conseils pour les mises à niveau.
 Bonne lecture !
 
 
-Prérequis et installation
-=========================
 
 .. toctree::
    :maxdepth: 5
 
    installation/index.rst
-
-
-Tutoriel - Créer une application
-================================
 
 .. toctree::
    :maxdepth: 5
@@ -81,17 +75,11 @@ Tutoriel - Créer une application
    tutorial/index.rst
 
 
-Manuel d'usage
-==============
-
 .. toctree::
    :maxdepth: 5
 
    usage/index.rst
 
-
-Manuel de référence
-===================
 
 .. toctree::
    :maxdepth: 5
@@ -99,35 +87,21 @@ Manuel de référence
    reference/index.rst
 
 
-Tests & Intégration Continue
-============================
-
 .. toctree::
    :maxdepth: 5
 
    tests_ci/index.rst
 
 
-Historique & Mises à niveau
-===========================
-
 .. toctree::
    :maxdepth: 3
 
    upgrades/index.rst
 
-
-Règles
-======
-
 .. toctree::
    :maxdepth: 5
 
    rules/index.rst
-
-
-Outils
-======
 
 .. toctree::
    :maxdepth: 2
