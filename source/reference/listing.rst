@@ -62,21 +62,6 @@ Titre (fil d'ariane) de la page.
   <?php
   $ent = _("administration")." -> "._("om_parametre"); 
   ?>
-      
-Ces variables peuvent être accessibles par les classes métier qui peuvent modifier le fil d'ariane
-depuis un formulaire ou un sous formulaire      
-
-.. code-block:: php
-
-   function getFormTitle($ent) {
-        return $ent;
-    }
-
-    function getSubFormTitle($subEnt) {   
-        return $subEnt;
-    }
-
-
 
 
 ``$serie``
