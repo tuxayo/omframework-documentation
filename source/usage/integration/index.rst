@@ -4,6 +4,8 @@
 Intégration
 ###########
 
+Ce chapître aborde les composants hors de l'environnement nécessaire au framework mais pouvant apporter des fonctionnalités supplémentaires
+
 Il est proposé dans ce chapître d'utiliser qgis serveur comme serveur wms.
 
 
