@@ -63,6 +63,15 @@ conseils pour les mises à niveau.
 Bonne lecture !
 
 
+Prérequis et installation
+=========================
+
+.. toctree::
+   :maxdepth: 5
+
+   installation/index.rst
+
+
 Tutoriel - Créer une application
 ================================
 
@@ -131,13 +140,19 @@ Contributeurs
 
 (par ordre alphabétique)
 
+* APITUX
 * `atReal <contact@atreal.fr>`_
+* Alain Baldachino
+* Jean Christophe Becquet
 * Thierry Benita
 * Romain Beylerian
 * Matthias Broquet
+* Laurent Groleau
 * Nicolas Haye
+* Jean-Yves Madier de Champvermeil
 * Nicolas Meucci
 * Florent Michon
 * Virginie Pihour
 * Francois Raynaud
 * Sofien Timezouaght
+
