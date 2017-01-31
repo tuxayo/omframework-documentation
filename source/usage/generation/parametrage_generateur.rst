@@ -297,7 +297,7 @@ Ce fichier n'est plus utilisé par le générateur depuis la version 4.0 et la g
 
 
 ``Limites du générateur``
-========================
+=========================
 
 Nous décrivons ici les limites du générateur qui pourront être réglées dans des versions ultérieures
 

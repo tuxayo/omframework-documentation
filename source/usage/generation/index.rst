@@ -5,7 +5,6 @@ Génération
 ##########
 
 .. toctree::
-   :numbered:
 
    introduction.rst
    interface.rst

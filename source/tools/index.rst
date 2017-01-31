@@ -11,7 +11,6 @@ communauté :
    :maxdepth: 3
 
    svn.rst
-   cvs.rst
    git.rst
 
    meld.rst
