@@ -511,39 +511,7 @@ Logos
 -----
 
 
-======================
-Usage du module om_sig
-======================
 
-Ce document a pour objet de décrire le module sig interne d'openMairie dans la version om 4.4.5.
-
-
-
-Dans sa version 4.4.5 ;
-
-- intégration des formulaires dans le sig interne
-
-- integration des résultats du moteur de recherche dans les cartes (cas utilisation moteur de recherche) 
-
-- intégration dans les cartes d'un résultat dans reqmo (cas d'utilisation reqmo)
-
-- accès multiples aux objets
-
-- accès à des objets multi géométrie
-
-
-La nouveauté de la version 4.4.5 du sig interne est la mise en place d'une nouvelle ergonomie avec
-un cartouche où sont accessibles toutes les commandes.
-
-
-
-.. toctree::
-
-    ergonomie.rst
-    couche.rst
-    info.rst
-    boite_outil.rst
-    edition.rst
 
 ============================
 Paramétrage du module om_sig
