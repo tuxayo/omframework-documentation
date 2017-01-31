@@ -4,6 +4,8 @@
 Intégration
 ###########
 
+Il est proposé dans ce chapître d'utiliser qgis serveur comme serveur wms.
+
 
 Installation de qgis serveur sur linux debian et ubuntu
 =======================================================
