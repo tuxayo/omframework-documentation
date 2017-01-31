@@ -13,55 +13,29 @@ openMairie Framework 4.5 documentation
     California 94105, USA.
 
 
-Ce document a pour but de guider les développeurs dans la mise en œuvre
-d'un projet openMairie.
+Ce document a pour but de guider les développeurs dans la mise en œuvre d'un projet openMairie.
 
-Avec plus de 50 applications développées pour les collectivités locales accessibles
-sur le site http://openmairie.org, nous souhaitons au travers de ce guide , diffuser notre
-expérience auprès  des collectivités et des acteurs économiques du libre qui les accompagnent.
+Avec plus de 50 applications développées pour les collectivités locales accessibles sur le site http://www.openmairie.org, nous souhaitons au travers de ce guide, diffuser notre expérience auprès des collectivités et des acteurs économiques du libre qui les accompagnent.
 
-C'est donc une méthode conçue au fur à mesure de nos développements que nous vous
-proposons de partager et toutes remarques sont les bienvenues, alors n'hésitez pas à nous
-en faire part à l'adresse mail suivante : contact@openmairie.org
+C'est donc une méthode conçue au fur à mesure de nos développements que nous vous proposons de partager et toutes remarques sont les bienvenues, alors n'hésitez pas à nous en faire part sur le forum du framework : https://communaute.openmairie.org/c/framework .
 
-Nous avons conçu openMairie pour fabriquer une maquette le plus en amont possible
-en s'appuyant sur le modèle de données créé dans la base de données et en
-intégrant les composants standards du "monde libre".
+Nous avons conçu openMairie pour fabriquer une maquette grâce au générateur le plus en amont possible en s'appuyant sur le modèle de données et en intégrant des composants standards du "monde libre".
 
-Cette maquette permet très rapidement d'engager un dialogue participatif avec les
-utilisateurs, de  concentrer le développeur uniquement sur le "métier" et de faire valider
-par l'utilisateur les évolutions successives.
+Cette maquette permet très rapidement d'engager un dialogue participatif avec les utilisateurs, de concentrer le développeur uniquement sur le "métier" et de faire valider par l'utilisateur les évolutions successives.
 
-Si vous débutez, il est préférable de commencer par le manuel d'usage et par le chapitre
-"créer une application" qui permet de prendre en main facilement le générateur et le
-framework openMairie en vous guidant pas à pas dans le mise en place d'une
-gestion de courrier.
+Si vous débutez, il est préférable de commencer par le tutoriel "créer une application" qui permet de prendre en main facilement le générateur et le framework openMairie en vous guidant pas à pas dans le mise en place d'une gestion de courrier.
 
-Le manuel d'usage complète l'exemple ci dessus en vous decrivant le fonctionnement du framework: 
-installation,configuration, administration (tableaux de bord, éditions, module SIG)
+Le manuel d'usage complète l'exemple ci-dessus en vous décrivant le fonctionnement du framework : ergonomie, administration, génération, intégration, ...
 
-Le chapitre consacré du manuel d'usage au "générateur" (génération) décrit dans le détail le fonctionnement
-de cet outil et de ses assistants. Cet outil permet de fabriquer rapidemment la maquette de votre
-application.
+Le manuel de référence s'adresse plus aux utilisateurs confirmés en décrivant le paramétrage, les classes formulaires et éditions du framework. Il a pour but de vous informer de manière complète sur le fonctionnement du framework.
 
-Le manuel de référence s'adresse plus aux utilisateurs confirmés en décrivant
-le paramétrage, les classes formulaires et éditions du framework. Il a pour but
-de vous informer de manière complète sur le fonctionnement du framework  et de la génération.
+Un chapitre particulier est dédié aux tests et à l'intégration continue. Le framework openMairie possède des tests unitaires et fonctionnels joués intégralement à chaque modification du code source afin d'assurer sa stabilité et sa pérennité.
 
-Ce document rassemble aussi toutes les règles de codage du projet
-openMairie, ainsi que des outils pour aider et guider les développeurs de la
-communauté.
+Un chapitre est consacré à l'historique des versions du framework et aux conseils pour les mises à niveau.
 
-Les règles indiquées doivent être appliquées pour qu'un projet puisse
-intégrer la distribution openMairie car l'objectif est de faciliter la
-lisibilité et la maintenance du code ainsi que la prise en main par les
-collectivités.
+Ce document rassemble enfin toutes les règles de codage du projet openMairie, ainsi que des outils pour aider et guider les développeurs de la communauté. Les règles indiquées doivent être appliquées pour qu'un projet puisse intégrer la distribution openMairie car l'objectif est de faciliter la lisibilité et la maintenance du code ainsi que la prise en main par les collectivités.
 
-Enfin, il est noté en dernier chapître, l'historique des versions du framework et les
-conseils pour les mises à niveau.
-
-Bonne lecture !
-
+Toutes les dernières infos sur le framework sont disponibles ici : http://www.openmairie.org/framework. Bonne lecture !
 
 
 .. toctree::
@@ -74,24 +48,20 @@ Bonne lecture !
 
    tutorial/index.rst
 
-
 .. toctree::
    :maxdepth: 5
 
    usage/index.rst
-
 
 .. toctree::
    :maxdepth: 5
 
    reference/index.rst
 
-
 .. toctree::
    :maxdepth: 5
 
    tests_ci/index.rst
-
 
 .. toctree::
    :maxdepth: 3
