@@ -20,3 +20,18 @@ Voici les postulats :
 * un lien dans le footer de chaque application permet d'accéder à la version
   de l'application du manuel d'utilisateur sur le site docs.openmairie.org
 
+*************************
+Quelques bonnes pratiques
+*************************
+
+Les blocs de code PHP
+---------------------
+
+Lorsqu'un exemple de code PHP est présenté dans la documentation, afin d'obtenir une coloration syntaxique plus claire à la lecture, il doit être déclaré de la manière suivante ::
+
+    .. code-block:: php
+
+      <?php
+      ...
+      ?>
+
