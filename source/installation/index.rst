@@ -86,6 +86,12 @@ Dans un environnement debian depuis le répertoire data/pgsql/ :
 Configuration de l'applicatif
 =============================
 
+Création des répertoires dédiés au stockage des données de l'applicatif
+-----------------------------------------------------------------------
+
+Il est nécessaire de créer les répertoires suivants pour gérer le stockage des fichiers de logs, des fichiers temporaires et des fichiers stockés. L'arborescence à créer est décrite ci-après : :ref:`arborescence_repertoire_var`.
+
+
 Positionner les permissions nécessaires au serveur web
 ------------------------------------------------------
 

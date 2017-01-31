@@ -127,25 +127,21 @@ Contient les jeux de tests unitaires et fonctionnels de l'applicatif ::
      |-[F] .htaccess
      |---- ...
 
+.. _arborescence_repertoire_var:
 
-``tmp/``
+``var/``
 --------
 
-Contient les fichiers temporaires créés par l'applicatif ::
+Contient les fichiers de logs, les fichiers temporaires et les fichiers stockés par l'applicatif ::
 
-    [D] tmp/
+    [D] var/
      |-[F] .htaccess
-     |---- ...
-
-
-``trs/``
---------
-
-Contient les fichiers stockés par l'applicatif ::
-
-    [D] trs/
-     |-[F] .htaccess
-     |-[D] 1/
+     |-[D] log/
+        |-[F] error.log
+        |---- ...
+     |-[D] filestorage/
+        |---- ...
+     |-[D] tmp/
         |---- ...
      |---- ...
 
