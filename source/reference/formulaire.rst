@@ -60,9 +60,12 @@ ou depuis la consultation d'un élément via le menu contextuel.
 Par défaut, depuis les tableaux, les actions d'ajout et consultation sont
 disponible.
 
-=====================
-Description technique
-=====================
+==============================================
+Les scripts `scr/tab.php` et `scr/soustab.php`
+==============================================
+
+Ces scripts sont appelés pour afficher un formulaire.
+Ils instancient l'objet et appellent la méthode formulaire de celui-ci.
 
 La gestion des formulaires se base sur deux classes :
     - formulaire : core/om_formulaire.class.php
@@ -70,12 +73,6 @@ La gestion des formulaires se base sur deux classes :
 
 La classe "formulaire" permet la gestion de l'affichage et "dbform"
 gère le traitement des données et la liaison à la base de données.
-
-scr/form.php et scr/sousform.php
---------------------------------
-
-Ces scripts sont appelés pour afficher un formulaire.
-Ils instancient l'objet et appellent la méthode formulaire de celui-ci.
 
 Ces scripts prennent plusieurs paramètres :
 
@@ -94,6 +91,65 @@ Le paramètre "action" peut prendre 4 valeurs :
 
 Les autres paramètres passés permettent de conserver la configuration du tableau
 d'origine.
+
+=======================================================
+Configuration via le script ``sql/pgsql/<OBJ>.inc.php``
+=======================================================
+
+``$sousformulaire``
+-------------------
+
+Liste des onglets (autre que le principal).
+
+.. code-block:: php
+
+   <?php
+   $sousformulaire = array(
+       "consultation",
+       "instruction",
+   );
+   ?>
+
+
+``$sousformulaire_parameters``
+------------------------------
+
+Configuration spécifique des onglets (autre que le principal).
+
+.. code-block:: php
+
+   <?php
+   $sousformulaire_parameters = array(
+        "consultation" => array(
+            "title" => _("CAP(s)"),
+            "href" => "../scr/sousform.php?obj=consultation_specific&action=12&idx=0",
+        ),
+        "instruction" => array(
+            "title" => _("Unité(s) orga.")
+        ),
+   );
+   ?>
+
+============================================================
+Configuration via le script ``sql/pgsql/<OBJ>.form.inc.php``
+============================================================
+
+``$form_title``
+---------------
+
+Titre de l'onglet principal du formulaire.
+
+.. code-block:: php
+
+   <?php
+   $form_title = "Organigramme";
+   ?>
+
+
+
+=============
+Les fonctions
+=============
 
 La fonction **verrou**
 ----------------------

@@ -181,20 +181,6 @@ Titre de l'onglet du listing. Si cette valeur n'est pas définie alors c'est <OB
   $tab_title = _("paramètre");
   ?>
 
-Il est possible aussi de modifier les onglets en formulaire et en sous formulaire
-
-.. code-block:: php
-
-   $form_title="Organigramme";
-   $sousformulaire_parameters = array(
-         "cap_liste_cap" => array(
-             "title" => _("CAP(s)")
-         ),
-        "cap_orga_unite" => array(
-             "title" => _("Unité(s) orga.")
-         )
-    );
-
 
 ``$tab_description``
 --------------------
