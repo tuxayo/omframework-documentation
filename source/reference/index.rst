@@ -11,7 +11,7 @@ chaque logiciel qui utilise le framework".
 
 http://fr.wikipedia.org/wiki/Framework
 
-...
+.. image : architecture.png
 
 openMairie intègre de nombreux composants : 
 
