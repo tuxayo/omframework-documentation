@@ -11,7 +11,7 @@ chaque logiciel qui utilise le framework".
 
 http://fr.wikipedia.org/wiki/Framework
 
-...
+.. image :: architecture.png
 
 openMairie intègre de nombreux composants : 
 
@@ -23,6 +23,16 @@ openMairie intègre de nombreux composants :
 - JQUERY-UI : http://jqueryui.com/
 - OPENLAYERS : https://openlayers.org/
 - TINYMCE : https://www.tinymce.com/
+
+Le framework est composé de 2 classes principales : 
+
+om_dbform est une classe abstraite surchargée par les objets métiers qui fait le lien entre la base de données et le formulaire
+
+om_formulaire est la classe qui construit le formulaire en utilisant l'objet form. 
+
+Les classes métiers sont générées par le générateur une fois la base de données créées et surchargent la classe abstraite om_dbform. 
+
+Enfin, il est possible de surcharger les classes métiers par des classes customisées.
 
 
 .. toctree::
