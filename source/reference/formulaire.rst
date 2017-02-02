@@ -60,9 +60,9 @@ ou depuis la consultation d'un élément via le menu contextuel.
 Par défaut, depuis les tableaux, les actions d'ajout et consultation sont
 disponible.
 
-==============================================
-Les scripts `scr/tab.php` et `scr/soustab.php`
-==============================================
+================================================
+Les scripts `scr/form.php` et `scr/sousform.php`
+================================================
 
 Ces scripts sont appelés pour afficher un formulaire.
 Ils instancient l'objet et appellent la méthode formulaire de celui-ci.
