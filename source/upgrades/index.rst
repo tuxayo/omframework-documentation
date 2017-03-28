@@ -8,6 +8,7 @@ Historique & Mises à niveau
 .. toctree::
    :numbered:
 
+   v4.6.rst
    v4.5.rst
    v4.4.rst
    v4.3.rst

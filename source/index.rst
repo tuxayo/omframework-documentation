@@ -1,7 +1,7 @@
 .. openMairie Framework documentation master file
 
 ======================================
-openMairie Framework 4.5 documentation
+openMairie Framework 4.6 documentation
 ======================================
 
 .. note::
