@@ -7,7 +7,7 @@ La version 4.6
 Les nouveautés de la version 4.6
 ================================
 
-
+- amélioration de la création de widget par l'ajout d'une liste des scripts disponibles
 
 ==============================================
 Mettre à niveau depuis openMairie 4.5 vers 4.6
