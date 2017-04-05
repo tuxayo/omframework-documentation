@@ -14,3 +14,8 @@ Mettre à niveau depuis openMairie 4.5 vers 4.6
 ==============================================
 
 
+Remplacer les anciennes actions de tableau ``$href`` par les nouvelles ``$tab_actions``
+---------------------------------------------------------------------------------------
+
+Supprimer la définition des variables ``$href`` en la remplaçant par la définition d'une action selon les paramètres : :ref:`tab_actions`.
+
