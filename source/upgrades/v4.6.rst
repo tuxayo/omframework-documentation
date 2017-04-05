@@ -14,3 +14,31 @@ Mettre à niveau depuis openMairie 4.5 vers 4.6
 ==============================================
 
 
+Lancer une regénération complète
+--------------------------------
+
+Cette nouvelle version comprend des modifications du générateur. Une regénération complète est nécessaire pour le bon fonctionnement de la nouvelle version.
+
+
+Modifier les appels et éventuelles surcharges du prototype du constructeur de la classe ``om_application``
+----------------------------------------------------------------------------------------------------------
+
+Les paramètres 4 et 5 du constructeur de la classe ont été supprimés dans la version 4.6.0 car dépréciés et plus utilisés depuis la version 4.0.0 du framework.::
+
+  - function __construct($flag = NULL, $right = NULL, $title = NULL, $icon = NULL, $help = NULL) {
+  + function __construct($flag = NULL, $right = NULL, $title = NULL) {
+
+
+Il est nécessaire de vérifier les instanciations de la classe ``utils``.::
+
+  require_once "../obj/utils.class.php";
+  - $f = new utils(NULL, "permission", "Mon titre", "icon.png", "objet_de_mon_aide");
+  + $f = new utils(NULL, "permission", "Mon titre");
+
+
+Supprimer les déclarations de la variable ``$ico``
+--------------------------------------------------
+
+La variable ``$ico`` permettant d'afficher une image dédiée dan le titre de la page pour afficher un lien vers une aide contextuelle est dépréciée et plus utilisée depuis la version 4.0.0 du framework. Dans la version 4.6.0, cette variable a été complètement supprimée. Pour une meilleure maintenabilité de l'applicatif, il est préférable de supprimer ces déclarations inutiles.
+
+
