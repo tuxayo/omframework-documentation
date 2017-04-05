@@ -14,3 +14,12 @@ Mettre à niveau depuis openMairie 4.5 vers 4.6
 ==============================================
 
 
+Vérifier d'éventuelles surcharges de la méthode ``om_application:sendMail()``
+-----------------------------------------------------------------------------
+
+La nouvelle version de PHPMailer oblige l'inclusion de la classe smtp en plus de la classe phpmailer. Voici le diff à répliquer dans d'éventuelles surcharges ::
+
+  - @include_once "class.phpmailer.php";
+  + @require_once "class.smtp.php";
+  + @require_once "class.phpmailer.php";
+
