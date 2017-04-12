@@ -39,7 +39,7 @@ C'est pour cela qu'il propose 3 "reqmo" : 1 "reqmo" global et 2 "reqmos" suivant
 
 Par défaut, seules les options du formulaire sont cochées.
 
-Si vous le refaites plus tard, seules celles frabriquées par le générateur seront cochées.
+Si vous le refaites plus tard, seules celles fabriquées par le générateur seront cochées.
 
 Cochez les toutes :
 
