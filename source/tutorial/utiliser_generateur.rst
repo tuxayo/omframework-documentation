@@ -33,9 +33,9 @@ Au préalable, le générateur a fait une analyse de la base de données :
 .. image:: ../_static/utilisation_21.png
 
 
-Le générateur a donc détecté 2 clés secondaires et aucun sous formulaire.
+Le générateur a donc détecté 2 clés secondaires et aucun sous-formulaire.
 
-C'est pour cela qu'il propose 3 "reqmo" : 1 "reqmo" global et 2 "reqmos" suivant la clé secondaire.
+C'est pour cela qu'il propose 3 ":ref:`reqmos<reqmo>`" : 1 "reqmo" global et 2 "reqmos" suivant les clés secondaires.
 
 Par défaut, seules les options du formulaire sont cochées.
 
