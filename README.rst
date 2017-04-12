@@ -9,4 +9,4 @@ Génération de la version HTML
 
 .. code::
 
-    sphinx-build -b html source/ doc_html/
+    sphinx-build -b html source/ html/
