@@ -149,6 +149,7 @@ Quatre zones de navigation différentes sont disponibles dans le framework :
     :align: center
     :width: 800px
 
+.. _parametrage_menu:
 
 Le menu
 -------
