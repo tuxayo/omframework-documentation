@@ -14,10 +14,10 @@ Les nouveautés de la version 4.6
 Mettre à niveau depuis openMairie 4.5 vers 4.6
 ==============================================
 
-Faire une génération complète
------------------------------
+Lancer une regénération complète
+--------------------------------
 
-Des modifications du générateur nécessite une génération complète pour prendre en compte ces modifications.
+Cette nouvelle version comprend des modifications du générateur. Une regénération complète est nécessaire pour le bon fonctionnement de la nouvelle version.
 
 
 Gestion de la suppression des scripts ``pdf/pdf*.php``
@@ -101,11 +101,6 @@ Remplacer les anciennes actions de tableau ``$href`` par les nouvelles ``$tab_ac
 ---------------------------------------------------------------------------------------
 
 Supprimer la définition des variables ``$href`` en la remplaçant par la définition d'une action selon les paramètres : :ref:`tab_actions`.
-
-Lancer une regénération complète
---------------------------------
-
-Cette nouvelle version comprend des modifications du générateur. Une regénération complète est nécessaire pour le bon fonctionnement de la nouvelle version.
 
 
 Modifier les appels et éventuelles surcharges du prototype du constructeur de la classe ``om_application``
