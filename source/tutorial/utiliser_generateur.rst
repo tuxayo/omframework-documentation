@@ -250,7 +250,8 @@ Cette option affiche les requêtes mémorisées :
 
 Pour en savoir plus voir :ref:`reqmo`
     
-Vous pouvez accéder aux éditions en appuyant dans le formulaire d'affichage sur l'imprimante.
+Vous pouvez accéder aux éditions grâce à l'icône d'imprimante dans les pages de
+listings des courriers, services et émetteurs.
 
 
 Vous pouvez accéder au fichiers d'import :
