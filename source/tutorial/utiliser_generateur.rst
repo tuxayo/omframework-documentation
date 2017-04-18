@@ -158,8 +158,9 @@ et avant ::
     
     $rubrik['links'] = $links;
 
-Enfin pour y accéder il faut soit donner les droits via le menu framework, soit (et c'est en l’occurrence le cas)
-dans le fichier config.inc.php (option utilisée que pour le développement) décommenter la ligne ::
+Enfin pour y accéder il faut soit donner les droits via le menu framework, soit
+(et c'est en l’occurrence le cas) dans le fichier ``dyn/config.inc.php`` (option
+utilisée que pour le développement) ajouter la ligne ::
 
     $config['permission_if_right_does_not_exist'] = true;
 
