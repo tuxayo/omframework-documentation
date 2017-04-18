@@ -14,5 +14,75 @@ Les nouveautés de la version 4.6
 Mettre à niveau depuis openMairie 4.5 vers 4.6
 ==============================================
 
-* Faire une génération complète
-* Corriger les prototypes des méthodes surchargées s'ils diffèrent de leurs parents
+Faire une génération complète
+-----------------------------
+
+Des modifications du générateur nécessite une génération complète pour prendre en compte ces modifications.
+
+
+Gestion de la suppression des scripts ``pdf/pdf*.php``
+------------------------------------------------------
+
+Le répertoire ``pdf/`` a été supprimé du framework. Il est nécessaire de vérifier dans l'applicatif à mettre à niveau tous les appels existants aux scripts présents dans ce répertoire. Si des appels existent, deux méthodes sont disponibles pour obtenir un fonctionnement identique au fonctionnement de la version 4.5 :
+
+
+Méthode n°1 (non conseillée)
+............................
+
+Plus simple mais ne permet pas de profiter des bénéfices de la suppression du répertoire ``pdf/``.
+
+- Récupérer les scripts actuels présents dans le répertoire ``pdf/`` du tag 4.5.0 https://adullact.net/scm/viewvc.php/openmairie/openmairie_exemple/tags/4.5.0/pdf/
+- Déposer les scripts nécessaires dans le répertoire ``app/`` de l'applicatif.
+- Remplacer le chemin vers ces scripts dans tous les appels existants dans l'applicatif.
+
+
+Méthode n°2 (conseillée)
+........................
+
+Moins simple mais permet de profiter des bénéfices de la suppression du répertoire pdf/.
+
+- Identifier les cas d'utilisation qui génèrent des éditions.
+- Intégrer dans une vue/action sur l'objet concerné par l'édition.
+
+  .. code-block :: php
+
+   <?php
+        ...
+
+        function init_class_actions() {
+            ...
+            $this->class_actions[201] = array(
+                "identifier" => "edition-pdf",
+                "view" => "view_edition",
+                "portlet" => array(
+                    "type" => "action-blank",
+                    "libelle" => _("Édition PDF"),
+                ),
+                "permission_suffix" => "edition",
+            );
+            ...
+        }
+
+        function view_edition() {
+            $this->checkAccessibility();
+            $pdfedition = $this->compute_pdf_output(
+                "lettretype",
+                "objet_de_ma_lettre_type"
+            );
+            $this->expose_pdf_output(
+                $pdfedition["pdf_output"], 
+                "mon-fichier-".date('YmdHis').".pdf"
+            );
+        }
+
+        ...
+    ?>
+
+
+Corriger les prototypes des méthodes surchargées s'ils diffèrent de leurs parents
+---------------------------------------------------------------------------------
+
+Afin d'assurer la compatibilité du code avec la version 7 de PHP, il est nécessaire d'effectuer cette modification.
+
+
+
