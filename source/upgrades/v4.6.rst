@@ -86,3 +86,14 @@ Afin d'assurer la compatibilité du code avec la version 7 de PHP, il est néces
 
 
 
+Suppression du script ``scr/directory.php``
+-------------------------------------------
+
+Depuis la version 4.5.0 du framework la vue permettant de synchroniser les utilisateurs avec un annuaire a été déplacée dans une vue de la classe ``om_utilisateur``, du coup elle est accessible directement depuis l'URL ``scr/form.php?obj=om_utilisateur&idx=0&action=11``. La mise à niveau consiste au remplacement des appels au script ``scr/directory.php`` par cette URL.
+
+
+Suppression du script ``scr/dashboard_composer.php``
+----------------------------------------------------
+
+Depuis la version 4.5.0 du framework la vue permettant de composer le tableau de bord de chaque profil a été déplacée dans une vue de la classe ``om_dashboard``, du coup elle est accessible directement depuis l'URL ``scr/form.php?obj=om_dashboard&idx=0&action=4``. La mise à niveau consiste au remplacement des appels au script ``scr/dashboard_composer.php`` par cette URL.
+
