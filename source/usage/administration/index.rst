@@ -15,8 +15,32 @@ Les tableaux de bord
 Widget
 ------
 
-...
+La liste des widgets
+====================
 
+Dans la page widget on a une liste des widgets disponibles
+
+.. image:: tableau_de_bord_widget_liste.png
+
+L'ajout de widgets
+==================
+
+Depuis la liste on peut accéder à l'interface d'ajout des widgets
+
+.. image:: tableau_de_bord_widget_ajout_web.png
+
+Alors on pourra choisir :
+
+* Le **libelle** : du widget
+* Sont **type** : qui correspondent à sa source si c'est **file** ce sera un script hébergé sur le serveur si c'est **web** ce sera un lien cliquable
+* Si son **type** est **web** : on pourra définir comme sur la capture d'écran ci-dessus:
+* Le **lien** : qui pointera vers la page désirée
+* Le **text** : qui sera la déscription du lien
+* Si son **type** est **file** : comme sur la capture d'écran ci-dessous:
+* Le **script** : qui sera une liste déroulante des scripts disponibles sur le serveur
+* Les **arguments** : qui  sont un champ text dans le quel on peut paramètrer le script
+
+.. image:: tableau_de_bord_widget_ajout_file.png
 
 Composition
 -----------

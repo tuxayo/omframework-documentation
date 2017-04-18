@@ -192,6 +192,8 @@ Nommage des classes, fonctions, méthodes et variables
 
 Les mots composant les noms de classes, fonctions, méthodes et variables doivent être séparés par un underscore et en minuscule (exemple : snake_case).
 
+Le prototype des méthodes doit être identique à celui du parent (même nombre d'arguments, même typage).
+
 
 Expressions
 ***********
