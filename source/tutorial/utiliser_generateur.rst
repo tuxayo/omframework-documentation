@@ -58,7 +58,7 @@ Le paramétrage utilisé est le paramétrage standard.
 Vous pouvez le modifier : voir :ref:`parametrage_generateur`.
 
 
-L'affichage par colone est "ok", ce qui veut dire que la taille des colones
+L'affichage par colonne est "ok", ce qui veut dire que la taille des colonnes
 dans le fichier pdf sera complet (attention le script ne prend pas le champ blob).
 
 
