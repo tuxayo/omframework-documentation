@@ -125,3 +125,12 @@ Supprimer les déclarations de la variable ``$ico``
 La variable ``$ico`` permettant d'afficher une image dédiée dan le titre de la page pour afficher un lien vers une aide contextuelle est dépréciée et plus utilisée depuis la version 4.0.0 du framework. Dans la version 4.6.0, cette variable a été complètement supprimée. Pour une meilleure maintenabilité de l'applicatif, il est préférable de supprimer ces déclarations inutiles.
 
 
+Vérifier d'éventuelles surcharges de la méthode ``om_application:sendMail()``
+-----------------------------------------------------------------------------
+
+La nouvelle version de PHPMailer oblige l'inclusion de la classe smtp en plus de la classe phpmailer. Voici le diff à répliquer dans d'éventuelles surcharges ::
+
+  - @include_once "class.phpmailer.php";
+  + @require_once "class.smtp.php";
+  + @require_once "class.phpmailer.php";
+
