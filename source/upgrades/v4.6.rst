@@ -134,3 +134,12 @@ La nouvelle version de PHPMailer oblige l'inclusion de la classe smtp en plus de
   + @require_once "class.smtp.php";
   + @require_once "class.phpmailer.php";
 
+Vérifier d'eventuelle surcharge de la méthode app_initialize_content dans js/layout_jqueryui_after.js
+-----------------------------------------------------------------------------------------------------
+
+En effet il a été rajouté le paramètre tinymce_load dans cette méthode.
+
+
+
+
+
