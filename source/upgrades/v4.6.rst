@@ -10,6 +10,7 @@ Les nouveautés de la version 4.6
 * Compatibilité PHP7
 * Ajout de la liste des scripts disponibles dans le formulaire de création/modifcation de widget
 
+
 ==============================================
 Mettre à niveau depuis openMairie 4.5 vers 4.6
 ==============================================
@@ -85,7 +86,6 @@ Corriger les prototypes des méthodes surchargées s'ils diffèrent de leurs par
 Afin d'assurer la compatibilité du code avec la version 7 de PHP, il est nécessaire d'effectuer cette modification.
 
 
-
 Suppression du script ``scr/directory.php``
 -------------------------------------------
 
@@ -140,6 +140,7 @@ Vérifier d'eventuelle surcharge de la méthode app_initialize_content dans js/l
 En effet il a été rajouté le paramètre tinymce_load dans cette méthode.
 
 
+Vérifier l'utilisation du mot-clé robotframework ``Submenu In Menu Should Be Selected``
+---------------------------------------------------------------------------------------
 
-
-
+Ce mot-clé présent dans le script *ressources/core/menu.robot* utilise désormais son premier argument **${rubrikclass}** si celui-ci est différent de NULL. Cet argument demande la classe CSS du lien de la rubrique cliquée dans le menu.
