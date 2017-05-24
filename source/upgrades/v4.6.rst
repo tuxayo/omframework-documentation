@@ -7,13 +7,30 @@ La version 4.6
 Les nouveautés de la version 4.6
 ================================
 
-* Compatibilité PHP7
-* Ajout de la liste des scripts disponibles dans le formulaire de création/modifcation de widget
+* Ajout du support de la version PHP 7.0.
+* Intégration dans om-tests du serveur de mail local `maildump`.
+* Mise à jour de la librairie PHPMailer en version 5.2.23.
+* Mise à jour de la librairie DB PEAR en version 1.9.2.
+* Amélioration de l'ajout de widgets de type 'file'.
+* Ajout du paramètre tinymce_load dans la méthode app_initialize_content.
+* Suppression des anciens paramètres ‘ico’ et ‘help’.
+* Suppression des anciennes actions de tableau ($href).
+* Suppression des scripts scr/dashboard_composer.php et scr/directory.php.
+* Suppression du répertoire pdf/.
+
+
+.. contents::
 
 
 ==============================================
 Mettre à niveau depuis openMairie 4.5 vers 4.6
 ==============================================
+
+Mettre à jour la base de données
+--------------------------------
+
+La structure de la base de données d'openMairie a changée depuis la version 4.5.0. Pour mettre à jour la base de données depuis cette version il faudra exécuter le script SQL ``data/pgsql/v4.6.0.sql``.
+
 
 Lancer une regénération complète
 --------------------------------
