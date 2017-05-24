@@ -27,12 +27,6 @@ de ces éléments en utilisant wamp (http://www.wampserver.com/) par exemple.
 Sous Linux, il est facile de trouver de la documentation pour l'installation de
 ces éléments sur votre distribution.
 
-Il est nécessaire de configurer l'installation PHP via le script php.ini comme suit pour cacher les erreurs "deprecated" liées à la librairie DBPEAR ::
-
-
-  error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT
-  display_errors = On
-
 
 ************
 Installation
