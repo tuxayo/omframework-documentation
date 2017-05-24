@@ -68,8 +68,6 @@ Créer la base de données
 
 Il faut créer la base de données dans l'encodage UTF8. Par défaut la base de données s'appelle openexemple.
 
-error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_WARNING & ~E_NOTICE
-display_errors = On 
 Dans un environnement debian :
 
 .. code-block:: bash
