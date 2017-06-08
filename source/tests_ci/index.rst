@@ -37,7 +37,7 @@ Installation
 .. code-block:: sh
 
   sudo apt-get install python python-dev python-pip libjpeg-dev
-  sudo pip install maildump==0.5.4 selenium==2.52.0 robotframework==3.0.2 robotframework-selenium2library==1.8.0 robotframework-selenium2screenshots==0.7.2 requests==2.17.3 robotframework-requests==0.4.7 Pillow==4.1.1 robotframework-archivelibrary==0.4.0 psycopg2==2.7.1
+  sudo pip install maildump==0.5.4 selenium==2.53.6 robotframework==3.0.2 robotframework-selenium2library==1.8.0 robotframework-selenium2screenshots==0.7.2 requests==2.17.3 robotframework-requests==0.4.7 Pillow==4.1.1 robotframework-archivelibrary==0.4.0 psycopg2==2.7.1
 
 .. warning::
 
