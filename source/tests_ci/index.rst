@@ -25,20 +25,6 @@ Installation
   sudo mv phpunit.phar /usr/local/bin/phpunit
 
 
-Selenium Server
----------------
-
-http://www.seleniumhq.org
-
-Installation
-============
-
-.. code-block:: sh
-
-  wget http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar
-  java -jar selenium-server-standalone-2.53.1.jar
-
-
 Robot Framework
 ---------------
 
