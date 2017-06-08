@@ -51,7 +51,7 @@ Installation
 .. code-block:: sh
 
   sudo apt-get install python python-dev python-pip libjpeg-dev
-  sudo pip install selenium robotframework robotframework-selenium2library robotframework-selenium2screenshots requests robotframework-requests Pillow robotframework-archivelibrary
+  sudo pip install maildump==0.5.4 selenium==2.52.0 robotframework==3.0.2 robotframework-selenium2library==1.8.0 robotframework-selenium2screenshots==0.7.2 requests==2.17.3 robotframework-requests==0.4.7 Pillow==4.1.1 robotframework-archivelibrary==0.4.0 psycopg2==2.7.1
 
 .. warning::
 
@@ -346,10 +346,10 @@ Ce script permet de :
 Les tests sont prévus pour être exécutés sur le navigateur Firefox. Il est possible d'utiliser une version spécifique automatiquement lors de l'execution des tests.
 Pour définir une version de navigateur spécifique il faut :
 
-* télécharger le navigateur Firefox conseillé :
+* télécharger le navigateur Firefox conseillé (45.9.0esr) :
 
-    * `64 bits <https://ftp.mozilla.org/pub/firefox/releases/31.2.0esr/linux-x86_64/fr/firefox-31.2.0esr.tar.bz2>`_
-    * `32 bits <https://ftp.mozilla.org/pub/firefox/releases/31.2.0esr/linux-i686/fr/firefox-31.2.0esr.tar.bz2>`_ 
+    * `64 bits <https://download.mozilla.org/?product=firefox-45.9.0esr-SSL&os=linux64&lang=fr>`_
+    * `32 bits <https://download.mozilla.org/?product=firefox-45.9.0esr-SSL&os=linux&lang=fr>`_ 
 
 * extraire l'application dans le dossier souhaité
 * créer un fichier de configuration dans votre dossier utilisateur :
