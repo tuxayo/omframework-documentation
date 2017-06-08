@@ -91,7 +91,7 @@ Ce fichier doit être exécutable.
 
 .. code-block:: python
 
-  #!/usr/bin/python
+  #!/usr/bin/python -u
   from resources.app.om_tests import om_tests
   tests = om_tests()
   tests.main()
