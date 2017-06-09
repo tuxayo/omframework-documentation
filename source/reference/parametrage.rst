@@ -75,6 +75,12 @@ Les clés de configuration sont :
 * mail_from -> Adresse email de l'expediteur
 * mail_from_name -> Nom de l'expediteur
 
+Pour permettre de configurer plus finement la connexion avec le serveur SMTP, des paramètres optionnels qui sont directement passé à la librairie PHPMailer ont été ajouté depuis la version 4.6.1 :
+
+* smtp_auto_tls -> http://phpmailer.github.io/PHPMailer/classes/PHPMailer.html#property_SMTPAutoTLS
+* smtp_auth_type -> http://phpmailer.github.io/PHPMailer/classes/PHPMailer.html#property_AuthType
+* smtp_secure -> http://phpmailer.github.io/PHPMailer/classes/PHPMailer.html#property_SMTPSecure
+
 Exemple d'un fichier de configuration :
 
 .. code-block:: php
