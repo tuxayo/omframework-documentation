@@ -5,63 +5,92 @@ Tests et Intégration Continue
 #############################
 
 
-==========
+=====
+Tests
+=====
+
 Pré-requis
 ==========
 
-PHPUnit
--------
+Pour les tests, deux librairies sont utilisées :
 
-https://phpunit.de
+* PHPUnit : https://phpunit.de
+* Robot Framework : http://robotframework.org
 
+Pour le tests d'envoi de courriel, un server STMP local est intégré à om-tests intégré : 
 
-Installation
-============
-
-.. code-block:: sh
-
-  wget https://phar.phpunit.de/phpunit.phar
-  chmod +x phpunit.phar
-  sudo mv phpunit.phar /usr/local/bin/phpunit
-
-
-Robot Framework
----------------
-
-http://robotframework.org/
-
-
-Installation
-============
-
-.. code-block:: sh
-
-  sudo apt-get install python python-dev python-pip libjpeg-dev
-  sudo pip install maildump==0.5.4 selenium==2.53.6 robotframework==3.0.2 robotframework-selenium2library==1.8.0 robotframework-selenium2screenshots==0.7.2 requests==2.17.3 robotframework-requests==0.4.7 Pillow==4.1.1 robotframework-archivelibrary==0.4.0 psycopg2==2.7.1
+* maildump : https://pypi.python.org/pypi/maildump
 
 .. warning::
 
   Il faut utiliser la version 2.7 de python.
 
+Installation
+============
+
+
+Principe
+--------
+
+Afin de ne pas pertuber l'environnement python système, et conserver la cohérence des dépendances, 
+il est conseillé d'installer les librairies nécessaires et leurles dépendances dans un environment cloisonné.
+Pour cela, on utilise *Virtualenv*. Les libraires et les binires seront déployés en espace utilisateur, il faudra activer le *Virtualenv* pour pouvoir lancer les tests.
+
+Pour la suite, les exemples de codes sont basé sur un environnement Ubuntu 16.04.
+On suppose également qu'il existe une copie locale de *openmairie_exemple* disponible dans `~/openmairie`.
+
+Installation des paquets de base
+--------------------------------
+
+.. code-block:: sh
+
+  sudo apt install python python-dev python-pip libjpeg-dev
+  sudo -H pip install virtualenv
+
+
+Création de l'environnement
+---------------------------
+
+.. code-block:: sh
+
+  virtualenv om-tests
+  cd om-tests
+  . bin/activate
+
+
+Installation des librairies python
+----------------------------------
+
+.. code-block:: sh
+
+  (om-tests) pip install -r ~/openmairie/tests/pip-requirements.txt
+
 .. warning::
 
-  La librairie selenium2screenshots doit être modifiée pour fonctionner correctement.
-  
-  vim /usr/local/lib/python2.7/dist-packages/Selenium2Screenshots/keywords.robot
+  La librairie selenium2screenshots est bugguée et doit être modifiée pour fonctionner correctement :
   
   .. code-block:: sh
-  
-    :%s/u'  '/u'  '  count=1/g
 
-Jenkins
--------
-
-jenkins.openmairie.org
+    (om-tests) vim lib/python2.7/site-packages//Selenium2Screenshots/keywords.robot
+    (om-tests) :%s/u'  '/u'  '  count=1/g
 
 
-=================================
-Arboresence du répertoire `tests`
-=================================
+Installation de PHPUnit
+-----------------------
+
+Bien que ce ne soit pas une librairie python, on la déploie dans le *virtualenv*. L'activation du *vitualenv* va rajouter le chemin vers `om-tests/bin` dans la variable `PATH` de l'utilisateur.
+
+.. code-block:: sh
+
+  (om-tests) cd bin
+  (om-tests) wget -O phpunit https://phar.phpunit.de/phpunit.phar
+  (om-tests) chmod +x phpunit
+
+
+
+
+Arborescence du répertoire `tests`
+==================================
 
 ::
 
@@ -91,7 +120,7 @@ Ce fichier doit être exécutable.
 
 .. code-block:: python
 
-  #!/usr/bin/python -u
+  #!/usr/bin/python
   from resources.app.om_tests import om_tests
   tests = om_tests()
   tests.main()
@@ -301,22 +330,29 @@ Répertoire récupéré depuis le core du framework via un EXTERNALS.
   tests/resources/core/  svn://scm.adullact.net/svnroot/openmairie/openmairie_exemple/trunk/tests/resources/core/
 
 
-
-=============================
 Fonctionnement et Utilisation
 =============================
 
 Pré-requis
 ----------
 
+Toute les opérations suivantes vont faire appel aux binaires et libraires déployés dans l'environnement de test. Il faut donc qu'il soit activé :
+
+.. code-block:: sh
+
+  cd om-tests
+  . bin/activate
+
+
 Les tests doivent être joués dans un environnement balisé et reproductible à
 l'identique. Pour ce faire il est nécessaire avant chaque lancement de test,
 de dérouler une routine qui permet de mettre en place un environnement de tests. 
 Un script permet de dérouler cette routine de manière automatisée : 
 
+
 .. code-block:: sh
 
-  ./om-tests -c initenv
+  (om-tests) ./om-tests -c initenv
 
 
 Ce script permet de :
@@ -326,16 +362,16 @@ Ce script permet de :
 * initialiser la base de données grâce au script data/pgsql/install.sql
 * redémarrer apache pour prendre les traductions en compte
 * donner les droits à apache pour les dossiers dans lequel il peut écrire
-* faire un lien symbolique vers le dossier de l'applicatif pour que les tests
-  en question dans le dossier /var/www/
+* faire un lien symbolique vers le dossier de l'applicatif pour que les tests puisse y accéder depuis le dossier /var/www/
+* appliquer les opération d 'initialisation précisées dans *resources/app/om_tests.py*
 
 Les tests sont prévus pour être exécutés sur le navigateur Firefox. Il est possible d'utiliser une version spécifique automatiquement lors de l'execution des tests.
 Pour définir une version de navigateur spécifique il faut :
 
-* télécharger le navigateur Firefox conseillé (45.9.0esr) :
+* télécharger le navigateur Firefox conseillé :
 
-    * `64 bits <https://download.mozilla.org/?product=firefox-45.9.0esr-SSL&os=linux64&lang=fr>`_
-    * `32 bits <https://download.mozilla.org/?product=firefox-45.9.0esr-SSL&os=linux&lang=fr>`_ 
+    * `64 bits <https://ftp.mozilla.org/pub/firefox/releases/31.2.0esr/linux-x86_64/fr/firefox-31.2.0esr.tar.bz2>`_
+    * `32 bits <https://ftp.mozilla.org/pub/firefox/releases/31.2.0esr/linux-i686/fr/firefox-31.2.0esr.tar.bz2>`_ 
 
 * extraire l'application dans le dossier souhaité
 * créer un fichier de configuration dans votre dossier utilisateur :
@@ -355,7 +391,7 @@ Lancer tous les tests avec initialisation de l'environnement de tests
 
 .. code-block:: sh
 
-  ./om-tests -c runall
+  (om-tests) ./om-tests -c runall
 
 
 Un seul TestSuite
@@ -365,16 +401,52 @@ Lancer un TestSuite avec initialisation de l'environnement de tests
 
 .. code-block:: sh
 
-  ./om-tests -c runone -t 000_testsuite_a_executer.robot
+  (om-tests) ./om-tests -c runone -t 000_testsuite_a_executer.robot
 
 Lancer un TestSuite sans initialisation de l'environnement de tests
 
 .. code-block:: sh
 
-  ./om-tests -c runone -t 000_testsuite_a_executer.robot --noinit
+  (om-tests) ./om-tests -c runone -t 000_testsuite_a_executer.robot --noinit
+
+.. todo::
+  usage de maildump
+
+Serveur SMTP local
+------------------
+
+Le server STMP local (*maildump*) est intégré à *om-tests*. A chaque lancement de tests, il est démarré, puis arrêté à la fin de l'exécution de ceux-ci.
+La configuration mail adéquate est gérée par le *initenv*.
+
+Il peut également être lancé à la demande.
+
+.. warning::
+
+  Le serveur SMTP tourne sur le port 1025, il doit donc être disponible sur la machine.
+
+Démarrage
++++++++++
+
+.. code-block:: sh
+
+  (om-tests) ./om-tests -c startsmtp
+
+Arrêt
++++++
+
+.. code-block:: sh
+
+  (om-tests) ./om-tests -c stoptsmtp
+
+Interface web
++++++++++++++
+
+*maildump* fourni également un interface web, dans laquelle les courriels envoyés peuvent être consultés.
+Cette interface est accessible dans un navigateur à l'URL suivante ::
+
+  http://localhost:1080
 
 
-=================================
 Développement et bonnes pratiques
 =================================
 
@@ -394,7 +466,7 @@ Cette documentation de la librairie du framework openMairie a été générée a
 
 .. code-block:: sh
 
-  ./om-tests -c gendoc
+  (om-tests) ./om-tests -c gendoc
 
 La commande est automatiquement exécutée lorsque l'on lance un ou tous les TestSuite.
 La documentation est générée au format HTML dans le répertoire *tests/doc*.
@@ -444,3 +516,12 @@ Bonnes pratiques
 
 * Éviter d'utiliser les sélecteurs XPATH, les sélecteurs CSS ou par ID sont largement préférables.
 * Isolation des tests : chacun des tests ajouté doit être indépendant de ceux existants (consitution de son propre jeu de données, accès aux éléments par recherche, éventuellement nettoyage des données crées, etc).
+
+====================
+Intégration continue
+====================
+
+Jenkins
+=======
+
+http://jenkins.openmairie.org
