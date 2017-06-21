@@ -17,7 +17,7 @@ Pour les tests, deux librairies sont utilisées :
 * PHPUnit : https://phpunit.de
 * Robot Framework : http://robotframework.org
 
-Pour le tests d'envoi de courriel, un server STMP local est intégré à om-tests intégré : 
+Pour le tests d'envoi de courriel, un server STMP local est intégré à om-tests : 
 
 * maildump : https://pypi.python.org/pypi/maildump
 
@@ -33,8 +33,8 @@ Principe
 --------
 
 Afin de ne pas pertuber l'environnement python système, et conserver la cohérence des dépendances, 
-il est conseillé d'installer les librairies nécessaires et leurles dépendances dans un environment cloisonné.
-Pour cela, on utilise *Virtualenv*. Les libraires et les binires seront déployés en espace utilisateur, il faudra activer le *Virtualenv* pour pouvoir lancer les tests.
+il est conseillé d'installer les librairies nécessaires et leur dépendances dans un environment cloisonné.
+Pour cela, on utilise *Virtualenv*. Les libraires et les binaires seront déployés en espace utilisateur, il faudra activer le *Virtualenv* pour pouvoir lancer les tests.
 
 Pour la suite, les exemples de codes sont basé sur un environnement Ubuntu 16.04.
 On suppose également qu'il existe une copie locale de *openmairie_exemple* disponible dans `~/openmairie`.
