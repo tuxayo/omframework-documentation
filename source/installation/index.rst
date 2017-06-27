@@ -27,6 +27,17 @@ de ces éléments en utilisant wamp (http://www.wampserver.com/) par exemple.
 Sous Linux, il est facile de trouver de la documentation pour l'installation de
 ces éléments sur votre distribution.
 
+Il est nécessaire de configurer l'installation PHP via le script php.ini comme suit pour cacher les erreurs "deprecated" liées à la librairie DBPEAR ::
+
+
+  error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT
+  display_errors = On
+
+  avec la version php7 (ubuntu 16-04)
+
+  error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_WARNING & ~E_NOTICE
+  display_errors = On
+
 
 ************
 Installation
@@ -45,6 +56,7 @@ Décompresser l'archive zip dans le répertoire de votre serveur web
 ------------------------------------------------------------------
 
 - Exemple sous windows dans wamp : wamp/www/framework-openmairie
+
 - Exemple sous linux avec debian : /var/www/framework-openmairie
 
 
@@ -55,7 +67,6 @@ Créer la base de données
 ------------------------
 
 Il faut créer la base de données dans l'encodage UTF8. Par défaut la base de données s'appelle openexemple.
-
 
 Dans un environnement debian :
 
@@ -138,7 +149,6 @@ http://localhost/framework-openmairie/
 
 'localhost' peut être remplacé par l'ip ou le nom de domaine du serveur.
 
-
 Login
 =====
 
@@ -161,6 +171,7 @@ détaillés. Dans le fichier `dyn/debug.inc.php`, il faut commenter le mode
 production et décommenter le mode debug.
 
 Mode production :
+
 
 .. code-block:: php
 

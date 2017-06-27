@@ -135,6 +135,43 @@ Votre nouvel état a la forme suivante :
 
 .. image:: ../_static/utilisation_19.png
 
+Pour intégrer la date du jour, il faut créer un fichier varetatpdf.inc dans le répertoire /dyn dans lequel on va mettre le code suivant :
+
+.. code-block:: php
+
+    <php
+    // aujourdhui
+    $titre=str_replace("&aujourdhui",date('d/m/Y'),$titre);
+    $corps=str_replace("&aujourdhui",date('d/m/Y'),$corps);
+
+    ?>
+
+
+Si on souhaite intégrer les paramètres de la table om_paramètre, on rajoute dans le même fichier le code suivant :
+
+.. code-block:: php
+
+    // Remplacement des paramètres présents dans le tableau '$collectivite'
+    // qui contient l'intégralité de la table 'om_parametre'
+    if (isset($collectivite) && $collectivite != array()) {
+        //
+        foreach (array_keys($collectivite) as $elem) {
+            //
+            $temp = "&".$elem;
+            $collectivite_elem = $collectivite[$elem];
+            ////
+            //if (DBCHARSET == 'UTF8') {
+            //    //
+            //    $collectivite_elem = utf8_decode($collectivite_elem);
+            //}
+            //
+            $titre = str_replace($temp, $collectivite_elem, $titre);
+            $corps = str_replace($temp, $collectivite_elem, $corps);
+            $sql = str_replace($temp, $collectivite_elem, $sql);
+        }
+    }
+
+
 Vous avez de nombreux exemples d'utilisation d'état et de sous-état dans
 les applications openMairie.
 

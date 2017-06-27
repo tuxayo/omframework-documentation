@@ -99,7 +99,7 @@ Il vous est proposé de créer la base de données sous PostgreSQL :
 
     dyn/database.inc.php
 
-    *voir framework/parametrage*
+    voir :ref:`parametrage_connexion_base_de_donnees`
 
 
 - Accéder avec votre navigateur sur openExemple :
