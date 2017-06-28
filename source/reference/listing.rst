@@ -725,6 +725,7 @@ Exemple: recherche des utilisateurs crées entre telle et telle date.
              'table' => 'user',
              'libelle' => _('Date de creation'),
              'type' => 'date',
+             'taille' => 8,
              'where' => 'intervaldate');
 
    ?>
