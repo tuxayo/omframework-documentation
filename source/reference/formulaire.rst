@@ -58,7 +58,7 @@ L'accès aux formulaires se fait depuis un :ref:`tableau d'éléments<listing>`
 ou depuis la consultation d'un élément via le menu contextuel.
 
 Par défaut, depuis les tableaux, les actions d'ajout et consultation sont
-disponible.
+disponibles.
 
 ================================================
 Les scripts `scr/form.php` et `scr/sousform.php`
