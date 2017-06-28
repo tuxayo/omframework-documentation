@@ -593,8 +593,8 @@ attributs via les méthodes suivantes :
           }
           ?>
 
-Méthodes d'actions
-------------------
+Méthodes d'actions (TREATMENT)
+------------------------------
 
 Ces méthodes sont appelées lors de la validation du formulaire.
 
