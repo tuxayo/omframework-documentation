@@ -227,7 +227,7 @@ Celle ci va rediriger vers :
 .. note::
    *Limitations* - Ne peut fonctionner que si : 
 
-    - la vue par défaut de l'onglet est un soustab standard et non une vue par défaut
+    - la vue par défaut de l'onglet est un soustab standard et non une vue spécifique
     - l'objet doit contenir dans son modèle de données un champ contenant l'identifiant de l'objet du contexte souhaité si on utilise le paramètre direct_field
 
 
