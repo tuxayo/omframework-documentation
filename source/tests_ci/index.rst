@@ -83,10 +83,13 @@ Bien que ce ne soit pas une librairie python, on la déploie dans le *virtualenv
 .. code-block:: sh
 
   (om-tests) cd bin
-  (om-tests) wget -O phpunit https://phar.phpunit.de/phpunit.phar
+  (om-tests) wget -O phpunit https://phar.phpunit.de/phpunit-5.7.phar
   (om-tests) chmod +x phpunit
 
-
+Version 5.X car il y a
+`quelques modifications à faire
+<https://stackoverflow.com/questions/6065730/why-fatal-error-class-phpunit-framework-testcase-not-found-in/42561590#42561590>`_.
+pour supporter la version 6.X.
 
 
 Arborescence du répertoire `tests`
@@ -370,8 +373,8 @@ Pour définir une version de navigateur spécifique il faut :
 
 * télécharger le navigateur Firefox conseillé :
 
-    * `64 bits <https://ftp.mozilla.org/pub/firefox/releases/31.2.0esr/linux-x86_64/fr/firefox-31.2.0esr.tar.bz2>`_
-    * `32 bits <https://ftp.mozilla.org/pub/firefox/releases/31.2.0esr/linux-i686/fr/firefox-31.2.0esr.tar.bz2>`_ 
+    * `64 bits <https://download.mozilla.org/?product=firefox-45.9.0esr-SSL&os=linux64&lang=fr>`_
+    * `32 bits <https://download.mozilla.org/?product=firefox-45.9.0esr-SSL&os=linux&lang=fr>`_ 
 
 * extraire l'application dans le dossier souhaité
 * créer un fichier de configuration dans votre dossier utilisateur :
