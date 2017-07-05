@@ -86,11 +86,6 @@ Bien que ce ne soit pas une librairie python, on la déploie dans le *virtualenv
   (om-tests) wget -O phpunit https://phar.phpunit.de/phpunit-5.7.phar
   (om-tests) chmod +x phpunit
 
-Version 5.X car il y a
-`quelques modifications à faire
-<https://stackoverflow.com/questions/6065730/why-fatal-error-class-phpunit-framework-testcase-not-found-in/42561590#42561590>`_.
-pour supporter la version 6.X.
-
 
 Arborescence du répertoire `tests`
 ==================================
