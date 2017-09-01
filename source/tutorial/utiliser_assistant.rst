@@ -143,10 +143,10 @@ openRecensement où à la place du logo il a été mis une image du Cerfa.
 
 On ne peut cependant pas faire tous les états et il est fort possible que vous ayez des
 états spécifiques. Vous avez des exemples d'utilisation spécifique des méthodes
-de fpdf dans openElec : carte électorale, liste électorale,...
+de fpdf dans openElec : carte électorale, liste électorale, ...
 
-Vous pouvez compléter votre information avec le chapitre *framework/edition*
-et regarder les possibilités de paramétrage du générateur *generateur/parametrage*
-pour la réalisation d'état customisé.
+Vous pouvez compléter votre information avec le chapitre :ref:`edition` et
+regarder les possibilités de :ref:`paramétrage du générateur<parametrage_generateur>` pour la réalisation
+d'un état customisé.
 
-Vous avez maintenant terminé l'exemple d'utilisation du Framework, le chapitre suivant a pour but de vous informer sur l'usage du framework..
+Vous avez maintenant terminé l'exemple d'utilisation du Framework, le chapitre suivant a pour but de vous informer sur l'usage du framework...
