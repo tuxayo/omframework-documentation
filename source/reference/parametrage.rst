@@ -155,6 +155,7 @@ Quatre zones de navigation différentes sont disponibles dans le framework :
     :align: center
     :width: 800px
 
+.. _parametrage_menu:
 
 Le menu
 -------
@@ -196,7 +197,7 @@ tableaux associatifs, chacun représentant un lien.
 Les caracteristiques de ce tableau sont les suivantes :
 
 
-    tableau rubrik ::
+    tableau ``$rubrik`` ::
 
      title (obligatoire)
      description (texte qui s'affiche au survol de la rubrique)
@@ -206,7 +207,7 @@ Les caracteristiques de ce tableau sont les suivantes :
      links (obligatoire)
      open (critères de pré-ouverture de cette rubrique du menu)
 
-    tableau links ::
+    tableau ``$links`` ::
 
      title (obligatoire) 
      href (obligatoire) (contenu du lien href)

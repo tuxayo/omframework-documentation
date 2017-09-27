@@ -55,10 +55,10 @@ En cliquant sur valider, vous avez le message :
 
 Le paramétrage utilisé est le paramétrage standard.
 
-Vous pouvez le modifier : *voir générateur/paramétrage*.
+Vous pouvez le modifier : voir :ref:`parametrage_generateur`.
 
 
-L'affichage par colone est "ok", ce qui veut dire que la taille des colones
+L'affichage par colonne est "ok", ce qui veut dire que la taille des colonnes
 dans le fichier pdf sera complet (attention le script ne prend pas le champ blob).
 
 
@@ -111,7 +111,7 @@ Intégrer les formulaires dans le menu
 =====================================
 
 Pour accéder à nos formulaires, nous allons les intégrer dans le menu
-(*voir framework/parametrage/menu gauche*).
+(voir :ref:`paramètrage du menu<parametrage_menu>`).
 
 Nous allons appeller le formulaire depuis le menu :
 
@@ -158,8 +158,9 @@ et avant ::
     
     $rubrik['links'] = $links;
 
-Enfin pour y accéder il faut soit donner les droits via le menu framework, soit (et c'est en l’occurrence le cas)
-dans le fichier config.inc.php (option utilisée que pour le développement) décommenter la ligne ::
+Enfin pour y accéder il faut soit donner les droits via le menu framework, soit
+(et c'est en l’occurrence le cas) dans le fichier ``dyn/config.inc.php`` (option
+utilisée que pour le développement) ajouter la ligne ::
 
     $config['permission_if_right_does_not_exist'] = true;
 
@@ -236,7 +237,7 @@ Cet option affiche l'ensemble des éditions pdf :
 .. image:: ../_static/utilisation_9.png
 
 
-pour en savoir plus voir *framework/edition*
+Pour en savoir plus voir :ref:`edition`
 
 
 **Export -> Requêtes Mémorisées**
@@ -247,10 +248,10 @@ Cette option affiche les requêtes mémorisées :
 .. image:: ../_static/utilisation_10.png
 
 
-pour en savoir plus voir *framework/reqmo*
+Pour en savoir plus voir :ref:`reqmo`
     
-    
-Vous pouvez accéder aux éditions en appuyant dans le formulaire d'affichage sur l'imprimante.
+Vous pouvez accéder aux éditions grâce à l'icône d'imprimante dans les pages de
+listings des courriers, services et émetteurs.
 
 
 Vous pouvez accéder au fichiers d'import :
@@ -264,4 +265,4 @@ Cette option affiche les scripts d'imports :
 .. image:: ../_static/utilisation_11.png
     
 
-Pour en savoir plus *voir framework/import*.
+Pour en savoir plus voir :ref:`import`
